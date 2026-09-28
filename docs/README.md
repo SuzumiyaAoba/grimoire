@@ -2,7 +2,7 @@
 
 [リポジトリトップ](../README.md) / [調査トップ](research/README.md)
 
-現在の文書は、外部メモリー・知識更新の調査と、それに基づくシステム設計を扱います。先行研究は[調査の概要と目次](research/README.md)、構築方針は[オントロジー・ナレッジシステムの推奨設計](design/ontology-knowledge-system.md)から読めます。
+現在の文書は、外部メモリー・知識更新の調査と、それに基づくシステム設計を扱います。先行研究は[調査の概要と目次](research/README.md)、構築方針は[オントロジー・ナレッジシステムの推奨設計](design/ontology-knowledge-system.md)から読めます。設計では PostgreSQL を知識の正本にし、原資料版を参照する文書 QA と必要箇所の主張抽出・メモリー更新を分けます。長い PDF の内部検索には任意の PageIndex アダプターを使い、文書集合検索は metadata/全文検索を基本として dense 検索・pgvector を比較候補にし、アクセス権・原資料版・原ページ引用を共通層で管理します。
 
 ## 文書の配置
 
