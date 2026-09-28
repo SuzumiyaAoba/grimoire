@@ -1,0 +1,2341 @@
+{
+  "accessed": "2026-09-28",
+  "scope": "declarations in retrieved manifests; not a resolved lockfile or complete transitive SBOM",
+  "manifests": [
+    {
+      "repository": "EverMind-AI/EverMemOS",
+      "commit": "462ebf9fd59b55c03fefb8eec855c62500f2a3cf",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/EverMind-AI/EverMemOS/blob/462ebf9fd59b55c03fefb8eec855c62500f2a3cf/pyproject.toml",
+      "source_sha256": "c64344c7241d9bb3d4dec28d6ce241453f12e75cd688d25e59dba1b715acd098",
+      "format": "TOML",
+      "name": "everos",
+      "version": "1.4.1",
+      "dynamic_fields": [],
+      "requires_python": ">=3.12",
+      "license_declaration": {
+        "text": "Apache-2.0"
+      },
+      "runtime": [
+        "pydantic>=2.7.1",
+        "pydantic-settings>=2.0.0",
+        "lancedb>=0.34.0,<0.35.0",
+        "pyarrow>=25.0.1",
+        "aiosqlite>=0.20.0",
+        "sqlmodel>=0.0.22",
+        "alembic>=1.13.0",
+        "greenlet>=3.0",
+        "openai>=1.0.0,<3",
+        "PyYAML>=6.0",
+        "watchdog>=4.0.0",
+        "fastapi>=0.104.0",
+        "python-multipart>=0.0.7",
+        "uvicorn[standard]>=0.24.0",
+        "structlog>=24.0.0",
+        "prometheus-client>=0.20.0",
+        "typer>=0.12.0",
+        "click>=8.1",
+        "textual>=8.2.7",
+        "jieba>=0.42.1,<1.0",
+        "apscheduler>=3.10.4,<4.0",
+        "portalocker>=2.8.2",
+        "msvc-runtime>=14.44; sys_platform == 'win32'",
+        "watchfiles>=0.21.0",
+        "anyio>=4.0",
+        "everalgo-user-memory==0.4.0",
+        "everalgo-agent-memory==0.4.0",
+        "everalgo-rank==0.4.1",
+        "everalgo-knowledge==0.1.1",
+        "everalgo-boundary==0.2.1",
+        "everalgo-core==0.3.0",
+        "everalgo-clustering==0.2.1"
+      ],
+      "optional": {
+        "multimodal": [
+          "everalgo-parser[svg]>=0.2.1"
+        ],
+        "otel": [
+          "opentelemetry-sdk>=1.27.0",
+          "opentelemetry-exporter-otlp-proto-http>=1.27.0"
+        ],
+        "milvus": [
+          "pymilvus>=3.0.0"
+        ]
+      },
+      "development": {
+        "dev": [
+          "ruff>=0.8.0",
+          "pytest>=8.4.0",
+          "pytest-asyncio>=1.1.0",
+          "pytest-cov>=6.0.0",
+          "pytest-rerunfailures>=15.0",
+          "import-linter>=2.0",
+          "pre-commit>=4.0.0",
+          "ipdb>=0.13.13",
+          "pyinstrument>=5.0.0",
+          "opentelemetry-sdk>=1.27.0",
+          "opentelemetry-exporter-otlp-proto-http>=1.27.0",
+          "pymilvus>=3.0.0"
+        ]
+      },
+      "build": {
+        "requires": [
+          "hatchling"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "HKUDS/LightRAG",
+      "commit": "453dce83d6d0354a06e46c8d4029a0895c4e054b",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/HKUDS/LightRAG/blob/453dce83d6d0354a06e46c8d4029a0895c4e054b/pyproject.toml",
+      "source_sha256": "cbeb6e6e201a36913d73597e4f9b6148c152751666a9cecc4a2b0301916f5ab0",
+      "format": "TOML",
+      "name": "lightrag-hku",
+      "version": null,
+      "dynamic_fields": [
+        "version"
+      ],
+      "requires_python": ">=3.10",
+      "license_declaration": {
+        "text": "MIT"
+      },
+      "runtime": [
+        "aiohttp",
+        "configparser",
+        "google-api-core>=2.0.0,<3.0.0",
+        "google-genai>=1.0.0,<3.0.0",
+        "json_repair>=0.59.9,<1.0.0",
+        "nano-vectordb",
+        "networkx",
+        "numpy>=1.24.0,<3.0.0",
+        "packaging",
+        "pandas>=2.0.0,<4.0.0",
+        "pipmaster",
+        "pydantic",
+        "pypinyin",
+        "PyYAML>=6.0,<7.0",
+        "python-dotenv",
+        "setuptools",
+        "tenacity",
+        "tiktoken>=0.7.0",
+        "xlsxwriter>=3.2.0"
+      ],
+      "optional": {
+        "pytest": [
+          "pytest>=8.4.2",
+          "pytest-asyncio>=1.2.0",
+          "pytest-xdist>=3.6.0",
+          "pre-commit",
+          "ruff",
+          "httpx2>=2.0.0"
+        ],
+        "api": [
+          "aiohttp",
+          "configparser",
+          "json_repair>=0.59.9,<1.0.0",
+          "nano-vectordb",
+          "networkx",
+          "numpy>=1.24.0,<3.0.0",
+          "openai>=2.0.0,<4.0.0",
+          "pandas>=2.0.0,<4.0.0",
+          "pipmaster",
+          "pydantic",
+          "pypinyin",
+          "PyYAML>=6.0,<7.0",
+          "python-dotenv",
+          "setuptools",
+          "tenacity",
+          "tiktoken>=0.7.0",
+          "xlsxwriter>=3.2.0",
+          "google-api-core>=2.0.0,<3.0.0",
+          "google-genai>=1.0.0,<3.0.0",
+          "aiofiles",
+          "ascii_colors",
+          "async-timeout>=4.0.3; python_version < '3.11'",
+          "distro",
+          "fastapi>=0.108",
+          "httpcore",
+          "httpx>=0.28.1",
+          "jiter",
+          "bcrypt>=4.0.0",
+          "psutil",
+          "PyJWT>=2.8.0,<3.0.0",
+          "python-jose[cryptography]",
+          "cryptography>=48.0.1",
+          "python-multipart>=0.0.30",
+          "starlette>=1.3.1,<2",
+          "pytz",
+          "uvicorn",
+          "uvicorn-worker",
+          "gunicorn",
+          "openpyxl>=3.0.0,<4.0.0",
+          "pycryptodome>=3.0.0,<4.0.0",
+          "pypdf>=6.1.0",
+          "python-docx>=0.8.11,<2.0.0",
+          "python-pptx>=0.6.21,<2.0.0",
+          "cairosvg>=2.5.0,<3.0.0",
+          "defusedxml>=0.7.0,<1.0.0",
+          "langchain-text-splitters>=0.3,<2",
+          "langchain-experimental>=0.3.2,<1",
+          "spacy>=3.8,<3.8.17"
+        ],
+        "offline-storage": [
+          "faiss-cpu>=1.7.0,<2.0.0",
+          "redis>=5.0.1,<9.0.0",
+          "neo4j>=5.0.0,<7.0.0",
+          "pymilvus>=2.6.2,<4.0.0",
+          "pymongo>=4.0.0,<5.0.0",
+          "asyncpg>=0.31.0,<1.0.0",
+          "pgvector>=0.4.2,<1.0.0",
+          "qdrant-client>=1.11.0,<2.0.0",
+          "opensearch-py>=3.0.0,<4.0.0"
+        ],
+        "offline-llm": [
+          "openai>=2.0.0,<4.0.0",
+          "anthropic>=0.18.0,<2.0.0",
+          "ollama>=0.5.4,<1.0.0",
+          "zhipuai>=2.0.0,<3.0.0",
+          "aioboto3>=12.0.0,<16.0.0",
+          "voyageai>=0.2.0,<1.0.0",
+          "llama-index>=0.14.0,<1.0.0",
+          "llama-index-llms-openai>=0.6.12",
+          "google-api-core>=2.0.0,<3.0.0",
+          "google-genai>=1.0.0,<3.0.0"
+        ],
+        "offline": [
+          "lightrag-hku[api,offline-storage,offline-llm]"
+        ],
+        "test": [
+          "lightrag-hku[api]",
+          "pytest>=8.4.2",
+          "pytest-asyncio>=1.2.0",
+          "pytest-xdist>=3.6.0",
+          "pre-commit",
+          "ruff",
+          "httpx2>=2.0.0"
+        ],
+        "evaluation": [
+          "lightrag-hku[api]",
+          "ragas>=0.3.7",
+          "datasets>=4.3.0"
+        ],
+        "observability": [
+          "langfuse>=3.8.1"
+        ]
+      },
+      "development": {},
+      "build": {
+        "requires": [
+          "setuptools>=64",
+          "wheel"
+        ],
+        "build-backend": "setuptools.build_meta"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "MemMachine/MemMachine",
+      "commit": "d57f5cb36a357c01085f571a0cdd2dfbc9882f89",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/pyproject.toml",
+      "source_sha256": "626cf687b44e566dde03bbc2863f2ca19c9774770abcc65f0cd5c7d845f5c1fe",
+      "format": "TOML",
+      "name": null,
+      "version": null,
+      "dynamic_fields": [],
+      "requires_python": null,
+      "license_declaration": null,
+      "runtime": [],
+      "optional": {},
+      "development": {
+        "dev": [
+          "complexipy>=5.4.1",
+          "pytest>=9.0.3",
+          "pytest-asyncio>=1.2.0",
+          "ruff==0.16.8",
+          "testcontainers[neo4j,postgres,qdrant]>=4.14.2",
+          "ty~=0.0.38",
+          "tomli>=2.4.1",
+          "pytest-cov>=7.0.0",
+          "pytest-xdist>=3.8.0"
+        ],
+        "multihop": [
+          "spacy>=3.8.0,<3.9.0; python_version < '3.14'",
+          "en-core-web-sm; python_version < '3.14'"
+        ]
+      },
+      "build": {},
+      "workspace": {
+        "members": [
+          "packages/client",
+          "packages/common",
+          "packages/server"
+        ]
+      },
+      "constraints": [
+        "python-dotenv>=1.2.2",
+        "authlib>=1.6.11",
+        "Mako>=1.3.11",
+        "langsmith>=0.7.31",
+        "python-multipart>=0.0.26",
+        "langchain-core>=1.2.28",
+        "cryptography>=46.0.7",
+        "aiohttp>=3.13.4",
+        "Pygments>=2.20.0",
+        "PyJWT>=2.12.0",
+        "transformers>=5.0.0"
+      ]
+    },
+    {
+      "repository": "MemMachine/MemMachine",
+      "commit": "d57f5cb36a357c01085f571a0cdd2dfbc9882f89",
+      "path": "packages/server/pyproject.toml",
+      "source_url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/packages/server/pyproject.toml",
+      "source_sha256": "05a469b4ef9633119f6188573410f79350f005cf33aed3fb04a5d6eb32ee0d47",
+      "format": "TOML",
+      "name": "memmachine-server",
+      "version": null,
+      "dynamic_fields": [
+        "version"
+      ],
+      "requires_python": ">= 3.12",
+      "license_declaration": "Apache-2.0",
+      "runtime": [
+        "memmachine-common",
+        "alembic>=1.17.1",
+        "asyncpg>=0.31.0",
+        "aiosqlite>=0.20.0",
+        "boto3>=1.40.40",
+        "cohere>=5.20.0",
+        "python-dotenv>=1.2.2",
+        "fastapi>=0.116.1",
+        "fastmcp>=3.2.0",
+        "instructor[bedrock]>=1.12.0",
+        "json-repair>=0.54",
+        "langchain-aws>=0.2.33",
+        "neo4j>=5.28.2",
+        "nltk>=3.9.4",
+        "openai>=2.21.0",
+        "pgvector>=0.4.2",
+        "prometheus-client>=0.22.1",
+        "pydantic>=2.11.7",
+        "pyyaml>=6.0.2",
+        "rank-bm25>=0.2.2",
+        "sqlite-vec>=0.1.9",
+        "sqlalchemy[asyncio]>=2.0.43",
+        "usearch>=2.25.1",
+        "uvicorn>=0.35.0",
+        "tzdata>=2024.1 ; sys_platform == 'win32'",
+        "psutil>=7.1.0",
+        "langchain-text-splitters>=1.1.1",
+        "babel>=2.18.0"
+      ],
+      "optional": {
+        "gpu": [
+          "sentence-transformers>=5.1.0"
+        ],
+        "hnswlib": [
+          "hnswlib>=0.8.0"
+        ],
+        "nebula": [
+          "nebula5-python>=5.2.1,<5.3"
+        ],
+        "qdrant": [
+          "qdrant-client>=1.17.0"
+        ],
+        "milvus": [
+          "pymilvus>=3.0.0",
+          "milvus-lite>=3.0.0"
+        ],
+        "litellm": [
+          "litellm>=1.93.0"
+        ]
+      },
+      "development": {},
+      "build": {
+        "requires": [
+          "setuptools>=68.0",
+          "wheel",
+          "setuptools-scm>=8.0"
+        ],
+        "build-backend": "setuptools.build_meta"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "MemMachine/MemMachine",
+      "commit": "d57f5cb36a357c01085f571a0cdd2dfbc9882f89",
+      "path": "packages/common/pyproject.toml",
+      "source_url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/packages/common/pyproject.toml",
+      "source_sha256": "933138e89c93d6976337e00cd37891e6bb6aa9ab5bbc22cab5441ee5f61804e4",
+      "format": "TOML",
+      "name": "memmachine-common",
+      "version": null,
+      "dynamic_fields": [
+        "version"
+      ],
+      "requires_python": ">= 3.10",
+      "license_declaration": "Apache-2.0",
+      "runtime": [
+        "pydantic>=2.0.0",
+        "regex>=2023.0.0",
+        "typing-extensions>=4.0.0"
+      ],
+      "optional": {},
+      "development": {},
+      "build": {
+        "requires": [
+          "setuptools>=68.0",
+          "wheel",
+          "setuptools-scm>=8.0"
+        ],
+        "build-backend": "setuptools.build_meta"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "MemMachine/MemMachine",
+      "commit": "d57f5cb36a357c01085f571a0cdd2dfbc9882f89",
+      "path": "packages/client/pyproject.toml",
+      "source_url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/packages/client/pyproject.toml",
+      "source_sha256": "1fa1099df90a29c7e23fd716edee711c491b48b6ebba11535851dd5baccb26c7",
+      "format": "TOML",
+      "name": "memmachine-client",
+      "version": null,
+      "dynamic_fields": [
+        "version"
+      ],
+      "requires_python": ">= 3.10",
+      "license_declaration": "Apache-2.0",
+      "runtime": [
+        "memmachine-common",
+        "pydantic>=2.0.0",
+        "requests>=2.33.0",
+        "typing-extensions>=4.0.0",
+        "urllib3>=2.6.3"
+      ],
+      "optional": {},
+      "development": {},
+      "build": {
+        "requires": [
+          "setuptools>=68.0",
+          "wheel",
+          "setuptools-scm>=8.0"
+        ],
+        "build-backend": "setuptools.build_meta"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "MemTensor/MemOS",
+      "commit": "a7367d07e55db61099f7b4e2c1108bc5831a24f3",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/MemTensor/MemOS/blob/a7367d07e55db61099f7b4e2c1108bc5831a24f3/pyproject.toml",
+      "source_sha256": "e0e931fe30f7e300ab149ff78492f123459834d6c58d0de9c6ced517310ef3a5",
+      "format": "TOML",
+      "name": "MemoryOS",
+      "version": "2.0.33",
+      "dynamic_fields": [],
+      "requires_python": ">=3.10",
+      "license_declaration": {
+        "text": "Apache-2.0"
+      },
+      "runtime": [
+        "openai (>=1.77.0,<2.0.0)",
+        "ollama (>=0.5.0,<0.5.1)",
+        "transformers (>=4.51.3,<5.0.0)",
+        "tenacity (>=9.1.2,<10.0.0)",
+        "fastapi[all] (>=0.115.12,<0.116.0)",
+        "sqlalchemy (>=2.0.41,<3.0.0)",
+        "pymysql (>=1.1.0,<2.0.0)",
+        "scikit-learn (>=1.7.0,<2.0.0)",
+        "fastmcp (>=2.10.5,<3.0.0)",
+        "python-dateutil (>=2.9.0.post0,<3.0.0)",
+        "prometheus-client (>=0.23.1,<0.24.0)",
+        "concurrent-log-handler (>=0.9.28,<1.0.0)",
+        "cachetools (>=6.0.0)"
+      ],
+      "optional": {
+        "tree-mem": [
+          "neo4j (>=5.28.1,<6.0.0)",
+          "schedule (>=1.2.2,<2.0.0)"
+        ],
+        "mem-scheduler": [
+          "redis (>=6.2.0,<7.0.0)",
+          "pika (>=1.3.2,<2.0.0)"
+        ],
+        "mem-user": [
+          "pymysql (>=1.1.0,<2.0.0)"
+        ],
+        "mem-reader": [
+          "chonkie (>=1.0.7,<2.0.0)",
+          "markitdown[docx,pdf,pptx,xls,xlsx] (>=0.1.1,<0.2.0)",
+          "langchain-text-splitters (>=1.0.0,<2.0.0)"
+        ],
+        "pref-mem": [
+          "pymilvus (>=2.5.12,<3.0.0)",
+          "datasketch (>=1.6.5,<2.0.0)"
+        ],
+        "skill-mem": [
+          "alibabacloud-oss-v2 (>=1.2.2,<1.2.3)"
+        ],
+        "tavily": [
+          "tavily-python (>=0.5.0,<1.0.0)"
+        ],
+        "all": [
+          "neo4j (>=5.28.1,<6.0.0)",
+          "schedule (>=1.2.2,<2.0.0)",
+          "redis (>=6.2.0,<7.0.0)",
+          "pika (>=1.3.2,<2.0.0)",
+          "pymysql (>=1.1.0,<2.0.0)",
+          "chonkie (>=1.0.7,<2.0.0)",
+          "langchain-text-splitters (>=1.0.0,<2.0.0)",
+          "markitdown[docx,pdf,pptx,xls,xlsx] (>=0.1.1,<0.2.0)",
+          "pymilvus (>=2.6.1,<3.0.0)",
+          "datasketch (>=1.6.5,<2.0.0)",
+          "jieba (>=0.38.1,<0.42.1)",
+          "rank-bm25 (>=0.2.2)",
+          "torch (>=2.7.1,<3.0.0)",
+          "sentence-transformers (>=4.1.0,<5.0.0)",
+          "qdrant-client (>=1.16.0,<2.0.0)",
+          "volcengine-python-sdk (>=4.0.4,<5.0.0)",
+          "nltk (>=3.9.1,<4.0.0)",
+          "rake-nltk (>=1.0.6,<1.1.0)",
+          "alibabacloud-oss-v2 (>=1.2.2,<1.2.3)",
+          "tavily-python (>=0.5.0,<1.0.0)"
+        ]
+      },
+      "development": {},
+      "build": {
+        "requires": [
+          "poetry-core"
+        ],
+        "build-backend": "poetry.core.masonry.api"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "NevaMind-AI/memU",
+      "commit": "2c050bc9681a4c0aff1af211a000e73d14f33356",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/NevaMind-AI/memU/blob/2c050bc9681a4c0aff1af211a000e73d14f33356/pyproject.toml",
+      "source_sha256": "6b397bba06842398a5aaab5480362304833205fb4726b41b06b13c1fda6dd213",
+      "format": "TOML",
+      "name": "memu-cli",
+      "version": "0.11.0-beta.3",
+      "dynamic_fields": [],
+      "requires_python": ">=3.11",
+      "license_declaration": null,
+      "runtime": [
+        "httpx>=0.28.1",
+        "numpy>=2.3.4",
+        "openai>=2.8.0",
+        "pydantic>=2.12.4",
+        "sqlmodel>=0.0.27",
+        "alembic>=1.14.0",
+        "pendulum>=3.1.0"
+      ],
+      "optional": {
+        "postgres": [
+          "pgvector>=0.3.4",
+          "sqlalchemy[postgresql-psycopgbinary]>=2.0.36"
+        ]
+      },
+      "development": {
+        "dev": [
+          {
+            "include-group": "lint"
+          },
+          {
+            "include-group": "test"
+          }
+        ],
+        "lint": [
+          "deptry>=0.23.1",
+          "mypy>=1.18.2",
+          "pre-commit>=4.3.0",
+          "ruff>=0.14.3",
+          "types-defusedxml>=0.7.0"
+        ],
+        "test": [
+          "pytest>=8.4.2",
+          "pytest-asyncio>=0.24.0",
+          "pytest-cov>=7.0.0"
+        ]
+      },
+      "build": {
+        "requires": [
+          "hatchling"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "OSU-NLP-Group/HippoRAG",
+      "commit": "1438aba3fc44ff10573e5a5e1e7cc3c7f9794aff",
+      "path": "requirements.txt",
+      "source_url": "https://github.com/OSU-NLP-Group/HippoRAG/blob/1438aba3fc44ff10573e5a5e1e7cc3c7f9794aff/requirements.txt",
+      "source_sha256": "4a7f270776ab3c2ebb90234c14444e83d514d19ce594956532cb1d71ea32a669",
+      "format": "requirements",
+      "declared_environment": [
+        "openai>=3.3.1,<4",
+        "litellm==1.73.1",
+        "torch==2.5.1",
+        "transformers==4.45.2",
+        "networkx==3.4.2",
+        "pydantic==2.10.4",
+        "python_igraph==0.11.8",
+        "tenacity==8.5.0",
+        "tiktoken==0.7.0",
+        "nest_asyncio",
+        "numpy",
+        "scipy",
+        "tqdm",
+        "einops",
+        "boto3",
+        "pandas",
+        "pyarrow",
+        "requests",
+        "httpx>=0.27,<1",
+        "filelock"
+      ],
+      "classification": "environment snapshot; direct/transitive/runtime/evaluation roles are not inferred from this file"
+    },
+    {
+      "repository": "agiresearch/A-mem",
+      "commit": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/agiresearch/A-mem/blob/ceffb860f0712bbae97b184d440df62bc910ca8d/pyproject.toml",
+      "source_sha256": "d0cb38f6860dfa50cdc0141896bc6115501bd181fd6c122910cdf0fb07db9dc5",
+      "format": "TOML",
+      "name": "agentic-memory",
+      "version": "0.0.1",
+      "dynamic_fields": [],
+      "requires_python": ">=3.8",
+      "license_declaration": {
+        "file": "LICENSE"
+      },
+      "runtime": [
+        "sentence-transformers>=2.2.2",
+        "chromadb>=0.4.22",
+        "rank_bm25>=0.2.2",
+        "nltk>=3.8.1",
+        "litellm>=1.16.11",
+        "numpy>=1.24.3",
+        "scikit-learn>=1.3.2",
+        "openai>=1.3.7",
+        "pre-commit>=3.4.0"
+      ],
+      "optional": {
+        "dev": [
+          "pytest",
+          "unittest",
+          "ruff",
+          "ipykernel"
+        ]
+      },
+      "development": {},
+      "build": {
+        "requires": [
+          "setuptools>=61.0"
+        ],
+        "build-backend": "setuptools.build_meta"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "agiresearch/A-mem",
+      "commit": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+      "path": "requirements.txt",
+      "source_url": "https://github.com/agiresearch/A-mem/blob/ceffb860f0712bbae97b184d440df62bc910ca8d/requirements.txt",
+      "source_sha256": "d01b0399ebf1903f2b88d92f238eb229cebe1ddc434ba2c65c4e716642f636ec",
+      "format": "requirements",
+      "declared_environment": [
+        "sentence-transformers>=2.2.2",
+        "chromadb>=0.4.22",
+        "rank_bm25>=0.2.2",
+        "nltk>=3.8.1",
+        "transformers>=4.36.2",
+        "litellm>=1.16.11",
+        "numpy>=1.24.3",
+        "scikit-learn>=1.3.2",
+        "openai>=1.3.7",
+        "ollama>=0.1.0"
+      ],
+      "classification": "environment snapshot; direct/transitive/runtime/evaluation roles are not inferred from this file"
+    },
+    {
+      "repository": "aiming-lab/SimpleMem",
+      "commit": "db80b6a7c591e0ea730a058e9f5fc4eb06572299",
+      "path": "requirements.txt",
+      "source_url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/requirements.txt",
+      "source_sha256": "cc62dbb8cf954b1c58928723153136af3e0759df77746de09fc2c2bb58fb9783",
+      "format": "requirements",
+      "declared_environment": [
+        "absl-py==2.3.1",
+        "accelerate==1.10.1",
+        "aiohappyeyeballs==2.6.1",
+        "aiohttp==3.13.2",
+        "aiosignal==1.4.0",
+        "annotated-types==0.7.0",
+        "anthropic==0.75.0",
+        "anyio==4.11.0",
+        "async-timeout==5.0.1",
+        "attrs==25.4.0",
+        "backoff==2.2.1",
+        "bert-score==0.3.13",
+        "certifi==2025.10.5",
+        "charset-normalizer==3.4.3",
+        "click==8.3.0",
+        "contourpy==1.3.2",
+        "cycler==0.12.1",
+        "dataparser==0.0.2",
+        "datasets==4.4.1",
+        "dateparser==1.2.2",
+        "deprecation==2.1.0",
+        "dill==0.4.0",
+        "distro==1.9.0",
+        "docstring_parser==0.17.0",
+        "dydantic==0.0.8",
+        "exceptiongroup==1.3.0",
+        "fastuuid==0.14.0",
+        "filelock==3.20.0",
+        "fonttools==4.60.1",
+        "frozenlist==1.8.0",
+        "fsspec==2025.9.0",
+        "greenlet==3.2.4",
+        "grpcio==1.75.1",
+        "h11==0.16.0",
+        "h2==4.3.0",
+        "hf-xet==1.1.10",
+        "hpack==4.1.0",
+        "httpcore==1.0.9",
+        "httpx==0.28.1",
+        "huggingface-hub==0.35.3",
+        "hyperframe==6.1.0",
+        "idna==3.10",
+        "importlib_metadata==8.7.0",
+        "Jinja2==3.1.6",
+        "jiter==0.11.0",
+        "joblib==1.5.2",
+        "jsonpatch==1.33",
+        "jsonpointer==3.0.0",
+        "jsonschema==4.25.1",
+        "jsonschema-specifications==2025.9.1",
+        "kiwisolver==1.4.9",
+        "lance-namespace==0.0.21",
+        "lance-namespace-urllib3-client==0.0.21",
+        "lancedb==0.25.3",
+        "langchain==1.1.0",
+        "langchain-anthropic==1.2.0",
+        "langchain-core==1.1.0",
+        "langgraph==1.0.4",
+        "langgraph-checkpoint==3.0.1",
+        "langgraph-prebuilt==1.0.5",
+        "langgraph-sdk==0.2.10",
+        "langmem==0.0.30",
+        "langsmith==0.4.48",
+        "litellm==1.79.1",
+        "llmlingua==0.2.2",
+        "MarkupSafe==3.0.3",
+        "matplotlib==3.10.7",
+        "mpmath==1.3.0",
+        "multidict==6.7.0",
+        "multiprocess==0.70.18",
+        "networkx==3.4.2",
+        "nltk==3.9.2",
+        "numpy==2.2.6",
+        "openai==2.3.0",
+        "orjson==3.11.4",
+        "ormsgpack==1.12.0",
+        "overrides==7.7.0",
+        "packaging==25.0",
+        "pandas==2.3.3",
+        "pillow==11.3.0",
+        "portalocker==3.2.0",
+        "posthog==7.0.1",
+        "propcache==0.4.1",
+        "protobuf==5.29.5",
+        "psutil==7.1.0",
+        "pyarrow==22.0.0",
+        "pydantic==2.12.0",
+        "pydantic_core==2.41.1",
+        "pylance==0.39.0",
+        "pyparsing==3.2.5",
+        "PySocks==1.7.1",
+        "python-dateutil==2.9.0.post0",
+        "python-dotenv==1.2.1",
+        "pytz==2025.2",
+        "PyYAML==6.0.3",
+        "qdrant-client==1.15.1",
+        "rank-bm25==0.2.2",
+        "referencing==0.37.0",
+        "regex==2025.9.18",
+        "requests==2.32.5",
+        "requests-toolbelt==1.0.0",
+        "rouge_score==0.1.2",
+        "rpds-py==0.28.0",
+        "safetensors==0.6.2",
+        "scikit-learn==1.7.2",
+        "scipy==1.15.3",
+        "sentence-transformers==5.1.1",
+        "six==1.17.0",
+        "sniffio==1.3.1",
+        "SQLAlchemy==2.0.44",
+        "sympy==1.14.0",
+        "tenacity==9.1.2",
+        "threadpoolctl==3.6.0",
+        "tiktoken==0.12.0",
+        "tokenizers==0.22.1",
+        "tqdm==4.67.1",
+        "transformers==4.57.0",
+        "trustcall==0.0.39",
+        "typing==3.7.4.3",
+        "typing-inspection==0.4.2",
+        "typing_extensions==4.15.0",
+        "tzdata==2025.2",
+        "tzlocal==5.3.1",
+        "urllib3==2.5.0",
+        "xxhash==3.6.0",
+        "yarl==1.22.0",
+        "zipp==3.23.0",
+        "zstandard==0.25.0",
+        "fastapi==0.115.0",
+        "uvicorn[standard]==0.32.0",
+        "tantivy"
+      ],
+      "classification": "environment snapshot; direct/transitive/runtime/evaluation roles are not inferred from this file"
+    },
+    {
+      "repository": "aiming-lab/SimpleMem",
+      "commit": "db80b6a7c591e0ea730a058e9f5fc4eb06572299",
+      "path": "setup.py",
+      "source_url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/setup.py",
+      "source_sha256": "1597a4f403f0794ebcedf7eac5bd26bd106e48a4b504a7d03a1669a795253a12",
+      "format": "Python static AST",
+      "runtime": [
+        "openai>=1.0.0",
+        "pydantic>=2.0.0",
+        "lancedb>=0.4.0",
+        "sentence-transformers>=2.2.0",
+        "numpy>=1.24.0",
+        "dateparser>=1.1.0",
+        "pyarrow>=12.0.0",
+        "tantivy>=0.20.0",
+        "rank_bm25>=0.2.2",
+        "tqdm>=4.60.0",
+        "torch>=2.0.0",
+        "transformers>=4.30.0",
+        "Pillow>=9.0.0",
+        "open_clip_torch>=2.20.0",
+        "soundfile>=0.12.0",
+        "librosa>=0.10.0",
+        "httpx"
+      ],
+      "optional": {
+        "server": [
+          "mcp>=1.0.0",
+          "fastapi>=0.109.0",
+          "uvicorn[standard]>=0.27.0",
+          "PyJWT>=2.8.0",
+          "cryptography>=41.0.0",
+          "pandas>=2.0.0",
+          "python-dotenv>=1.0.0"
+        ],
+        "benchmark": [
+          "datasets>=2.0.0",
+          "bert-score>=0.3.0",
+          "rouge-score>=0.1.0",
+          "nltk>=3.8.0"
+        ],
+        "dev": [
+          "pytest>=7.0.0",
+          "pytest-asyncio>=0.21.0"
+        ]
+      },
+      "note": "setup.py was not executed; computed extras and dynamic version are not resolved"
+    },
+    {
+      "repository": "basicmachines-co/basic-memory",
+      "commit": "22d31e96e2defa465d3703620a537c9125e7d364",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/basicmachines-co/basic-memory/blob/22d31e96e2defa465d3703620a537c9125e7d364/pyproject.toml",
+      "source_sha256": "4e694e6591de3d3e3ca8c6e0437a3cbe4b0cbd030bca9982e0939fa88c32ffdc",
+      "format": "TOML",
+      "name": "basic-memory",
+      "version": null,
+      "dynamic_fields": [
+        "version"
+      ],
+      "requires_python": ">=3.12",
+      "license_declaration": {
+        "text": "AGPL-3.0-or-later"
+      },
+      "runtime": [
+        "sqlalchemy>=2.0.0",
+        "pyyaml>=6.0.1",
+        "typer>=0.9.0",
+        "aiosqlite>=0.20.0",
+        "greenlet>=3.1.1",
+        "pydantic[email,timezone]>=2.12.0",
+        "mcp>=2,<3",
+        "pydantic-settings>=2.6.1",
+        "loguru>=0.7.3",
+        "pyright>=1.1.390",
+        "markdown-it-py>=3.0.0",
+        "python-frontmatter>=1.1.0",
+        "rich>=13.9.4",
+        "unidecode>=1.3.8",
+        "dateparser>=1.2.0",
+        "watchfiles>=1.0.4",
+        "fastapi[standard]>=0.136.1",
+        "alembic>=1.14.1",
+        "pillow>=11.1.0",
+        "pybars3>=0.9.7",
+        "fastmcp==4.0.3",
+        "pyjwt>=2.10.1",
+        "python-dotenv>=1.1.0",
+        "pytest-aio>=1.9.0",
+        "aiofiles>=24.1.0",
+        "asyncpg>=0.30.0",
+        "pytest-asyncio>=1.2.0",
+        "psycopg==3.3.1",
+        "mdformat>=0.7.22",
+        "mdformat-gfm>=0.3.7",
+        "mdformat-frontmatter>=2.0.8",
+        "sniffio>=1.3.1",
+        "anyio>=4.10.0",
+        "httpx>=0.28.0",
+        "fastembed>=0.7.4",
+        "sqlite-vec>=0.1.6",
+        "openai>=1.100.2",
+        "litellm>=1.60.0,<1.92.0",
+        "logfire>=4.19.0",
+        "psutil>=5.9.0",
+        "uvloop>=0.21.0; sys_platform != 'win32'",
+        "filelock>=3.12"
+      ],
+      "optional": {
+        "milvus": [
+          "pymilvus>=3.0.0,<4; sys_platform == 'win32'",
+          "pymilvus[milvus-lite]>=3.0.0,<4; sys_platform != 'win32'"
+        ],
+        "redis": [
+          "redis>=8.0.0,<9"
+        ],
+        "pdf": [
+          "pdf-inspector>=0.2.6,<2"
+        ],
+        "documents": [
+          "markitdown[docx,pptx]>=0.1.7,<0.2"
+        ]
+      },
+      "development": {
+        "dev": [
+          "logfire>=4.19.0",
+          "gevent>=24.11.1",
+          "icecream>=2.1.3",
+          "pytest>=8.3.4",
+          "pytest-cov>=4.1.0",
+          "pytest-mock>=3.12.0",
+          "pytest-asyncio>=0.24.0",
+          "pytest-xdist>=3.0.0",
+          "ruff>=0.16.0",
+          "freezegun>=1.5.5",
+          "testcontainers[postgres]>=4.0.0",
+          "redis>=8.0.0,<9",
+          "pdf-inspector>=0.2.6,<2",
+          "psycopg>=3.2.0",
+          "pyright>=1.1.408",
+          "pytest-testmon>=2.2.0",
+          "ty>=0.0.64",
+          "cst-lsp>=0.1.3",
+          "libcst>=1.8.6",
+          "pytest-timeout>=2.4.0",
+          "pytest-split>=0.11.0",
+          "markitdown[docx,pptx]>=0.1.7,<0.2"
+        ]
+      },
+      "build": {
+        "requires": [
+          "hatchling",
+          "uv-dynamic-versioning>=0.7.0"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "getzep/graphiti",
+      "commit": "6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/pyproject.toml",
+      "source_sha256": "52b58f16f325fe923ec1d05e35f3157df458e36b5a460ccf4fc34b2623fba0ac",
+      "format": "TOML",
+      "name": "graphiti-core",
+      "version": "0.30.2",
+      "dynamic_fields": [],
+      "requires_python": ">=3.10,<4",
+      "license_declaration": "Apache-2.0",
+      "runtime": [
+        "pydantic>=2.11.5",
+        "neo4j>=5.26.0",
+        "openai>=1.91.0",
+        "tenacity>=9.0.0",
+        "numpy>=1.0.0",
+        "python-dotenv>=1.0.1",
+        "posthog>=3.0.0"
+      ],
+      "optional": {
+        "anthropic": [
+          "anthropic>=0.49.0"
+        ],
+        "groq": [
+          "groq>=0.2.0"
+        ],
+        "google-genai": [
+          "google-genai>=1.62.0"
+        ],
+        "kuzu": [
+          "kuzu>=0.11.3"
+        ],
+        "falkordb": [
+          "falkordb>=1.1.2,<2.0.0"
+        ],
+        "falkordblite": [
+          "falkordblite>=0.5.0; python_version>='3.12'",
+          "redis<9; python_version>='3.12'"
+        ],
+        "voyageai": [
+          "voyageai>=0.2.3"
+        ],
+        "gliner2": [
+          "gliner2>=1.2.0; python_version>='3.11'"
+        ],
+        "neo4j-opensearch": [
+          "boto3>=1.39.16",
+          "opensearch-py>=3.0.0"
+        ],
+        "sentence-transformers": [
+          "sentence-transformers>=3.2.1"
+        ],
+        "neptune": [
+          "langchain-aws>=0.2.29",
+          "opensearch-py>=3.0.0",
+          "boto3>=1.39.16"
+        ],
+        "tracing": [
+          "opentelemetry-api>=1.20.0",
+          "opentelemetry-sdk>=1.20.0"
+        ],
+        "dev": [
+          "pyright>=1.1.404",
+          "groq>=0.2.0",
+          "anthropic>=0.49.0",
+          "google-genai>=1.8.0",
+          "falkordb>=1.1.2,<2.0.0",
+          "kuzu>=0.11.3",
+          "boto3>=1.39.16",
+          "opensearch-py>=3.0.0",
+          "langchain-aws>=0.2.29",
+          "ipykernel>=6.29.5",
+          "jupyterlab>=4.2.4",
+          "langgraph>=1.0.10",
+          "langchain-anthropic>=0.2.4",
+          "langsmith>=0.1.108",
+          "langchain-openai>=0.2.6",
+          "sentence-transformers>=3.2.1",
+          "transformers>=4.45.2",
+          "voyageai>=0.2.3",
+          "pytest>=8.3.3",
+          "pytest-asyncio>=0.24.0",
+          "pytest-xdist>=3.6.1",
+          "ruff>=0.7.1",
+          "opentelemetry-sdk>=1.20.0"
+        ]
+      },
+      "development": {},
+      "build": {
+        "requires": [
+          "hatchling"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "langchain-ai/langmem",
+      "commit": "9d033b47d9ce53e37e92c92241b0496c0278932e",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/langchain-ai/langmem/blob/9d033b47d9ce53e37e92c92241b0496c0278932e/pyproject.toml",
+      "source_sha256": "6a964d268d23b8860c848b7b23f2dc6998204eaa0eb28cfe2d404359eb51611a",
+      "format": "TOML",
+      "name": "langmem",
+      "version": "0.0.30",
+      "dynamic_fields": [],
+      "requires_python": ">=3.10",
+      "license_declaration": {
+        "file": "LICENSE"
+      },
+      "runtime": [
+        "langchain>=0.3.15",
+        "langchain-core>=0.3.46",
+        "langchain-openai>=0.3.1",
+        "trustcall>=0.0.39",
+        "langgraph>=0.6.0,<2",
+        "langchain-anthropic>=0.3.3",
+        "langsmith>=0.3.8",
+        "langgraph-checkpoint>=2.0.12"
+      ],
+      "optional": {},
+      "development": {
+        "dev": [
+          "anyio>=4.8.0",
+          "langchain-anthropic>=0.3.3",
+          "langchain-openai>=0.3.1",
+          "langgraph-cli[inmem]>=0.1.70",
+          "pytest>=8.3.4",
+          "pytest-watch>=4.2.0",
+          "pytest-xdist>=3.6.1",
+          "langgraph-prebuilt>=0.1.1",
+          "ruff>=0.12.12"
+        ],
+        "docs": [
+          "markdown-callouts>=0.4.0",
+          "markdown-include>=0.8.1",
+          "mkdocs>=1.6.1",
+          "mkdocs-autorefs>=1.3.0",
+          "mkdocs-exclude>=1.0.2",
+          "mkdocs-git-committers-plugin-2>=2.5.0",
+          "mkdocs-material>=9.6.1",
+          "mkdocs-minify-plugin>=0.8.0",
+          "mkdocs-redirects>=1.2.2",
+          "mkdocs-rss-plugin>=1.17.1",
+          "mkdocstrings>=0.27.0",
+          "mkdocstrings-python>=1.13.0",
+          "nbformat>=5.10.4",
+          "nbconvert>=7.16.6"
+        ]
+      },
+      "build": {
+        "requires": [
+          "hatchling"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": {
+        "members": [
+          "evals/gen"
+        ]
+      },
+      "constraints": []
+    },
+    {
+      "repository": "letta-ai/letta-code",
+      "commit": "c864f1532b328aab4bb76cc68a86d5f014de27b8",
+      "path": "package.json",
+      "source_url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/package.json",
+      "source_sha256": "fcea8a4e98864e3a5a690da16d6af421e7d48d398d2f253e1e36fc76de36a803",
+      "format": "JSON",
+      "name": "@letta-ai/letta-code",
+      "version": "0.33.5",
+      "license_declaration": "Apache-2.0",
+      "engines": {
+        "bun": ">=1.3.2",
+        "node": ">=22.19.0"
+      },
+      "runtime": {
+        "@earendil-works/pi-ai": "^0.87.1",
+        "@janhapke/sharp-electron": "0.35.3-electron.1",
+        "@letta-ai/letta-agent-sdk": "0.8.21",
+        "@letta-ai/letta-client": "^1.10.2",
+        "@letta-ai/trajectory": "0.2.0",
+        "@modelcontextprotocol/sdk": "1.30.0",
+        "@pierre/diffs": "1.2.2",
+        "@scarf/scarf": "^1.4.0",
+        "@shikijs/langs": "4.0.2",
+        "cron-parser": "^5.6.1",
+        "cross-spawn": "^7.0.6",
+        "glob": "^13.0.0",
+        "ink": "5.2.1",
+        "ink-link": "^4.1.0",
+        "node-pty": "^1.1.0",
+        "open": "^10.2.0",
+        "react": "18.2.0",
+        "sharp": "^0.34.5",
+        "shiki": "^4.0.2",
+        "strip-ansi": "^7.2.0",
+        "ws": "^8.19.0"
+      },
+      "optional": {
+        "@vscode/ripgrep": "^1.17.0"
+      },
+      "development": {
+        "@modelcontextprotocol/server-everything": "^2026.7.4",
+        "@slack/bolt": "^4.7.0",
+        "@types/bun": "^1.3.7",
+        "@types/cross-spawn": "^6.0.6",
+        "@types/diff": "^8.0.0",
+        "@types/picomatch": "^4.0.2",
+        "@types/react": "^19.2.9",
+        "@types/ws": "^8.18.1",
+        "diff": "^8.0.2",
+        "grammy": "^1.42.0",
+        "husky": "9.1.7",
+        "ink-spinner": "^5.0.0",
+        "ink-text-input": "^5.0.0",
+        "lint-staged": "16.2.4",
+        "madge": "^8.0.0",
+        "minimatch": "^10.0.3",
+        "openai": "^6.48.0",
+        "picomatch": "^2.3.1",
+        "typescript": "^5.0.0"
+      },
+      "peer": {},
+      "workspace": null
+    },
+    {
+      "repository": "mem0ai/mem0",
+      "commit": "94c3fe9f238f3dbf29c9ce98643bd71eb13077cd",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/pyproject.toml",
+      "source_sha256": "d4bc078a05cc7b9d677bbf4d0b262cfc532495b5aadeded053ac84fd90b6e974",
+      "format": "TOML",
+      "name": "mem0ai",
+      "version": "2.2.1",
+      "dynamic_fields": [],
+      "requires_python": ">=3.10,<4.0",
+      "license_declaration": "Apache-2.0",
+      "runtime": [
+        "qdrant-client>=1.12.0",
+        "pydantic>=2.7.3",
+        "openai>=1.90.0",
+        "httpx>=0.28.0",
+        "posthog>=7.14.0",
+        "pytz>=2024.1",
+        "sqlalchemy>=2.0.31",
+        "protobuf>=5.29.6,<7.0.0"
+      ],
+      "optional": {
+        "nlp": [
+          "spacy>=3.7.0"
+        ],
+        "vector-stores": [
+          "vecs>=0.4.0",
+          "chromadb>=0.4.24",
+          "cassandra-driver>=3.29.0",
+          "weaviate-client>=4.15.4,<5.0.0",
+          "pinecone<=7.3.0",
+          "pinecone-text>=0.10.0",
+          "faiss-cpu>=1.7.4",
+          "upstash-vector>=0.6.0",
+          "azure-search-documents>=11.4.0b8",
+          "psycopg>=3.2.8",
+          "psycopg-pool>=3.2.6,<4.0.0",
+          "pymongo>=4.13.2",
+          "pymochow>=2.2.9",
+          "pymysql>=1.1.0",
+          "dbutils>=3.0.3",
+          "valkey>=6.0.0",
+          "databricks-sdk>=0.63.0",
+          "azure-identity>=1.24.0",
+          "redis>=5.0.0,<6.0.0",
+          "redisvl>=0.1.0,<1.0.0",
+          "elasticsearch>=8.0.0,<9.0.0",
+          "pymilvus>=2.4.0,<2.6.0",
+          "langchain-aws>=0.2.23,<0.3.0",
+          "oracledb>=2.2.0"
+        ],
+        "llms": [
+          "groq>=0.3.0",
+          "together>=0.2.10",
+          "litellm>=1.83.7,<1.98.0",
+          "openai>=1.90.0",
+          "ollama>=0.3.0",
+          "vertexai>=0.1.0",
+          "google-generativeai>=0.3.0",
+          "google-genai>=1.0.0"
+        ],
+        "extras": [
+          "boto3>=1.34.0",
+          "langchain>=0.3.30,<1.0.0",
+          "langchain-community>=0.3.27,<1.0.0",
+          "langchain-core>=0.3.85,<1.0.0",
+          "sentence-transformers>=5.2.0",
+          "transformers>=5.3.0",
+          "elasticsearch>=8.0.0,<9.0.0",
+          "opensearch-py>=2.0.0",
+          "fastembed>=0.3.1"
+        ],
+        "test": [
+          "pytest>=8.2.2",
+          "pytest-mock>=3.14.0",
+          "pytest-asyncio>=0.23.7"
+        ],
+        "dev": [
+          "ruff==0.16.0",
+          "isort>=5.13.2",
+          "pre-commit>=3.5.0"
+        ]
+      },
+      "development": {},
+      "build": {
+        "requires": [
+          "hatchling"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "memodb-io/memobase",
+      "commit": "358c16bbc6d687937d79bc2f984a11c3be8da901",
+      "path": "src/server/api/pyproject.toml",
+      "source_url": "https://github.com/memodb-io/memobase/blob/358c16bbc6d687937d79bc2f984a11c3be8da901/src/server/api/pyproject.toml",
+      "source_sha256": "759eef2534f218bd70114b2120708c435c960ce1c59297d6e1a72b07fda2ae8b",
+      "format": "TOML",
+      "name": "memobase_server",
+      "version": "0.1.0",
+      "dynamic_fields": [],
+      "requires_python": ">=3.12",
+      "license_declaration": null,
+      "runtime": [
+        "fastapi[standard]>=0.116.1",
+        "numpy>=2.3.1",
+        "openai>=1.97.0",
+        "opentelemetry-api>=1.35.0",
+        "opentelemetry-exporter-prometheus>=0.56b0",
+        "opentelemetry-instrumentation-fastapi>=0.56b0",
+        "opentelemetry-sdk>=1.35.0",
+        "pgvector>=0.4.1",
+        "psycopg2-binary>=2.9.10",
+        "python-dotenv>=1.1.1",
+        "pyyaml>=6.0.2",
+        "redis>=6.2.0",
+        "sqlalchemy>=2.0.41",
+        "structlog>=25.4.0",
+        "tiktoken>=0.9.0",
+        "typeguard>=4.4.4",
+        "volcengine-python-sdk[ark]>=4.0.6"
+      ],
+      "optional": {},
+      "development": {
+        "dev": [
+          "alembic>=1.16.4",
+          "pytest>=8.4.1",
+          "pytest-asyncio>=1.1.0",
+          "pytest-cov>=6.2.1"
+        ]
+      },
+      "build": {},
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "microsoft/graphrag",
+      "commit": "769542fbf1d8e5b4c6a8677fefc34621c87894c5",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/pyproject.toml",
+      "source_sha256": "e7ebce5c2fe82a6518c48f1f9d25535829f04f3cb5cb7ef85a19b1952b87ddac",
+      "format": "TOML",
+      "name": "graphrag-monorepo",
+      "version": "0.0.0",
+      "dynamic_fields": [],
+      "requires_python": ">=3.11,<3.14",
+      "license_declaration": null,
+      "runtime": [],
+      "optional": {},
+      "development": {
+        "dev": [
+          "coverage~=7.16",
+          "deptry~=0.25",
+          "ipykernel~=7.3",
+          "jupyter~=1.1",
+          "mkdocs-material~=9.7",
+          "mkdocs-jupyter~=0.26",
+          "mkdocs-exclude-search~=0.6",
+          "mkdocs-typer~=0.0.3",
+          "nbconvert~=7.17",
+          "pandas-stubs~=3.0",
+          "poethepoet~=0.48",
+          "pyright~=1.1",
+          "pytest~=9.1",
+          "pytest-asyncio~=1.4",
+          "pytest-dotenv~=0.5",
+          "pytest-timeout~=2.5",
+          "ruff~=0.16",
+          "semversioner~=3.0",
+          "update-toml~=0.2",
+          "pytest-xdist[psutil]~=3.8.0"
+        ]
+      },
+      "build": {},
+      "workspace": {
+        "members": [
+          "packages/*"
+        ]
+      },
+      "constraints": []
+    },
+    {
+      "repository": "microsoft/graphrag",
+      "commit": "769542fbf1d8e5b4c6a8677fefc34621c87894c5",
+      "path": "packages/graphrag/pyproject.toml",
+      "source_url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag/pyproject.toml",
+      "source_sha256": "1294bca08babd5747866a100635b2bd2d1f2f935d2923c3d008f8a7da6d1ad8c",
+      "format": "TOML",
+      "name": "graphrag",
+      "version": "3.2.0",
+      "dynamic_fields": [],
+      "requires_python": ">=3.11,<3.14",
+      "license_declaration": {
+        "text": "MIT"
+      },
+      "runtime": [
+        "azure-identity~=1.25",
+        "azure-search-documents~=12.0",
+        "azure-storage-blob~=12.30",
+        "devtools~=0.12",
+        "graphrag-cache==3.2.0",
+        "graphrag-chunking==3.2.0",
+        "graphrag-common==3.2.0",
+        "graphrag-input==3.2.0",
+        "graphrag-llm==3.2.0",
+        "graphrag-storage==3.2.0",
+        "graphrag-vectors==3.2.0",
+        "graspologic-native>=1.2,<1.3",
+        "json-repair~=0.63",
+        "networkx~=3.6",
+        "nltk~=3.9.0",
+        "numpy~=2.4",
+        "pandas~=3.0",
+        "pyarrow~=25.0",
+        "pydantic~=2.13",
+        "spacy~=3.8",
+        "blis~=1.3",
+        "textblob~=0.20",
+        "tqdm~=4.70",
+        "typing-extensions~=4.16",
+        "typer~=0.27"
+      ],
+      "optional": {},
+      "development": {},
+      "build": {
+        "requires": [
+          "hatchling>=1.27.0,<2.0.0"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "microsoft/graphrag",
+      "commit": "769542fbf1d8e5b4c6a8677fefc34621c87894c5",
+      "path": "packages/graphrag-vectors/pyproject.toml",
+      "source_url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag-vectors/pyproject.toml",
+      "source_sha256": "aeb38bddd2f10cf4b8549ab8cd40ec6f90282d7fe8ae4bbdb33610a159512029",
+      "format": "TOML",
+      "name": "graphrag-vectors",
+      "version": "3.2.0",
+      "dynamic_fields": [],
+      "requires_python": ">=3.11,<3.14",
+      "license_declaration": {
+        "text": "MIT"
+      },
+      "runtime": [
+        "azure-core~=1.41",
+        "azure-cosmos~=4.16",
+        "azure-identity~=1.25",
+        "azure-search-documents~=12.0",
+        "graphrag-common==3.2.0",
+        "lancedb~=0.38.0",
+        "numpy~=2.4",
+        "pyarrow~=25.0",
+        "pydantic~=2.13"
+      ],
+      "optional": {},
+      "development": {},
+      "build": {
+        "requires": [
+          "hatchling>=1.27.0,<2.0.0"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "microsoft/graphrag",
+      "commit": "769542fbf1d8e5b4c6a8677fefc34621c87894c5",
+      "path": "packages/graphrag-llm/pyproject.toml",
+      "source_url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag-llm/pyproject.toml",
+      "source_sha256": "79ef147c5c5409c0f06e9dd50c0a55e08496078390e4a73bf28e456f88acbf12",
+      "format": "TOML",
+      "name": "graphrag-llm",
+      "version": "3.2.0",
+      "dynamic_fields": [],
+      "requires_python": ">=3.10,<3.14",
+      "license_declaration": "MIT",
+      "runtime": [
+        "azure-identity~=1.25",
+        "fastapi>=0.136.3,<1.0",
+        "graphrag-cache==3.2.0",
+        "graphrag-common==3.2.0",
+        "jinja2~=3.1",
+        "litellm==1.100.1",
+        "nest-asyncio2~=1.7",
+        "orjson>=3.11.6,<4.0",
+        "pydantic~=2.13",
+        "typing-extensions~=4.16"
+      ],
+      "optional": {},
+      "development": {},
+      "build": {
+        "requires": [
+          "hatchling>=1.27.0,<2.0.0"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "modelcontextprotocol/servers",
+      "commit": "f46d9578190b476b3501923ea8977d899e8db2cb",
+      "path": "package.json",
+      "source_url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/package.json",
+      "source_sha256": "5ff622a6d2d9cc90a8b1067a889103a1e35705b168cb8f6e4fcfcb724473183d",
+      "format": "JSON",
+      "name": "@modelcontextprotocol/servers",
+      "version": "0.6.2",
+      "license_declaration": "SEE LICENSE IN LICENSE",
+      "engines": {},
+      "runtime": {
+        "@modelcontextprotocol/server-everything": "*",
+        "@modelcontextprotocol/server-memory": "*",
+        "@modelcontextprotocol/server-filesystem": "*",
+        "@modelcontextprotocol/server-sequential-thinking": "*"
+      },
+      "optional": {},
+      "development": {},
+      "peer": {},
+      "workspace": [
+        "src/*"
+      ]
+    },
+    {
+      "repository": "modelcontextprotocol/servers",
+      "commit": "f46d9578190b476b3501923ea8977d899e8db2cb",
+      "path": "src/memory/package.json",
+      "source_url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/src/memory/package.json",
+      "source_sha256": "20a91ce10d765e8c23f498bce61194500d46292750a6dcdc1dcc125e19b2f2d7",
+      "format": "JSON",
+      "name": "@modelcontextprotocol/server-memory",
+      "version": "0.6.3",
+      "license_declaration": "SEE LICENSE IN LICENSE",
+      "engines": {},
+      "runtime": {
+        "@modelcontextprotocol/sdk": "^1.30.0",
+        "zod": "^4.0.0"
+      },
+      "optional": {},
+      "development": {
+        "@types/node": "^22",
+        "@vitest/coverage-v8": "^4.1.8",
+        "shx": "^0.4.0",
+        "typescript": "^5.6.2",
+        "vitest": "^4.1.8"
+      },
+      "peer": {},
+      "workspace": null
+    },
+    {
+      "repository": "plastic-labs/honcho",
+      "commit": "2eb27b6cc0595d3f8deb693f0560e7241c2aeaff",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/plastic-labs/honcho/blob/2eb27b6cc0595d3f8deb693f0560e7241c2aeaff/pyproject.toml",
+      "source_sha256": "3baa00f78906d3004f254b9466980deeb6dd10c474c80985928188af492e0cc6",
+      "format": "TOML",
+      "name": "honcho",
+      "version": "3.2.1",
+      "dynamic_fields": [],
+      "requires_python": ">=3.13",
+      "license_declaration": null,
+      "runtime": [
+        "fastapi[standard-no-fastapi-cloud-cli]>=0.131.0",
+        "python-dotenv>=1.0.0",
+        "sqlalchemy>=2.0.30",
+        "fastapi-pagination>=0.14.2",
+        "pgvector>=0.2.5",
+        "sentry-sdk[anthropic,fastapi,sqlalchemy]>=2.3.1",
+        "greenlet>=3.0.3",
+        "psycopg[binary]>=3.1.19",
+        "httpx>=0.27.0",
+        "rich>=13.7.1",
+        "nanoid>=2.0.0",
+        "alembic>=1.14.0",
+        "pyjwt>=2.10.0",
+        "tenacity>=9.1.2",
+        "tiktoken>=0.9.0",
+        "langfuse>=3.3.2",
+        "openai>=1.99.7",
+        "pydantic>=2.11.7",
+        "pydantic-settings>=2.10.1",
+        "google-genai>=1.32.0",
+        "pypdf>=6.1.1",
+        "typing-extensions>=4.11.0",
+        "json-repair>=0.49.0",
+        "turbopuffer>=1.8.1",
+        "redis>=8.0.1,<9.0.0",
+        "cashews[redis]==7.5.0",
+        "prometheus_client>=0.21.0",
+        "cloudevents>=1.12.0,<2.0"
+      ],
+      "optional": {
+        "surprisal": [
+          "scikit-learn>=1.6.0"
+        ],
+        "lancedb": [
+          "lancedb>=0.25.3; sys_platform != \"darwin\" or platform_machine != \"x86_64\"",
+          "pyarrow>=19.0.0"
+        ],
+        "qdrant": [
+          "qdrant-client>=1.18.0"
+        ]
+      },
+      "development": {
+        "dev": [
+          "pytest>=8.2.2",
+          "sqlalchemy-utils>=0.41.2",
+          "pytest-asyncio>=0.23.7",
+          "coverage>=7.6.0",
+          "interrogate>=1.7.0",
+          "py-spy>=0.3.14",
+          "ruff==0.15.12",
+          "basedpyright>=1.29.4",
+          "pre-commit>=4.2.0",
+          "pytest-cov>=6.2.1",
+          "honcho-ai",
+          "scipy>=1.15.3",
+          "scikit-learn>=1.6.0",
+          "boto3>=1.42.5",
+          "pytest-xdist>=3.8.0"
+        ]
+      },
+      "build": {},
+      "workspace": {
+        "members": [
+          "sdks/python",
+          "honcho-cli"
+        ]
+      },
+      "constraints": []
+    },
+    {
+      "repository": "supermemoryai/supermemory",
+      "commit": "cfa6c7cb17476d19ea896867406c80e8186a72ec",
+      "path": "package.json",
+      "source_url": "https://github.com/supermemoryai/supermemory/blob/cfa6c7cb17476d19ea896867406c80e8186a72ec/package.json",
+      "source_sha256": "276aee161369dd6827477694806b948fad1fb01d0408ee2a4ee8f9ec8bca251e",
+      "format": "JSON",
+      "name": "supermemory",
+      "version": null,
+      "license_declaration": null,
+      "engines": {
+        "node": ">=20"
+      },
+      "runtime": {
+        "@ai-sdk/anthropic": "^1.2.12",
+        "@ai-sdk/cerebras": "^0.2.16",
+        "@ai-sdk/google": "^1.2.22",
+        "@ai-sdk/openai": "^2.0.42",
+        "@anthropic-ai/sdk": "^0.55.1",
+        "@google/genai": "^1.10.0",
+        "@google/generative-ai": "^0.24.1",
+        "@hono/zod-validator": "^0.7.1",
+        "@scalar/hono-api-reference": "^0.9.11",
+        "@types/flubber": "^0.4.0",
+        "@vanilla-extract/recipes": "^0.5.7",
+        "ai": "^5.0.59",
+        "alchemy": "^0.81.4",
+        "atmn": "^0.0.16",
+        "better-auth": "^1.3.3",
+        "boxen": "^8.0.1",
+        "cloudflare": "^4.5.0",
+        "compromise": "^14.14.4",
+        "dedent": "^1.6.0",
+        "destr": "^2.0.5",
+        "drizzle-orm": "^0.44.3",
+        "drizzle-zod": "~0.7.1",
+        "file-type": "^21.0.0",
+        "hono-openapi": "^0.4.8",
+        "nanoid": "^5.1.5",
+        "neverthrow": "^8.2.0",
+        "pg": "^8.16.3",
+        "pino": "^9.7.0",
+        "postgres": "^3.4.7",
+        "random-word-slugs": "^0.1.7",
+        "resend": "^4.7.0",
+        "zod": "^3.25.76",
+        "zod-openapi": "^4.2.4"
+      },
+      "optional": {},
+      "development": {
+        "@biomejs/biome": "^2.2.0",
+        "@sentry/cli": "^2.52.0",
+        "@total-typescript/tsconfig": "^1.0.4",
+        "@types/pg": "^8.15.4",
+        "drizzle-kit": "^0.31.4",
+        "turbo": "^2.5.4",
+        "typescript": "5.8.3",
+        "wrangler": "^4.42.2"
+      },
+      "peer": {},
+      "workspace": [
+        "apps/*",
+        "!apps/raycast-extension",
+        "!tools/test/chatapp",
+        "packages/*"
+      ]
+    },
+    {
+      "repository": "topoteretes/cognee",
+      "commit": "c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/pyproject.toml",
+      "source_sha256": "058576edcd1d3bfb2c13ec67ec68ff0733193b07a9483425d145c4c03bedfb1b",
+      "format": "TOML",
+      "name": "cognee",
+      "version": "1.6.1",
+      "dynamic_fields": [],
+      "requires_python": ">=3.10,<3.15",
+      "license_declaration": "Apache-2.0",
+      "runtime": [
+        "openai>=1.80.1",
+        "python-dotenv>=1.0.1,<2.0.0",
+        "pydantic>=2.10.5",
+        "pydantic-settings>=2.7.0,!=2.12.*,!=2.13.*,!=2.14.0,!=2.14.1,<3",
+        "typing_extensions>=4.12.2,<5.0.0",
+        "numpy>=1.26.4, <=4.0.0",
+        "sqlalchemy>=2.0.39,<3.0.0",
+        "aiosqlite>=0.20.0,<1.0.0",
+        "filelock>=3.12.0,<4.0.0",
+        "packaging>=24.0",
+        "huggingface-hub>=0.34,<1",
+        "tokenizers>=0.22,<=0.23.0",
+        "tiktoken>=0.8.0,<1.0.0",
+        "litellm>=1.83.7,<1.97.0",
+        "instructor>=1.9.1,<1.15.3",
+        "filetype>=1.2.0,<2.0.0",
+        "aiohttp>=3.13.5,<4.0.0",
+        "aiofiles>=23.2.1",
+        "cryptography>=43.0.0,<51",
+        "rdflib>=7.1.4,<7.2.0",
+        "pypdf>=6.6.2,<7.0.0",
+        "jinja2>=3.1.3,<4",
+        "lancedb>=0.24.3,<1.0.0",
+        "nbformat>=5.7.0,<6.0.0",
+        "alembic>=1.13.3,<2",
+        "limits>=4.4.1,<6",
+        "fastapi>=0.116.2,<1.0.0",
+        "starlette>=0.48",
+        "python-multipart>=0.0.22,<1.0.0",
+        "fastapi-users[sqlalchemy]>=15.0.2",
+        "fastembed<=0.8.0",
+        "onnxruntime<=1.23.2 ; python_version < '3.14'",
+        "onnxruntime>=1.24.1 ; python_version >= '3.14'",
+        "structlog>=25.2.0,<26",
+        "pympler>=1.1,<2.0.0",
+        "pylance>=0.22.0,<=0.36.0",
+        "ladybug>=0.17.0,<0.18 ; sys_platform == 'darwin' and ('Darwin Kernel Version 22.' in platform_version or 'Darwin Kernel Version 23.' in platform_version)",
+        "ladybug==0.19.0 ; sys_platform != 'darwin' or ('Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version)",
+        "python-magic-bin<0.5 ; platform_system == 'Windows'",
+        "networkx>=3.4.2,<4",
+        "uvicorn>=0.34.0,<1.0.0",
+        "gunicorn>=20.1.0,<24",
+        "websockets>=15.0.1,<16.0.0",
+        "tenacity>=9.0.0",
+        "fakeredis[lua]>=2.32.0",
+        "diskcache>=5.6.3",
+        "aiolimiter>=1.2.1",
+        "urllib3>=2.6.0",
+        "cbor2>=5.8.0",
+        "langdetect>=1.0.9",
+        "datamodel-code-generator>=0.54.0",
+        "enola-cli==0.4.21",
+        "dlt[sqlalchemy]>=1.9.0,<2",
+        "pandas>=2.2.2,<3.0.0"
+      ],
+      "optional": {
+        "api": [],
+        "scraping": [
+          "tavily-python>=0.7.12",
+          "beautifulsoup4>=4.13.1",
+          "playwright>=1.9.0",
+          "lxml>=4.9.3,<5 ; python_version < '3.13'",
+          "lxml>=5,<6 ; python_version >= '3.13' and python_version < '3.14'",
+          "lxml>=6.0.1,<7 ; python_version >= '3.14'",
+          "protego>=0.1",
+          "APScheduler>=3.10.0,<=3.11.0"
+        ],
+        "fastembed": [],
+        "neo4j": [
+          "neo4j>=5.28.0,<6"
+        ],
+        "neptune": [
+          "langchain_aws>=0.2.22"
+        ],
+        "postgres": [
+          "psycopg2>=2.9.10,<3",
+          "pgvector>=0.3.5,<0.4",
+          "asyncpg>=0.30.0,<1.0.0"
+        ],
+        "postgres-binary": [
+          "psycopg2-binary>=2.9.10,<3.0.0",
+          "pgvector>=0.3.5,<0.4",
+          "asyncpg>=0.30.0,<1.0.0"
+        ],
+        "turso": [
+          "libsql-experimental>=0.0.55,<0.1"
+        ],
+        "notebook": [
+          "notebook>=7.1.0,<8"
+        ],
+        "langchain": [
+          "langsmith>=0.2.3,<1.0.0",
+          "langchain_text_splitters>=0.3.2,<1.0.0",
+          "langchain-core>=1.2.5"
+        ],
+        "llama-index": [
+          "llama-index-core>=0.14.20,<0.15"
+        ],
+        "huggingface": [
+          "transformers>=4.46.3,<6"
+        ],
+        "ollama": [
+          "transformers>=4.46.3,<6"
+        ],
+        "mistral": [
+          "mistral-common>=1.5.2,<2",
+          "mistralai>=1.9.10,<2"
+        ],
+        "anthropic": [
+          "anthropic>=0.27"
+        ],
+        "azure": [
+          "azure-identity>=1.15.0,<2"
+        ],
+        "deepeval": [
+          "deepeval>=3.0.1,<4"
+        ],
+        "posthog": [
+          "posthog>=3.5.0,<4"
+        ],
+        "groq": [
+          "groq>=0.8.0,<1.0.0"
+        ],
+        "llama-cpp": [
+          "llama-cpp-python[server]>=0.3.0,<1.0.0"
+        ],
+        "docs": [
+          "lxml>=4.9.3,<5 ; python_version < '3.13'",
+          "lxml>=5,<6 ; python_version >= '3.13' and python_version < '3.14'",
+          "lxml>=6.0.1,<7 ; python_version >= '3.14'",
+          "unstructured[csv, doc, docx, epub, md, odt, org, ppt, pptx, rst, rtf, tsv, xlsx, pdf]>=0.18.1,<19",
+          "nltk>=3.9.3,<4"
+        ],
+        "codegraph": [],
+        "evals": [
+          "plotly>=6.0.0,<7",
+          "gdown>=5.2.0,<6",
+          "pandas>=2.2.2,<3.0.0",
+          "matplotlib>=3.8.3,<4",
+          "scikit-learn>=1.6.1,<2",
+          "locust>=2.0.0,<3"
+        ],
+        "aws": [
+          "s3fs[boto3]==2025.3.2"
+        ],
+        "dlt": [],
+        "gmail": [
+          "google-api-python-client>=2.100.0,<3",
+          "google-auth>=2.23.0,<3",
+          "google-auth-oauthlib>=1.1.0,<2"
+        ],
+        "google-drive": [
+          "google-api-python-client>=2.100.0,<3",
+          "google-auth>=2.23.0,<3",
+          "google-auth-oauthlib>=1.1.0,<2"
+        ],
+        "baml": [
+          "baml-py (==0.206.0)"
+        ],
+        "dev": [
+          "pytest>=7.4.0,<8",
+          "pytest-cov>=6.1.1,<7.0.0",
+          "pytest-asyncio>=0.21.1,<0.22",
+          "pytest-timeout>=2.3.1,<3",
+          "pytest-split>=0.11.0,<0.12",
+          "dateparser>=1.2,<2",
+          "coverage>=7.3.2,<8",
+          "pre-commit>=4.0.1,<5",
+          "notebook>=7.1.0,<8",
+          "deptry>=0.20.0,<0.21",
+          "ruff>=0.9.2,<=0.16.6",
+          "tweepy>=4.14.0,<5.0.0",
+          "gitpython>=3.1.43,<4",
+          "mkdocs-material>=9.5.42,<10",
+          "mkdocs-minify-plugin>=0.8.0,<0.9",
+          "mkdocstrings[python]>=0.26.2,<0.27",
+          "ty>=0.0.31,<0.1.0"
+        ],
+        "debug": [
+          "debugpy>=1.8.9,<2.0.0"
+        ],
+        "redis": [
+          "redis>=5.0.3,<6.0.0"
+        ],
+        "tracing": [
+          "opentelemetry-api>=1.20.0,<2",
+          "opentelemetry-sdk>=1.20.0,<2",
+          "opentelemetry-exporter-otlp-proto-grpc>=1.20.0,<2",
+          "opentelemetry-exporter-otlp-proto-http>=1.20.0,<2"
+        ],
+        "docling": [
+          "docling-slim[convert-core,format-pdf,format-office,format-html,format-email,format-markdown,format-latex]>=2.115,<3"
+        ],
+        "docling-full": [
+          "docling>=2.115,<3",
+          "transformers>=4.55"
+        ],
+        "gliner": [
+          "gliner2[local]>=2.0.0,<3",
+          "torch>=2.1,<3",
+          "protobuf>=5.29.6",
+          "sentencepiece>=0.2.0"
+        ],
+        "rapidocr": [
+          "rapidocr-onnxruntime>=1.3.0,<2"
+        ]
+      },
+      "development": {
+        "dev": [
+          "httpx>=0.28.1",
+          "pytest>=7.4.4",
+          "pytest-asyncio>=0.21.2",
+          "pytest-timeout>=2.3.1",
+          "pytest-split>=0.11.0,<0.12",
+          "ruff>=0.13.1",
+          "dateparser>=1.2,<2"
+        ]
+      },
+      "build": {
+        "requires": [
+          "hatchling==1.32.0"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": [
+        "protobuf>=5.29.6, !=6.30.*, !=6.31.*, !=6.32.*, !=6.33.1, !=6.33.2, !=6.33.3, !=6.33.4",
+        "pyasn1>=0.6.2",
+        "wheel>=0.46.2",
+        "nltk>=3.9.3",
+        "spacy<3.8.14 ; python_version >= '3.14'",
+        "scipy>=1.16.1 ; python_version >= '3.14'"
+      ]
+    },
+    {
+      "repository": "vectorize-io/hindsight",
+      "commit": "8924a5bcfd6ff64fb20cace098021a3b61e76391",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/pyproject.toml",
+      "source_sha256": "4310866acf638e7e4917bf1a98a5593b3a3e60de30b0ca0bd23ff7174e25c71c",
+      "format": "TOML",
+      "name": null,
+      "version": null,
+      "dynamic_fields": [],
+      "requires_python": null,
+      "license_declaration": null,
+      "runtime": [],
+      "optional": {},
+      "development": {},
+      "build": {},
+      "workspace": {
+        "members": [
+          "hindsight-all",
+          "hindsight-api",
+          "hindsight-api-slim",
+          "hindsight-all-slim",
+          "hindsight-dev",
+          "hindsight-mcp-server",
+          "hindsight-clients/python",
+          "hindsight-embed"
+        ]
+      },
+      "constraints": []
+    },
+    {
+      "repository": "vectorize-io/hindsight",
+      "commit": "8924a5bcfd6ff64fb20cace098021a3b61e76391",
+      "path": "hindsight-api/pyproject.toml",
+      "source_url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/hindsight-api/pyproject.toml",
+      "source_sha256": "0041f789d2daab23564a05077717d7281f8851c83984410ef66187a545539591",
+      "format": "TOML",
+      "name": "hindsight-api",
+      "version": "0.10.1",
+      "dynamic_fields": [],
+      "requires_python": ">=3.11",
+      "license_declaration": "MIT",
+      "runtime": [
+        "hindsight-api-slim[all]==0.10.1"
+      ],
+      "optional": {},
+      "development": {},
+      "build": {
+        "requires": [
+          "setuptools>=77"
+        ],
+        "build-backend": "setuptools.build_meta"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "vectorize-io/hindsight",
+      "commit": "8924a5bcfd6ff64fb20cace098021a3b61e76391",
+      "path": "hindsight-api-slim/pyproject.toml",
+      "source_url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/hindsight-api-slim/pyproject.toml",
+      "source_sha256": "4e73d3aae4711cb95639a2b3cfbe93ccf3a411b2ab3d4ad8924b7abc279930ec",
+      "format": "TOML",
+      "name": "hindsight-api-slim",
+      "version": "0.10.1",
+      "dynamic_fields": [],
+      "requires_python": ">=3.11",
+      "license_declaration": "MIT",
+      "runtime": [
+        "asyncpg>=0.30.0",
+        "python-dotenv>=1.0.0",
+        "openai>=1.66.0",
+        "pydantic>=2.0.0",
+        "rich>=13.0.0",
+        "fastapi[standard]>=0.120.3",
+        "uvicorn>=0.38.0",
+        "wsproto>=1.0.0",
+        "sqlalchemy>=2.0.44,<2.1",
+        "alembic>=1.17.1",
+        "pgvector>=0.4.1",
+        "greenlet>=3.2.4,<3.4.0",
+        "psycopg2-binary>=2.9.11",
+        "toktok-rs>=0.1.3",
+        "httpx>=0.27.0",
+        "fastmcp>=3.2.0",
+        "python-dateutil>=2.8.0",
+        "opentelemetry-api>=1.44.0",
+        "opentelemetry-sdk>=1.44.0",
+        "opentelemetry-instrumentation-fastapi>=0.65b0",
+        "opentelemetry-exporter-prometheus>=0.65b0",
+        "opentelemetry-exporter-otlp-proto-http>=1.44.0",
+        "opentelemetry-semantic-conventions>=0.65b0",
+        "dateparser>=1.4.2",
+        "regex>=2026.9.3",
+        "google-genai>=1.72.0",
+        "google-auth>=2.0.0",
+        "anthropic>=0.40.0",
+        "typer>=0.9.0",
+        "cohere>=5.0.0",
+        "litellm>=1.93.0; sys_platform != 'darwin'",
+        "litellm>=1.91.3,<1.92; sys_platform == 'darwin'",
+        "markitdown[pdf,docx,pptx,xlsx,xls]>=0.1.4",
+        "obstore>=0.4.0",
+        "winloop>=0.1.0; sys_platform == 'win32'",
+        "uvloop>=0.22.1; sys_platform != 'win32'",
+        "pyasn1>=0.6.3",
+        "urllib3>=2.7.0",
+        "protobuf>=7.35.1",
+        "pillow>=12.3.0",
+        "cryptography>=50.0.0",
+        "filelock>=3.20.1",
+        "authlib>=1.6.9",
+        "pyjwt>=2.12.0",
+        "python-multipart>=0.0.22",
+        "aiohttp>=3.14.3",
+        "pygments>=2.20.0",
+        "claude-agent-sdk>=0.2.82",
+        "github-copilot-sdk>=1.0.11",
+        "boto3>=1.42.74",
+        "croniter>=2.0.0",
+        "json-repair>=0.63.2",
+        "orjson>=3.11.0",
+        "numpy>=1.26.0"
+      ],
+      "optional": {
+        "local-ml": [
+          "sentence-transformers>=5.0.0",
+          "transformers>=5.5.0",
+          "tokenizers>=0.22.0,<=0.23.0",
+          "torch>=2.11.0",
+          "einops>=0.8.2",
+          "flashrank>=0.2.0",
+          "mlx>=0.31.0; sys_platform == 'darwin' and platform_machine == 'arm64'",
+          "mlx-lm>=0.31.1; sys_platform == 'darwin' and platform_machine == 'arm64'",
+          "safetensors>=0.6.2"
+        ],
+        "local-llm": [
+          "llama-cpp-python[server]>=0.3.0",
+          "huggingface-hub>=0.20.0"
+        ],
+        "local-onnx": [
+          "onnxruntime>=1.17.0",
+          "transformers>=5.5.0",
+          "tokenizers>=0.22.0,<=0.23.0",
+          "huggingface-hub>=0.20.0",
+          "numpy>=1.26.0"
+        ],
+        "embedded-db": [
+          "pg0-embedded>=0.15.0"
+        ],
+        "oracle": [
+          "oracledb>=2.5.0"
+        ],
+        "all": [
+          "hindsight-api-slim[local-ml,local-onnx,embedded-db]"
+        ],
+        "test": [
+          "pytest>=7.0.0",
+          "pytest-asyncio>=0.21.0",
+          "pytest-timeout>=2.4.0",
+          "pytest-xdist>=3.0.0",
+          "filelock>=3.20.1",
+          "testcontainers>=4.0.0"
+        ]
+      },
+      "development": {
+        "dev": [
+          "pytest>=9.0.0",
+          "pytest-asyncio>=1.3.0",
+          "pytest-timeout>=2.4.0",
+          "pytest-xdist>=3.8.0",
+          "pytest-rerunfailures>=15.0",
+          "python-dotenv>=1.2.1",
+          "filelock>=3.20.1",
+          "ruff>=0.8.0",
+          "ty>=0.0.1",
+          "testcontainers>=4.0.0"
+        ]
+      },
+      "build": {
+        "requires": [
+          "hatchling>=1.27"
+        ],
+        "build-backend": "hatchling.build"
+      },
+      "workspace": null,
+      "constraints": []
+    },
+    {
+      "repository": "volcengine/OpenViking",
+      "commit": "1f4f7039fc394c5d04637828166f4e4e74e249e0",
+      "path": "pyproject.toml",
+      "source_url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/pyproject.toml",
+      "source_sha256": "71947c3470d658a944a4b2325513d3f9eb791558a06b5e4bdad5c47d957883dd",
+      "format": "TOML",
+      "name": "openviking",
+      "version": null,
+      "dynamic_fields": [
+        "version"
+      ],
+      "requires_python": ">=3.10",
+      "license_declaration": "AGPL-3.0",
+      "runtime": [
+        "openviking-sdk>=0.1.9",
+        "pydantic>=2.0.0",
+        "typing-extensions>=4.5.0",
+        "pyyaml>=6.0",
+        "httpx>=0.25.0",
+        "pdfplumber>=0.10.0",
+        "scrapy>=2.11.0",
+        "trafilatura>=1.12.0",
+        "feedparser>=6.0.0",
+        "defusedxml>=0.7.1",
+        "openai>=1.0.0",
+        "requests>=2.33.0",
+        "charset-normalizer>=3.4,<4",
+        "firecrawl-anydoc>=0.2.4,<0.3",
+        "json-repair>=0.25.0",
+        "apscheduler>=3.11.0",
+        "volcengine>=1.0.216",
+        "volcengine-python-sdk[ark]>=5.0.3",
+        "fastapi>=0.128.0",
+        "uvicorn>=0.39.0",
+        "xxhash>=3.0.0",
+        "rapidfuzz>=3.14,<4",
+        "jinja2>=3.1.6",
+        "tabulate>=0.9.0",
+        "urllib3>=2.7.0",
+        "protobuf>=6.33.5",
+        "pdfminer-six>=20251230",
+        "typer>=0.12.0",
+        "litellm>=1.83.7,<1.91.2",
+        "python-multipart>=0.0.31",
+        "tree-sitter==0.25.2",
+        "tree-sitter-python==0.25.0",
+        "tree-sitter-javascript==0.25.0",
+        "tree-sitter-typescript==0.23.2",
+        "tree-sitter-java==0.23.5",
+        "tree-sitter-cpp==0.23.4",
+        "tree-sitter-rust==0.24.0",
+        "tree-sitter-go==0.25.0",
+        "tree-sitter-c-sharp==0.23.1",
+        "tree-sitter-php==0.24.1",
+        "tree-sitter-lua==0.5.0",
+        "opentelemetry-api>=1.14",
+        "opentelemetry-sdk>=1.14",
+        "opentelemetry-exporter-otlp-proto-grpc>=1.14",
+        "opentelemetry-exporter-otlp-proto-http>=1.14",
+        "opentelemetry-instrumentation-asyncio>=0.61b0",
+        "loguru>=0.7.3",
+        "cryptography>=48.0.1",
+        "argon2-cffi>=23.0.0",
+        "lark-oapi>=1.5.3",
+        "mcp>=1.27,<2",
+        "pathspec>=1.1.1",
+        "grep-ast==0.9.0",
+        "tree-sitter-language-pack==1.13.3"
+      ],
+      "optional": {
+        "test": [
+          "pytest>=7.0.0",
+          "pytest-asyncio>=0.21.0",
+          "pytest-xdist>=3.5.0",
+          "boto3>=1.42.44",
+          "pytest-cov>=4.0.0",
+          "ragas>=0.1.0",
+          "datasets>=2.0.0",
+          "pandas>=2.0.0",
+          "diff-match-patch>=20200713",
+          "hvac>=2.0.0"
+        ],
+        "auth": [
+          "python-jose[cryptography]>=3.3.0",
+          "httpx>=0.25.0",
+          "python-ldap>=3.4.0"
+        ],
+        "dev": [
+          "mypy>=1.0.0",
+          "ruff>=0.1.0",
+          "setuptools_scm>=10.0.0"
+        ],
+        "doc": [
+          "sphinx>=7.0.0",
+          "sphinx-rtd-theme>=1.3.0",
+          "myst-parser>=2.0.0"
+        ],
+        "eval": [
+          "ragas>=0.1.0",
+          "datasets>=2.0.0",
+          "pandas>=2.0.0"
+        ],
+        "gemini": [
+          "google-genai>=1.0.0"
+        ],
+        "gemini-async": [
+          "google-genai>=1.0.0",
+          "anyio>=4.0.0"
+        ],
+        "ocr": [
+          "pytesseract>=0.3.10"
+        ],
+        "build": [
+          "setuptools>=61.0",
+          "setuptools-scm>=8.0",
+          "cmake>=3.15",
+          "wheel",
+          "build"
+        ],
+        "bot": [
+          "pydantic-settings>=2.0.0",
+          "websockets>=12.0",
+          "websocket-client>=1.6.0",
+          "httpx[socks]>=0.25.0",
+          "readability-lxml>=0.8.0",
+          "rich>=13.0.0",
+          "croniter>=2.0.0",
+          "socksio>=1.0.0",
+          "python-socketio>=5.16.2",
+          "python-engineio>=4.13.2",
+          "msgpack>=1.0.8",
+          "python-socks[asyncio]>=2.4.0",
+          "prompt-toolkit>=3.0.0",
+          "pygments>=2.16.0",
+          "html2text>=2020.1.16",
+          "beautifulsoup4>=4.12.0",
+          "ddgs>=9.0.0",
+          "tavily-python>=0.5.0",
+          "py-machineid>=1.0.0",
+          "mcp>=1,<2",
+          "langfuse>=3.0.0",
+          "python-telegram-bot[socks]>=21.0",
+          "lark-oapi>=1.0.0",
+          "dingtalk-stream>=0.4.0",
+          "slack-sdk>=3.26.0",
+          "qq-botpy>=1.0.0",
+          "opensandbox>=0.1.5",
+          "opensandbox-server>=0.1.6",
+          "agent-sandbox>=0.0.23",
+          "fusepy>=3.0.1",
+          "opencode-ai>=0.1.0a0",
+          "python-jose[cryptography]>=3.3.0"
+        ],
+        "benchmark": [
+          "langchain>=1.0.0",
+          "langchain-core>=1.0.0",
+          "langchain-openai>=1.0.0",
+          "tiktoken>=0.5.0",
+          "datasets>=2.0.0",
+          "pandas>=2.0.0",
+          "python-docx>=1.0.0"
+        ],
+        "local-embed": [
+          "llama-cpp-python>=0.3.0"
+        ],
+        "opengauss": [
+          "psycopg2-binary>=2.9,<3"
+        ]
+      },
+      "development": {
+        "dev": [
+          "pytest>=9.0.2"
+        ]
+      },
+      "build": {
+        "requires": [
+          "setuptools>=61.0",
+          "setuptools-scm>=8.0",
+          "cmake>=3.15",
+          "maturin>=1.0,<2.0",
+          "wheel"
+        ],
+        "build-backend": "setuptools.build_meta"
+      },
+      "workspace": null,
+      "constraints": []
+    }
+  ]
+}

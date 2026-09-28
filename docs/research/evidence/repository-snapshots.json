@@ -1,0 +1,1060 @@
+{
+  "accessed": "2026-09-28",
+  "scope": "retrieved source files; static review only; no builds or benchmark runs",
+  "repositories": [
+    {
+      "repository": "BAI-LAB/MemoryOS",
+      "commit": "587ed7755c7aed179965792830ff1b5ad9a6fa92",
+      "commit_date": "2026-07-07T12:32:18Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 20378,
+          "sha256": "1580d664129c9804fa59b1327952ec11bd504ec85672b214b76dc2a8fe1df151",
+          "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11341,
+          "sha256": "68c3ba87a6d623bd47ea90449ca54e7bf5e247cee799eb54e8bd094fb9878c29",
+          "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/LICENSE"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "EverMind-AI/EverMemOS",
+      "commit": "462ebf9fd59b55c03fefb8eec855c62500f2a3cf",
+      "commit_date": "2026-09-24T10:31:07Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 28159,
+          "sha256": "ce1077f9f65140aec8db2469e5e0c41932908f306641d185045b72b45d92b9ad",
+          "url": "https://github.com/EverMind-AI/EverMemOS/blob/462ebf9fd59b55c03fefb8eec855c62500f2a3cf/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 15454,
+          "sha256": "c64344c7241d9bb3d4dec28d6ce241453f12e75cd688d25e59dba1b715acd098",
+          "url": "https://github.com/EverMind-AI/EverMemOS/blob/462ebf9fd59b55c03fefb8eec855c62500f2a3cf/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11341,
+          "sha256": "748007f17980117469390a385c37423c4bea2b0627cb6be00be315f9e64fc020",
+          "url": "https://github.com/EverMind-AI/EverMemOS/blob/462ebf9fd59b55c03fefb8eec855c62500f2a3cf/LICENSE"
+        },
+        {
+          "path": "src/everos/memory/extract/pipeline/user_memory.py",
+          "bytes": 12370,
+          "sha256": "e290931bc7fea4ab32bc0fc0374464cbe24e2dfb2dcbd00df4bb103374a0ab7a",
+          "url": "https://github.com/EverMind-AI/EverMemOS/blob/462ebf9fd59b55c03fefb8eec855c62500f2a3cf/src/everos/memory/extract/pipeline/user_memory.py"
+        },
+        {
+          "path": "src/everos/infra/persistence/sqlite/tables/memcell.py",
+          "bytes": 2237,
+          "sha256": "d042f97ee4721ffc8ced7c38ab700e54ffa512db7f7a3404b02df10615d741ec",
+          "url": "https://github.com/EverMind-AI/EverMemOS/blob/462ebf9fd59b55c03fefb8eec855c62500f2a3cf/src/everos/infra/persistence/sqlite/tables/memcell.py"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "requirements.txt",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "package.json",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "repository": "HKUDS/LightRAG",
+      "commit": "453dce83d6d0354a06e46c8d4029a0895c4e054b",
+      "commit_date": "2026-09-26T08:33:35Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 53174,
+          "sha256": "7b394a331a17be0fe27b14800984c0abba94dba6f08e4f14f89a4e762cd350a5",
+          "url": "https://github.com/HKUDS/LightRAG/blob/453dce83d6d0354a06e46c8d4029a0895c4e054b/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 9189,
+          "sha256": "cbeb6e6e201a36913d73597e4f9b6148c152751666a9cecc4a2b0301916f5ab0",
+          "url": "https://github.com/HKUDS/LightRAG/blob/453dce83d6d0354a06e46c8d4029a0895c4e054b/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1070,
+          "sha256": "0c16924564059e493c86854574660a47ed1dcc2a476ba7b5f949d3f2f73a1984",
+          "url": "https://github.com/HKUDS/LightRAG/blob/453dce83d6d0354a06e46c8d4029a0895c4e054b/LICENSE"
+        },
+        {
+          "path": "lightrag/operate.py",
+          "bytes": 299930,
+          "sha256": "176585e3f686574ab98657b666982302ce47d58229baacb529ef601bd6799326",
+          "url": "https://github.com/HKUDS/LightRAG/blob/453dce83d6d0354a06e46c8d4029a0895c4e054b/lightrag/operate.py"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "requirements.txt",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "repository": "MemMachine/MemMachine",
+      "commit": "d57f5cb36a357c01085f571a0cdd2dfbc9882f89",
+      "commit_date": "2026-09-25T19:15:26Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 8052,
+          "sha256": "ee9e89f147008e7ece5f9d8fb42587e60444fe46ff0f33543decd0acfb3e3edd",
+          "url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 3954,
+          "sha256": "626cf687b44e566dde03bbc2863f2ca19c9774770abcc65f0cd5c7d845f5c1fe",
+          "url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11343,
+          "sha256": "05f33b1a4f2797532e331898b95db7b1cf51ee06b7cb0d24b87dfe05101e21e3",
+          "url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/LICENSE"
+        },
+        {
+          "path": "packages/server/pyproject.toml",
+          "bytes": 3527,
+          "sha256": "05a469b4ef9633119f6188573410f79350f005cf33aed3fb04a5d6eb32ee0d47",
+          "url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/packages/server/pyproject.toml"
+        },
+        {
+          "path": "packages/common/pyproject.toml",
+          "bytes": 1248,
+          "sha256": "933138e89c93d6976337e00cd37891e6bb6aa9ab5bbc22cab5441ee5f61804e4",
+          "url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/packages/common/pyproject.toml"
+        },
+        {
+          "path": "packages/client/pyproject.toml",
+          "bytes": 1455,
+          "sha256": "1fa1099df90a29c7e23fd716edee711c491b48b6ebba11535851dd5baccb26c7",
+          "url": "https://github.com/MemMachine/MemMachine/blob/d57f5cb36a357c01085f571a0cdd2dfbc9882f89/packages/client/pyproject.toml"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "MemTensor/MemOS",
+      "commit": "a7367d07e55db61099f7b4e2c1108bc5831a24f3",
+      "commit_date": "2026-09-22T01:51:03Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 17535,
+          "sha256": "9c2ec97ba97e5371088e041d04085f70195b4626a9dcb517194f90b9495b30dc",
+          "url": "https://github.com/MemTensor/MemOS/blob/a7367d07e55db61099f7b4e2c1108bc5831a24f3/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 8164,
+          "sha256": "e0e931fe30f7e300ab149ff78492f123459834d6c58d0de9c6ced517310ef3a5",
+          "url": "https://github.com/MemTensor/MemOS/blob/a7367d07e55db61099f7b4e2c1108bc5831a24f3/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11358,
+          "sha256": "154f9be8df2d55ceddcd4646c8d8d4206d48867ae1da2b81ce2ab86b51a5f075",
+          "url": "https://github.com/MemTensor/MemOS/blob/a7367d07e55db61099f7b4e2c1108bc5831a24f3/LICENSE"
+        },
+        {
+          "path": "src/memos/mem_os/main.py",
+          "bytes": 24589,
+          "sha256": "407069c77c8c071e67827e794a9f75d4225606761ebe4536371d143bc496ca03",
+          "url": "https://github.com/MemTensor/MemOS/blob/a7367d07e55db61099f7b4e2c1108bc5831a24f3/src/memos/mem_os/main.py"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "NevaMind-AI/memU",
+      "commit": "2c050bc9681a4c0aff1af211a000e73d14f33356",
+      "commit_date": "2026-09-21T11:45:36Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 11846,
+          "sha256": "214ae0762a962f4540c1a3ff72e458ef612fd235ff9ede15f8d5cd27a17a6cea",
+          "url": "https://github.com/NevaMind-AI/memU/blob/2c050bc9681a4c0aff1af211a000e73d14f33356/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 4226,
+          "sha256": "6b397bba06842398a5aaab5480362304833205fb4726b41b06b13c1fda6dd213",
+          "url": "https://github.com/NevaMind-AI/memU/blob/2c050bc9681a4c0aff1af211a000e73d14f33356/pyproject.toml"
+        },
+        {
+          "path": "LICENSE.txt",
+          "bytes": 10897,
+          "sha256": "0e2bcb97222f1ba09e333c70ecef4845470e16fdea953a1d0882d5ef2213d25a",
+          "url": "https://github.com/NevaMind-AI/memU/blob/2c050bc9681a4c0aff1af211a000e73d14f33356/LICENSE.txt"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "OSU-NLP-Group/HippoRAG",
+      "commit": "1438aba3fc44ff10573e5a5e1e7cc3c7f9794aff",
+      "commit_date": "2026-09-03T12:15:38Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 23618,
+          "sha256": "a63d90196464809fbd42eee73b2571a8c91603c2b01e0e2108d7f4673a08fad5",
+          "url": "https://github.com/OSU-NLP-Group/HippoRAG/blob/1438aba3fc44ff10573e5a5e1e7cc3c7f9794aff/README.md"
+        },
+        {
+          "path": "requirements.txt",
+          "bytes": 331,
+          "sha256": "4a7f270776ab3c2ebb90234c14444e83d514d19ce594956532cb1d71ea32a669",
+          "url": "https://github.com/OSU-NLP-Group/HippoRAG/blob/1438aba3fc44ff10573e5a5e1e7cc3c7f9794aff/requirements.txt"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1088,
+          "sha256": "93b43d692b033b76129504448695bfe76ef22d18b11e51352bfab4b5622e5aaa",
+          "url": "https://github.com/OSU-NLP-Group/HippoRAG/blob/1438aba3fc44ff10573e5a5e1e7cc3c7f9794aff/LICENSE"
+        },
+        {
+          "path": "src/hipporag/HippoRAG.py",
+          "bytes": 116352,
+          "sha256": "179de8618c890769e3a975eaa89aad9fb0ee451f90a0175c5d0c382548210c0d",
+          "url": "https://github.com/OSU-NLP-Group/HippoRAG/blob/1438aba3fc44ff10573e5a5e1e7cc3c7f9794aff/src/hipporag/HippoRAG.py"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "pyproject.toml",
+          "error": "HTTP Error 503: Backend unavailable, connection timeout"
+        }
+      ]
+    },
+    {
+      "repository": "agiresearch/A-mem",
+      "commit": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+      "commit_date": "2025-12-12T21:15:29Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 6390,
+          "sha256": "6f7185bb241d8ed5f7c0b8c4716b4f5e5cf1e9a3c630c3a1a92e54c3f5fb88b0",
+          "url": "https://github.com/agiresearch/A-mem/blob/ceffb860f0712bbae97b184d440df62bc910ca8d/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 1184,
+          "sha256": "d0cb38f6860dfa50cdc0141896bc6115501bd181fd6c122910cdf0fb07db9dc5",
+          "url": "https://github.com/agiresearch/A-mem/blob/ceffb860f0712bbae97b184d440df62bc910ca8d/pyproject.toml"
+        },
+        {
+          "path": "requirements.txt",
+          "bytes": 175,
+          "sha256": "d01b0399ebf1903f2b88d92f238eb229cebe1ddc434ba2c65c4e716642f636ec",
+          "url": "https://github.com/agiresearch/A-mem/blob/ceffb860f0712bbae97b184d440df62bc910ca8d/requirements.txt"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1068,
+          "sha256": "c8a51c83455b8afc3a11b085ce57c7b9b34c6725d6b2329ce3dd9a273f0add6d",
+          "url": "https://github.com/agiresearch/A-mem/blob/ceffb860f0712bbae97b184d440df62bc910ca8d/LICENSE"
+        },
+        {
+          "path": "agentic_memory/memory_system.py",
+          "bytes": 32697,
+          "sha256": "fa58c3ed405e37d298a3d11e5cd69459bc9709004461c0e01fc0c497c77c949b",
+          "url": "https://github.com/agiresearch/A-mem/blob/ceffb860f0712bbae97b184d440df62bc910ca8d/agentic_memory/memory_system.py"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "aiming-lab/SimpleMem",
+      "commit": "db80b6a7c591e0ea730a058e9f5fc4eb06572299",
+      "commit_date": "2026-07-24T07:40:38Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 25454,
+          "sha256": "420cdf2a5c22d74354d11e7617fdd24a1ce60eeba8e0d21b51ed4442b7149001",
+          "url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/README.md"
+        },
+        {
+          "path": "requirements.txt",
+          "bytes": 2360,
+          "sha256": "cc62dbb8cf954b1c58928723153136af3e0759df77746de09fc2c2bb58fb9783",
+          "url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/requirements.txt"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "sha256": "276dc8cc9eb5a8c59d1edca3283163815d2caa512b17bd0bf053050304b4cd3e",
+          "url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/LICENSE"
+        },
+        {
+          "path": "setup.py",
+          "bytes": 4078,
+          "sha256": "1597a4f403f0794ebcedf7eac5bd26bd106e48a4b504a7d03a1669a795253a12",
+          "url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/setup.py"
+        },
+        {
+          "path": "simplemem/core/memory_builder.py",
+          "bytes": 17967,
+          "sha256": "ade5d9c252158ede2d0bd4ca3da027e913d6e88dbe616e00f5962178053c9dc7",
+          "url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/simplemem/core/memory_builder.py"
+        },
+        {
+          "path": "simplemem/core/hybrid_retriever.py",
+          "bytes": 39148,
+          "sha256": "63d6a3522e8a4c5d3a073b5dbf8ac003844c37993bf16033bb5c9a3807db5381",
+          "url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/simplemem/core/hybrid_retriever.py"
+        },
+        {
+          "path": "simplemem/core/models/memory_entry.py",
+          "bytes": 2751,
+          "sha256": "487209f5d6981a12568ec3f6f4597d2bd1437a82a0ef9af85c5dc755bc2947c8",
+          "url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/simplemem/core/models/memory_entry.py"
+        },
+        {
+          "path": "simplemem/core/database/vector_store.py",
+          "bytes": 6424,
+          "sha256": "a7519fa27cfcfdceb4e146780c948c96e2840cea11965a94c296b786623fff29",
+          "url": "https://github.com/aiming-lab/SimpleMem/blob/db80b6a7c591e0ea730a058e9f5fc4eb06572299/simplemem/core/database/vector_store.py"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "pyproject.toml",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "package.json",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "repository": "basicmachines-co/basic-memory",
+      "commit": "22d31e96e2defa465d3703620a537c9125e7d364",
+      "commit_date": "2026-09-24T00:54:32Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 24495,
+          "sha256": "f17c69dbb796108638d4da27fc7929aef8f6cd99d2c66ec4b22b01a8ca40dc52",
+          "url": "https://github.com/basicmachines-co/basic-memory/blob/22d31e96e2defa465d3703620a537c9125e7d364/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 8979,
+          "sha256": "4e694e6591de3d3e3ca8c6e0437a3cbe4b0cbd030bca9982e0939fa88c32ffdc",
+          "url": "https://github.com/basicmachines-co/basic-memory/blob/22d31e96e2defa465d3703620a537c9125e7d364/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 34523,
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+          "url": "https://github.com/basicmachines-co/basic-memory/blob/22d31e96e2defa465d3703620a537c9125e7d364/LICENSE"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "getzep/graphiti",
+      "commit": "6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a",
+      "commit_date": "2026-09-27T08:49:42Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 28280,
+          "sha256": "ce1628c02b3c6fd5b59e3e48dc61c958f07824033b4d0b989bb8d433932b6b3f",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 2847,
+          "sha256": "52b58f16f325fe923ec1d05e35f3157df458e36b5a460ccf4fc34b2623fba0ac",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11325,
+          "sha256": "2825300b20d7b951209835a4a331f29e24725a39d65168e4b831df53aa372650",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/LICENSE"
+        },
+        {
+          "path": "graphiti_core/edges.py",
+          "bytes": 33631,
+          "sha256": "0151d72ebfb057033c6d52a163e22f252f67b915722e14315b685c7831b3b1c6",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/graphiti_core/edges.py"
+        },
+        {
+          "path": "graphiti_core/nodes.py",
+          "bytes": 38014,
+          "sha256": "529eb74b7c93e7551f6287b1a7bf6818d31fd045623b3260967dad573e4d801c",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/graphiti_core/nodes.py"
+        },
+        {
+          "path": "graphiti_core/graphiti.py",
+          "bytes": 74701,
+          "sha256": "2d0ffbb8b6de59787269326a9255d875f74da63ed66fd4f4fad3f159538d0fdd",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/graphiti_core/graphiti.py"
+        },
+        {
+          "path": "graphiti_core/utils/maintenance/edge_operations.py",
+          "bytes": 36703,
+          "sha256": "b773ff4489968af2a996d5074e679cab9806cc0904a7ff9f2aecc74382325abe",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/graphiti_core/utils/maintenance/edge_operations.py"
+        },
+        {
+          "path": "graphiti_core/utils/maintenance/node_operations.py",
+          "bytes": 37809,
+          "sha256": "a5874fa63bb38ff6a5d89fedcb6c07701b81ca736d435b69fb26ce26bd6bd921",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/graphiti_core/utils/maintenance/node_operations.py"
+        },
+        {
+          "path": "graphiti_core/search/search.py",
+          "bytes": 33042,
+          "sha256": "9fe64da1825864950285b1733a4920001d70c780e3f0386837e98eedbfed7529",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/graphiti_core/search/search.py"
+        },
+        {
+          "path": "graphiti_core/search/search_config.py",
+          "bytes": 5276,
+          "sha256": "43bbc500b16a814f88b0361b1a3cdc2e51f354807489eba73ca407a6c9352157",
+          "url": "https://github.com/getzep/graphiti/blob/6b4b56ff6f4b1e4e69c3c3c5487cf1b8762c483a/graphiti_core/search/search_config.py"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "langchain-ai/langmem",
+      "commit": "9d033b47d9ce53e37e92c92241b0496c0278932e",
+      "commit_date": "2026-09-09T06:44:42Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 5205,
+          "sha256": "e1edd000d263bfea842c34273add82421340c2caf2d7b87edd285daf02156ca3",
+          "url": "https://github.com/langchain-ai/langmem/blob/9d033b47d9ce53e37e92c92241b0496c0278932e/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 2056,
+          "sha256": "6a964d268d23b8860c848b7b23f2dc6998204eaa0eb28cfe2d404359eb51611a",
+          "url": "https://github.com/langchain-ai/langmem/blob/9d033b47d9ce53e37e92c92241b0496c0278932e/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1066,
+          "sha256": "98af1351ea856e008c835bc89a312905960a318072f950732bf346c741027c7d",
+          "url": "https://github.com/langchain-ai/langmem/blob/9d033b47d9ce53e37e92c92241b0496c0278932e/LICENSE"
+        },
+        {
+          "path": "src/langmem/knowledge/extraction.py",
+          "bytes": 81775,
+          "sha256": "165d4c019f55a365dba5a551e1af0c0313a2f4bab292e47493acc6f1cd62c13e",
+          "url": "https://github.com/langchain-ai/langmem/blob/9d033b47d9ce53e37e92c92241b0496c0278932e/src/langmem/knowledge/extraction.py"
+        },
+        {
+          "path": "src/langmem/knowledge/tools.py",
+          "bytes": 19240,
+          "sha256": "0118d3623a19c9b6c8c3d477aead51f08eeb44771c3ae3f51cd32d8a800b78d7",
+          "url": "https://github.com/langchain-ai/langmem/blob/9d033b47d9ce53e37e92c92241b0496c0278932e/src/langmem/knowledge/tools.py"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "letta-ai/letta",
+      "commit": "5bcdd177d70fa2b31a754cfcd801e77b2e1ab16a",
+      "commit_date": "2026-09-10T17:59:06Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 1574,
+          "sha256": "1d624e8fd383c1198c8d42da87b055d591a5760e19607692eb46bbbfe2a58f03",
+          "url": "https://github.com/letta-ai/letta/blob/5bcdd177d70fa2b31a754cfcd801e77b2e1ab16a/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 10759,
+          "sha256": "984c6db99fc6609803108dfc196762118662cd94b82a456dd9217583f18f3612",
+          "url": "https://github.com/letta-ai/letta/blob/5bcdd177d70fa2b31a754cfcd801e77b2e1ab16a/LICENSE"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "pyproject.toml",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "letta/schemas/block.py",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "letta/functions/function_sets/base.py",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "repository": "letta-ai/letta-code",
+      "commit": "c864f1532b328aab4bb76cc68a86d5f014de27b8",
+      "commit_date": "2026-09-28T04:15:42Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 9332,
+          "sha256": "94ae79890b06b8f30dcb3f64100c4fdbc6dc1b48b02916e3e0c324d4300e0779",
+          "url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 8188,
+          "sha256": "fcea8a4e98864e3a5a690da16d6af421e7d48d398d2f253e1e36fc76de36a803",
+          "url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/package.json"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11092,
+          "sha256": "036e78b9d7dd33ae5b378fdda973b4aad7901c8d8371a0ae40fae1f6659a89d0",
+          "url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/LICENSE"
+        },
+        {
+          "path": "src/agent/memory.ts",
+          "bytes": 3120,
+          "sha256": "69091e54edee542996c9aa4614a13ddf66f748e2c1c4a871464a659317b69da4",
+          "url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/src/agent/memory.ts"
+        },
+        {
+          "path": "src/agent/prompts/memory_filesystem.mdx",
+          "bytes": 105,
+          "sha256": "c0ccac8154b5cca6126a39e910f478691b11a8b14f1c8522eb2effc61bf43a2b",
+          "url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/src/agent/prompts/memory_filesystem.mdx"
+        },
+        {
+          "path": "src/agent/memory-filesystem.ts",
+          "bytes": 22353,
+          "sha256": "a2884fd2e467af615a7a56584ccf9df520e470c6eef39930a98ec7dc10bfe628",
+          "url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/src/agent/memory-filesystem.ts"
+        },
+        {
+          "path": "src/agent/memory-git.ts",
+          "bytes": 58836,
+          "sha256": "845cbb7d71c23381ba9a364974f3e901e386971c7e57930bcdff7e100ff0a2c4",
+          "url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/src/agent/memory-git.ts"
+        },
+        {
+          "path": "src/agent/memory-constraints.ts",
+          "bytes": 7355,
+          "sha256": "e0675dcba11724bb59bf09557223bd4d853b6b124d9a77da4900c7d02d595a7a",
+          "url": "https://github.com/letta-ai/letta-code/blob/c864f1532b328aab4bb76cc68a86d5f014de27b8/src/agent/memory-constraints.ts"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "pyproject.toml",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "requirements.txt",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "repository": "mem0ai/mem0",
+      "commit": "94c3fe9f238f3dbf29c9ce98643bd71eb13077cd",
+      "commit_date": "2026-09-25T17:34:12Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 11914,
+          "sha256": "7509347d34a767a2ef37ceb6cf6c714de9e8d84fe66ad5eea92bbae824a8fbeb",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 3394,
+          "sha256": "d4bc078a05cc7b9d677bbf4d0b262cfc532495b5aadeded053ac84fd90b6e974",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11349,
+          "sha256": "0bbcbe931c353293a2fafce08326181dfeea0e568c566afd4ce8337a70f5e219",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/LICENSE"
+        },
+        {
+          "path": "mem0/memory/main.py",
+          "bytes": 169881,
+          "sha256": "f329ca4a17af1fbefb32ac10d4cc7ae7ddbdb7435a87eb74c30915cff98b8b7c",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/mem0/memory/main.py"
+        },
+        {
+          "path": "mem0/configs/base.py",
+          "bytes": 3275,
+          "sha256": "8bc0431f599c13ab2aff887e7b6eecc2688f8f4d070d76f029b3b55e37169b33",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/mem0/configs/base.py"
+        },
+        {
+          "path": "mem0/vector_stores/configs.py",
+          "bytes": 2538,
+          "sha256": "f6f449eae10e16dad4767d83a7480a7ab891f5abf9ce519db46a8ece5771e003",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/mem0/vector_stores/configs.py"
+        },
+        {
+          "path": "mem0/configs/prompts.py",
+          "bytes": 64064,
+          "sha256": "10bc8a34b3b5f0ce24560a2a3190c9112b979a891b981f48393bbd168d915a5c",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/mem0/configs/prompts.py"
+        },
+        {
+          "path": "docs/open-source/configuration.mdx",
+          "bytes": 6017,
+          "sha256": "fc9ac0af94c22266782ecec41bf5fe7910a4f834c17838e7a5203cfae95386c8",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/docs/open-source/configuration.mdx"
+        },
+        {
+          "path": "docs/platform/features/graph-memory.mdx",
+          "bytes": 7002,
+          "sha256": "d73b72bd8bf5276a33c14b04bd236c1bd9a7b671ba769a10e7b51921720fa809",
+          "url": "https://github.com/mem0ai/mem0/blob/94c3fe9f238f3dbf29c9ce98643bd71eb13077cd/docs/platform/features/graph-memory.mdx"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "memodb-io/memobase",
+      "commit": "358c16bbc6d687937d79bc2f984a11c3be8da901",
+      "commit_date": "2026-01-11T03:43:56Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 11338,
+          "sha256": "ad79127bef564bb5b553d630958ea64212a8a29ef3960d4b407cc1ad781b56a7",
+          "url": "https://github.com/memodb-io/memobase/blob/358c16bbc6d687937d79bc2f984a11c3be8da901/LICENSE"
+        },
+        {
+          "path": "readme.md",
+          "bytes": 14612,
+          "sha256": "165358fb6d152f03da71bb9c09a0391c29abd047841e8e530b3802f4f5af1595",
+          "url": "https://github.com/memodb-io/memobase/blob/358c16bbc6d687937d79bc2f984a11c3be8da901/readme.md"
+        },
+        {
+          "path": "src/server/api/pyproject.toml",
+          "bytes": 787,
+          "sha256": "759eef2534f218bd70114b2120708c435c960ce1c59297d6e1a72b07fda2ae8b",
+          "url": "https://github.com/memodb-io/memobase/blob/358c16bbc6d687937d79bc2f984a11c3be8da901/src/server/api/pyproject.toml"
+        },
+        {
+          "path": "src/server/api/memobase_server/controllers/modal/chat/merge.py",
+          "bytes": 7346,
+          "sha256": "1d6325df666206644f3f3ff876bdbbb0b9a9d2eb7a6aed22a93f67f848fa747f",
+          "url": "https://github.com/memodb-io/memobase/blob/358c16bbc6d687937d79bc2f984a11c3be8da901/src/server/api/memobase_server/controllers/modal/chat/merge.py"
+        },
+        {
+          "path": "docs/site/features/profile/profile_config.mdx",
+          "bytes": 1833,
+          "sha256": "c780b46976c13bce09d1847fdeac77ba494487eed223e5aee665910acc0ec2c6",
+          "url": "https://github.com/memodb-io/memobase/blob/358c16bbc6d687937d79bc2f984a11c3be8da901/docs/site/features/profile/profile_config.mdx"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "README.md",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "pyproject.toml",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "src/server/pyproject.toml",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "repository": "microsoft/graphrag",
+      "commit": "769542fbf1d8e5b4c6a8677fefc34621c87894c5",
+      "commit_date": "2026-09-23T22:13:34Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 5099,
+          "sha256": "36df9326f1e83343fd46373a2a059093590e4c2ad2256d3ed5de5c5e6e492709",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 9412,
+          "sha256": "e7ebce5c2fe82a6518c48f1f9d25535829f04f3cb5cb7ef85a19b1952b87ddac",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1141,
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/LICENSE"
+        },
+        {
+          "path": "packages/graphrag/pyproject.toml",
+          "bytes": 2902,
+          "sha256": "1294bca08babd5747866a100635b2bd2d1f2f935d2923c3d008f8a7da6d1ad8c",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag/pyproject.toml"
+        },
+        {
+          "path": "packages/graphrag-vectors/pyproject.toml",
+          "bytes": 1820,
+          "sha256": "aeb38bddd2f10cf4b8549ab8cd40ec6f90282d7fe8ae4bbdb33610a159512029",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag-vectors/pyproject.toml"
+        },
+        {
+          "path": "packages/graphrag-llm/pyproject.toml",
+          "bytes": 2108,
+          "sha256": "79ef147c5c5409c0f06e9dd50c0a55e08496078390e4a73bf28e456f88acbf12",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag-llm/pyproject.toml"
+        },
+        {
+          "path": "packages/graphrag/graphrag/index/operations/cluster_graph.py",
+          "bytes": 3146,
+          "sha256": "93c51b3f562c5176170d226ae26234360bc80feee799e06feccea923e22e10be",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag/graphrag/index/operations/cluster_graph.py"
+        },
+        {
+          "path": "packages/graphrag/graphrag/index/workflows/update_entities_relationships.py",
+          "bytes": 4492,
+          "sha256": "5f4feb6972c44344fea39ac8a03620002b849d99791b9e7ead366ffa3c7b4bfe",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag/graphrag/index/workflows/update_entities_relationships.py"
+        },
+        {
+          "path": "docs/query/overview.md",
+          "bytes": 2454,
+          "sha256": "ae9f06e8f8c4bd08993a0498af955d49e89ee81b159d8152666596f079ecefda",
+          "url": "https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/docs/query/overview.md"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "graphrag/index/workflows/default_workflows.py",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "repository": "modelcontextprotocol/servers",
+      "commit": "f46d9578190b476b3501923ea8977d899e8db2cb",
+      "commit_date": "2026-09-22T14:30:15Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 8707,
+          "sha256": "c112784223279665bda02d79105eff6f268c629f18c4590a50e9305b72bf1f9e",
+          "url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 946,
+          "sha256": "5ff622a6d2d9cc90a8b1067a889103a1e35705b168cb8f6e4fcfcb724473183d",
+          "url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/package.json"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 12227,
+          "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
+          "url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/LICENSE"
+        },
+        {
+          "path": "src/memory/index.ts",
+          "bytes": 25306,
+          "sha256": "fa1d38913ecdfca22231dbcf3b047548417f2ca862ef42de69394883223c32b6",
+          "url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/src/memory/index.ts"
+        },
+        {
+          "path": "src/memory/package.json",
+          "bytes": 1073,
+          "sha256": "20a91ce10d765e8c23f498bce61194500d46292750a6dcdc1dcc125e19b2f2d7",
+          "url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/src/memory/package.json"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "plastic-labs/honcho",
+      "commit": "2eb27b6cc0595d3f8deb693f0560e7241c2aeaff",
+      "commit_date": "2026-09-25T18:18:15Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 34071,
+          "sha256": "a3100bf81ac36d99556cbac2cc3e93db975a1cbfe14fb1d02c74bd8ff0a7eeb4",
+          "url": "https://github.com/plastic-labs/honcho/blob/2eb27b6cc0595d3f8deb693f0560e7241c2aeaff/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 4251,
+          "sha256": "3baa00f78906d3004f254b9466980deeb6dd10c474c80985928188af492e0cc6",
+          "url": "https://github.com/plastic-labs/honcho/blob/2eb27b6cc0595d3f8deb693f0560e7241c2aeaff/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 34523,
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+          "url": "https://github.com/plastic-labs/honcho/blob/2eb27b6cc0595d3f8deb693f0560e7241c2aeaff/LICENSE"
+        },
+        {
+          "path": "src/models.py",
+          "bytes": 24799,
+          "sha256": "928d5814a0685bc26cdb11e7f0e61579f45fe52242b001ec8aa436de81811194",
+          "url": "https://github.com/plastic-labs/honcho/blob/2eb27b6cc0595d3f8deb693f0560e7241c2aeaff/src/models.py"
+        },
+        {
+          "path": "docs/v3/documentation/core-concepts/representation.mdx",
+          "bytes": 6480,
+          "sha256": "e2d7be13f652a8f45425988c952cc98adb42dc9e0741993d32a87a36d7ff69ce",
+          "url": "https://github.com/plastic-labs/honcho/blob/2eb27b6cc0595d3f8deb693f0560e7241c2aeaff/docs/v3/documentation/core-concepts/representation.mdx"
+        },
+        {
+          "path": "docs/v3/documentation/features/advanced/dreaming.mdx",
+          "bytes": 6576,
+          "sha256": "73b0492b1936c8dc15e4bf3b8a7e6f5d38b155cb5897bf0dc6dc8a8e8088e7fe",
+          "url": "https://github.com/plastic-labs/honcho/blob/2eb27b6cc0595d3f8deb693f0560e7241c2aeaff/docs/v3/documentation/features/advanced/dreaming.mdx"
+        },
+        {
+          "path": "src/crud/representation.py",
+          "bytes": 25988,
+          "sha256": "498eb3375b84f1b67ecd50d28a39051a0868ba9adbd4ad22947e172e9f02c062",
+          "url": "https://github.com/plastic-labs/honcho/blob/2eb27b6cc0595d3f8deb693f0560e7241c2aeaff/src/crud/representation.py"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "supermemoryai/supermemory",
+      "commit": "cfa6c7cb17476d19ea896867406c80e8186a72ec",
+      "commit_date": "2026-09-25T22:00:12Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 16049,
+          "sha256": "7a8b801a3bc586b5ef494f0cadf682caa6a0a1f84f6850937e33afe9da07ee91",
+          "url": "https://github.com/supermemoryai/supermemory/blob/cfa6c7cb17476d19ea896867406c80e8186a72ec/README.md"
+        },
+        {
+          "path": "package.json",
+          "bytes": 2226,
+          "sha256": "276aee161369dd6827477694806b948fad1fb01d0408ee2a4ee8f9ec8bca251e",
+          "url": "https://github.com/supermemoryai/supermemory/blob/cfa6c7cb17476d19ea896867406c80e8186a72ec/package.json"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1068,
+          "sha256": "9ce388a89cce6a2dc109579d044f7f16e1397d8ee6fdb1f3bd3b980d365a07ae",
+          "url": "https://github.com/supermemoryai/supermemory/blob/cfa6c7cb17476d19ea896867406c80e8186a72ec/LICENSE"
+        }
+      ],
+      "unsuccessful_requests": [
+        {
+          "path": "pnpm-workspace.yaml",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "repository": "topoteretes/cognee",
+      "commit": "c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b",
+      "commit_date": "2026-09-27T18:17:51Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 17324,
+          "sha256": "e76ca92da7b17ddf233216454ddebdcb308fde42b059ff0517aeb122276a2920",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 17427,
+          "sha256": "058576edcd1d3bfb2c13ec67ec68ff0733193b07a9483425d145c4c03bedfb1b",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11344,
+          "sha256": "a471e34908f50c3f120e9a56f3c30cb34e133e4ede01a9cbd5ce718fc358ecd4",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/LICENSE"
+        },
+        {
+          "path": "cognee/api/v1/cognify/cognify.py",
+          "bytes": 34540,
+          "sha256": "61cf6054060b9cd6344c4bdb88b840324ae2521cf163612afd546b5bb39b2ad9",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/cognee/api/v1/cognify/cognify.py"
+        },
+        {
+          "path": "cognee/modules/pipelines/tasks/task.py",
+          "bytes": 12014,
+          "sha256": "323dbff0027f09cd2eecee86280c3721fc9803f44ec0c8dfb4900eb1e2f9097b",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/cognee/modules/pipelines/tasks/task.py"
+        },
+        {
+          "path": "cognee/modules/ontology/rdf_xml/RDFLibOntologyResolver.py",
+          "bytes": 13914,
+          "sha256": "75b20103e7adba1a57314392c87f18c3dd05bb9a137e6ae3b425f3e8d3c9187a",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/cognee/modules/ontology/rdf_xml/RDFLibOntologyResolver.py"
+        },
+        {
+          "path": "cognee/modules/ontology/construct_data_points_and_edges_with_ontology.py",
+          "bytes": 16524,
+          "sha256": "1986ce4012e66d6f04f8cdc91a455543c84d7d838f50bf24f6ea2c17fbbff711",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/cognee/modules/ontology/construct_data_points_and_edges_with_ontology.py"
+        },
+        {
+          "path": "cognee/infrastructure/databases/graph/config.py",
+          "bytes": 8648,
+          "sha256": "a01274219a05be04c2257246a70fb42aa9c2dcd6c33bd063035f6ad01c2788e3",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/cognee/infrastructure/databases/graph/config.py"
+        },
+        {
+          "path": "cognee/infrastructure/databases/vector/config.py",
+          "bytes": 5632,
+          "sha256": "22153e3a9387d49cf1c5f44d733df9f153f841be5d32c48e70890486ac5c13f8",
+          "url": "https://github.com/topoteretes/cognee/blob/c4cd8ceb9509dff6bddfabdadbeab7cc040bc32b/cognee/infrastructure/databases/vector/config.py"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "vectorize-io/hindsight",
+      "commit": "8924a5bcfd6ff64fb20cace098021a3b61e76391",
+      "commit_date": "2026-09-28T10:09:25Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 25011,
+          "sha256": "376c6b0b83bd2be65a2d1c843680c56a7cc1bc4d8553dee9f227074e59239a6f",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 427,
+          "sha256": "4310866acf638e7e4917bf1a98a5593b3a3e60de30b0ca0bd23ff7174e25c71c",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1075,
+          "sha256": "01fde0bedf83bdc185065d7af524a61690efe576a67f922eaff3a1280c17b63a",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/LICENSE"
+        },
+        {
+          "path": "hindsight-api/pyproject.toml",
+          "bytes": 621,
+          "sha256": "0041f789d2daab23564a05077717d7281f8851c83984410ef66187a545539591",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/hindsight-api/pyproject.toml"
+        },
+        {
+          "path": "hindsight-api/README.md",
+          "bytes": 4073,
+          "sha256": "57dc54f3e3cb925fbe09a2bf942668501155f086d932a8bc53d4bd67dc630e85",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/hindsight-api/README.md"
+        },
+        {
+          "path": "hindsight-api-slim/pyproject.toml",
+          "bytes": 15638,
+          "sha256": "4e73d3aae4711cb95639a2b3cfbe93ccf3a411b2ab3d4ad8924b7abc279930ec",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/hindsight-api-slim/pyproject.toml"
+        },
+        {
+          "path": "hindsight-api-slim/hindsight_api/engine/search/fusion.py",
+          "bytes": 8000,
+          "sha256": "19ccdfd73e5c9da7c10561c92e4c86af2d6c7b6fed870f41a848fbce1d25dfa4",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/hindsight-api-slim/hindsight_api/engine/search/fusion.py"
+        },
+        {
+          "path": "hindsight-api-slim/hindsight_api/engine/consolidation/consolidator.py",
+          "bytes": 176244,
+          "sha256": "24df304ab28458b38e87adcad950a047a44ac5fb875a15d3527cdb7d7ba8545e",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/hindsight-api-slim/hindsight_api/engine/consolidation/consolidator.py"
+        },
+        {
+          "path": "hindsight-api-slim/hindsight_api/engine/search/retrieval.py",
+          "bytes": 41874,
+          "sha256": "b4ee798a185d0b3210f655daf9c12d4271e64cb9970007884d9df3d7b12fabd4",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/hindsight-api-slim/hindsight_api/engine/search/retrieval.py"
+        },
+        {
+          "path": "skills/hindsight-docs/references/developer/retain.md",
+          "bytes": 18725,
+          "sha256": "246bcf990a9b501410c3377428ff34c3ccf775df950d736740ae0f64de29f871",
+          "url": "https://github.com/vectorize-io/hindsight/blob/8924a5bcfd6ff64fb20cace098021a3b61e76391/skills/hindsight-docs/references/developer/retain.md"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "volcengine/OpenViking",
+      "commit": "1f4f7039fc394c5d04637828166f4e4e74e249e0",
+      "commit_date": "2026-09-28T12:29:08Z",
+      "accessed": "2026-09-28",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 22127,
+          "sha256": "0bda3106022ab40452d0f356904e2d7c5dc51df770e80b0a2bb26b5da16b13c0",
+          "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/README.md"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 7796,
+          "sha256": "71947c3470d658a944a4b2325513d3f9eb791558a06b5e4bdad5c47d957883dd",
+          "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/pyproject.toml"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 34568,
+          "sha256": "1bd87fa6d9a5c79daf0c2af042b6725c9773bf095cc3d1bdf3656e66d1c3e5b1",
+          "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/LICENSE"
+        }
+      ],
+      "unsuccessful_requests": []
+    }
+  ]
+}
