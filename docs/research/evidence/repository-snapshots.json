@@ -1055,6 +1055,188 @@
         }
       ],
       "unsuccessful_requests": []
+    },
+    {
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "accessed": "2026-09-29",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 12965,
+          "sha256": "fc08d3fad45b28810d578c1fe71859619abc06e7849daf9025982c0168a42308",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "sha256": "bca9c3d401fdfd0965a2a2224f7dcf9945b512eaf5802b91d312ba739dbe9584",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/LICENSE"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 2238,
+          "sha256": "051d5f9b17ca6a33b3be724756fc5d44767408088aa7cc2b02e6ed18f24221c7",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pyproject.toml"
+        },
+        {
+          "path": "requirements.txt",
+          "bytes": 309,
+          "sha256": "9dfe3810bf3216990e7a0ba3d2ee576a982a8ec17439edd5da6b90cd07c0b087",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/requirements.txt"
+        },
+        {
+          "path": "pageindex/client.py",
+          "bytes": 135324,
+          "sha256": "707c3fbbff8c1d40f4f5d1d8a29e8ebe692e0a5aff3ea96bcaabf37ead22eef1",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/client.py"
+        },
+        {
+          "path": "pageindex/cloud_api.py",
+          "bytes": 21205,
+          "sha256": "b06703cfe12b214a2eb3554dd9debafdb0c8ff8b56c952f5099278734af80b0b",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/cloud_api.py"
+        },
+        {
+          "path": "pageindex/local_api.py",
+          "bytes": 17191,
+          "sha256": "f62f4d21749be6656ae9a35452727edffa74680831aeb425e7704b02c7e3f611",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/local_api.py"
+        },
+        {
+          "path": "pageindex/local_store.py",
+          "bytes": 6500,
+          "sha256": "693d937daffb264acf05262b2657688f038f88d13e290f387625f244896df57f",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/local_store.py"
+        },
+        {
+          "path": "pageindex/agent_tools.py",
+          "bytes": 78077,
+          "sha256": "d2b54e186109842088279322ea4dec6fc6f01cd6d3de3bb2c6463998be862677",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/agent_tools.py"
+        },
+        {
+          "path": "pageindex/local_chat.py",
+          "bytes": 69420,
+          "sha256": "60d2d1a966b5ad614513d6f69768ea5a74be6f5e6f88a1ef9bb72b3d4e23d50e",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/local_chat.py"
+        },
+        {
+          "path": "pageindex/integrations/anthropic_sdk.py",
+          "bytes": 3627,
+          "sha256": "9db175ec1218c66677f905355dd32c03a50221d61447815c9c88e0ec0ddb9f52",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/integrations/anthropic_sdk.py"
+        },
+        {
+          "path": "pageindex/page_index_classic.py",
+          "bytes": 55485,
+          "sha256": "4d1af65985026f2ab0223774fe51a2ed7c23a7baf0aca0d0b7937b8b5e2583cf",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/page_index_classic.py"
+        },
+        {
+          "path": "pageindex/page_index_md.py",
+          "bytes": 12171,
+          "sha256": "62c8d3acfb51476e7dc1226f4346fec201a31cb64c47fe922593c06b4dc30b27",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/page_index_md.py"
+        },
+        {
+          "path": "pageindex/tree_optimize.py",
+          "bytes": 43019,
+          "sha256": "4363a8faa83cf450cf0765189371027231dbc55d3f27893425dc049af10c3bbe",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/tree_optimize.py"
+        },
+        {
+          "path": "pageindex/types.py",
+          "bytes": 1968,
+          "sha256": "136d7e4afc21cc25d47e9485f349ca912fe4cf9c97a4991f8bca7ed87f5baca2",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/types.py"
+        },
+        {
+          "path": "pageindex/config.yaml",
+          "bytes": 648,
+          "sha256": "6e157c0f23e163f2edf164d55a581208e5aefa79a8367490f803c899c4e77000",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/config.yaml"
+        },
+        {
+          "path": "run_pageindex.py",
+          "bytes": 11270,
+          "sha256": "a343a26bed4adc018d1180b51eb2c85b2a1c2bbc84a10b09deada89056020909",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/run_pageindex.py"
+        },
+        {
+          "path": "pageindex/flash/README.md",
+          "bytes": 3005,
+          "sha256": "d0b773b3358e255a93d2f5dccaa13f8009c5241d9244cfcc474a0d15009219f5",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/flash/README.md"
+        },
+        {
+          "path": "pageindex/flash/api.py",
+          "bytes": 13708,
+          "sha256": "cb7ea557a40ebb28339d1ddcb93eb178e7557aa3bba7a5dfb0219ad96803826a",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/flash/api.py"
+        },
+        {
+          "path": "pageindex/flash/main.py",
+          "bytes": 15236,
+          "sha256": "589105e39d85e6fc0d0415879a09aba9b9e91d796de66c961f76112976b54e00",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/flash/main.py"
+        },
+        {
+          "path": "pageindex/_version.py",
+          "bytes": 283,
+          "sha256": "41bcbdad5df750e1ff20be4ee2acb1fe1314d7f0cd4d7d6da8e37a802ee2ba1f",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/_version.py"
+        },
+        {
+          "path": "pageindex/utils.py",
+          "bytes": 49682,
+          "sha256": "d7600b549919d54e73d13811debea7a189d2e73e464c05a60ac0d4b86ab46a3e",
+          "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/utils.py"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "VectifyAI/Mafin2.5-FinanceBench",
+      "commit": "1c890d5e0fd9929953d38282614555847727011d",
+      "commit_date": "2025-10-20T05:43:30Z",
+      "accessed": "2026-09-29",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 6818,
+          "sha256": "5e6ba555cad4633e3ecfe4ccef3ca8c3ad4a8448d696e6cb3f6ad37577e0c665",
+          "url": "https://github.com/VectifyAI/Mafin2.5-FinanceBench/blob/1c890d5e0fd9929953d38282614555847727011d/README.md",
+          "raw_url": "https://raw.githubusercontent.com/VectifyAI/Mafin2.5-FinanceBench/1c890d5e0fd9929953d38282614555847727011d/README.md"
+        },
+        {
+          "path": "eval.py",
+          "bytes": 5127,
+          "sha256": "d54861d43fb0d4d668a846a4c25e2bb27d2598945748af7aa1b716e63f65e039",
+          "url": "https://github.com/VectifyAI/Mafin2.5-FinanceBench/blob/1c890d5e0fd9929953d38282614555847727011d/eval.py",
+          "raw_url": "https://raw.githubusercontent.com/VectifyAI/Mafin2.5-FinanceBench/1c890d5e0fd9929953d38282614555847727011d/eval.py"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "VectifyAI/PageIndex-OSS-Benchmark",
+      "commit": "ad4c0b92970a6f4801f09ff2e647389e8f5874fa",
+      "commit_date": "2026-08-17T12:17:07Z",
+      "accessed": "2026-09-29",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "bytes": 4448,
+          "sha256": "2e8ec68a46b5b5f44e12d8cc1b214e888a71c9fc134c3483902fcb15c755d187",
+          "url": "https://github.com/VectifyAI/PageIndex-OSS-Benchmark/blob/ad4c0b92970a6f4801f09ff2e647389e8f5874fa/README.md",
+          "raw_url": "https://raw.githubusercontent.com/VectifyAI/PageIndex-OSS-Benchmark/ad4c0b92970a6f4801f09ff2e647389e8f5874fa/README.md"
+        }
+      ],
+      "unsuccessful_requests": []
     }
-  ]
+  ],
+  "updated": "2026-09-29",
+  "update_scope": "PageIndex 本体 22 ファイルと関連評価資料 3 ファイルの取得記録を追加。既存の取得記録は保持。追加分も静的確認のみ。"
 }

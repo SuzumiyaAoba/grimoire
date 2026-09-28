@@ -685,7 +685,20 @@
       ],
       "publication_comment": "ICLR 2025",
       "submission_history": "Submission history From: Di Wu [ view email ] [v1] Mon, 14 Oct 2024 17:59:44 UTC (944 KB) [v2] Tue, 4 Mar 2025 22:19:41 UTC (427 KB)",
-      "arxiv_version": "v2"
+      "arxiv_version": "v2",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv HTML v2 の要旨、データセット構成、能力分類と評価設定を確認",
+          "scope": "長い会話履歴に対する500問のベンチマークと、抽出・複数セッション・時間推論・知識更新・回答保留の評価範囲を説明する。",
+          "checked_sections": [
+            "Abstract",
+            "Benchmark Construction",
+            "Question Categories",
+            "Evaluation"
+          ]
+        }
+      ]
     },
     {
       "id": "P-LOCOMO",
@@ -986,7 +999,20 @@
       ],
       "publication_comment": null,
       "submission_history": "Submission history From: Joon Sung Park [ view email ] [v1] Fri, 7 Apr 2023 01:55:19 UTC (34,149 KB) [v2] Sun, 6 Aug 2023 00:21:19 UTC (12,955 KB)",
-      "arxiv_version": "v2"
+      "arxiv_version": "v2",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv HTML v2 の記憶ストリーム、検索、reflection、評価と失敗例の関連節を確認",
+          "scope": "記憶ストリームから関連度・新しさ・重要度で記録を検索し、reflection を計画に利用する設計例と、検索失敗や記憶にない細部の補完を説明する。",
+          "checked_sections": [
+            "Memory and Retrieval",
+            "Reflection",
+            "Controlled Evaluation",
+            "Errors and Limitations"
+          ]
+        }
+      ]
     },
     {
       "id": "P-MBANK",
@@ -1005,7 +1031,21 @@
       ],
       "publication_comment": "10 pages",
       "submission_history": "Submission history From: Wanjun Zhong [ view email ] [v1] Wed, 17 May 2023 14:40:29 UTC (7,090 KB) [v2] Thu, 18 May 2023 06:23:32 UTC (7,090 KB) [v3] Sun, 21 May 2023 06:20:28 UTC (7,090 KB)",
-      "arxiv_version": "v3"
+      "arxiv_version": "v3",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv HTML v3 の要旨、ログ・要約・プロフィールの保存、検索、更新・忘却の関連節と実験設定を確認",
+          "scope": "対話ログ・階層要約・プロフィールを併用する保存設計例、および忘却モデルが簡略化された探索的提案であるという限界を説明する。",
+          "checked_sections": [
+            "Abstract",
+            "Storage",
+            "Retrieval",
+            "Update and Forgetting",
+            "Experiments"
+          ]
+        }
+      ]
     },
     {
       "id": "P-MGPT",
@@ -1026,7 +1066,20 @@
       ],
       "publication_comment": "Code and data available at this https URL",
       "submission_history": "Submission history From: Charles Packer [ view email ] [v1] Thu, 12 Oct 2023 17:51:32 UTC (391 KB) [v2] Mon, 12 Feb 2024 18:59:46 UTC (419 KB)",
-      "arxiv_version": "v2"
+      "arxiv_version": "v2",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv HTML v2 のアーキテクチャ、context管理、ツール操作、評価の関連節を確認",
+          "scope": "有限のモデル context と外部ストレージ間で情報を移動する仮想メモリー風の制御設計を説明する。情報の真偽判定や矛盾解消までは保証しない。",
+          "checked_sections": [
+            "Abstract",
+            "Main Context and External Context",
+            "Function Calls",
+            "Evaluation"
+          ]
+        }
+      ]
     },
     {
       "id": "P-COALA",
@@ -1044,7 +1097,24 @@
       ],
       "publication_comment": "v3 is TMLR camera ready version. 19 pages of main content, 5 figures. The first two authors contributed equally, order decided by coin flip. A CoALA-based repo of recent work on language agents: this https URL",
       "submission_history": "Submission history From: Shunyu Yao [ view email ] [v1] Tue, 5 Sep 2023 17:56:20 UTC (1,989 KB) [v2] Wed, 27 Sep 2023 15:27:25 UTC (2,001 KB) [v3] Fri, 15 Mar 2024 15:44:11 UTC (1,968 KB)",
-      "arxiv_version": "v3"
+      "arxiv_version": "v3",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv HTML v3 のメモリー・検索・推論・学習・意思決定・事例・考察の関連節を確認",
+          "scope": "working、episodic、semantic、procedural memory とエージェントの読み書き操作を整理する枠組み、および procedural memory の書き換えに伴う危険を説明する。",
+          "checked_sections": [
+            "§4.1 Memory",
+            "§4.3 Retrieval",
+            "§4.4 Reasoning",
+            "§4.5 Learning",
+            "§4.6 Decision-making",
+            "Case Studies",
+            "Actionable Insights",
+            "Discussion"
+          ]
+        }
+      ]
     },
     {
       "id": "P-REFLEX",
@@ -1064,7 +1134,20 @@
       ],
       "publication_comment": "v4 contains a few additional experiments",
       "submission_history": "Submission history From: Noah Shinn [ view email ] [v1] Mon, 20 Mar 2023 18:08:50 UTC (506 KB) [v2] Sun, 21 May 2023 06:20:36 UTC (404 KB) [v3] Sat, 10 Jun 2023 04:32:30 UTC (396 KB) [v4] Tue, 10 Oct 2023 05:21:45 UTC (386 KB)",
-      "arxiv_version": "v4"
+      "arxiv_version": "v4",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv HTML v4 の要旨、episodic memory、手法と実験結果の関連節を確認",
+          "scope": "タスクのフィードバックを文章の振り返りとして episodic buffer に保存し、モデル重みの更新なしに次の試行で参照する設計例を説明する。",
+          "checked_sections": [
+            "Abstract",
+            "Episodic Memory",
+            "Method",
+            "Results"
+          ]
+        }
+      ]
     },
     {
       "id": "P-MSGRAPH",
@@ -1351,7 +1434,18 @@
       ],
       "publication_comment": "15 pages main content, 27 pages overall, 2 Figures, accepted for publication at ISWC 2023 research track",
       "submission_history": "Submission history From: Jennifer D'Souza [ view email ] [v1] Mon, 31 Jul 2023 13:27:21 UTC (1,055 KB) [v2] Wed, 2 Aug 2023 07:47:26 UTC (1,055 KB)",
-      "arxiv_version": "v2"
+      "arxiv_version": "v2",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "論文ページの書誌情報とabstractのみ確認。本文の実験結果は未確認。",
+          "scope": "ontology learning の課題を用語型付け、分類階層発見、非分類関係抽出などに分ける研究例。性能の一般化には使わない。",
+          "checked_sections": [
+            "Abstract",
+            "publication metadata"
+          ]
+        }
+      ]
     },
     {
       "id": "P-LLMOL26",
@@ -1529,7 +1623,20 @@
       "url": "https://www.w3.org/TR/rdf11-concepts/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "triple、graph/dataset、RDF terms と graph 名の意味に関する節を確認。",
+          "scope": "RDF triple・graph・dataset の基本説明、および named graph の名前だけで出典や時間の意味が確定しないという注意。",
+          "checked_sections": [
+            "RDF Graphs",
+            "RDF Datasets",
+            "RDF Terms",
+            "RDF Semantics"
+          ]
+        }
+      ]
     },
     {
       "id": "S-OWL",
@@ -1537,7 +1644,21 @@
       "url": "https://www.w3.org/TR/owl2-primer/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "開世界、UNA、機能的プロパティ、sameAs、OWLの用途に関する節を確認。",
+          "scope": "OWL の開世界と非UNAの前提、functional property の含意、owl:sameAs の同一性、OWLとデータ入力スキーマの役割の違い。",
+          "checked_sections": [
+            "Open World Assumption",
+            "No Unique Name Assumption",
+            "Functional Properties",
+            "Same Individuals",
+            "OWL and Database Schemas"
+          ]
+        }
+      ]
     },
     {
       "id": "S-PROFILES",
@@ -1545,7 +1666,19 @@
       "url": "https://www.w3.org/TR/owl2-profiles/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "EL、QL、RL の設計意図と適用領域の概要を確認。",
+          "scope": "OWL profile ごとの設計意図と表現上のトレードオフ。理論的計算特性から個別データでの実行速度を保証しない。",
+          "checked_sections": [
+            "OWL 2 EL",
+            "OWL 2 QL",
+            "OWL 2 RL"
+          ]
+        }
+      ]
     },
     {
       "id": "S-SHACL",
@@ -1553,7 +1686,23 @@
       "url": "https://www.w3.org/TR/shacl/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "data graph と shapes graph の検証、型・個数制約、推論要件の関連節を確認。 / 型・個数の制約と検証の関連節を確認",
+          "scope": "SHACL によるデータ形状の検証と報告。SHACL検証は主張の現実世界での真偽を確かめず、RDFS推論も常に必須ではないこと。 人物・組織の型と根拠リンクを要求する独自 shape。真実、期間整合、兼業の禁止を検査するとは解釈しない。",
+          "checked_sections": [
+            "Validation and Graphs",
+            "sh:class",
+            "Cardinality Constraint Components",
+            "Inference",
+            "3 Validation and Graphs",
+            "4.1.1 sh:class",
+            "4.2 Cardinality Constraint Components"
+          ]
+        }
+      ]
     },
     {
       "id": "S-SKOS",
@@ -1561,7 +1710,20 @@
       "url": "https://www.w3.org/TR/skos-reference/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "SKOS概念体系、broader関係、mappingと個体同一性の違いを確認。",
+          "scope": "SKOS を分類体系・シソーラス等の概念モデルとして位置づけ、skos:broader と OWL subclass、SKOS mapping と owl:sameAs の意味を区別する。",
+          "checked_sections": [
+            "SKOS Concepts",
+            "skos:broader",
+            "Mapping Properties",
+            "owl:sameAs"
+          ]
+        }
+      ]
     },
     {
       "id": "S-PROV",
@@ -1569,7 +1731,21 @@
       "url": "https://www.w3.org/TR/prov-o/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "Entity、Activity、Agent、派生・帰属の関連語彙を確認。 / Starting Point terms と派生・版の語彙定義を確認",
+          "scope": "資料や主張の派生・帰属を表す語彙例。PROV の関係だけで出典の信頼性や主張の真偽を自動認定しない。 wasDerivedFrom の向きと意味、主張記録と原資料を prov:Entity として表す例。",
+          "checked_sections": [
+            "Starting Point Terms",
+            "prov:wasDerivedFrom",
+            "prov:wasAttributedTo",
+            "3.1 Starting Point terms",
+            "prov:wasRevisionOf"
+          ]
+        }
+      ]
     },
     {
       "id": "S-TIME",
@@ -1577,7 +1753,19 @@
       "url": "https://www.w3.org/TR/owl-time/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "時間的実体と開始・終了時刻を表す関連語彙を確認。",
+          "scope": "時間点・時間区間を記述する語彙の例。アプリケーションの履歴保持・競合解決・更新方針は別途必要であること。",
+          "checked_sections": [
+            "Temporal Entity",
+            "hasBeginning",
+            "hasEnd"
+          ]
+        }
+      ]
     },
     {
       "id": "S-SPARQL",
@@ -1601,7 +1789,18 @@
       "url": "https://www.w3.org/TR/2026/CR-rdf12-concepts-20260407/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "Snapshot status note と triple term に関する概要を確認。",
+          "scope": "リンク先の2026-04-07 Snapshot に triple term 等が記述され、当該文書は Recommendation ではないこと。現在の実装対応を保証する資料として使わない。",
+          "checked_sections": [
+            "Status of This Document",
+            "RDF Triple Terms"
+          ]
+        }
+      ]
     },
     {
       "id": "S-NARY",
@@ -1609,7 +1808,19 @@
       "url": "https://www.w3.org/TR/swbp-n-aryRelations/",
       "kind": "標準仕様",
       "accessed": "2026-09-28",
-      "review_depth": "関連する意味論・制約・仕様ステータスを確認"
+      "review_depth": "関連する意味論・制約・仕様ステータスを確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "関連をクラスとして導入する pattern と追加属性の例を確認。 / General issues と Pattern 1 の関連部分を確認",
+          "scope": "期間や追加属性を持つ多項関係を relation node / assertion node として表現する設計例。 追加の期間・根拠を持つ主張をノードにする独自例の設計パターン。",
+          "checked_sections": [
+            "General issues",
+            "Pattern 1: Introducing a new class for a relation",
+            "Use Case 1: additional attributes describing a relation"
+          ]
+        }
+      ]
     },
     {
       "id": "T-AGM",
@@ -1617,7 +1828,18 @@
       "url": "https://doi.org/10.2307/2274239",
       "kind": "基礎研究",
       "accessed": "2026-09-28",
-      "review_depth": "出版元・著者公開資料の関連記述を確認"
+      "review_depth": "出版元・著者公開資料の関連記述を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "論文の書誌情報・要旨と部分 meet contraction の定義範囲を確認",
+          "scope": "信念改訂・縮約と、部分 meet 縮約の公理的性質を基本理論として説明する。",
+          "checked_sections": [
+            "Abstract",
+            "partial meet contraction and revision functions"
+          ]
+        }
+      ]
     },
     {
       "id": "T-TMS",
@@ -1625,7 +1847,18 @@
       "url": "https://www.sciencedirect.com/science/article/pii/0004370279900080",
       "kind": "基礎研究",
       "accessed": "2026-09-28",
-      "review_depth": "出版元・著者公開資料の関連記述を確認"
+      "review_depth": "出版元・著者公開資料の関連記述を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "出版社の書誌情報と要旨を確認",
+          "scope": "TMS がプログラムの信念を支える理由を記録し、新情報に応じて仮定と信念を改訂する考えを説明する。",
+          "checked_sections": [
+            "Abstract",
+            "publication metadata"
+          ]
+        }
+      ]
     },
     {
       "id": "T-UPDATE",
@@ -1633,7 +1866,18 @@
       "url": "https://arxiv.org/abs/cs/9903016",
       "kind": "基礎研究",
       "accessed": "2026-09-28",
-      "review_depth": "出版元・著者公開資料の関連記述を確認"
+      "review_depth": "出版元・著者公開資料の関連記述を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv の書誌情報と要旨を確認",
+          "scope": "belief revision と belief update の区別、Katsuno–Mendelzon の update に置かれる仮定と適用範囲を説明する。",
+          "checked_sections": [
+            "Abstract",
+            "Journal reference"
+          ]
+        }
+      ]
     },
     {
       "id": "T-PROVENANCE",
@@ -1641,7 +1885,18 @@
       "url": "https://web.cs.ucdavis.edu/~green/papers/pods07.pdf",
       "kind": "基礎研究",
       "accessed": "2026-09-28",
-      "review_depth": "出版元・著者公開資料の関連記述を確認"
+      "review_depth": "出版元・著者公開資料の関連記述を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "著者公開論文の要旨と書誌情報を確認",
+          "scope": "関係代数・Datalog の入力から出力へ伝播する来歴注釈を provenance semiring で表す理論を説明する。",
+          "checked_sections": [
+            "Abstract",
+            "PODS 2007 bibliographic header"
+          ]
+        }
+      ]
     },
     {
       "id": "T-RRF",
@@ -1657,7 +1912,20 @@
       "url": "https://www.wikidata.org/wiki/Help:Data_model",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "statement、qualifier、reference、rank の説明箇所を確認。",
+          "scope": "statement 中心のデータモデルと時間・根拠などを持つ qualifier/reference の例。rank は校正された確率値とは扱わない。",
+          "checked_sections": [
+            "Statements",
+            "Qualifiers",
+            "References",
+            "Ranks"
+          ]
+        }
+      ]
     },
     {
       "id": "D-SCHEMA",
@@ -1665,7 +1933,18 @@
       "url": "https://schema.org/docs/datamodel.html",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "データモデルと適合性に関する関連節を確認。",
+          "scope": "Schema.org をWeb上での共有に向けた実用語彙として紹介し、厳密な業務検証とは役割が異なる点。",
+          "checked_sections": [
+            "Data Model",
+            "Conformance"
+          ]
+        }
+      ]
     },
     {
       "id": "D-BFO",
@@ -1673,7 +1952,17 @@
       "url": "https://github.com/BFO-ontology/BFO-2020",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "公式リポジトリを確認。個別領域の導入適合性や全公理は評価していない。",
+          "scope": "科学領域などで共通の上位分類が必要な場合に検討される上位オントロジーの例。",
+          "checked_sections": [
+            "Repository overview"
+          ]
+        }
+      ]
     },
     {
       "id": "D-DOLCE",
@@ -1681,7 +1970,17 @@
       "url": "https://www.loa.istc.cnr.it/index.php/dolce/",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "プロジェクトページを開いて確認。理論的な定義やFOL/OWL版の比較は未確認。",
+          "scope": "上位オントロジーの選択肢の一例。本文では網羅的な理論比較を行わない。",
+          "checked_sections": [
+            "Project page"
+          ]
+        }
+      ]
     },
     {
       "id": "D-SUMO",
@@ -1713,7 +2012,19 @@
       "url": "https://github.com/monarch-initiative/ontogpt/blob/main/docs/custom.md",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "mutableなmain branch上のcustom schemaとterm groundingの関連節を確認。",
+          "scope": "構造化抽出schemaと既存識別子へのgroundingを組み合わせるツール例。",
+          "checked_sections": [
+            "Custom schemas",
+            "id_prefixes",
+            "annotators"
+          ]
+        }
+      ]
     },
     {
       "id": "D-ONTOCHECK",
@@ -1721,7 +2032,18 @@
       "url": "https://github.com/monarch-initiative/ontogpt/blob/main/docs/operation.md",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "mutableなmain branch上の抽出後term validationの関連節を確認。",
+          "scope": "抽出後の用語について存在・obsolete状態・ラベルやsynonymとの一致を確認する手順。候補IDの存在だけでは文脈的な意味の正しさは保証されない。",
+          "checked_sections": [
+            "Term validation",
+            "grounding validation"
+          ]
+        }
+      ]
     },
     {
       "id": "D-LANGMEM",
@@ -1857,7 +2179,19 @@
       "url": "https://docs.xtdb.com/concepts/key-concepts.html",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "公式 key concepts の temporal columns 節を確認",
+          "scope": "XTDBでは system time が変更監査と情報がシステムに入った時点を表し、valid time は利用者が管理して対象世界での有効時点を表す。各時刻の区間は開始を含み終了を含まない。",
+          "checked_sections": [
+            "Temporal Columns & Bitemporality",
+            "Built-in system and valid time columns",
+            "Closed-open periods"
+          ]
+        }
+      ]
     },
     {
       "id": "D-EVENT",
@@ -2051,7 +2385,19 @@
       ],
       "publication_comment": "Accepted at NeurIPS 2020",
       "submission_history": "Submission history From: Patrick Lewis [ view email ] [v1] Fri, 22 May 2020 21:34:34 UTC (698 KB) [v2] Mon, 7 Dec 2020 16:23:06 UTC (767 KB) [v3] Mon, 29 Mar 2021 10:12:16 UTC (767 KB) [v4] Mon, 12 Apr 2021 15:42:18 UTC (767 KB)",
-      "arxiv_version": "v4"
+      "arxiv_version": "v4",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv HTML v4 の要旨、モデル構成、実験の関連節を確認",
+          "scope": "パラメーターに保持された知識と検索可能な非パラメトリック文書索引を組み合わせる方式を説明する。RAGが記憶そのものではなく情報取得・生成の方式であるという整理の根拠。",
+          "checked_sections": [
+            "Abstract",
+            "RAG Model",
+            "Experiments"
+          ]
+        }
+      ]
     },
     {
       "id": "P-VOYAGER",
@@ -2073,7 +2419,20 @@
       ],
       "publication_comment": "Project website and open-source codebase: this https URL",
       "submission_history": "Submission history From: Guanzhi Wang [ view email ] [v1] Thu, 25 May 2023 17:46:38 UTC (13,286 KB) [v2] Thu, 19 Oct 2023 16:27:03 UTC (13,649 KB)",
-      "arxiv_version": "v2"
+      "arxiv_version": "v2",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "arXiv HTML v2 の要旨、自動カリキュラム、技能ライブラリ、自己検証の関連節を確認",
+          "scope": "Minecraft環境でコード技能を作成・検索し、エージェント側の自己検証機構による成功判定を経て技能ライブラリへ加える設計例を説明する。形式検証や他環境での安全性の証拠とはしない。",
+          "checked_sections": [
+            "Abstract",
+            "Automatic Curriculum",
+            "Skill Library",
+            "Self-Verification"
+          ]
+        }
+      ]
     },
     {
       "id": "P-MEMORYOS",
@@ -2289,7 +2648,17 @@
       "url": "https://www.dbpedia.org/resources/ontology/",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "プロジェクトのontology説明ページを確認。網羅性やデータ品質は評価していない。",
+          "scope": "百科事典由来の構造化データ・語彙との連携候補の例。個別の現在事実に対する権威ある根拠とはしない。",
+          "checked_sections": [
+            "Ontology overview"
+          ]
+        }
+      ]
     },
     {
       "id": "D-WORDNET",
@@ -2297,7 +2666,19 @@
       "url": "https://wordnet.princeton.edu/",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "概要、lexical database の説明、保守状況の記述を確認。",
+          "scope": "英語の synset と語彙関係を持つ lexical database の例、および公式ページが新規開発停止とコミュニティ資源を案内する点。",
+          "checked_sections": [
+            "About WordNet",
+            "WordNet documentation",
+            "Development status"
+          ]
+        }
+      ]
     },
     {
       "id": "D-OBO",
@@ -2305,7 +2686,17 @@
       "url": "https://obofoundry.org/principles/fp-000-summary.html",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "原則の概要にある公開性、識別子、定義、再利用、保守に関する項目を確認。",
+          "scope": "OBO Foundryの範囲で、オントロジーの識別子、文書化、語彙再利用、保守を考える原則。",
+          "checked_sections": [
+            "Summary of OBO Foundry Principles"
+          ]
+        }
+      ]
     },
     {
       "id": "M-M0",
@@ -2765,6 +3156,560 @@
       "kind": "公式文書",
       "accessed": "2026-09-28",
       "review_depth": "設計案作成時に lockfile と環境の同期の説明を確認。依存解決は未実施"
+    },
+    {
+      "id": "D-DQV",
+      "title": "Data on the Web Best Practices: Data Quality Vocabulary",
+      "url": "https://www.w3.org/TR/vocab-dqv/",
+      "kind": "W3C Working Group Note",
+      "accessed": "2026-09-29",
+      "review_depth": "Abstract、Introduction、品質測定・来歴の関連節を確認",
+      "scope": "品質を用途への適合として扱い、単一スコアや語彙の導入を正しさの保証としない。",
+      "checked_sections": [
+        "Abstract",
+        "1 Introduction",
+        "4.1 Quality Measurement",
+        "6.2 Document the provenance of the quality metadata"
+      ]
+    },
+    {
+      "id": "D-GRUBER",
+      "title": "A Translation Approach to Portable Ontology Specifications",
+      "url": "https://tomgruber.org/writing/ontolingua-kaj-1993/",
+      "kind": "著者公開ページ・論文要旨",
+      "accessed": "2026-09-29",
+      "review_depth": "著者ページの書誌情報と要旨のみ確認。論文全文は未確認。",
+      "scope": "情報科学におけるオントロジーを、共有された領域の概念化と、そのクラス・関係などの語彙を形式的に記述する仕様として導入する。",
+      "checked_sections": [
+        "Abstract",
+        "publication metadata"
+      ]
+    },
+    {
+      "id": "D-HF-KVCACHE",
+      "title": "KV cache strategies — Hugging Face Transformers documentation",
+      "url": "https://huggingface.co/docs/transformers/v5.17.0/kv_cache",
+      "kind": "公式技術文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書 v5.17.0 の cache strategy と反復生成に関する節を確認",
+      "scope": "KV cache が attention 計算の key/value 状態を再利用し、速度・メモリー消費とのトレードオフを持つ実行時機構であることを説明する。意味的に整理された会話記憶とは区別する。",
+      "checked_sections": [
+        "KV cache overview",
+        "Cache strategies",
+        "Iterative generation"
+      ],
+      "version": "Transformers documentation v5.17.0"
+    },
+    {
+      "id": "D-ONTO101",
+      "title": "Ontology Development 101: A Guide to Creating Your First Ontology",
+      "url": "https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html",
+      "kind": "Stanford University 公開ガイド",
+      "accessed": "2026-09-29",
+      "review_depth": "定義、スコープ、competency questions、語彙再利用、クラス・プロパティ・個体、評価の関連節を確認。全文精読ではない。",
+      "scope": "計算機科学での形式的な語彙定義、クラス・プロパティ・個体の区別、単一の唯一解ではない設計、用途とcompetency questionsを起点にした反復的な設計・評価。",
+      "checked_sections": [
+        "2 What is in an ontology?",
+        "Step 1: Determine the domain and scope",
+        "Step 2: Consider reusing existing ontologies",
+        "Step 4: Define the classes and the class hierarchy",
+        "Step 5: Define the properties of classes",
+        "Step 6: Define the facets of the slots",
+        "Step 7: Create instances"
+      ]
+    },
+    {
+      "id": "H-BADDELEY",
+      "title": "Baddeley: The episodic buffer: a new component of working memory? (2000)",
+      "url": "https://doi.org/10.1016/S1364-6613(00)01538-2",
+      "kind": "認知科学論文",
+      "accessed": "2026-09-29",
+      "review_depth": "出版社の書誌情報と要旨を確認。全文は未確認",
+      "scope": "working memory と episodic buffer の限定容量・情報統合の概念を説明する。人間の認知研究であり、LLMの保存機構との同一性は示さない。",
+      "checked_sections": [
+        "Abstract",
+        "publication metadata"
+      ]
+    },
+    {
+      "id": "H-SQUIRE",
+      "title": "Squire: Memory systems of the brain: a brief history and current perspective (2004)",
+      "url": "https://doi.org/10.1016/j.nlm.2004.06.005",
+      "kind": "神経科学レビュー",
+      "accessed": "2026-09-29",
+      "review_depth": "出版社の書誌情報と要旨を確認。全文は未確認",
+      "scope": "記憶を単一のシステムとせず、意識的・非意識的過程など複数のシステムとして扱う見方を紹介する。",
+      "checked_sections": [
+        "Abstract",
+        "publication metadata"
+      ]
+    },
+    {
+      "id": "H-TULVING",
+      "title": "Tulving: Episodic memory: from mind to brain (2002)",
+      "url": "https://doi.org/10.1146/annurev.psych.53.100901.135114",
+      "kind": "認知科学レビュー",
+      "accessed": "2026-09-29",
+      "review_depth": "出版社の書誌情報と要旨を確認。本文の読み込みを完了できず、全文は未確認",
+      "scope": "人間の episodic memory が過去の経験を想起する神経認知システムとして論じられることを説明する。本文では人間と機械の類比の限界に用いる。",
+      "checked_sections": [
+        "Abstract",
+        "publication metadata"
+      ]
+    },
+    {
+      "id": "P-CLSURVEY",
+      "title": "Continual Learning of Large Language Models: A Comprehensive Survey",
+      "url": "https://arxiv.org/abs/2404.16789v3",
+      "kind": "研究サーベイ",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v3 の破滅的忘却、継続事前学習・適応、評価に関する節を確認",
+      "scope": "継続学習を時間とともに新しいデータ・課題へ適応する研究領域として位置づけ、過去課題の性能保持と破滅的忘却を評価課題に含める説明を支える。",
+      "checked_sections": [
+        "Catastrophic Forgetting",
+        "Continual Pretraining",
+        "Domain Adaptation and Fine-Tuning",
+        "Evaluation"
+      ],
+      "version": "arXiv v3"
+    },
+    {
+      "id": "P-LIM",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://arxiv.org/abs/2307.03172v3",
+      "kind": "研究論文",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v3 の要旨、複数文書 QA・KV retrieval の設定と結果を確認",
+      "scope": "評価されたモデルとタスクでは、必要情報の入力内位置が長文脈利用の成績に影響したことを説明する。全ての現行モデルに一般化しないという留保も支える。",
+      "checked_sections": [
+        "Abstract",
+        "Multi-Document QA",
+        "KV Retrieval",
+        "Results"
+      ],
+      "version": "arXiv v3 (TACL版)"
+    },
+    {
+      "id": "P-MEMIT",
+      "title": "Mass-Editing Memory in a Transformer",
+      "url": "https://arxiv.org/abs/2210.07229v2",
+      "kind": "研究論文",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v2 の一括編集手法、GPT-J/GPT-NeoXでの評価と結果を確認",
+      "scope": "Transformer重みの複数事実編集を対象とする研究例と、多数の編集時にも特異性などにトレードオフがあることを説明する。",
+      "checked_sections": [
+        "Abstract",
+        "MEMIT Method",
+        "Experiments",
+        "Results"
+      ],
+      "version": "arXiv v2"
+    },
+    {
+      "id": "P-ROME",
+      "title": "Locating and Editing Factual Associations in GPT",
+      "url": "https://arxiv.org/abs/2202.05262v5",
+      "kind": "研究論文",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v5 の因果追跡、ROME編集手法、CounterFact評価と限界を確認",
+      "scope": "特定のGPT系モデル・評価設定での事実関連付けの重み編集と、その局所性・一般化・スケール上の限界を説明する。外部記録の訂正や削除の代替とはしない。",
+      "checked_sections": [
+        "Abstract",
+        "Causal Tracing",
+        "ROME",
+        "CounterFact",
+        "Limitations"
+      ],
+      "version": "arXiv v5"
+    },
+    {
+      "id": "S-PROV-PRIMER",
+      "title": "PROV Model Primer",
+      "url": "https://www.w3.org/TR/prov-primer/",
+      "kind": "W3C Working Group Note",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の導入と関連節を確認",
+      "scope": "原資料、抽出処理、主張の版と生成・派生の関係を説明する。真偽の自動認定や撤回処理の自動化は主張しない。",
+      "checked_sections": [
+        "1 Introduction",
+        "2.1 Entities",
+        "2.2 Activities",
+        "2.4 Agents and Responsibility",
+        "2.6 Derivation and Revision",
+        "2.8 Time"
+      ]
+    },
+    {
+      "id": "S-RDF-SEM",
+      "title": "RDF 1.1 Semantics",
+      "url": "https://www.w3.org/TR/rdf11-mt/",
+      "kind": "W3C Recommendation",
+      "accessed": "2026-09-29",
+      "review_depth": "単調性に関する公式仕様の記述と補題を確認。",
+      "scope": "RDF entailment の単調性。知識追加で含意が増えることと、既存結論を訂正・撤回するアプリケーション方針は別の責務であること。",
+      "checked_sections": [
+        "Monotonicity Lemma",
+        "RDF Entailment"
+      ]
+    },
+    {
+      "id": "S-RDFS",
+      "title": "RDF Schema 1.1",
+      "url": "https://www.w3.org/TR/rdf-schema/",
+      "kind": "W3C Recommendation",
+      "accessed": "2026-09-29",
+      "review_depth": "型付け、クラス階層、domain/range と subproperty の意味を確認。",
+      "scope": "RDFS domain/range は関係の両端にクラス所属を含意し、入力違反を報告する SHACL 型の制約ではないこと。",
+      "checked_sections": [
+        "Classes",
+        "Properties",
+        "rdfs:domain",
+        "rdfs:range",
+        "rdfs:subClassOf",
+        "rdfs:subPropertyOf"
+      ]
+    },
+    {
+      "id": "S-SPARQL-QUERY",
+      "title": "SPARQL 1.1 Query Language",
+      "url": "https://www.w3.org/TR/sparql11-query/",
+      "kind": "W3C Recommendation",
+      "accessed": "2026-09-29",
+      "review_depth": "SELECT と基本 graph pattern の導入・例を確認。仕様全文は未確認。 / 基本グラフパターン・SELECT・関数の関連節を確認",
+      "scope": "RDF graph 上の triple pattern を SELECT で照会する例。推論結果の対象範囲は SPARQL エンドポイントの構成に依存する。 独自の主張スキーマから主張と出典を取得する SELECT 例。照会前の権限・時間の絞り込みは例の前提として分離。",
+      "checked_sections": [
+        "Making Simple Queries",
+        "Basic Graph Patterns",
+        "SELECT",
+        "2 Making Simple Queries",
+        "10.2 VALUES",
+        "17.4.1.1 bound"
+      ]
+    },
+    {
+      "id": "D-PI-START",
+      "title": "PageIndex Docs — Getting Started",
+      "url": "https://docs.pageindex.ai/getting-started",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "Index / Retrieve、Local / Cloud、Quick Start と Integrations を確認。サービスは実行していない。",
+      "scope": "2026-09-18 更新の現行 SDK の入口。ローカル索引とクラウド索引の区別。"
+    },
+    {
+      "id": "D-PI-CLIENT",
+      "title": "PageIndex Docs — Client Configuration",
+      "url": "https://docs.pageindex.ai/sdk/client",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "index / chat の設定、保存先、プロバイダー設定、backend overrides、パラメーター表を確認。接続は未実行。",
+      "scope": "索引と回答のモデルを分ける API、保存先 ./.pageindex、外部 LLM または互換エンドポイントの利用。"
+    },
+    {
+      "id": "D-PI-DOCS",
+      "title": "PageIndex Docs — Document Processing",
+      "url": "https://docs.pageindex.ai/sdk/documents",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "Index、Read、Manage、Metadata、Folders の関連節を確認。クラウドの内部処理と削除の完全性は未検証。",
+      "scope": "入力形式、同期・非同期、get_tree のテキストと要約、ページ・ブロック、文書削除、metadata/folder の境界。"
+    },
+    {
+      "id": "D-PI-CHAT",
+      "title": "PageIndex Docs — LLM Integration",
+      "url": "https://docs.pageindex.ai/sdk/chat",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "Send a query、Streaming、Citations の関連節を確認。API protocols は概要のみ。回答や引用の正しさは未測定。",
+      "scope": "複数文書・会話履歴、citations=True、ページとブロック参照、引用の解決と表示。"
+    },
+    {
+      "id": "D-PI-AGENTS",
+      "title": "PageIndex Docs — Agent Integration",
+      "url": "https://docs.pageindex.ai/sdk/agents",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "ツールと指示の公開、include_management、SDK 別統合、document_context / folder_context の範囲を確認。統合コードは未実行。",
+      "scope": "ツールは既定で読取用。文書・フォルダーの context は検索の誘導でありアクセス制限ではない。local の in-process MCP と managed remote MCP の区別。"
+    },
+    {
+      "id": "D-PI-FLASH",
+      "title": "Introducing PageIndex Flash — Fast Local Tree Indexing for PDFs",
+      "url": "https://pageindex.ai/blog/pageindex-flash",
+      "kind": "開発元ブログ",
+      "published": "2026-08-26",
+      "accessed": "2026-09-29",
+      "review_depth": "Flash の構造抽出、SDK、対象 PDF、Local / Cloud 比較、費用・評価の説明を確認。数値は開発元報告で再実行していない。",
+      "scope": "PDF レイアウトを使う現行索引、索引用と検索用モデルの分離、画像・スキャン文書の制約。"
+    },
+    {
+      "id": "D-PI-FILESYSTEM",
+      "title": "PageIndex File System: Massive-Scale Document Search",
+      "url": "https://pageindex.ai/blog/pageindex-filesystem",
+      "kind": "開発元ブログ",
+      "published": "2026-05-03",
+      "accessed": "2026-09-29",
+      "review_depth": "仮想ノード、質問依存の階層、dynamic flattening、Enterprise / Cloud の提供説明を確認。大規模実験や非公開エンジンは未検証。",
+      "scope": "文書間探索の上位層という設計説明。百万文書規模は提供者の主張であり、OSS ローカル版で確認した性能ではない。"
+    },
+    {
+      "id": "D-PI-README",
+      "title": "PageIndex README",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/README.md",
+      "kind": "固定版の公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "Quickstart、Benchmarks、Cloud、更新案内を固定版で確認。実行していない。",
+      "scope": "SDK Local / Flash の現行入口と提供者の性能主張。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "README.md",
+      "sha256": "fc08d3fad45b28810d578c1fe71859619abc06e7849daf9025982c0168a42308"
+    },
+    {
+      "id": "C-PI-MANIFEST",
+      "title": "PageIndex package manifest",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pyproject.toml",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "manifest 全体の宣言を確認。実行していない。",
+      "scope": "版 0.2.10、Python 要件、runtime / extras / build の宣言。インストールは未実施。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pyproject.toml",
+      "sha256": "051d5f9b17ca6a33b3be724756fc5d44767408088aa7cc2b02e6ed18f24221c7"
+    },
+    {
+      "id": "C-PI-LICENSE",
+      "title": "PageIndex MIT License",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/LICENSE",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "ライセンス本文を確認。実行していない。",
+      "scope": "リポジトリ本体のライセンス。依存と Cloud の契約条件を含めない。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "LICENSE",
+      "sha256": "bca9c3d401fdfd0965a2a2224f7dcf9945b512eaf5802b91d312ba739dbe9584"
+    },
+    {
+      "id": "C-PI-REQUIREMENTS",
+      "title": "PageIndex requirements",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/requirements.txt",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "宣言全体を確認。実行していない。",
+      "scope": "一部固定された requirements と pyproject の範囲指定の違い。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "requirements.txt",
+      "sha256": "9dfe3810bf3216990e7a0ba3d2ee576a982a8ec17439edd5da6b90cd07c0b087"
+    },
+    {
+      "id": "D-PI-FLASH-README",
+      "title": "PageIndex Flash README",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/flash/README.md",
+      "kind": "固定版の公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "Usage、Output、Benchmark の関連箇所を確認。実行していない。",
+      "scope": "低水準 API、ページ範囲、toc_source、9 文書の索引評価の説明。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/flash/README.md",
+      "sha256": "d0b773b3358e255a93d2f5dccaa13f8009c5241d9244cfcc474a0d15009219f5"
+    },
+    {
+      "id": "C-PI-FLASH-API",
+      "title": "PageIndex Flash public API",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/flash/api.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "page_index_flash、flash_rejection_reason、要約・最適化の呼出経路を静的確認。実行していない。",
+      "scope": "LLM を使わない初期抽出と要約・expand、10 ノード超の平坦な結果の拒否、物理ページ範囲。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/flash/api.py",
+      "sha256": "cb7ea557a40ebb28339d1ddcb93eb178e7557aa3bba7a5dfb0219ad96803826a"
+    },
+    {
+      "id": "C-PI-CLIENT",
+      "title": "PageIndexClient",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/client.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "client 初期化・公開メソッド・_local_doc_scope・document_context の関連箇所を静的確認。実行していない。",
+      "scope": "SDK 入口、文書を対象にする指示と local chat の許可 ID 集合の違い。全 API 経路は未監査。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/client.py",
+      "sha256": "707c3fbbff8c1d40f4f5d1d8a29e8ebe692e0a5aff3ea96bcaabf37ead22eef1"
+    },
+    {
+      "id": "C-PI-LOCAL",
+      "title": "PageIndex LocalAPI",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/local_api.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "submit_document、_index_flash / standard、get_tree、形式変換を静的確認。実行していない。",
+      "scope": "PDF 限定、同期索引、metadata 保存、UUID 発行、ページ抽出、公開 tree への変換。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/local_api.py",
+      "sha256": "f62f4d21749be6656ae9a35452727edffa74680831aeb425e7704b02c7e3f611"
+    },
+    {
+      "id": "C-PI-STORE",
+      "title": "PageIndex local DocStore",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/local_store.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "保存・読取・削除・manifest の関連処理を静的確認。実行していない。",
+      "scope": "JSON ファイル構成と削除経路。原本保存、完全消去、運用時の整合性は検証していない。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/local_store.py",
+      "sha256": "693d937daffb264acf05262b2657688f038f88d13e290f387625f244896df57f"
+    },
+    {
+      "id": "C-PI-TOOLS",
+      "title": "PageIndex document tools and instructions",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/agent_tools.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "ツール定義、構造読取、_tool_specs、既定指示、文書指定の関連処理を静的確認。実行していない。",
+      "scope": "ローカルの 4 読取ツール、応答分割、20 ページを境にした読取指示、外部 agent ツールの範囲。全例外経路は未監査。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/agent_tools.py",
+      "sha256": "d2b54e186109842088279322ea4dec6fc6f01cd6d3de3bb2c6463998be862677"
+    },
+    {
+      "id": "C-PI-CHAT",
+      "title": "PageIndex own-model chat",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/local_chat.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "_openai_agent、_chat_agent、モデル接続・文書スコープの関連経路を静的確認。実行していない。",
+      "scope": "ツールを LLM エージェントへ渡す検索・回答経路。全 protocol / provider の動作は未検証。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/local_chat.py",
+      "sha256": "60d2d1a966b5ad614513d6f69768ea5a74be6f5e6f88a1ef9bb72b3d4e23d50e"
+    },
+    {
+      "id": "C-PI-OPT",
+      "title": "PageIndex tree optimization",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/tree_optimize.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "冒頭のコスト定義、merge / expand の入口、propose_children を静的確認。実行していない。",
+      "scope": "ページ単位の代理コスト、決定的 merge、LLM expand、見出しの本文照合。計算量・性能の証明や実測ではない。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/tree_optimize.py",
+      "sha256": "4363a8faa83cf450cf0765189371027231dbc55d3f27893425dc049af10c3bbe"
+    },
+    {
+      "id": "C-PI-CLI",
+      "title": "PageIndex CLI entry",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/run_pageindex.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "引数、Flash / standard / Markdown 分岐、出力処理を静的確認。実行していない。",
+      "scope": "CLI と SDK の受付形式の違い、Flash 既定、失敗時の standard 案内。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "run_pageindex.py",
+      "sha256": "a343a26bed4adc018d1180b51eb2c85b2a1c2bbc84a10b09deada89056020909"
+    },
+    {
+      "id": "C-PI-CLASSIC",
+      "title": "PageIndex classic indexing",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/page_index_classic.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "目次・開始ページ検証と meta_processor / tree_parser の関連箇所を静的確認。実行していない。",
+      "scope": "standard 経路で LLM を利用する目次処理が残ること。全文精読や実行ではない。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/page_index_classic.py",
+      "sha256": "4d1af65985026f2ab0223774fe51a2ed7c23a7baf0aca0d0b7937b8b5e2583cf"
+    },
+    {
+      "id": "C-PI-UTILS",
+      "title": "PageIndex LLM and summary utilities",
+      "url": "https://github.com/VectifyAI/PageIndex/blob/619cbd89f6dd02681a8cfc5d00b1f9b4848e973e/pageindex/utils.py",
+      "kind": "公開コード・manifest",
+      "accessed": "2026-09-29",
+      "review_depth": "llm_completion / llm_acompletion と leaf / parent summary のプロンプト・呼出を静的確認。実行していない。",
+      "scope": "本文・子要約を接続先 LLM へ渡す構造。実通信の記録・監査は未実施。",
+      "repository": "VectifyAI/PageIndex",
+      "commit": "619cbd89f6dd02681a8cfc5d00b1f9b4848e973e",
+      "commit_date": "2026-09-28T14:01:02Z",
+      "path": "pageindex/utils.py",
+      "sha256": "d7600b549919d54e73d13811debea7a189d2e73e464c05a60ac0d4b86ab46a3e"
+    },
+    {
+      "id": "D-PI-OSS-BENCH",
+      "title": "GitHub - VectifyAI/PageIndex-OSS-Benchmark",
+      "url": "https://github.com/VectifyAI/PageIndex-OSS-Benchmark/blob/ad4c0b92970a6f4801f09ff2e647389e8f5874fa/README.md",
+      "kind": "benchmark repository",
+      "accessed": "2026-09-29",
+      "commit": "ad4c0b92970a6f4801f09ff2e647389e8f5874fa",
+      "commit_date": "2026-08-17T12:17:07Z",
+      "sha256": "2e8ec68a46b5b5f44e12d8cc1b214e888a71c9fc134c3483902fcb15c755d187",
+      "bytes": 4448,
+      "review_depth": "mainのcommit SHA/dateをGitHub APIで取得し、README.mdをSHA固定raw URLから保存して読了。全runnerの再実行はしていない。",
+      "scope": "PageIndex local mode (PageIndexClient()、PageIndex Cloud API keyなし（LLM の認証は別）)、Flash indexing、OCRなし。62問・34 PDF・1,945ページ。running text内のlookup事実だけを対象とし、chart/table/figure/計算とFlashが拒否した文書を除外。全index treeはgpt-5.6-luna、MMLongBench-Doc-V2のreference-answer semantic-equivalence judge (元PDFは読まない) で採点する条件を確認。README表のaccuracyは各model/effort構成で85.5–100%。",
+      "repository": "VectifyAI/PageIndex-OSS-Benchmark",
+      "path": "README.md",
+      "raw_url": "https://raw.githubusercontent.com/VectifyAI/PageIndex-OSS-Benchmark/ad4c0b92970a6f4801f09ff2e647389e8f5874fa/README.md"
+    },
+    {
+      "id": "D-PI-FINANCE",
+      "title": "GitHub - VectifyAI/Mafin2.5-FinanceBench: FinanceBench evaluation of Mafin 2.5 (Powered by PageIndex)",
+      "url": "https://github.com/VectifyAI/Mafin2.5-FinanceBench/blob/1c890d5e0fd9929953d38282614555847727011d/README.md",
+      "kind": "benchmark repository README",
+      "accessed": "2026-09-29",
+      "commit": "1c890d5e0fd9929953d38282614555847727011d",
+      "commit_date": "2025-10-20T05:43:30Z",
+      "sha256": "5e6ba555cad4633e3ecfe4ccef3ca8c3ad4a8448d696e6cb3f6ad37577e0c665",
+      "bytes": 6818,
+      "review_depth": "mainのcommit SHA/dateをGitHub APIで取得し、README.mdをSHA固定raw URLから保存して読了。",
+      "scope": "98.7%の帰属先がMafin 2.5であること、提供元の全件評価と2基盤モデル主張、比較対象のカバレッジ、正解曖昧性および単一文書寄りの限界。",
+      "repository": "VectifyAI/Mafin2.5-FinanceBench",
+      "path": "README.md",
+      "raw_url": "https://raw.githubusercontent.com/VectifyAI/Mafin2.5-FinanceBench/1c890d5e0fd9929953d38282614555847727011d/README.md"
+    },
+    {
+      "id": "D-PI-FINANCE-EVAL",
+      "title": "eval.py - Mafin2.5-FinanceBench",
+      "url": "https://github.com/VectifyAI/Mafin2.5-FinanceBench/blob/1c890d5e0fd9929953d38282614555847727011d/eval.py",
+      "kind": "evaluation code",
+      "accessed": "2026-09-29",
+      "commit": "1c890d5e0fd9929953d38282614555847727011d",
+      "commit_date": "2025-10-20T05:43:30Z",
+      "sha256": "d54861d43fb0d4d668a846a4c25e2bb27d2598945748af7aa1b716e63f65e039",
+      "bytes": 5127,
+      "review_depth": "commit固定版eval.pyを保存して読み、既定判定器、正誤同値判定プロンプト、結果ファイル既定名とhybridの集約を確認。実行はしていない。",
+      "scope": "既定GPT-4o判定、丸め・推論・妥当解釈を広く認める基準、hybridではいずれかの判定器が正解とした場合に正解扱いする実装。",
+      "repository": "VectifyAI/Mafin2.5-FinanceBench",
+      "path": "eval.py",
+      "raw_url": "https://raw.githubusercontent.com/VectifyAI/Mafin2.5-FinanceBench/1c890d5e0fd9929953d38282614555847727011d/eval.py"
     }
-  ]
+  ],
+  "updated": "2026-09-29",
+  "update_scope": "オントロジー・メモリーの基礎と応用、および PageIndex の追加調査。既存の確認日・コミット・ハッシュを保持し、PageIndex 本体・評価資料の固定版と公式文書を追加。"
 }

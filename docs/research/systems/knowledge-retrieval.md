@@ -2,6 +2,10 @@
 
 [調査トップ](../README.md) / [システム比較](README.md) / [資料台帳](../sources.md)
 
+## PageIndex
+
+PageIndex は文書ごとの階層 tree を作り、LLM agent が章節の構造をたどって必要なページ本文を取得する retrieval 方式である。文書内の階層検索が中心で、実体・関係を結ぶ corpus-wide knowledge graph とは目的が異なる。固定版の SDK、Flash indexing、保存方式と未確認点は[PageIndex の調査](pageindex.md)を参照。
+
 ## Microsoft GraphRAG
 
 文書を chunk に分け、entity / relationship を抽出し、community を作り、その要約を検索・回答に利用する。global search はコーパス全体のテーマ、local search は実体近傍、DRIFT は community 情報を利用して局所探索を広げる。大きな資料集合へ「全体としてどんな傾向があるか」と問う用途が出発点である。[P-MSGRAPH] [D-MSGRAPH]
@@ -26,10 +30,10 @@
 
 ## RAPTOR と KAG
 
-| 方式 | 仕組み | 取り入れると有効な場面 | 限界 |
-|---|---|---|---|
-| RAPTOR | chunk の embedding・clustering・要約を再帰的に繰り返し、複数抽象度の木を作る | 長い文書の局所情報と全体要約を使い分ける | 要約の誤りや欠落が上位へ伝播する。変更時の再計算が必要。[P-RAPTOR] |
-| KAG / OpenSPG | 知識と原文 chunk の相互索引、型・意味整合、logical form に導かれる検索と推論 | 業務語彙があり、関係制約や計算を伴う QA | schema 整備と問いの分解が必要。LLM が作る logical form を無条件に正解とはみなせない。[P-KAG] [D-KAG] |
+| 方式            | 仕組み                                                 | 取り入れると有効な場面           | 限界                                                                     |
+| ------------- | --------------------------------------------------- | --------------------- | ---------------------------------------------------------------------- |
+| RAPTOR        | chunk の embedding・clustering・要約を再帰的に繰り返し、複数抽象度の木を作る | 長い文書の局所情報と全体要約を使い分ける  | 要約の誤りや欠落が上位へ伝播する。変更時の再計算が必要。[P-RAPTOR]                                 |
+| KAG / OpenSPG | 知識と原文 chunk の相互索引、型・意味整合、logical form に導かれる検索と推論    | 業務語彙があり、関係制約や計算を伴う QA | schema 整備と問いの分解が必要。LLM が作る logical form を無条件に正解とはみなせない。[P-KAG] [D-KAG] |
 
 ## 既存の企業向け知識基盤から学べる点
 
@@ -46,20 +50,37 @@
 - [共通の評価方法](../evaluation.md)
 
 [P-MSGRAPH]: https://arxiv.org/abs/2404.16130v2
+
 [D-MSGRAPH]: https://microsoft.github.io/graphrag/query/overview/
+
 [C-MSCLUSTER]: https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag/graphrag/index/operations/cluster_graph.py
+
 [C-MSUPDATE]: https://github.com/microsoft/graphrag/blob/769542fbf1d8e5b4c6a8677fefc34621c87894c5/packages/graphrag/graphrag/index/workflows/update_entities_relationships.py
+
 [P-LIGHT]: https://arxiv.org/abs/2410.05779v3
+
 [D-LIGHT]: https://github.com/HKUDS/LightRAG/blob/453dce83d6d0354a06e46c8d4029a0895c4e054b/README.md
+
 [C-LIGHT]: https://github.com/HKUDS/LightRAG/blob/453dce83d6d0354a06e46c8d4029a0895c4e054b/lightrag/operate.py
+
 [P-HIPPO]: https://arxiv.org/abs/2405.14831v3
+
 [P-HIPPO2]: https://arxiv.org/abs/2502.14802v2
+
 [C-HIPPO]: https://github.com/OSU-NLP-Group/HippoRAG/blob/1438aba3fc44ff10573e5a5e1e7cc3c7f9794aff/src/hipporag/HippoRAG.py
+
 [P-RAPTOR]: https://arxiv.org/abs/2401.18059v1
+
 [P-KAG]: https://arxiv.org/abs/2409.13731v3
+
 [D-KAG]: https://github.com/OpenSPG/KAG
+
 [D-FOUNDRY]: https://www.palantir.com/docs/foundry/object-edits/overview
+
 [D-STARDOG]: https://docs.stardog.com/inference-engine/
+
 [D-VIRTUAL]: https://docs.stardog.com/virtual-graphs/
+
 [D-TERMINUS]: https://terminusdb.org/docs/version-controlled-json/
+
 [D-XTDB]: https://docs.xtdb.com/concepts/key-concepts.html
