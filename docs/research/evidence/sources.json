@@ -675,7 +675,22 @@
       ],
       "publication_comment": "Preprint, under review. 2 figures. Code, benchmark and run logs: this https URL",
       "submission_history": "Submission history From: Ansuman Mullick [ view email ] [v1] Wed, 9 Sep 2026 16:31:45 UTC (2,802 KB)",
-      "arxiv_version": "v1"
+      "arxiv_version": "v1",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "要旨・手法・評価・制約・書誌を本文確認",
+          "checked_sections": [
+            "arXiv書誌と初稿履歴",
+            "§3 lifecycle mechanisms",
+            "§6 evaluation",
+            "§7 limitations",
+            "NeurIPS checklist",
+            "artifact release"
+          ],
+          "scope": "2026-09-29 最先端研究への拡張"
+        }
+      ]
     },
     {
       "id": "P-LME",
@@ -2294,7 +2309,15 @@
       "url": "https://github.com/oxigraph/oxigraph",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "scope": "関連システム第2次調査: 知識・保存基盤",
+          "review_depth": "Rust DB library、Python/JavaScript bindings、standalone SPARQL server、公開される標準対応を確認。",
+          "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx"
+        }
+      ]
     },
     {
       "id": "D-JENA",
@@ -3080,7 +3103,16 @@
       "url": "https://docs.vespa.ai/en/learn/tutorials/hybrid-search",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "scope": "関連システム第2次調査: クラウド検索・検索エンジン",
+          "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+          "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+          "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+        }
+      ]
     },
     {
       "id": "D-RDF4J",
@@ -3088,7 +3120,15 @@
       "url": "https://rdf4j.org/documentation/programming/shacl/",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "scope": "関連システム第2次調査: 知識・保存基盤",
+          "review_depth": "transaction commit時のSHACL validation、shape更新時再検査、feature scopeを確認。",
+          "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx"
+        }
+      ]
     },
     {
       "id": "D-OWLAPI",
@@ -3136,7 +3176,15 @@
       "url": "https://jena.apache.org/documentation/inference/",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "scope": "関連システム第2次調査: 知識・保存基盤",
+          "review_depth": "Jena reasonerの層構成とRDFS・rule reasonerの種別を確認。",
+          "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx"
+        }
+      ]
     },
     {
       "id": "D-FASTAPI",
@@ -4959,7 +5007,15 @@
       "url": "https://github.com/RecallGraph/RecallGraph",
       "kind": "公式製品ドキュメント",
       "accessed": "2026-09-29",
-      "review_depth": "archived 2026-04-25、ArangoDB Foxx/event history、point-in-time graph query、valid-timeとbranchingはroadmap、successor Minigrafへの案内を確認"
+      "review_depth": "archived 2026-04-25、ArangoDB Foxx/event history、point-in-time graph query、valid-timeとbranchingはroadmap、successor Minigrafへの案内を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "scope": "関連システム第2次調査: 知識・保存基盤",
+          "review_depth": "archive、transaction-time中心の過去状態照会、valid-time未出荷の説明を確認。既存調査候補。",
+          "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx"
+        }
+      ]
     },
     {
       "id": "D-LS-MINIGRAF-README",
@@ -4967,7 +5023,15 @@
       "url": "https://github.com/project-minigraf/minigraf",
       "kind": "公式製品ドキュメント",
       "accessed": "2026-09-29",
-      "review_depth": "successor側の公開説明を確認。RecallGraphからのportではない。runtimeや性能は未検証"
+      "review_depth": "successor側の公開説明を確認。RecallGraphからのportではない。runtimeや性能は未検証",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "scope": "関連システム第2次調査: 知識・保存基盤",
+          "review_depth": "embedded Datalog graphとtransaction-time/valid-timeの公開説明を確認。性能・実行は未検証。",
+          "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx"
+        }
+      ]
     },
     {
       "id": "D-LS-RECALLGRAPH-PYPI",
@@ -5218,8 +5282,1784 @@
       "arxiv_version": "v2",
       "review_depth": "arXiv の要旨・書誌と 2026-09-22 の v2 改訂日を確認。本文・実験値・コードは未確認。",
       "scope": "構築・検索・生成の段階別費用を比較する評価視点。性能値は転載していない。"
+    },
+    {
+      "id": "P-R2-M-GAM",
+      "title": "GAM: Hierarchical Graph-based Agentic Memory for LLM Agents",
+      "url": "https://arxiv.org/html/2604.12285v1",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv v1本文の構成・検索方式・制約に関連する節を確認。実験再現なし。",
+      "arxiv_version": "v1"
+    },
+    {
+      "id": "P-R2-M-GAM-DR",
+      "title": "General Agentic Memory Via Deep Research",
+      "url": "https://arxiv.org/html/2511.18423v1",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "v1本文のJIT構成、検索・統合方式と関連制約を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-GAM-DR-REPO",
+      "title": "VectorSpaceLab general-agentic-memory official repository README",
+      "url": "https://github.com/VectorSpaceLab/general-agentic-memory/blob/main/README.md",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "README概要・掲示された利用形態を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMR3",
+      "title": "MemR³: Transforming Agents into Reflective Searchers through Reflective Reasoning",
+      "url": "https://arxiv.org/html/2512.20237",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "論文本文の検索制御・証拠追跡方式を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-MEMR3-REPO",
+      "title": "MemR3 official repository",
+      "url": "https://github.com/Leagein/memr3",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoの概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-NEMORI",
+      "title": "What Deserves Memory: Adaptive Memory Distillation for LLM Agents",
+      "url": "https://arxiv.org/html/2508.03341",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "最新版v4の本文、方式と制約の関連節を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-NEMORI-REPO",
+      "title": "Nemori official repository",
+      "url": "https://github.com/nemori-ai/nemori",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoの概要と旧MVPからの互換性に関する説明を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMINSIGHT",
+      "title": "MemInsight: Autonomous Memory Augmentation for LLM Agents",
+      "url": "https://aclanthology.org/2025.emnlp-main.1683/",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "EMNLP 2025論文の手法・関連評価・制約を確認。再現実験なし。"
+    },
+    {
+      "id": "D-R2-M-MEMINSIGHT-REPO",
+      "title": "Amazon Science MemInsight official repository",
+      "url": "https://github.com/amazon-science/MemInsight",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoのREADME概要のみ確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMTREE",
+      "title": "From Isolated Conversations to Hierarchical Schemas: Dynamic Tree Memory Representation for LLMs",
+      "url": "https://arxiv.org/html/2410.14052",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "v3論文本文の方式・評価上の制約を確認。公式実装と実験は未検証。"
+    },
+    {
+      "id": "P-R2-M-MEMFOREST",
+      "title": "MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing",
+      "url": "https://arxiv.org/html/2605.23986v3",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv v3（2026-09-06改訂）の保存構造、撤回・検索手順、制約に関係する節を確認。実行なし。",
+      "arxiv_version": "v3"
+    },
+    {
+      "id": "D-R2-M-MEMFOREST-REPO",
+      "title": "Concyclics MemForest official repository",
+      "url": "https://github.com/Concyclics/MemForest",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo説明を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-ARIGRAPH",
+      "title": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents",
+      "url": "https://arxiv.org/html/2407.04363",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "論文本文のグラフ更新・検索方式を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-ARIGRAPH-REPO",
+      "title": "AIRI Institute AriGraph official repository",
+      "url": "https://github.com/AIRI-Institute/AriGraph",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-AGEMEM",
+      "title": "AgeMem: Agentic Memory for LLM Agents",
+      "url": "https://arxiv.org/html/2601.01885",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "v3本文の長短期メモリー操作、学習手順、制約を確認。再現実験なし。"
+    },
+    {
+      "id": "D-R2-M-AGEMEM-REPO",
+      "title": "AgeMem author repository",
+      "url": "https://github.com/y1y5/AgeMem",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "著者repoのREADME等の概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMBANK",
+      "title": "MemoryBank: Enhancing Large Language Models with Long-Term Memory",
+      "url": "https://arxiv.org/html/2305.10250",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の保持構造、想起・減衰方式を確認。既存の要旨級記載を深化。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-MEMBANK-REPO",
+      "title": "MemoryBank-SiliconFriend author repository",
+      "url": "https://github.com/zhongwanjun/MemoryBank-SiliconFriend",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMENGINE",
+      "title": "MemEngine: A Modular and High-Performance Memory Framework for LLM Agents",
+      "url": "https://arxiv.org/html/2505.02099",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の目的・構造・比較範囲を確認。実装・性能の再現なし。"
+    },
+    {
+      "id": "D-R2-M-MEMENGINE-REPO",
+      "title": "MemEngine official repository",
+      "url": "https://github.com/nuster1128/MemEngine",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoのREADME概要のみ確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-LONGMEM",
+      "title": "LongMem: Augmenting Language Models with Long-Term Memory",
+      "url": "https://arxiv.org/html/2306.07174",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "論文本文の構成と取得方式の関連節を確認。公式コード短縮URLは直接取得できず、実装未確認。"
+    },
+    {
+      "id": "P-R2-M-MEMAGENT",
+      "title": "MemAgent: Reshaping Long-Context LLM with Memory-Agent Training",
+      "url": "https://arxiv.org/html/2507.02259",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の逐次圧縮・学習手順を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-MEMAGENT-REPO",
+      "title": "BytedTsinghua-SIA MemAgent official repository",
+      "url": "https://github.com/BytedTsinghua-SIA/MemAgent",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMORYLLM",
+      "title": "MemoryLLM: Towards Self-Updatable Large Language Models",
+      "url": "https://arxiv.org/html/2402.04624",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の内部記憶構造と更新方式を確認。実験再現なし。"
+    },
+    {
+      "id": "P-R2-M-MPLUS",
+      "title": "M+: Extending MemoryLLM with Readable Memory",
+      "url": "https://arxiv.org/abs/2502.00592",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "論文の要旨とMemoryLLM系列への位置づけを確認。本文全体・実験は未確認。"
+    },
+    {
+      "id": "D-R2-M-MEMORYLLM-REPO",
+      "title": "MemoryLLM official repository",
+      "url": "https://github.com/wangyu-ustc/MemoryLLM",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要でMemoryLLMとM+双方の実装を掲げることを確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-GENAGENT",
+      "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "url": "https://arxiv.org/html/2304.03442",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "既存の要旨級記載を深化し、本文のmemory stream・reflection関連節を確認。再現なし。"
+    },
+    {
+      "id": "D-R2-M-GENAGENT-REPO",
+      "title": "Generative Agents official research repository",
+      "url": "https://github.com/joonspk-research/generative_agents",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-REFLEXION",
+      "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+      "url": "https://arxiv.org/html/2303.11366",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "既存の要旨級記載を深化し、本文の反省・エピソード記憶方式を確認。再現なし。"
+    },
+    {
+      "id": "D-R2-M-REFLEXION-REPO",
+      "title": "Reflexion author repository",
+      "url": "https://github.com/noahshinn024/reflexion",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "論文から参照されるrepoを確認対象としたが、ページ取得に失敗。コード・READMEを確認していない。"
+    },
+    {
+      "id": "P-R2-M-EXPEL",
+      "title": "ExpeL: LLM Agents Are Experiential Learners",
+      "url": "https://arxiv.org/html/2308.10144",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "v3本文の経験収集・洞察抽出・推論時利用を確認。評価再現なし。"
+    },
+    {
+      "id": "D-R2-M-EXPEL-REPO",
+      "title": "LeapLab THU ExpeL official repository",
+      "url": "https://github.com/LeapLabTHU/ExpeL",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoのREADME概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "D-R2-M-SOAR-SEMANTIC",
+      "title": "Soar Manual: Semantic Memory",
+      "url": "https://soar.eecs.umich.edu/soar_manual/06_SemanticMemory/",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式マニュアルの意味記憶に関する節を確認。環境での動作未検証。"
+    },
+    {
+      "id": "D-R2-M-SOAR-EPISODIC",
+      "title": "Soar Manual: Episodic Memory",
+      "url": "https://soar.eecs.umich.edu/soar_manual/07_EpisodicMemory/",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式マニュアルのエピソード記憶に関する節を確認。環境での動作未検証。"
+    },
+    {
+      "id": "D-R2-M-HYPERON-ATOMSPACE",
+      "title": "Hyperon: Atomspace",
+      "url": "https://wiki.opencog.org/w/Hyperon:Atomspace",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式wikiのAtomSpace説明と未解決範囲に関する記述を確認。実行なし。"
+    },
+    {
+      "id": "D-R2-M-HYPERON-REPO",
+      "title": "Hyperon Experimental official repository README",
+      "url": "https://github.com/trueagi-io/hyperon-experimental/blob/main/README.md",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEのプロジェクト状態と概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "D-R2-A-ANYTHING-DOCS",
+      "title": "AnythingLLM: Chatting with Documents",
+      "url": "https://docs.anythingllm.com/chatting-with-documents/introduction",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "文書チャットと workspace/thread のスコープに関する関連節を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-ANYTHING-API",
+      "title": "AnythingLLM Server OpenAPI specification",
+      "url": "https://github.com/Mintplex-Labs/anything-llm/blob/master/server/swagger/openapi.json",
+      "kind": "公式 API 定義",
+      "accessed": "2026-09-29",
+      "review_depth": "workspace chat 応答と workspace document の操作に関する API 定義を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENWEBUI-RAG",
+      "title": "Open WebUI: Retrieval Augmented Generation",
+      "url": "https://docs.openwebui.com/features/chat-conversations/rag/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "RAG、引用、Focused Retrieval、Full Context、native tools の説明を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENWEBUI-KNOWLEDGE",
+      "title": "Open WebUI: Knowledge",
+      "url": "https://docs.openwebui.com/features/workspace/knowledge/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "Knowledge Base と local directory sync の説明を確認。同期を実行していない。"
+    },
+    {
+      "id": "D-R2-A-KHOJ-README",
+      "title": "Khoj official repository README",
+      "url": "https://github.com/khoj-ai/khoj/blob/master/README.md",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "製品の位置づけ、対応データ源、検索の概要を確認。コード監査なし。"
+    },
+    {
+      "id": "D-R2-A-KHOJ-SYNC",
+      "title": "Khoj: Setup and sync data sources",
+      "url": "https://docs.khoj.dev/get-started/setup/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "Desktop 等の client と外部 source の設定・同期案内を確認。同期の実行なし。"
+    },
+    {
+      "id": "D-R2-A-KHOJ-SEARCH",
+      "title": "Khoj: Search",
+      "url": "https://docs.khoj.dev/features/search/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "文書検索と順位付けの説明を確認。引用 UI は確認できた範囲に限定。"
+    },
+    {
+      "id": "D-R2-A-KHOJ-AGENTS",
+      "title": "Khoj: Agents",
+      "url": "https://docs.khoj.dev/features/agents/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "agent の公開範囲に関する関連節を確認。権限設定の実行なし。"
+    },
+    {
+      "id": "D-R2-A-KOTAEMON-README",
+      "title": "Kotaemon official repository README",
+      "url": "https://github.com/Cinnamon/kotaemon/blob/main/README.md",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "multi-user、collection、hybrid retrieval、引用表示の概要を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-KOTAEMON-USAGE",
+      "title": "Kotaemon: Usage guide",
+      "url": "https://github.com/Cinnamon/kotaemon/blob/main/docs/usage.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "file index、collection、PDF citation viewer、file deletion の案内を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-FASTGPT-DATASET",
+      "title": "FastGPT: Dataset API",
+      "url": "https://doc.fastgpt.io/en/openapi/dataset",
+      "kind": "公式 API ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "dataset、collection、data entry の作成・更新・削除 API を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-FASTGPT-PERMISSIONS",
+      "title": "FastGPT: Team roles and permissions",
+      "url": "https://doc.fastgpt.io/en/guide/workspace/team/team_roles_permissions",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "team と member group の権限説明を確認。権限を構成していない。"
+    },
+    {
+      "id": "D-R2-A-FASTGPT-FILE-PERM",
+      "title": "FastGPT: Collection permissions",
+      "url": "https://doc.fastgpt.io/zh-CN/guide/dataset/collection_permission",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "file / folder 単位の dataset 権限と提供区分を確認。権限を構成していない。"
+    },
+    {
+      "id": "D-R2-A-FASTGPT-CITATIONS",
+      "title": "FastGPT: Quote list and chunk reader",
+      "url": "https://doc.fastgpt.io/en/guide/chat/quoteList",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "回答 citation、原文表示、highlight、relevance score の説明を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-MAXKB-KNOWLEDGE",
+      "title": "MaxKB: Dataset management",
+      "url": "https://docs.maxkb.pro/user_manual/dataset/dataset/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "document / website dataset、segment 編集、sync、vectorization の案内を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-MAXKB-APP",
+      "title": "MaxKB: Simple application",
+      "url": "https://docs.maxkb.pro/user_manual/app/simple_app/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "application の関連 dataset、検索 segment、参照なし時の応答設定を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-QANYTHING-README",
+      "title": "QAnything official repository README",
+      "url": "https://github.com/netease-youdao/QAnything",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "local / offline QA の位置づけと user_id / kb_id の API 利用例を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-QANYTHING-API",
+      "title": "QAnything v2 API documentation",
+      "url": "https://github.com/netease-youdao/QAnything/blob/qanything-v2/docs/API.md",
+      "kind": "公式 API ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "file / KB 削除、chunk 更新、duplicate policy、source_documents schema を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-DOCSGPT-HOME",
+      "title": "DocsGPT documentation",
+      "url": "https://docs.docsgpt.cloud/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "source ingestion と回答 citation の製品案内を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-DOCSGPT-SOURCE-CONFIG",
+      "title": "DocsGPT: Per-source configuration",
+      "url": "https://docs.docsgpt.cloud/Sources/Per-source-configuration",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "source の検索設定と chunking / re-ingestion の案内を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-DOCSGPT-SCOPES",
+      "title": "DocsGPT: Personal access tokens",
+      "url": "https://docs.docsgpt.cloud/Extensions/personal-access-tokens",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "API token の scope と source / chunk 操作を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENNOTEBOOK-SOURCES",
+      "title": "Open Notebook: Adding sources",
+      "url": "https://github.com/lfnovo/open-notebook/blob/main/docs/3-USER-GUIDE/adding-sources.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "source として追加できる形式と notebook 内での整理を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-OPENNOTEBOOK-CITATIONS",
+      "title": "Open Notebook: Citations",
+      "url": "https://github.com/lfnovo/open-notebook/blob/main/docs/3-USER-GUIDE/citations.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "citation から source passage を確認する案内と note 内 citation を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENNOTEBOOK-API",
+      "title": "Open Notebook: API reference",
+      "url": "https://github.com/lfnovo/open-notebook/blob/main/docs/7-DEVELOPMENT/api-reference.md",
+      "kind": "公式 API ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "notebook を指定する検索 API を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENNOTEBOOK-MCP",
+      "title": "Open Notebook: MCP integration",
+      "url": "https://github.com/lfnovo/open-notebook/blob/main/docs/5-CONFIGURATION/mcp-integration.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "MCP が公開する source metadata update / delete 操作を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-QUIVR-README",
+      "title": "Quivr current official repository README",
+      "url": "https://github.com/The-Vibe-Company/quivr",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "旧 repository の転送先にある現行 README の位置づけ、対応ファイルと parser の説明を確認。"
+    },
+    {
+      "id": "D-R2-A-QUIVR-OLD-DOCS",
+      "title": "Quivr legacy documentation",
+      "url": "https://core.quivr.com/en/stable/",
+      "kind": "旧公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "現行 repository と異なる旧製品の案内として存在を確認。現行挙動の根拠には使用していない。"
+    },
+    {
+      "id": "D-R2-R-GLEAN",
+      "title": "Glean: How connectors power the Glean experience",
+      "url": "https://docs.glean.com/connectors/connectors-power-glean",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-VECTARA-KNOWLEDGE",
+      "title": "Vectara: Knowledge",
+      "url": "https://docs.vectara.com/docs/platform-architecture/knowledge",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-VECTARA-INTEGRATIONS",
+      "title": "Vectara: Integrations / Where permissions live",
+      "url": "https://docs.vectara.com/docs/agents/integrations",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-BEDROCK",
+      "title": "Amazon Bedrock Knowledge Bases overview",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-BEDROCK-SYNC",
+      "title": "Amazon Bedrock Managed Knowledge Bases: Sync a data source",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-sync.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-KENDRA",
+      "title": "Amazon Kendra: Filtering on user context",
+      "url": "https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-GOOGLE-RAG",
+      "title": "RAG Engine on Gemini Enterprise Agent Platform overview",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-GOOGLE-SEARCH",
+      "title": "Google Agent Search overview and product name terminology",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-GOOGLE-ACL",
+      "title": "Google Agent Search: Set up data source access control",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/data-source-access-control",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認ページでPreviewと記載されたアクセス制御機能。"
+    },
+    {
+      "id": "D-R2-R-AZURE",
+      "title": "Azure AI Search: Agentic retrieval overview",
+      "url": "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "2026-04-01 と 2026-08-01-preview の区別、indexed sourceの権限設定に関する確認時点の文書。"
+    },
+    {
+      "id": "D-R2-R-AZURE-RETRIEVE",
+      "title": "Azure AI Search: Query Knowledge Base via API or MCP",
+      "url": "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-retrieve",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "2026-04-01 と 2026-08-01-preview の区別、indexed sourceの権限設定に関する確認時点の文書。"
+    },
+    {
+      "id": "D-R2-R-SNOWFLAKE",
+      "title": "Snowflake Cortex Search overview",
+      "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-SNOWFLAKE-ACCESS",
+      "title": "Snowflake: Query a Cortex Search Service / Access control requirements",
+      "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/query-cortex-search-service",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-DATABRICKS",
+      "title": "Databricks AI Search overview (AWS)",
+      "url": "https://docs.databricks.com/aws/en/ai-search/ai-search",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-DATABRICKS-ABAC",
+      "title": "Databricks: ABAC requirements, quotas and limitations (AWS)",
+      "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac/requirements",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-ELASTIC-HYBRID",
+      "title": "Elasticsearch: Hybrid search",
+      "url": "https://www.elastic.co/docs/solutions/search/hybrid-search",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-ELASTIC-DLS",
+      "title": "Elasticsearch content connectors: How DLS works",
+      "url": "https://www.elastic.co/docs/reference/search-connectors/es-dls-overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-ELASTIC-LIFECYCLE",
+      "title": "Elasticsearch connector release notes: Enterprise Search discontinued in 9.0",
+      "url": "https://www.elastic.co/docs/reference/search-connectors/release-notes",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-OPENSEARCH-HYBRID",
+      "title": "OpenSearch: Hybrid search",
+      "url": "https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/index/",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-OPENSEARCH-DLS",
+      "title": "OpenSearch: Document-level security",
+      "url": "https://docs.opensearch.org/latest/security/access-control/document-level-security/",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-VESPA-DOCUMENT",
+      "title": "Vespa: /document/v1 API guide",
+      "url": "https://docs.vespa.ai/en/writing/document-v1-api-guide.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-S-JENA-FUSEKI",
+      "title": "Apache Jena Fuseki documentation",
+      "url": "https://jena.apache.org/documentation/fuseki2/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "FusekiのSPARQL 1.1 query/update、Graph Store protocol、TDB連携と公開形態を確認。実行なし。"
+    },
+    {
+      "id": "D-R2-S-JENA-TDB2",
+      "title": "Apache Jena TDB2",
+      "url": "https://jena.apache.org/documentation/tdb2/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "TDB2がJena API用の永続RDF storeであることを確認。"
+    },
+    {
+      "id": "D-R2-S-JENA-TXN",
+      "title": "Apache Jena TDB transactions",
+      "url": "https://jena.apache.org/documentation/tdb/tdb_transactions.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "TDB2のserializable transaction、reader/writer構成、multi-JVM制約を確認。"
+    },
+    {
+      "id": "D-R2-S-RDF4J-REPO",
+      "title": "The Repository API - Eclipse RDF4J",
+      "url": "https://rdf4j.org/documentation/programming/repository/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Repository/Sailの役割、RDFS inferencerの組成と性能注意を確認。"
+    },
+    {
+      "id": "D-R2-S-OXIGRAPH-ARCH",
+      "title": "Oxigraph architecture wiki",
+      "url": "https://github.com/oxigraph/oxigraph/wiki/Architecture",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "v0.4を対象とする古いarchitecture説明を確認。current releaseへの挙動外挿には使わない。"
+    },
+    {
+      "id": "D-R2-S-VIRTUOSO-REPO",
+      "title": "Virtuoso Open Source repository",
+      "url": "https://github.com/openlink/virtuoso-opensource",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "製品のオープンソースrepositoryの存在と公開位置を確認。ライセンス監査なし。"
+    },
+    {
+      "id": "D-R2-S-VIRTUOSO-INFERENCE",
+      "title": "Virtuoso inference rules and reasoning",
+      "url": "https://docs.openlinksw.com/virtuoso/rdfsparqlrule/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "rule-baseによるquery inferenceと物理保存quads/virtual tripleの適用境界、対応語彙を確認。"
+    },
+    {
+      "id": "D-R2-S-VIRTUOSO-VIEWS",
+      "title": "Virtuoso Linked Data Views over RDBMS",
+      "url": "https://docs.openlinksw.com/virtuoso/rdfviewsrdbms/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "SQL-to-RDF mappingを動的に提供するLinked Data Viewsの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-DOCS",
+      "title": "AllegroGraph 9.0.3 documentation index",
+      "url": "https://agraph.franz.com/agraph/support/documentation/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "公開文書の版表示とreasoning、temporal、triple attributes、PIT recovery項目を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-MATERIALIZER",
+      "title": "AllegroGraph materialized reasoner",
+      "url": "https://agraph.franz.com/agraph/support/documentation/materializer.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "動的RDFS++とOWL 2 RL materializationの相違、データ更新後の再materialization注意を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-TEMPORAL",
+      "title": "AllegroGraph SPARQL magic properties",
+      "url": "https://agraph.franz.com/agraph/support/documentation/magic-properties.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Temporal magic propertiesの範囲とquery時の利用を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-TRIPLE-ATTR",
+      "title": "AllegroGraph triple attributes",
+      "url": "https://agraph.franz.com/agraph/support/documentation/triple-attributes.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "文字列属性の付与時点と、既存tripleでは変更できない仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-PITR",
+      "title": "AllegroGraph point-in-time recovery",
+      "url": "https://agraph.franz.com/agraph/support/documentation/point-in-time-recovery.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "backupとtransaction logを使う運用上のrecoveryを確認。claim semanticsとは区別。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-README",
+      "title": "Fluree DB README",
+      "url": "https://github.com/fluree/db/blob/main/README.md",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "公開READMEのRDF、immutable history、branching、reasoning、SHACL機能の説明を確認。実行なし。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-REASONING",
+      "title": "Fluree reasoning and inference",
+      "url": "https://fluree.github.io/db/concepts/reasoning.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "RDFS、OWL 2 QL query rewriting、OWL 2 RL materialization、Datalog modeの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-OWL",
+      "title": "Fluree OWL and RDFS support reference",
+      "url": "https://fluree.github.io/db/reference/owl-rdfs-support.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "対応constructとowl:sameAs/hasKeyを含む公開reasoning scopeを確認。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-TIME",
+      "title": "Fluree time travel patterns",
+      "url": "https://fluree.github.io/db/guides/cookbook-time-travel.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "transaction number/timeによるsnapshot queryとassert/retract historyの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-ANNOTATIONS",
+      "title": "Fluree edge annotations",
+      "url": "https://fluree.github.io/db/guides/cookbook-edge-annotations.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "source/confidence等のstatement annotationの書き込みモデルを確認。自動citation生成とは解釈しない。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-TXN",
+      "title": "Fluree transaction overview",
+      "url": "https://fluree.github.io/db/transactions/overview.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "assert/retract transaction、atomicity、immutability、transaction timeとmetadataの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-COMPONENTS",
+      "title": "Graph Studio platform components",
+      "url": "https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/components.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Graph Studio Server、Graph Lakehouse等のcomponentと役割を確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-STORAGE",
+      "title": "Graph Studio graph storage concepts",
+      "url": "https://docs.cambridgesemantics.com/anzo/userdoc/data-storage.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "embedded metadata graph storeとGraph Lakehouse graph storeの分担を確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-VERSIONS",
+      "title": "Creating and restoring Graph Studio artifact versions",
+      "url": "https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/backups.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "artifact/related entities/metadata graphのsnapshot、compare、restoreを確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-GLOSSARY",
+      "title": "Graph Studio glossary",
+      "url": "https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/glossary.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "dataset catalogが変換工程・操作metadataを記録するという公式定義を確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-EDITIONS",
+      "title": "Limiting Graph Studio dataset editions",
+      "url": "https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/edition-limit.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "dataset editionの保存数制限と古いeditionの削除を確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-OVERVIEW",
+      "title": "Datomic overview",
+      "url": "https://docs.datomic.com/datomic-overview.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "datom、assert/retract、transaction entity、歴史的database valueの公開説明を確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-HISTORY",
+      "title": "Datomic history tutorial",
+      "url": "https://docs.datomic.com/client-tutorial/history.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "as-ofとhistory query、assertion/retractionの例を確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-FILTERS",
+      "title": "Datomic database filters",
+      "url": "https://docs.datomic.com/reference/filters.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "as-of, since, history各viewの相違と履歴APIを確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-TXDATA",
+      "title": "Datomic transaction data reference",
+      "url": "https://docs.datomic.com/transactions/transaction-data-reference.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "transaction entityへpurpose/source/provenance metadataを記録する公開例を確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-ACID",
+      "title": "Datomic ACID transactions",
+      "url": "https://docs.datomic.com/transactions/acid.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "ACIDとserialized writesに関する公式説明を確認。"
+    },
+    {
+      "id": "D-R2-S-DOLT-VERSION",
+      "title": "Dolt version control",
+      "url": "https://www.dolthub.com/docs/sql-reference/version-control/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "SQL上のcommit graph、branch、merge、diff機能の説明を確認。"
+    },
+    {
+      "id": "D-R2-S-DOLT-HISTORY",
+      "title": "Querying Dolt database history",
+      "url": "https://www.dolthub.com/docs/sql-reference/version-control/querying-history/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "AS OF、timestamp、diffと通常SQL COMMITがDolt commitを作らない仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-COZO-README",
+      "title": "CozoDB repository README",
+      "url": "https://github.com/cozodb/cozo",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "Datalog relational/graph/vector DBの概要、pre-1.0互換性注意を確認。"
+    },
+    {
+      "id": "D-R2-S-COZO-TIME",
+      "title": "CozoDB v0.7 time travel",
+      "url": "https://docs.cozodb.org/en/latest/timetravel.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Validityキーのassert/retractとvalid-time queryの意味を確認。"
+    },
+    {
+      "id": "D-R2-S-COZO-RELEASES",
+      "title": "CozoDB releases",
+      "url": "https://github.com/cozodb/cozo/releases",
+      "kind": "official_release_page",
+      "accessed": "2026-09-29",
+      "review_depth": "公式releaseページの最新表記v0.7.6と公開日を確認。活動状態全体の保証ではない。"
+    },
+    {
+      "id": "D-R2-S-MNESTIC-README",
+      "title": "Mnestic repository README",
+      "url": "https://github.com/shuruheel/mnestic",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "Cozo-derived forkと公開機能概要を確認。runtime/build/testは行っていない。"
+    },
+    {
+      "id": "D-R2-S-MNESTIC-BITEMPORAL",
+      "title": "Mnestic bitemporality specification",
+      "url": "https://github.com/shuruheel/mnestic/blob/main/docs/specs/bitemporality.md",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Validityとengine-assigned TxTime、二時制query/retraction/history仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-MNESTIC-PROVENANCE",
+      "title": "Mnestic provenance semirings specification",
+      "url": "https://github.com/shuruheel/mnestic/blob/main/docs/specs/provenance-semirings.md",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "semiring、k-best derivation、proof-chain表現の公開仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-MNESTIC-CHANGELOG",
+      "title": "Mnestic fork changelog",
+      "url": "https://github.com/shuruheel/mnestic/blob/main/CHANGELOG-FORK.md",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "reconcileによる再計算、未自動化のtruth maintenance、TxTimeとの非互換機能等を確認。"
+    },
+    {
+      "id": "D-R2-S-SURREAL-RELATE",
+      "title": "SurrealDB RELATE statement",
+      "url": "https://surrealdb.com/docs/reference/query-language/statements/relate",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "property graph relation recordの作成方法を確認。"
+    },
+    {
+      "id": "D-R2-S-SURREAL-SELECT",
+      "title": "SurrealDB SELECT statement",
+      "url": "https://surrealdb.com/docs/reference/query-language/statements/select",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "VERSION historical queryのbackend/versioned条件とSurrealMX制約を確認。"
+    },
+    {
+      "id": "D-R2-S-SURREAL-START",
+      "title": "SurrealDB start command",
+      "url": "https://surrealdb.com/docs/reference/cli/surrealdb-cli/commands/start",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "RocksDB/SurrealKVのversioned/retention設定とin-memory制約を確認。"
+    },
+    {
+      "id": "D-R2-S-LADYBUG",
+      "title": "LadybugDB repository",
+      "url": "https://github.com/LadybugDB/ladybug",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "embedded property graph, Cypher, serializable ACID transaction、formerly known as Kuzuの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-KUZU",
+      "title": "Kuzu repository",
+      "url": "https://github.com/kuzudb/kuzu",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "旧repositoryのarchive状態を確認。Ladybugとの機能同一性は仮定しない。"
+    },
+    {
+      "id": "D-R2-S-MINIGRAF-RELEASES",
+      "title": "Minigraf releases",
+      "url": "https://github.com/project-minigraf/minigraf/releases",
+      "kind": "official_release_page",
+      "accessed": "2026-09-29",
+      "review_depth": "v2.0.2 release時点と既知issue #371、修正予定versionに関する情報を確認。"
+    },
+    {
+      "id": "D-R2-S-OPENREFINE-API",
+      "title": "OpenRefine Reconciliation API",
+      "url": "https://openrefine.org/docs/technical-reference/reconciliation-api",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "API v0.2のname/type/property候補検索とentity identifierの役割を確認。"
+    },
+    {
+      "id": "D-R2-S-OPENREFINE-MANUAL",
+      "title": "OpenRefine reconciling manual",
+      "url": "https://openrefine.org/docs/manual/reconciling",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "半自動の人手確定、候補判断破棄、照合データ消去・元値復元を確認。"
+    },
+    {
+      "id": "D-R2-S-SPLINK-README",
+      "title": "Splink repository",
+      "url": "https://github.com/moj-analytical-services/splink",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "Python probabilistic record linkage libraryと現行major releaseの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-SPLINK-MODEL",
+      "title": "Splink Fellegi-Sunter model guide",
+      "url": "https://moj-analytical-services.github.io/splink/topic_guides/theory/fellegi_sunter.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "m/u/事前確率、比較feature、match weight/probabilityと仮定を確認。"
+    },
+    {
+      "id": "D-R2-S-SPLINK-INFERENCE",
+      "title": "Splink inference API",
+      "url": "https://moj-analytical-services.github.io/splink/api_docs/inference.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "blockingしたペアのscore/probability予測APIを確認。"
+    },
+    {
+      "id": "D-R2-S-SPLINK-CLUSTER",
+      "title": "Splink clustering API",
+      "url": "https://moj-analytical-services.github.io/splink/api_docs/linker_clustering.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "match probability/weight thresholdからconnected-component clusterを作る仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-AGE",
+      "title": "Apache AGE repository README",
+      "url": "https://github.com/apache/age",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "PostgreSQL extensionとしてSQL/openCypher graph機能を確認。推論・来歴・Fact-timeは未調査。"
+    },
+    {
+      "id": "D-R2-S-KYZO",
+      "title": "KyzoDB CozoDB fork record",
+      "url": "https://github.com/kyzodb/kyzo/blob/main/FORK.md",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "CozoDB fork系譜とfirst-witness provenance等の主張を確認。実装、撤回挙動、releaseは深掘り保留。"
+    },
+    {
+      "id": "P-F3-MOOSEDEV",
+      "title": "Ontology-Grounded Project Memory for Coding Agents",
+      "url": "https://arxiv.org/html/2608.13662v1",
+      "kind": "論文本文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の構成・評価・導入制約を確認。追試なし。",
+      "checked_sections": [
+        "2 System",
+        "3 Evaluation",
+        "4 Deployment, Bootstrap, and Lessons"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2608.13662v1"
+    },
+    {
+      "id": "D-F3-MOOSEDEV",
+      "title": "Trivyn/moosedev — open source and MOOSE boundary",
+      "url": "https://github.com/Trivyn/moosedev",
+      "kind": "著者公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの公開範囲、非公開engineとsource build条件を確認。コード監査・実行なし。",
+      "checked_sections": [
+        "What is MOOSEDev?",
+        "Open source and the MOOSE boundary",
+        "License"
+      ]
+    },
+    {
+      "id": "P-F3-NEST",
+      "title": "Nested Episodic State Topology (NEST): A Graph-Theoretic Architecture of Cognitive States",
+      "url": "https://arxiv.org/html/2607.06055v1",
+      "kind": "理論論文本文",
+      "accessed": "2026-09-29",
+      "review_depth": "形式体系・比較枠・限界の関連箇所を確認。形式証明全体の検証なし。",
+      "checked_sections": [
+        "2 Formal Architecture",
+        "5 Mappings to Existing Frameworks",
+        "6.2 Limitations",
+        "6.3 Open research directions"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2607.06055v1"
+    },
+    {
+      "id": "P-F3-ENSIMEM",
+      "title": "EnSIMem: Entity-Structured Indexing for Long-Term Agent Memory",
+      "url": "https://arxiv.org/html/2609.27279v2",
+      "kind": "論文本文",
+      "accessed": "2026-09-29",
+      "review_depth": "手法・評価条件・ablation・制約を確認。追試なし。",
+      "checked_sections": [
+        "3 EnSIMem",
+        "4 Experiments",
+        "5 Discussion, Limitations, and Future Work"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2609.27279v2"
+    },
+    {
+      "id": "D-F3-ENSIMEM",
+      "title": "RamonMeng/EnSIMem official repository",
+      "url": "https://github.com/RamonMeng/EnSIMem",
+      "kind": "著者公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "公開リポジトリとLoCoMo/LongMemEvalディレクトリの存在を確認。完全性・実行可能性・性能は未検証。",
+      "checked_sections": [
+        "repository file listing"
+      ]
+    },
+    {
+      "id": "P-F3-WORLDDB",
+      "title": "WorldDB: A Vector Graph-of-Worlds Memory Engine with Ontology-Aware Write-Time Reconciliation",
+      "url": "https://arxiv.org/html/2604.18478v1",
+      "kind": "論文本文（性能判断保留）",
+      "accessed": "2026-09-29",
+      "review_depth": "データモデル・更新handler・評価条件・再現性付録を確認。本文内の条件/数値の不整合を記録し、性能順位の根拠には不採用。",
+      "checked_sections": [
+        "2 Data Model",
+        "3 Reconciliation Pipeline",
+        "7.1 Experimental Setup",
+        "7.4 Ablation",
+        "Appendix C Reproducibility"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2604.18478v1"
+    },
+    {
+      "id": "P-F3-FILESYSTEM",
+      "title": "Filesystem-Based Memory for LLM Agents: Organization, Evolution, and Sustainability",
+      "url": "https://arxiv.org/html/2607.26637v1",
+      "kind": "arXiv primary preprint (version-pinned HTML body)",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML本文を確認。方式、実験、主要結果、結論、ベンチマークのサンプル範囲と限界を確認。コードは実行していない。",
+      "checked_sections": [
+        "Abstract and Introduction",
+        "§2 Formalizing Filesystem-Based Agent Memory",
+        "§3 Experimental Setup",
+        "§4 Results and Analysis",
+        "§5 Conclusion",
+        "Appendix C.2 Benchmark Data Provenance",
+        "Appendix D Additional Results"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2607.26637v1"
+    },
+    {
+      "id": "P-F3-REFIND",
+      "title": "When Your Agent Opens the Chat App: Agent-Controlled Search over Raw Chat Logs Rivals Structured Memory",
+      "url": "https://arxiv.org/html/2608.12888v2",
+      "kind": "arXiv primary preprint (version-pinned HTML body)",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v2の本文、比較表、アブレーション、評価条件と付録を確認。報告値は著者の実験値として扱い、追試していない。",
+      "checked_sections": [
+        "Abstract and Introduction",
+        "§3 Method and chat-native retrieval controls",
+        "§4 Experiments and main results",
+        "§5 Analysis and Discussion",
+        "§6 Conclusion",
+        "Appendix: prompts, hyperparameters, evaluation details, resource use, artifact use and licenses"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2608.12888v2"
+    },
+    {
+      "id": "P-F3-MEMO",
+      "title": "MEMO: Multimodal Evidence Memory Organization for Long-Horizon LLM Agents",
+      "url": "https://arxiv.org/html/2609.07471v1",
+      "kind": "arXiv primary preprint (version-pinned HTML body)",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v1の本文を確認。方法、4ベンチマークの結果、アブレーション、公開状態を確認。著者はコメント欄でworking in progressと記載。",
+      "checked_sections": [
+        "Abstract and Introduction",
+        "Related Work",
+        "Method: evidence extraction, memory manager training, working-memory construction",
+        "Experiments and component ablation",
+        "Conclusion"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2609.07471v1"
+    },
+    {
+      "id": "P-F3-MEMCON",
+      "title": "Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agents",
+      "url": "https://arxiv.org/html/2607.13591v1",
+      "kind": "arXiv primary preprint (version-pinned HTML body)",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v1の要旨、MDP状態・行動の定義、評価概要、公開コードの記載を確認。バックエンド実装を実行していない。",
+      "checked_sections": [
+        "Abstract and Introduction",
+        "§3.1 Memory MDP state and action definitions",
+        "Evaluation summary and contributions",
+        "Author code statement and linked repository"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2607.13591v1"
+    },
+    {
+      "id": "P-F3-MEMCON-REPO",
+      "title": "MemCon official GitHub repository",
+      "url": "https://github.com/ericjiang18/MemCon",
+      "metadata_url": null,
+      "kind": "著者の公式GitHub repository（公開）",
+      "accessed": "2026-09-29",
+      "review_depth": "GitHub webで公開状態、README、実ファイルへの直リンクを確認。ファイルの存在と本文表示まで確認し、コード監査・実行はしていない。参照したブランチはmainで、commit SHAは固定できていない。",
+      "checked_sections": [
+        "Repository root and README project structure",
+        "hmf/mcp_framework/memory_mdp.py — direct source page opened",
+        "hmf/mcp_framework/policy.py — direct source page opened",
+        "hmf/mcp_framework/wrapper.py — direct source page opened"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-MIRAS",
+      "title": "It's All Connected: A Journey Through Test-Time Memorization, Attentional Bias, Retention, and Online Optimization",
+      "url": "https://arxiv.org/html/2504.13173v1",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "方式、実験設定・結果、制約を確認。追試・コード実行なし。",
+      "checked_sections": [
+        "Abstract",
+        "MIRAS framework",
+        "Experimental setup and results",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2504.13173v1"
+    },
+    {
+      "id": "P-F3-LRN-MIRAS-ICLR",
+      "title": "ICLR 2026 poster: It's All Connected",
+      "url": "https://iclr.cc/virtual/2026/poster/10008141",
+      "kind": "公式会議発表ページ",
+      "accessed": "2026-09-29",
+      "review_depth": "公式ポスター掲載と論文リンクを確認。",
+      "checked_sections": [
+        "Poster title",
+        "Authors",
+        "Paper link"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-MIRAS-GOOGLE",
+      "title": "Titans + MIRAS: Helping AI have long-term memory",
+      "url": "https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/",
+      "kind": "著者所属機関の公式研究紹介",
+      "accessed": "2026-09-29",
+      "review_depth": "MIRASの紹介と一次論文リンクを確認。",
+      "checked_sections": [
+        "MIRAS overview",
+        "Linked paper"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-NEST",
+      "title": "Nested Learning: The Illusion of Deep Learning Architectures",
+      "url": "https://arxiv.org/html/2512.24695v1",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "枠組み、HOPE/CMS、評価課題、議論を確認。実装・追試なし。",
+      "checked_sections": [
+        "Abstract",
+        "Nested Learning formulation",
+        "HOPE and Continuum Memory System",
+        "Experiments",
+        "Discussion"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2512.24695v1"
+    },
+    {
+      "id": "P-F3-LRN-NEST-NEURIPS",
+      "title": "Nested Learning: The Illusion of Deep Learning Architectures",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+      "kind": "NeurIPS公式会議録",
+      "accessed": "2026-09-29",
+      "review_depth": "NeurIPS 2025 Main Conference掲載と概要を確認。",
+      "checked_sections": [
+        "Title and authors",
+        "Conference track",
+        "Abstract"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-NEST-GOOGLE",
+      "title": "Introducing Nested Learning: A new ML paradigm for continual learning",
+      "url": "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+      "kind": "著者所属機関の公式研究紹介",
+      "accessed": "2026-09-29",
+      "review_depth": "NeurIPS発表との説明、HOPEの紹介、論文リンクを確認。",
+      "checked_sections": [
+        "Publication statement",
+        "HOPE proof-of-concept",
+        "Linked paper"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-MEMLAYERS",
+      "title": "Memory Layers at Scale",
+      "url": "https://arxiv.org/html/2412.09764v2",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "方式、拡大条件、ベンチマーク、制約を確認。コード実行なし。",
+      "checked_sections": [
+        "Abstract",
+        "Memory+ architecture",
+        "Scaling experiments",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2412.09764v2"
+    },
+    {
+      "id": "P-F3-LRN-MEMLAYERS-ICML",
+      "title": "Memory Layers at Scale",
+      "url": "https://proceedings.mlr.press/v267/berges25a.html",
+      "kind": "PMLR公式会議録",
+      "accessed": "2026-09-29",
+      "review_depth": "ICML 2025掲載情報と論文リンクを確認。",
+      "checked_sections": [
+        "Citation",
+        "Proceedings volume",
+        "Paper"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-MEMLAYERS-REPO",
+      "title": "facebookresearch/memory",
+      "url": "https://github.com/facebookresearch/memory",
+      "kind": "著者所属研究所の公式repository",
+      "accessed": "2026-09-29",
+      "review_depth": "README、公開実装と学習データ記載を確認。実行・checkpoint全ファイル監査なし。",
+      "checked_sections": [
+        "README",
+        "Implementation",
+        "Training data"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SMF",
+      "title": "Continual Learning via Sparse Memory Finetuning",
+      "url": "https://arxiv.org/html/2510.15103v1",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "方式、QA評価条件、忘却値、制約とartifact記載を確認。追試なし。",
+      "checked_sections": [
+        "Abstract",
+        "Method",
+        "Experiments",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2510.15103v1"
+    },
+    {
+      "id": "P-F3-LRN-SMF-OPENREVIEW",
+      "title": "Continual Learning via Sparse Memory Finetuning — OpenReview submission PDF",
+      "url": "https://openreview.net/pdf?id=LGo7U1m24L",
+      "kind": "OpenReview公開審査用PDF",
+      "accessed": "2026-09-29",
+      "review_depth": "公開PDFの審査状態表記を確認。現在の採否を示す資料としては扱わない。",
+      "checked_sections": [
+        "Title",
+        "Submission status header"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SMF-AUTHOR",
+      "title": "Jessy Lin — Publications",
+      "url": "https://jessylin.com/",
+      "kind": "著者公式ページ",
+      "accessed": "2026-09-29",
+      "review_depth": "当該論文のpreprint表示とリンクを確認。",
+      "checked_sections": [
+        "Continual Learning via Sparse Memory Finetuning entry"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SMF-ICLR",
+      "title": "ICLR 2026 Papers",
+      "url": "https://iclr.cc/virtual/2026/papers.html",
+      "kind": "公式会議採択一覧",
+      "accessed": "2026-09-29",
+      "review_depth": "完全題名を検索し、採択掲載を確認できないことを記録。ページ全体の独立照合ではない。",
+      "checked_sections": [
+        "Exact-title search"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SMF-COMMUNITY",
+      "title": "dtunai/continual_learning_via_sparse_memory_finetuning",
+      "url": "https://github.com/dtunai/continual_learning_via_sparse_memory_finetuning",
+      "kind": "第三者repository（著者公式とは未確認）",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの実装説明を確認。コードレビュー、実行、完全性確認なし。",
+      "checked_sections": [
+        "README",
+        "Repository identity"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-E2E",
+      "title": "End-to-End Test-Time Training for Long Context",
+      "url": "https://arxiv.org/html/2512.23675v2",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "手法、規模・長文実験、制約を確認。追試なし。",
+      "checked_sections": [
+        "Abstract",
+        "Method",
+        "Main results",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2512.23675v2"
+    },
+    {
+      "id": "P-F3-LRN-E2E-REPO",
+      "title": "test-time-training/e2e",
+      "url": "https://github.com/test-time-training/e2e",
+      "kind": "著者公式repository",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの実装・データbucket・checkpoint配布記載を確認。取得・実行なし。",
+      "checked_sections": [
+        "Abstract",
+        "Dataset Download",
+        "Model Checkpoints"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SDM",
+      "title": "Sparse Delta Memory: Scaling the State of Linear RNNs through Sparsity",
+      "url": "https://arxiv.org/html/2607.07386v1",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "方式、規模・評価条件、制約を確認。追試なし。",
+      "checked_sections": [
+        "Abstract",
+        "Method",
+        "Experiments",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2607.07386v1"
+    },
+    {
+      "id": "P-F3-LRN-SDM-REPO",
+      "title": "facebookresearch/sparse-delta-memory",
+      "url": "https://github.com/facebookresearch/sparse-delta-memory",
+      "kind": "著者所属研究所の公式repository",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEのreference implementation、kernel、training workflowを確認。実行・checkpoint全件監査なし。",
+      "checked_sections": [
+        "README",
+        "Reference implementation",
+        "Training/evaluation workflow"
+      ]
+    },
+    {
+      "id": "A-F3-FR",
+      "title": "Fortunate Recall codebase, benchmark and run logs",
+      "url": "https://zenodo.org/records/20067778",
+      "kind": "著者が論文で指定した成果物",
+      "accessed": "2026-09-29",
+      "review_depth": "Zenodo record metadata・file inventoryを確認。取得・実行なし",
+      "checked_sections": [
+        "Description",
+        "Files",
+        "Dates",
+        "DOI"
+      ]
+    },
+    {
+      "id": "P-F3-STALE",
+      "title": "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid?",
+      "url": "https://arxiv.org/abs/2605.06527v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と本文の評価・公開情報を確認",
+      "checked_sections": [
+        "書誌・submission history",
+        "abstract",
+        "§3 benchmark",
+        "§4 experiments",
+        "Appendix A limitations",
+        "Appendix G code/data"
+      ]
+    },
+    {
+      "id": "P-F3-STALE-HTML",
+      "title": "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid? (full text)",
+      "url": "https://arxiv.org/html/2605.06527v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の手法・評価・限界・成果物節を確認",
+      "checked_sections": [
+        "§3.2–3.5",
+        "§4",
+        "§5 CUPMem",
+        "Appendix A",
+        "Appendix G"
+      ]
+    },
+    {
+      "id": "A-F3-STALE-CODE",
+      "title": "STALE and CUP-Mem author repository",
+      "url": "https://github.com/icedreamc/STALE",
+      "kind": "著者公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEとrepository treeを確認。clone・実行なし",
+      "checked_sections": [
+        "README",
+        "STALE/ and cup_mem/ inventory",
+        "license metadata"
+      ]
+    },
+    {
+      "id": "A-F3-STALE-DATA",
+      "title": "STALE dataset",
+      "url": "https://huggingface.co/datasets/STALEproj/STALE",
+      "kind": "著者公開データ",
+      "accessed": "2026-09-29",
+      "review_depth": "dataset card listingを確認。downloadなし",
+      "checked_sections": [
+        "dataset card",
+        "license metadata"
+      ]
+    },
+    {
+      "id": "P-F3-TRUST",
+      "title": "The Memory Trust Gap: Capability-Dependent Failures in Persistent-Memory Agents",
+      "url": "https://arxiv.org/abs/2609.01852v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と全文の実験条件・限界を確認",
+      "checked_sections": [
+        "書誌・comments・submission history",
+        "abstract",
+        "§3 benchmark and scoring",
+        "§4–6 results and mitigation",
+        "§8 limitations"
+      ]
+    },
+    {
+      "id": "P-F3-TRUST-HTML",
+      "title": "The Memory Trust Gap: Capability-Dependent Failures in Persistent-Memory Agents (full text)",
+      "url": "https://arxiv.org/html/2609.01852v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "実験設計・結果・限界を確認",
+      "checked_sections": [
+        "§3.1–3.3",
+        "§4",
+        "§5 factorial",
+        "§6 mitigation",
+        "§7 validation",
+        "§8 limitations"
+      ]
+    },
+    {
+      "id": "P-F3-REVOKED",
+      "title": "Revoked but Still Authoritative: An Empirical Study of Revocation Enforcement in Agent-Memory Systems",
+      "url": "https://arxiv.org/abs/2609.08258v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と本文の評価・成果物記述を確認",
+      "checked_sections": [
+        "書誌・comments・submission history",
+        "abstract",
+        "§3 methodology",
+        "§4 evaluations",
+        "§5 guard",
+        "Appendix C propagation"
+      ]
+    },
+    {
+      "id": "P-F3-REVOKED-HTML",
+      "title": "Revoked but Still Authoritative: An Empirical Study of Revocation Enforcement in Agent-Memory Systems (full text)",
+      "url": "https://arxiv.org/html/2609.08258v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "実験・防御・write-backを確認",
+      "checked_sections": [
+        "§3.2–3.6",
+        "§4.1–4.4",
+        "§5",
+        "Appendix A.3",
+        "Appendix C.1–C.3"
+      ]
+    },
+    {
+      "id": "A-F3-REVOKED-CODE",
+      "title": "Memory Rebirth Attack experimental code repository",
+      "url": "https://github.com/VulcanLab/Memory-Rebirth-Attack",
+      "kind": "著者公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEとrepository treeを確認。clone・実行なし",
+      "checked_sections": [
+        "README overview",
+        "experiment inventory",
+        "guard module",
+        "raw-output disclosure"
+      ]
+    },
+    {
+      "id": "P-F3-TEPA",
+      "title": "TEPA: Revoking Stale Memories for Conflict-Robust Language Agents",
+      "url": "https://arxiv.org/abs/2608.07429v2",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿/改訂日と全文の方法・評価・限界を確認",
+      "checked_sections": [
+        "書誌・submission history",
+        "abstract",
+        "§4–5 method/evaluation",
+        "Limitations"
+      ]
+    },
+    {
+      "id": "P-F3-TEPA-HTML",
+      "title": "TEPA: Revoking Stale Memories for Conflict-Robust Language Agents (full text)",
+      "url": "https://arxiv.org/html/2608.07429v2",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "方式・評価条件・限界を確認",
+      "checked_sections": [
+        "Problem formulation",
+        "Method",
+        "controlled and executable drift",
+        "MemoryAgentBench",
+        "Limitations"
+      ]
+    },
+    {
+      "id": "P-F3-EAL",
+      "title": "Agent Memory Is a Surface for Endogenous Authorization Laundering",
+      "url": "https://arxiv.org/abs/2609.01836v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と本文の方法・結果・限界を確認",
+      "checked_sections": [
+        "書誌・submission history",
+        "abstract",
+        "§3 problem formulation",
+        "§4 experiments",
+        "§4.6 limitations"
+      ]
+    },
+    {
+      "id": "P-F3-EAL-HTML",
+      "title": "Agent Memory Is a Surface for Endogenous Authorization Laundering (full text)",
+      "url": "https://arxiv.org/html/2609.01836v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "ベンチマーク条件・緩和策・外的妥当性の限界を確認",
+      "checked_sections": [
+        "§3.1–3.3",
+        "§4.1–4.6",
+        "Appendix C mitigation results"
+      ]
+    },
+    {
+      "id": "A-F3-EAL-CODE",
+      "title": "EAL-Bench author repository",
+      "url": "https://github.com/tommasocerruti/eal-bench",
+      "kind": "著者公開コード・評価資料",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEのベンチマーク構成・再現範囲・結果公開条件を確認。clone・実行なし",
+      "checked_sections": [
+        "README overview",
+        "benchmark cases",
+        "memory conditions",
+        "run outputs and raw JSONL disclosure"
+      ]
+    },
+    {
+      "id": "P-F3-TRACE",
+      "title": "TRACE: Governing Memory Validity in Evolving Multi-Agent Systems",
+      "url": "https://arxiv.org/abs/2609.33517v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と全文の手法・評価・限界を確認",
+      "checked_sections": [
+        "書誌・comments・submission history",
+        "abstract",
+        "§2 related work",
+        "§3–5 method/evaluation",
+        "§6 limitations",
+        "Appendix A artifact"
+      ]
+    },
+    {
+      "id": "P-F3-TRACE-HTML",
+      "title": "TRACE: Governing Memory Validity in Evolving Multi-Agent Systems (full text)",
+      "url": "https://arxiv.org/html/2609.33517v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "return-time validity admission・評価条件・限界を確認",
+      "checked_sections": [
+        "§3–5",
+        "§6 limitations",
+        "Appendix A reproducibility artifact",
+        "Appendix D benchmark details"
+      ]
+    },
+    {
+      "id": "A-F3-TRACE-CODE",
+      "title": "TRACE author repository",
+      "url": "https://github.com/xiong-wenjun/TRACE",
+      "kind": "著者公開コード・評価データ案内",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの構成・データ依存・ライセンスを確認。clone・実行なし",
+      "checked_sections": [
+        "README overview",
+        "benchmark/data locations",
+        "reproduction instructions",
+        "license metadata"
+      ]
     }
   ],
   "updated": "2026-09-29",
-  "update_scope": "基礎・応用、PageIndex に続き、メモリー・文書検索・意味データ・クラウド実行基盤の関連システムを追加調査。既存の確認日・固定版を保持。"
+  "update_scope": "基礎・応用、PageIndex、関連システム50系統に続き、第2次調査のメモリー研究・RAGアプリ・クラウド検索・知識保存基盤を追加。既存の確認日・固定版を保持。 最先端研究への拡張として、実装公開を条件にしない論文・理論・評価研究と公開範囲の記録を追加。"
 }

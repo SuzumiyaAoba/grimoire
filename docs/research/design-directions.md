@@ -99,6 +99,21 @@ flowchart TB
 
 H1 は Fortunate Recall の型あり／なしの比較、H2 は TMS/provenance、H3 は LLMs4OL と Cognee、H4 は MemRL、H5 は RAPTOR / Hindsight / Mastra の発想に対応する。H6 は PageIndex を使う設計仮説であり、先行研究による優位性を主張しない。長文書 QA 用の候補として metadata / FTS と同じ評価セットで早い段階から比較する。PageIndex local の tree・ページ取得と外部 LLM 呼出の実装境界は[固定コードと確認範囲](systems/pageindex.md)に記録した。[P-FR] [T-TMS] [P-LLMOL] [C-COGSTRICT] [P-MEMRL] [P-RAPTOR] [D-HIND] [D-MASTRA] [C-PI-LOCAL] [C-PI-UTILS]
 
+## 最先端研究から追加する仮説
+
+2026-09-29の[論文調査の拡張](papers.md)は、非公開・部分公開の方式や、実装前の理論も設計上の比較対象に加える。下表は今回の分析から作った仮説で、実証済みの結論ではない。非公開systemの内部を推測して移植する代わりに、論文で説明された要素を独立に比較する。
+
+| 仮説 | 最小の比較 | 改善と認めない結果 |
+|---|---|---|
+| H7: 構造質問には型と関係を使う取得が効く | 同じ記録について、FTS/dense、SQLの条件・集合query、型付きgraphを比較。MOOSEDevの集合・不在・置換の区分を参考にする | graphだけcaptureの情報量や回答予算を増やした比較。SQLでも同等なら特殊engineの効果としない |
+| H8: 学習した記憶制御は将来の未知課題でも効く | 固定policyと学習policyで、原資料、回答器、保存容量、推論予算を固定。人物・会話・期間ごとに学習/評価を分離 | QAの正答だけ増え、訂正・根拠追跡・未見課題が悪化。学習費用を除外した効率改善 |
+| H9: 作業中の仮説を確定知識から分けると誤昇格が減る | NESTの区別を参考に、同じ抽出器で候補と承認済み主張を分離する場合/しない場合を比較 | 保存量を単に減らした結果。未知情報の回収率を損ねただけの場合 |
+| H10: 利用時の有効性検査は撤回後の誤行動を減らす | 通常取得、書込時失効のみ、利用直前の根拠・scope・有効性検査を比較 | 記憶をすべて無視した結果。正当な記憶の利用成功率が維持できない場合 |
+
+H7はMOOSEDev、H9はNESTの区別から得た着想であり、両論文が上の比較を実施したという意味ではない。H8/H10の研究群と公開範囲は[研究台帳](evidence/frontier-research.json)と[論文比較](papers.md)に記録する。[P-F3-MOOSEDEV] [P-F3-NEST]
+
+モデル内部の記憶・test-time learningは、外部正本への原資料の保存・引用・撤回と責務が異なる。独立した研究経路として扱い、今回の文献調査だけでPostgreSQLを正本とする設計を置き換えない。重みへの知識の移行を検討する場合には、出典追跡、局所訂正、削除後の残存を別途測る。
+
 ## 実験の順序
 
 - [ ] **データ契約。** 少量の日本語例で、SourceRevision、ParseRevision、ページ引用、authority、ACL、外部送信可否、変化・訂正・否定・削除を正解化する。何を答えないべきかも記録する。
@@ -148,6 +163,10 @@ H1 は Fortunate Recall の型あり／なしの比較、H2 は TMS/provenance�
 [T-TMS]: https://www.sciencedirect.com/science/article/pii/0004370279900080
 
 [P-FR]: https://arxiv.org/abs/2609.10413v1
+
+[P-F3-MOOSEDEV]: https://arxiv.org/html/2608.13662v1
+
+[P-F3-NEST]: https://arxiv.org/html/2607.06055v1
 
 [P-LLMOL]: https://arxiv.org/abs/2307.16648v2
 

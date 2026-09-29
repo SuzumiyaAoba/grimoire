@@ -1,0 +1,144 @@
+# 関連システムの再調査：既存比較の抜けを補う
+
+[調査トップ](../README.md) / [システム比較](../systems/README.md) / [前回の横断調査](../systems/extended-landscape.md)
+
+<Meta date="2026-09-29" />
+
+続く[最先端研究への拡張](../papers.md#最先端研究への拡張)では、具体実装が公開されていない研究や理論提案も比較しています。本ページの54系統という集計は、この第2次調査時点の範囲を表します。
+
+**関連する候補は、前回の50系統の外にも見つかった。** 今回は既存の主要比較、基礎資料、論文一覧、周辺ライブラリ一覧まで照合し、メモリー研究、文書QAアプリ、クラウド検索、知識・保存基盤の4分野を追加調査した。新規掲載と、既に名前や概要があった候補の深化を分けている。
+
+今回の比較対象は **54系統（新規掲載45、既存概要等の深化9）**。製品、研究実装、フレームワーク、保存基盤を含む調査単位であり、すべてがそのまま導入できるメモリー製品ではない。前回と重複する候補があるため、50に今回の件数を足して累計とはしない。
+
+<Stats>
+<Stat value="54" label="今回の主比較" />
+<Stat value="4" label="分野" />
+<Stat value="142" label="今回参照する一次資料" />
+</Stats>
+
+**設計上の結論:** PostgreSQLを正本とする現行案を変更する実測根拠は今回得ていない。一方、比較実験には「既成の文書QAアプリ」「クラウドの文書・権限同期」「探索型のメモリー」「履歴と根拠を明示する保存層」を追加する価値がある。検索性能の良さ、過去状態の再現、知識の訂正、作業経験の効用を別々に測る。
+
+現行のデータ契約との比較では、事実と派生索引の管理を扱う<DocumentLink path="memory-and-learning.mdx" label="MemForest" />、検索時の証拠不足を扱う<DocumentLink path="memory-and-learning.mdx" label="MemR³" />、時制と推論proofを扱う<DocumentLink path="knowledge-and-storage.mdx" label="Mnestic" />に着目する。企業文書を扱う場合は、<DocumentLink path="managed-search.mdx" label="Glean・Vectara・Azure AI Search等" />の権限・同期モデルも、検索器とは別の設計比較になる。これは公開記述から選んだ比較上の着眼点である。
+
+<Toc depth="2" title="目次" />
+
+## 分野別の調査資料
+
+<Files title="今回の文書">
+<File path="memory-and-learning.mdx" kind="docs">メモリーの構成・検索・学習と、認知アーキテクチャを比較。</File>
+<File path="rag-applications.mdx" kind="docs">文書を投入して使うRAGアプリ。知識の単位、根拠表示、更新の境界を比較。</File>
+<File path="managed-search.mdx" kind="docs">マネージド検索と検索エンジン。同期・権限・引用の責任分担を比較。</File>
+<File path="knowledge-and-storage.mdx" kind="docs">RDF・推論・グラフ・版管理・時制と、隣接する実体照合の役割を比較。</File>
+</Files>
+
+ブラウザーでも辿れるリンク: <DocumentLink path="memory-and-learning.mdx" label="メモリーと学習" />、<DocumentLink path="rag-applications.mdx" label="RAGアプリ" />、<DocumentLink path="managed-search.mdx" label="クラウド検索" />、<DocumentLink path="knowledge-and-storage.mdx" label="知識・保存基盤" />。候補を探すだけなら各文書の比較表、仕様を確認するなら個別節と出典IDから読む。
+
+## どこまで探索したか
+
+今回の「網羅」は、grimoireの目的である**会話・文書・ツール結果から知識を蓄積し、根拠を保ちながら更新する仕組み**を、役割別に探索する意味で使う。全世界の公開・非公開システムの完全な一覧や、検索エンジン全結果を保存したsystematic reviewではない。
+
+<Matrix title="役割ごとの既存調査と今回の拡張" cols="既存の主な比較,今回広げた範囲,確認する問い">
+
+- 事実・個人化メモリー | Mem0・LangMem・Memobase・Hindsight | 階層グラフ版GAM・MemR3・Nemori等の構成と検索 | 保存内容の選択と問い合わせ時の探索を分けられるか
+- 経験・記憶操作の学習 | Letta・ReMe・ACE・MemRL等 | AgeMem・MemAgent・ExpeL等 | 外部の記憶更新とpolicy/modelの学習を区別できるか
+- 認知・長期文脈 | Generative Agents等の論文・基礎 | Soar・OpenCog・LongMem等の系譜 | 現行agentへの置き換え可能性と研究上の示唆は何か
+- 文書QAアプリ | Onyx・RAGFlow・Dify | AnythingLLM・Open WebUI・Khoj等 | 文書投入・検索・引用をどこまで既成UIで扱えるか
+- マネージド検索 | クラウドmemory機能が中心 | Bedrock KB・Agent Search・Azure AI Search等 | 内容の同期と権限の同期を誰が行うか
+- 検索・ranking | PostgreSQL FTS・vector基盤・Vespa概要 | Elasticsearch・OpenSearch・Vespaの追加確認 | 候補生成・順位付け・更新APIの責務を分けられるか
+- 意味・推論 | GraphDB・RDFox・Stardog・Ontop | Jena・RDF4J等の深化と追加の意味基盤 | 推論・制約・根拠撤回のどこを任せられるか
+- 履歴・時制 | Graphiti・XTDB・TerminusDB | Datomic・Dolt・Cozo系等 | transaction履歴・有効時刻・根拠依存はどう違うか
+- 実体同定 | 概念・設計での同定と統合 | 実体照合ツールの境界確認 | 候補スコアと確定した同一性を区別できるか
+
+</Matrix>
+
+各行の製品群は同等機能の代替品ではない。たとえばモデル学習を要する研究と、APIを追加するだけのサービスでは導入条件が異なる。<DocumentLink path="memory-and-learning.mdx" label="メモリー分野の分類" />と<DocumentLink path="knowledge-and-storage.mdx" label="保存層の分類" />を先に確認する。
+
+## 探索・採否・重複の扱い
+
+既存資料の棚卸しから始め、公式文書、著者の論文、公式リポジトリへ進んだ。検索結果で見つかった名前については、一次本文で役割を確認できたものを主比較に入れた。READMEの機能説明を実装コードの検証とは呼ばず、論文要旨しか確認していない項目はその範囲を明記した。
+
+<Matrix title="採否の基準" cols="扱い,理由">
+
+- 未掲載で役割の差がある候補 | 新規掲載として主比較 | 名称の追加だけでなく検索・更新・保存の比較軸を補う
+- 論文一覧や周辺基盤に概要がある候補 | 深化として主比較 | systemsフォルダーにないだけでは新規に数えない
+- 改名・同一製品のAPIや派生機能 | 同じ系統内で説明 | Agent Search旧称やAI Search旧称を重複集計しない
+- 独立fork・後継実装 | 同一性と差分を説明して分類 | 名前の近さだけで同機能・互換・保守継承を推定しない
+- READMEの宣伝値・他製品との順位 | 性能順位の根拠に採用しない | モデル・入力・費用・設定を揃えた追試がない
+- 詳細確認が不足する候補 | 補足・保留台帳へ | 未確認を機能の欠如としない
+- 汎用parser・全vector DB・全ontology editor | 既存基盤資料と調査境界に記録 | 原資料解析や全製品版の監査まで今回の件数を拡大しない
+
+</Matrix>
+
+**同じ名前の区別:** MemTreeの研究系列やCozoからの独立forkは、著者・公式URL・資料版を単位に区別する。Kuzuと後継候補は保守状態も比較事項になる。Googleの検索系の改名、Databricks AI Searchへの改名、旧Elastic Enterprise Searchの終了は、古い製品名の一覧だけでは捉えられない差だった。根拠と対象版は各詳細資料に置いた。
+
+**調査の終了条件:** 4分野の担当範囲について、既存資料との照合、一次資料の本文確認、役割・未確認点・採否の記録まで実施した。未調査の固有製品が世界に存在しないという終了条件ではない。代表クエリと直接参照の記録を残し、次回同じ役割から探索を再開できるようにした。
+
+## 比較から得られた設計上の示唆
+
+<Findings title="今回追加した判断軸">
+<Finding confidence="inferred" title="知識の更新には少なくとも四つの対象がある">
+
+文書索引のrefresh、主張の訂正、agentの経験ノートの改訂、モデルや記憶操作policyの学習を分ける。各分野のupdate/deleteという名前だけでは比較できない。<DocumentLink path="memory-and-learning.mdx" label="メモリーと学習" />、<DocumentLink path="managed-search.mdx" label="クラウド検索" />。
+
+</Finding>
+<Finding confidence="inferred" title="企業検索は内容・利用者・権限の同期を一緒に比較する">
+
+文書検索サービスでは、同期したACL、利用者token、アプリが作るmetadata filterなど責任分担が異なる。検索indexを作れたことと、正しい利用者だけが根拠を受け取れることは独立した確認項目になる。<DocumentLink path="managed-search.mdx" label="クラウド検索の一次資料と条件" />。
+
+</Finding>
+<Finding confidence="inferred" title="履歴を保存するだけでは撤回可能な知識にならない">
+
+commit、transaction time、valid time、推論proofは保持する意味が異なる。元資料を撤回したときに、どの主張・要約・検索結果を取り消すかという対応関係をデータ契約に持つ必要がある。<DocumentLink path="knowledge-and-storage.mdx" label="知識・保存基盤" />。
+
+</Finding>
+<Finding confidence="inferred" title="既成アプリを比較実験の基準に加えられる">
+
+独自構築だけでなく、文書投入・根拠表示を含む既成アプリと比較することで、検索器の品質とUI・運用の実装負担を切り分けられる。画面上の引用が原資料の不変な版と位置を保証するかは別途確認する。<DocumentLink path="rag-applications.mdx" label="RAGアプリの比較" />。
+
+</Finding>
+</Findings>
+
+以上は調査者の推論であり、4つの課題を一つの製品がすべて解決したという観測ではない。
+
+## 次に比較する候補と反証条件
+
+現行の[設計・実験案](../design-directions.md)に、以下の比較群を追加することを提案する。全候補を実装する計画ではなく、要件に合う行から1〜2系統を選ぶための表である。
+
+<Matrix title="用途別の比較群" cols="追加候補の例,既存の比較基準,採用前に示すこと">
+
+- 個人・小規模の文書QA | Open WebUI・AnythingLLM・Kotaemon | 独自のFTS/任意PageIndex・既存RAGFlow | 原ページ引用・版差し替え・同じtoken予算での回答品質
+- 接続先が多い組織の文書検索 | Glean・Vectara・Azure AI Search | 既存Onyx・独自adapter | 原資料の追加/削除と権限取り消しが検索前に反映すること
+- 既存クラウドの利用 | Bedrock KB・RAG Engine・Agent Search | 同じ文書集合と回答器 | 構成別の同期/引用条件と全取り込み費用
+- DWH/lakehouseを既に利用 | Cortex Search・Databricks AI Search | 正本からの独自検索投影 | 元表と検索indexでの権限・更新差を説明できること
+- 長期記憶の探索・保守 | 階層グラフ版GAM・MemR3・AriGraph・MemForest | 既存Mem0・Graphiti・Hindsight | recall改善と読み書き費用・訂正後の旧根拠の残存
+- 学習による記憶操作 | AgeMem・MemAgent・MemoryLLM系 | 非学習の外部memory | 学習費用・モデル条件・データ漏洩を揃えた改善
+- 推論・履歴・根拠 | RDF4J・Datomic・Dolt・Cozo系 | PostgreSQL・既存XTDB/RDFox等 | 変化と訂正を区別し根拠撤回後の誤結論を残さないこと
+
+</Matrix>
+
+この表の順序は性能順位ではない。最初に日本語の小規模データで、追加→変更→訂正→根拠削除→権限変更の同一イベント列を用意する。正答率に加え、旧事実の残存、誤削除、根拠位置、再計算費用、検索に反映する時間を記録する。研究方式を比較するときは、学習済みモデル・学習データ・推論予算も条件に含める。
+
+## 記録と検証範囲
+
+<Files title="根拠と候補の記録">
+<File path="survey-evidence.json" kind="docs">4分野の候補・件数・調査境界を統合。製品と研究の分類、既存掲載の扱いを保持。</File>
+<File path="memory-evidence.json" kind="docs">メモリー分野の出典・候補・探索・保留。</File>
+<File path="apps-evidence.json" kind="docs">RAGアプリ分野の出典・候補・探索・保留。</File>
+<File path="search-evidence.json" kind="docs">クラウド検索分野の出典・候補・探索・保留。</File>
+<File path="semantic-evidence.json" kind="docs">知識・保存基盤分野の出典・候補・探索・保留。</File>
+</Files>
+
+各JSONは今回の確認記録である。全出典のID/URLは既存の[資料台帳](../sources.md)と[sources.json](../evidence/sources.json)にも統合し、同じURLの再確認では既存IDと過去の確認記録を保持する。前回の[system-landscape.json](../evidence/system-landscape.json)は前回50系統の調査記録として維持する。
+
+**今回行っていないこと:** サービスAPIの実行、研究コードの学習・推論、benchmarkの追試、全リポジトリのコード監査、課金・契約・ライセンス適合の評価。コード実行を伴わない文書調査と、動くことを確かめた検証を混同しない。Web文書には固定版がないものがあり、同じURLでも将来内容が変わり得る。保留候補と隣接レイヤーは各台帳に理由付きで残した。
+
+文書の検証は、MDXの変換、相対リンク、出典ID/URL、JSON形式、候補の重複と集計の整合性を対象にする。これは記載したシステムの機能や性能を検証するものではない。
+
+## 関連資料
+
+- [前回の関連システム調査](../systems/extended-landscape.md)
+- [既存の主要システム一覧](../systems/README.md)
+- [共通の調査方法](../methodology.md)
+- [周辺ライブラリと基盤](../implementation/infrastructure.md)
+- [知識更新の理論と実装](../foundations/knowledge-updates.md)
+- [オントロジー・知識システムの推奨設計](../../design/ontology-knowledge-system.md)

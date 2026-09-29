@@ -1,0 +1,76 @@
+# ローカル・RAG アプリケーションの比較
+
+[調査トップ](../README.md) / [横断比較](index.mdx) / [既存の文書検索・RAG 基盤](../systems/retrieval-landscape.md)
+
+確認日: 2026-09-29。主比較は AnythingLLM、Open WebUI、Khoj、Kotaemon、FastGPT、MaxKB、QAnything、DocsGPT、Open Notebook の9系統。Quivr は現行 repository と旧アプリ資料の継続性を確認できなかったため、補足候補として分けた。既存調査で詳しく扱った Dify Knowledge、Onyx、RAGFlow だけでは薄かった、ローカル文書チャット、個人用セカンドブレイン、引用確認、workspace とユーザーの境界を補う候補として選んだ。
+
+公式ドキュメント、公式 README、必要な箇所では公式 API 定義を読んだ。製品をインストール・実行しておらず、ライセンス適合、性能、運用保証は評価していない。製品の機能説明と、今回確認できなかった挙動を分けて記載する。特にファイルやチャンクを削除できる API があっても、履歴・引用・派生索引のすべてが消える保証とは解釈しない。
+
+## 比較
+
+<Matrix title="ローカル・RAG アプリケーション" cols="整理単位と利用者境界,根拠を確かめる方法,取り込み・変更・削除,訂正の責任と未確認点">
+  - AnythingLLM | Workspace に登録した文書はその workspace の全 thread で使え、workspace の閲覧権を持つ利用者にも共有される。チャットへ添付した文書は thread 限定。[D-R2-A-ANYTHING-DOCS] | workspace chat API の応答には source title と利用 chunk が含まれる。ページ単位の引用表示は今回の資料では確認できなかった。[D-R2-A-ANYTHING-API] | 文書アップロードと埋め込み、workspace 文書の追加・削除 API がある。元ファイルの置換後に再解析される条件や、削除時の派生物の範囲は未確認。[D-R2-A-ANYTHING-API] | 管理者が元文書や workspace の文書集合を更新する方式。主張の有効期間・競合・訂正履歴は確認できなかった。[D-R2-A-ANYTHING-DOCS]
+  - Open WebUI | Knowledge Base は会話をまたいで再利用でき、モデル・会話へ添付して検索範囲を絞れる。未添付なら利用者がアクセスできる KB をモデルが探索する。[D-R2-A-OPENWEBUI-KNOWLEDGE] | RAG citations に加え、native tools で内容検索、行番号付き grep、ファイル閲覧ができる。Focused Retrieval と全文を渡す Full Context を選ぶ。[D-R2-A-OPENWEBUI-RAG] | ローカル directory sync は hash による差分同期で、新規・変更・削除を KB と vector store に反映する。抽出方式を変更した既存ファイルは再アップロードが必要。[D-R2-A-OPENWEBUI-KNOWLEDGE] | 文書を差し替えて再取り込みする責任は運用者にある。主張単位の版管理や、古い引用の失効規則は未確認。[D-R2-A-OPENWEBUI-KNOWLEDGE]
+  - Khoj | 個人の notes / documents を中心にした assistant。Desktop・Obsidian・Emacs の同期、Notion、Web upload があり、agent は公開または作成者に限定できる。[D-R2-A-KHOJ-README] [D-R2-A-KHOJ-SYNC] [D-R2-A-KHOJ-AGENTS] | 自然言語検索で関連 document chunk を取得し、cross-encoder で順位を調整する。回答内の claim から原文位置へ移る引用 UI は未確認。[D-R2-A-KHOJ-SEARCH] | client 経由のファイル・フォルダ同期、Notion 取り込み、個別 upload を確認。同期時の削除・同名更新の詳細は参照した guide だけでは確定できない。[D-R2-A-KHOJ-SYNC] | 利用者が個人文書を保守する想定。主張の訂正や矛盾の履歴管理は未確認。[D-R2-A-KHOJ-AGENTS]
+  - Kotaemon | multi-user login と private / public collection があり、会話ごとに参照するファイルを選べる。[D-R2-A-KOTAEMON-README] [D-R2-A-KOTAEMON-USAGE] | 回答の citation を browser 内 PDF viewer でハイライト表示し、relevance score も確認できる。[D-R2-A-KOTAEMON-USAGE] | File Index から upload / index し、一覧から file を削除できる。既存 file の内容更新や同期時の置換規則は確認できなかった。[D-R2-A-KOTAEMON-USAGE] | file または index を人が更新する構成。citation は確認しやすいが、claim revision / valid time の管理は未確認。[D-R2-A-KOTAEMON-README]
+  - FastGPT | Team、member group、app、dataset の権限を設定できる。dataset 内 file / folder 単位の権限は商用版機能として説明されている。[D-R2-A-FASTGPT-PERMISSIONS] [D-R2-A-FASTGPT-FILE-PERM] | Dataset citation から元文書を開き、引用箇所の highlight と relevance score を確認できる。[D-R2-A-FASTGPT-CITATIONS] | dataset / collection 作成・削除に加え、data entry の update / delete API がある。collection の説明情報更新と内容更新は区別されている。原ファイルの差し替え後の再解析規則は未確認。[D-R2-A-FASTGPT-DATASET] | 人が dataset や data entry を更新する役割分担。意味上の旧主張を失効・置換した履歴は今回の資料では確認できなかった。[D-R2-A-FASTGPT-DATASET]
+  - MaxKB | 一般 document と website knowledge base を分け、application が関連 KB の segment を検索して回答する。確認した案内だけでは利用者別 ACL の詳細は確定できない。[D-R2-A-MAXKB-KNOWLEDGE] [D-R2-A-MAXKB-APP] | retrieved segment 数や文字数、参照 segment がない場合の回答方針を設定できる。原資料の位置へ移る citation UI は未確認。[D-R2-A-MAXKB-APP] | upload 後に segment preview で編集・削除できる。website KB には replace sync と全削除後の full sync があり、既存 segment の再 vectorization もできる。[D-R2-A-MAXKB-KNOWLEDGE] | source / segment の修正は可能。主張の根拠・訂正理由を保持する revision model は未確認。[D-R2-A-MAXKB-KNOWLEDGE]
+  - QAnything | local / offline の知識 QA。API は `user_id` と `kb_id` で対象を指定するが、`user_id` は利用者識別パラメータであり、認証・認可保証とは同一視できない。[D-R2-A-QANYTHING-README] [D-R2-A-QANYTHING-API] | QA API の応答 schema に `source_documents` がある。各 source のページ位置や、回答画面での citation preview は今回の資料だけでは確定できない。[D-R2-A-QANYTHING-API] | API に file / KB の削除と chunk 更新がある。同名 file は soft / strong mode で扱いを変えられる。再取り込み時の履歴・旧 chunk の除去規則は未確認。[D-R2-A-QANYTHING-API] | file または chunk の編集ができる。変更前の主張と根拠を追跡する機構は未確認。[D-R2-A-QANYTHING-API]
+  - DocsGPT | Sources ごとに取り込み・検索設定を持たせる agent / assistant アプリ。API key は sources、agents、models などの権限 scope を持つ。[D-R2-A-DOCSGPT-HOME] [D-R2-A-DOCSGPT-SCOPES] | 回答 source citation を UI で確認できる。source chunks と ingestion status を API scope で読める。[D-R2-A-DOCSGPT-HOME] [D-R2-A-DOCSGPT-SCOPES] | source API は upload、ingest、sync、edit、delete を扱う。chunking 設定を変えた場合は既存 source の再取り込みが必要。[D-R2-A-DOCSGPT-SOURCE-CONFIG] [D-R2-A-DOCSGPT-SCOPES] | source / chunk の編集はできるが、矛盾する claim を自動で採否する仕組みや時点付きの訂正履歴は未確認。[D-R2-A-DOCSGPT-SOURCE-CONFIG]
+  - Open Notebook | research Notebook が sources と notes をまとめる。検索 API は特定 notebook に範囲を絞れるが、notebook 間の利用者権限境界は今回確認できなかった。[D-R2-A-OPENNOTEBOOK-SOURCES] [D-R2-A-OPENNOTEBOOK-API] | Chat / Ask の citation から source の該当 passage を開き、保存した note にも citation を保持できる。誤りは根拠を確かめて回答を再度訂正する利用手順が案内されている。[D-R2-A-OPENNOTEBOOK-CITATIONS] | PDF・URL・text 等を source として登録する。MCP は source metadata の更新と source 削除を公開する。内容差し替え時の再解析手順は未確認。[D-R2-A-OPENNOTEBOOK-SOURCES] [D-R2-A-OPENNOTEBOOK-MCP] | 会話での訂正と、claim record の改訂は別。永続的な主張履歴や citation の無効化規則は未確認。[D-R2-A-OPENNOTEBOOK-CITATIONS]
+</Matrix>
+
+## 補足候補: Quivr
+
+現在の `QuivrHQ/quivr` は `The-Vibe-Company/quivr` へ移動し、README は利用者向け既存アプリより開発者向けの RAG core と説明する。PDF / TXT / Markdown 等と独自 parser の説明はあるが、利用者・workspace のモデル、citation の位置表示、現行の文書置換・削除・同期は確認できなかった。[D-R2-A-QUIVR-README] 旧 Quivr docs は現行 repository との継続性を確認できないため、現行機能の根拠に使わず補足保留とする。[D-R2-A-QUIVR-OLD-DOCS]
+
+## 既存の Dify・Onyx・RAGFlow と比べた位置
+
+既存比較では、RAGFlow は文書解析・chunk 管理・citation をまとめる self-host RAG engine、Dify Knowledge は app / workflow に組み込む knowledge base、Onyx は社内アプリを connector で横断する検索・assistant として整理されている。[既存の文書検索・RAG 比較](../systems/retrieval-landscape.md)
+
+- **ローカル文書チャットと workspace 分離:** AnythingLLM と Open WebUI が補う。文書を使う会話 UI の選択肢であり、Onyx の connector 横断や permission sync を置き換えるものではない。[D-R2-A-ANYTHING-DOCS] [D-R2-A-OPENWEBUI-KNOWLEDGE]
+- **個人の文書・ノート検索:** Khoj と Open Notebook が補う。利用者の notes / research notebook を中心にし、共有 knowledge base の ACL を前提とする製品とは管理単位が異なる。[D-R2-A-KHOJ-README] [D-R2-A-OPENNOTEBOOK-SOURCES]
+- **引用を元資料へ戻して確認する操作:** Kotaemon、FastGPT、Open Notebook は PDF highlight、chunk reader、source passage のいずれかを明示する。引用表示があるだけで主張の正しさや更新履歴まで証明するわけではない。[D-R2-A-KOTAEMON-USAGE] [D-R2-A-FASTGPT-CITATIONS] [D-R2-A-OPENNOTEBOOK-CITATIONS]
+- **同期・削除の境界:** Open WebUI の directory sync と MaxKB の website sync は差分や全置換を明記する。FastGPT、DocsGPT、QAnything は API で source / chunk の更新・削除を扱う。API の CRUD が、旧 revision、chat history、backup からの完全消去を保証するかは別途確認が必要である。[D-R2-A-OPENWEBUI-KNOWLEDGE] [D-R2-A-MAXKB-KNOWLEDGE] [D-R2-A-FASTGPT-DATASET] [D-R2-A-DOCSGPT-SCOPES] [D-R2-A-QANYTHING-API]
+- **主張の訂正:** 今回読んだ資料の中心は文書と chunk の管理である。chunk 編集や文書再取り込みができても、旧主張を訂正として保持し、根拠・有効期間・変更理由を検索できるとは確認できなかった。今回の設計ではこの層を RAG アプリの更新機能と分けて比較する。
+
+## 初期スコープへの使い分け
+
+原資料の版と位置を確かめる評価では、Kotaemon、FastGPT、Open Notebook を候補に置く。ローカル利用・文書の再利用・検索範囲の指定を確かめる場合は Open WebUI と AnythingLLM を加える。team / workflow を含める場合は FastGPT と MaxKB、agent が参照する source を API で管理する場合は DocsGPT を比較する。Khoj は個人用記憶と複数 client 同期、QAnything は offline QA の比較点として使える。Quivr は現行の利用者向け運用説明が不足しているため、現段階では監視候補に留める。
+
+比較実験では、同じ原資料・モデル・質問・権限条件で、引用箇所の正確さ、更新後に古い内容が検索されないか、削除後に source / chunk / citation が残るか、手作業と費用を別々に測る。各製品についてこの調査で未確認とした項目を、そのまま製品の機能欠如とは解釈しない。
+
+## 関連資料
+
+- [関連システムの横断比較](index.mdx)
+- [文書検索・RAG 基盤の比較](../systems/retrieval-landscape.md)
+- [既存システムの比較一覧](../systems/README.md)
+- [調査方法と根拠の扱い](../methodology.md)
+
+[D-R2-A-ANYTHING-DOCS]: https://docs.anythingllm.com/chatting-with-documents/introduction
+[D-R2-A-ANYTHING-API]: https://github.com/Mintplex-Labs/anything-llm/blob/master/server/swagger/openapi.json
+[D-R2-A-OPENWEBUI-RAG]: https://docs.openwebui.com/features/chat-conversations/rag/
+[D-R2-A-OPENWEBUI-KNOWLEDGE]: https://docs.openwebui.com/features/workspace/knowledge/
+[D-R2-A-KHOJ-README]: https://github.com/khoj-ai/khoj/blob/master/README.md
+[D-R2-A-KHOJ-SYNC]: https://docs.khoj.dev/get-started/setup/
+[D-R2-A-KHOJ-SEARCH]: https://docs.khoj.dev/features/search/
+[D-R2-A-KHOJ-AGENTS]: https://docs.khoj.dev/features/agents/
+[D-R2-A-KOTAEMON-README]: https://github.com/Cinnamon/kotaemon/blob/main/README.md
+[D-R2-A-KOTAEMON-USAGE]: https://github.com/Cinnamon/kotaemon/blob/main/docs/usage.md
+[D-R2-A-FASTGPT-DATASET]: https://doc.fastgpt.io/en/openapi/dataset
+[D-R2-A-FASTGPT-PERMISSIONS]: https://doc.fastgpt.io/en/guide/workspace/team/team_roles_permissions
+[D-R2-A-FASTGPT-FILE-PERM]: https://doc.fastgpt.io/zh-CN/guide/dataset/collection_permission
+[D-R2-A-FASTGPT-CITATIONS]: https://doc.fastgpt.io/en/guide/chat/quoteList
+[D-R2-A-MAXKB-KNOWLEDGE]: https://docs.maxkb.pro/user_manual/dataset/dataset/
+[D-R2-A-MAXKB-APP]: https://docs.maxkb.pro/user_manual/app/simple_app/
+[D-R2-A-QANYTHING-README]: https://github.com/netease-youdao/QAnything
+[D-R2-A-QANYTHING-API]: https://github.com/netease-youdao/QAnything/blob/qanything-v2/docs/API.md
+[D-R2-A-DOCSGPT-HOME]: https://docs.docsgpt.cloud/
+[D-R2-A-DOCSGPT-SOURCE-CONFIG]: https://docs.docsgpt.cloud/Sources/Per-source-configuration
+[D-R2-A-DOCSGPT-SCOPES]: https://docs.docsgpt.cloud/Extensions/personal-access-tokens
+[D-R2-A-OPENNOTEBOOK-SOURCES]: https://github.com/lfnovo/open-notebook/blob/main/docs/3-USER-GUIDE/adding-sources.md
+[D-R2-A-OPENNOTEBOOK-CITATIONS]: https://github.com/lfnovo/open-notebook/blob/main/docs/3-USER-GUIDE/citations.md
+[D-R2-A-OPENNOTEBOOK-API]: https://github.com/lfnovo/open-notebook/blob/main/docs/7-DEVELOPMENT/api-reference.md
+[D-R2-A-OPENNOTEBOOK-MCP]: https://github.com/lfnovo/open-notebook/blob/main/docs/5-CONFIGURATION/mcp-integration.md
+[D-R2-A-QUIVR-README]: https://github.com/The-Vibe-Company/quivr
+[D-R2-A-QUIVR-OLD-DOCS]: https://core.quivr.com/en/stable/

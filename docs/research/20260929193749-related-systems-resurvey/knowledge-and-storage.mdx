@@ -1,0 +1,163 @@
+# 知識・意味管理と履歴／グラフ保存基盤
+
+[調査トップ](../README.md) / [横断比較](index.mdx)
+
+確認日: 2026-09-29
+
+## 範囲と読み方
+
+既存のインフラ概要と意味データ調査を棚卸しし、名前だけ挙がっていたRDF基盤を深化するとともに、推論、制約検証、データ統合、根拠メタデータ、訂正・撤回、時点参照を持つ関連システムを追加で調べた。主比較は保存・意味管理系統14件で、そのうち5件（Apache Jena/Fuseki、RDF4J、Oxigraph、LadybugDB/Kuzu、Minigraf）は既出概要または保留候補からの深化、9件は今回追加した系統である。これに語彙・実体照合の隣接ツールとしてOpenRefineとSplinkを加えた。照合は実体ID候補の生成・確定に関わるが、Fact storeや知識履歴と同じ役割ではない。
+
+製品・サービス、データベースエンジン、ライブラリ、アプリケーション基盤を区別している。公式文書、公式リポジトリ、リリースノートを読んだ公開仕様調査で、導入・ビルド・接続・テスト・性能測定は行っていない。製品側の機能説明は独立した検証結果ではない。ライセンスについても、公開ファイルを見た場合を含め法的評価や今後の条件を保証しない。
+
+## 比較マトリクス
+
+<Matrix title="意味管理・履歴・照合の責務" cols="種類と主機能,履歴・根拠の境界,今回の評価">
+- Apache Jena / Fuseki | RDF framework / SPARQL server。Fusekiはquery/updateとTDB2を提供。[D-R2-S-JENA-FUSEKI] | transactionと設定可能なreasoner。保存factの二時制履歴ではない。[D-R2-S-JENA-TDB2] [D-JENARULE] | 既出概要を深化。ファイルDBは単一JVMが管理する運用境界に注意。[D-R2-S-JENA-TXN]
+- Eclipse RDF4J | Java RDF framework、Repository API、server。[D-R2-S-RDF4J-REPO] | 推論はSail構成依存。SHACLはcommit時検証で、shape変更時は既存データも再検査。[D-RDF4J] | 既出概要を深化。検証結果は主張の出典や真偽判定ではない。
+- Oxigraph | Rust RDF database/library、Python・JavaScript bindings、standalone server。[D-OXI] | SPARQL/RDF標準対応を公開。確認資料では意味推論・証拠来歴・有効時刻履歴を確認できない。 | 既出概要を深化。architecture文書は古い対象versionで現行挙動へ外挿しない。[D-R2-S-OXIGRAPH-ARCH]
+- Virtuoso | SQLとRDF/SPARQLを併せ持つdatabase。[D-R2-S-VIRTUOSO-REPO] | 限定されたRDFS/OWL ruleをquery時に適用。Linked Data ViewsはSQLをRDFへ仮想写像する。[D-R2-S-VIRTUOSO-INFERENCE] [D-R2-S-VIRTUOSO-VIEWS] | 推論対象は保存quadsと仮想tripleで異なり、汎用fact historyとは読まない。
+- AllegroGraph | RDF triple store product。[D-R2-S-AG-DOCS] | 動的RDFS++とmaterialized OWL 2 RLを分け、時点queryと運用PIT recoveryも別に扱う。[D-R2-S-AG-MATERIALIZER] [D-R2-S-AG-TEMPORAL] [D-R2-S-AG-PITR] | triple attributeは追加時に設定し既存tripleでは編集できない。来歴の置場と見る場合に制限。[D-R2-S-AG-TRIPLE-ATTR]
+- Fluree DB | RDF semantic graphとimmutable commit historyを掲げるdatabase。[D-R2-S-FLUREE-README] | OWL/RDFS/Datalog、SHACL、時点query、branch/merge、edge annotationを公開。[D-R2-S-FLUREE-REASONING] [D-R2-S-FLUREE-TIME] [D-R2-S-FLUREE-ANNOTATIONS] | source/confidenceは利用者が付けるannotation。導出factのcitation・proofを自動保証するとは示されない。
+- Anzo / Graph Studio | RDF/OWL/SKOS/SPARQLを使う企業データ統合・ガバナンスplatform。[D-R2-S-ANZO-COMPONENTS] | catalogが変換段階と操作metadataを保持し、artifact・関連artifact版をsnapshot/restoreする。[D-R2-S-ANZO-GLOSSARY] [D-R2-S-ANZO-VERSIONS] | dataset/artifact版管理とfactごとのvalid-time履歴は別。Graph StudioとGraph Lakehouseの保存役割も異なる。[D-R2-S-ANZO-STORAGE]
+- Datomic | Datalogを持つimmutable datom database。[D-R2-S-DATOMIC-OVERVIEW] | assert/retractとtransaction-timeのas-of/history。transaction entityにsource、目的、利用者を追加できる。[D-R2-S-DATOMIC-HISTORY] [D-R2-S-DATOMIC-TXDATA] | 一般的なRDF/OWL推論や独立valid-time軸ではない。履歴は記録時点の知識変化。[D-R2-S-DATOMIC-FILTERS]
+- Dolt | Git風version controlをSQLへ統合したrelational DB。[D-R2-S-DOLT-VERSION] | commit graph、branch、merge、diff、AS OF query。[D-R2-S-DOLT-HISTORY] | 通常のSQL COMMITはDolt commitを作らない。ontology、根拠来歴、valid-timeは自動では担わない。
+- CozoDB | Datalog relational-graph-vector database。[D-R2-S-COZO-README] | relation keyにValidityを宣言した場合、timestampとassert/retractによるvalid-time queryが可能。[D-R2-S-COZO-TIME] | 公式latest release表記はv0.7.6。transaction-time軸は確認できず、1.0未満のAPI/storage互換性保証なし。[D-R2-S-COZO-RELEASES]
+- Mnestic | Cozo由来の独立fork / Datalog DB。[D-R2-S-MNESTIC-README] | Cozo Validityにengine採番TxTimeを加えた二時制、recursive provenance、recompute reconcileを公開。[D-R2-S-MNESTIC-BITEMPORAL] [D-R2-S-MNESTIC-PROVENANCE] | 仕様・changelog確認で実行未検証。自動truth maintenanceや一般引用来歴とは異なる。[D-R2-S-MNESTIC-CHANGELOG]
+- SurrealDB | multi-model database。recordとRELATEでproperty graphを表現。[D-R2-S-SURREAL-RELATE] | version-enabled RocksDB/SurrealKV上でVERSION queryと保持期間を設定可能。valid-timeではない。[D-R2-S-SURREAL-SELECT] [D-R2-S-SURREAL-START] | backend・retention依存。in-memory SurrealMXではVERSION query不可。
+- LadybugDB（旧Kuzu） | embedded property graph engine、Cypher、serializable ACID transaction。[D-R2-S-LADYBUG] | 今回の公式資料では意味推論、来歴、時間履歴を確認できない。 | 既出概要を深化。Kuzu repositoryはarchive済み。後継Ladybugとの機能同一性は仮定しない。[D-R2-S-KUZU]
+- Minigraf | embedded single-file graph DB、Datalog。[D-LS-MINIGRAF-README] | transaction time + valid timeの時点queryと訂正履歴を掲げる。[D-R2-S-MINIGRAF-RELEASES] | 既出保留から深化。v2.0.2には複数値indexの既知issueが残り、OWL/RDFや自動claim provenanceは確認できない。
+- OpenRefine | 対話的データ整形・authority reconciliation application。[D-R2-S-OPENREFINE-API] | name/type/propertyから候補を順位付けし、人が確定・破棄・元値復帰できる。[D-R2-S-OPENREFINE-MANUAL] | 隣接する同定判断レイヤー。確定link履歴や下流graphへの伝播は別設計。
+- Splink | 複数SQL backendを使うPython record-linkage library。[D-R2-S-SPLINK-README] | Fellegi–Sunter modelのペア確率/weightからthreshold clusterを作る。[D-R2-S-SPLINK-MODEL] [D-R2-S-SPLINK-CLUSTER] | match scoreは確定entity IDや校正済み真偽ではない。採用・取消履歴は呼出側で管理する。
+</Matrix>
+
+## 系統別の確認事項
+
+### RDF意味論、制約検証、来歴
+
+Apache JenaのFusekiはSPARQLサーバーで、TDB2は永続RDF storeとして組み合わせられる。Jenaではreasonerをdatasetの上に設定する。TDBはserializable transactionを提供するが、同じファイル領域を複数JVMから直接共有する構成はサポート対象外で、複数consumerにはFusekiを介す運用を案内している。既存のRDFと推論モデルを保持する基盤として読める一方、確認した仕様から過去の主張をvalid-timeとtransaction-timeの両方で再生する履歴ストアとは判定できない。[D-R2-S-JENA-FUSEKI] [D-R2-S-JENA-TDB2] [D-R2-S-JENA-TXN]
+
+RDF4Jは単一のストア製品というより、Repository APIと積み重ね可能なSail実装からなるJava frameworkである。推論・保存挙動は構成したSailに依存する。組み込みRDFS inferencerや独自query inferencerを重ねられ、SHACL Sailは変更transactionのcommit時に関連する既存データも含めて検証する。shape更新時も影響する既存データが再検証される。これは制約を破る更新を拒む責務であり、抽出根拠の正しさや出典の信頼性を検査するものではない。公式文書は大規模データでRDFS推論器の追加・削除コストに注意を促す。[D-R2-S-RDF4J-REPO] [D-RDF4J]
+
+OxigraphはRust libraryとstandalone serverの両面を持つ。公式repositoryはRDF/SPARQL標準対応、Python・JavaScript bindings、CLI/serverを記す。一方、確認した現行READMEは推論・SHACL・証拠来歴・時点履歴を保証する機能として掲げていない。別のarchitecture wikiはv0.4予定を対象とし、work in progressと記しているため、その文書から現在のtransaction特性を断定しない。利用するなら対象releaseのtransaction/API仕様を固定して確認する。[D-OXI] [D-R2-S-OXIGRAPH-ARCH]
+
+VirtuosoはSQLデータベースとRDF/SPARQL面を一つのサーバーで扱う。Linked Data ViewsはSQLの既存データを宣言的なmappingでRDFの形へ仮想表示する。推論rule baseをqueryから指定できるが、公式説明にある推論適用先は物理保存quadsで、Linked Data Viewsから生成する仮想tripleには適用されない。文書が列挙するRDFS/OWL語彙も限定的である。SQLの正本を複製せずに意味的に問い合わせる用途と、保存済みRDFの推論を分けて評価する必要がある。[D-R2-S-VIRTUOSO-INFERENCE] [D-R2-S-VIRTUOSO-VIEWS]
+
+AllegroGraphはRDF store内で推論の方式を選べる。動的RDFS++はquery時にtripleを生成し、storeへは保存しない。OWL 2 RL materializerは導出tripleを保存するため、base dataの追加や削除後に再materializeが必要になる場合がある。temporal magic propertiesはユーザーがRDFで表現した時点・期間の関係をqueryする仕組みで、factを自動的に二時制で版管理する意味ではない。Triple Attributesはtriple追加時に付与する文字列属性で、作成済みtripleには直接変更できない。backup後のtransaction logを使うpoint-in-time recoveryは運用復旧であり、主張がどの資料に由来するかの来歴モデルとは分ける。[D-R2-S-AG-MATERIALIZER] [D-R2-S-AG-TEMPORAL] [D-R2-S-AG-TRIPLE-ATTR] [D-R2-S-AG-PITR]
+
+Fluree DBの公開文書は、RDF graph、transactionごとのimmutable commit、過去時点へのquery、branch/merge、SHACL、OWL/RDFS/Datalog reasoningを掲げる。RDFS/OWLのquery rewriteとOWL 2 RL materializationも区別して説明している。statement/edge annotationにsourceやconfidenceを格納できる点は、個別assertionへ根拠情報を結び付ける設計に関係する。ただしannotation値は入力側で付けるmetadataであり、資料のページ・spanへ戻れるcitationや、派生factに対する自動proof chainを保証するものではない。確認した仕様ではcommit timeは確認できたが、factが世界で有効だった時間を自動管理する独立軸は確認できなかった。以下は公開文書の記載であり、実行・性能・現行licenseの適用範囲を監査したものではない。[D-R2-S-FLUREE-README] [D-R2-S-FLUREE-REASONING] [D-R2-S-FLUREE-OWL] [D-R2-S-FLUREE-TIME] [D-R2-S-FLUREE-ANNOTATIONS] [D-R2-S-FLUREE-TXN]
+
+### データ統合・artifact履歴
+
+Anzo / Graph Studioは単体triplestoreではなく、企業データを意味モデルへ統合するplatformとして見る必要がある。Graph Studioのembedded graph storeはモデル、dataset catalog、registry、権限など更新頻度の高いmetadataを扱い、Graph Lakehouseはgraphmartを分析する別componentである。catalogは元データからgraph modelへの変換、blend、clean、transform、その他platform上の操作をmetadata化する。artifactのversion機能は関連model/dataset/dashboard等もsnapshotし、後の版へrestoreできる。dataset editionは保存数を制限すれば古いものが削除される。この履歴はpipeline/artifactの再現と管理に有用だが、同一factのvalid-timeと記録時刻を問うtemporal storeとは異なる。[D-R2-S-ANZO-COMPONENTS] [D-R2-S-ANZO-STORAGE] [D-R2-S-ANZO-VERSIONS] [D-R2-S-ANZO-GLOSSARY] [D-R2-S-ANZO-EDITIONS]
+
+### transaction履歴とbranchable state
+
+DatomicはRDFではなくDatalogとdatomを基礎にした一般DBである。transactionはfactをassert/retractし、database valueはtransaction timeを基準にas-of/since/historyで参照できる。transaction entity自体にsource URL、実行者、アプリケーション、処理目的などを追加する公開例がある。これは「何を・誰が・なぜ記録したか」をeventに添える有用な仕組みだが、記録時点の履歴と業務上のvalid timeを別軸で持つbitemporal modelは今回確認できなかった。domain provenanceの情報も任意schemaとwriterに依存し、外部引用の正しさは保証しない。[D-R2-S-DATOMIC-OVERVIEW] [D-R2-S-DATOMIC-HISTORY] [D-R2-S-DATOMIC-FILTERS] [D-R2-S-DATOMIC-TXDATA] [D-R2-S-DATOMIC-ACID]
+
+Doltは通常のSQL tableをGit風のcommit graph、branch、merge、diff、AS OF queryに結び付ける。特に通常のSQL transaction COMMITとDoltのversion commitは別操作である。Dolt commitを作る運用規則を置かなければ、望む粒度の履歴は作られない。過去のrow stateとschemaを比較・分岐する用途には該当するが、意味推論、entity identityの統合、根拠の依存関係、valid-time semanticsをdatabaseが付与するものではない。[D-R2-S-DOLT-VERSION] [D-R2-S-DOLT-HISTORY]
+
+### Datalog、temporal graph、汎用graph engine
+
+CozoDBはrelational/graph/vectorをDatalogから問い合わせるtransactional DBである。relationのkeyにValidity列を設けると、timestampとassert/retract markerを使った有効時刻queryを記述できる。確認したv0.7系では、timestampの意味づけはアプリケーションが決め、別個のtransaction-time記録軸は確認できない。公式releaseページの最新版表記はv0.7.6（2023-12-11）、公式READMEは1.0未満ではsyntax/API/storage compatibilityを約束しないと記す。過去仕様を現在も保守されていると推定せず、採用時はrelease・fork・互換性を別途確認する。[D-R2-S-COZO-README] [D-R2-S-COZO-TIME] [D-R2-S-COZO-RELEASES]
+
+MnesticはCozoDBの旧revisionを土台にする独立forkで、公開change logはengine-assigned TxTime、既存Validityとの二時制query、Datalog上のsemiring provenance、k-best derivation、reconcileによる再計算を説明する。reconcileはbase fact変更後にderived relationを再計算して記録する使い方であり、base変更だけで依存する全relationが自動更新される仕組みではない。provenanceは論理導出の証明・cost/confidence/evidenceを扱うが、原資料のURI、ページ、原文span、アクセス権、抽出モデルの確かさを自動で持つ一般的なデータlineageと同義ではない。secondary/search indexやtrigger等、TxTime relationと組み合わせられない機能も公開change logに列挙される。公式仕様・変更履歴を読んだ調査であって、現行releaseをbuild/testしていない。[D-R2-S-MNESTIC-README] [D-R2-S-MNESTIC-BITEMPORAL] [D-R2-S-MNESTIC-PROVENANCE] [D-R2-S-MNESTIC-CHANGELOG]
+
+SurrealDBはdocument/key-value/graph等を組み合わせたdatabaseで、graph edgeはrelation recordとして表す。VERSION SELECTは対象backendをversion enabledで起動しretentionを設定する必要がある。現行docsはRocksDBまたはbeta SurrealKVを対応backendとし、memoryのSurrealMXはversion queryを拒否する仕様を記す。これは保存済みrecordの時点参照であり、factのvalid-time、根拠、推論の撤回を意味しない。構成したbackend、versioned設定、retentionをそろえて初めて評価できる。[D-R2-S-SURREAL-RELATE] [D-R2-S-SURREAL-SELECT] [D-R2-S-SURREAL-START]
+
+LadybugDBは旧名Kuzuを持つembedded property graph engineで、Cypherとserializable ACID transactionsを公開している。旧Kuzu repositoryはarchiveされており、別のLadybug repositoryが「formerly known as Kuzu」と記すため、今回の候補は後者の現行project lineへまとめた。名称の継承は機能・データ形式・保守体制の同一性を意味しない。資料ではontology reasoner、provenance、historical queryを確認できず、グラフquery/storage候補として位置づける。[D-R2-S-LADYBUG] [D-R2-S-KUZU]
+
+MinigrafはRecallGraphと同じ問題領域を引き継ぐと自称するが、公式説明上もportではない独立のembedded graph DBであり、single-fileとDatalogにtransaction-time・valid-timeの二時制queryを組み合わせる。READMEには訂正後にも過去の知識状態を再構成する例がある。一方、最新として確認したv2.0.2の公式release情報は、同一transaction内の同一entity/attributeへの複数値書込み・撤回がquery pathによって一値に見える既知issue #371を案内し、file format v8のv3.0.0で修正予定としている。履歴基盤候補としては具体的だが、最新releaseの制約と未実行確認を採否前に扱う必要がある。公式資料でOWL/RDF互換推論や自動的なsource citation/provenance schemaは確認できない。[D-LS-MINIGRAF-README] [D-R2-S-MINIGRAF-RELEASES]
+
+### 実体照合は保存責務の隣に置く
+
+OpenRefineはReconciliation API v0.2に従うserviceへ問い合わせ、曖昧な文字列と任意の型・補助propertyからauthority上のentity候補を得る。照合は候補確定を人が判断する半自動作業で、候補判断の破棄や元文字列への復帰もできる。これは語彙・authorityへの同定と重複処理を補完するが、異なるentity IDを統合した後に、下流の全fact・edge・引用・派生索引をどう移し、後から統合取消し時にどう戻すかまではReconciliation APIの責務ではない。[D-R2-S-OPENREFINE-API] [D-R2-S-OPENREFINE-MANUAL]
+
+Splinkはrecord pairごとのmatch weight/probabilityと、閾値によるclusterを出すPython libraryである。Fellegi–Sunterモデルのm/u確率、事前一致確率、blocking rule、比較feature等をデータに合わせて設定・推定する。確率値は設定した比較、推定データ、モデル仮定に依存し、万能なidentity scoreや人手確認済みentity IDではない。誤ったpair linkがcluster全体へ連結することもあるため、review用のペア証拠を保持し、cluster採用・分割・再計算を履歴ストアへ反映する責務は呼出側に残る。[D-R2-S-SPLINK-README] [D-R2-S-SPLINK-MODEL] [D-R2-S-SPLINK-INFERENCE] [D-R2-S-SPLINK-CLUSTER]
+
+## 設計上の含意
+
+公開仕様を比べると、「推論された」「履歴がある」「来歴がある」は別々に確認しなければならない。OWL/RDFS entailmentは公理と事実から論理的に導ける関係、SHACLは形状制約の適合検査、ETL metadataはデータの変換・操作履歴、transaction logやcommit graphは保存状態の変更履歴、annotationやtransaction metadataは利用者が書き込む任意情報、record linkageはentity候補の確率的照合である。それぞれ同じprovenance欄へまとめると、根拠の粒度や撤回の影響が見えなくなる。
+
+この調査からの設計考察として、Fact store側では少なくともsource artifact/version/span、抽出または照合run、確定したassertion、valid time、recorded time、review者と訂正理由を別概念として保持する余地がある。derived factには、使ったbase factとrule/モデルversionを接続し、base assertionの撤回時に再計算・無効化する手順を持たせる。entity resolutionでは候補pairとscore、選定根拠、採用・統合・分割判断を記録し、entity mergeを可逆なredirect/aliasと影響範囲付きの操作として扱う。この要件を満たす既製品が存在すると本調査だけからは結論できない。ここは製品仕様ではなく比較から導いた設計上の考察である。
+
+導入比較では、少なくとも次を実データで確認する必要がある。
+
+- 推論はquery-timeかmaterializationか。base factの更新・削除後にどのderived factをいつ無効化するか。
+- 時点指定がtransaction/commit時刻、valid time、artifact版のどれを指すか。両時間軸で過去時点のstateを答えられるか。
+- claimの引用情報は利用者が付ける任意annotationか、抽出源の位置に戻れる識別子か。推論結果に説明可能な依存factが残るか。
+- entity mergeやクラスタ判断を取消した時、関連fact・ACL・索引・派生claimの分割/再計算をどの層が行うか。
+- retention、版圧縮、hard delete、backup/restoreが監査要件と削除要件の両方にどう適合するか。
+- ライブラリ、組込engine、server、enterprise platformのどれを比較しているか。運用・契約・license条件は対象版で別途確認する。
+
+## 検索経路と保留項目
+
+既存 docs/research/implementation/infrastructure.md、docs/research/systems/semantic-data-landscape.md と docs/research/evidence/system-landscape.json を全文検索し、既出システム・概要のみ候補・未掲載候補を区別した。その後、検索語を役割別に広げ、公式製品文書・公式repository・release notesを優先して機能記述を照合した。検索ログのquery・method・結果は隣接する semantic-evidence.json に記録する。
+
+採用数は機能責務に照らした選定で、網羅性や推奨順位を意味しない。以下は追加検索で存在を把握したが、今回の主比較とは分けた。
+
+- RecallGraphは既存調査でも触れた歴史的参考。公式repoはarchive済みで、transaction-time中心の旧システム。valid-timeはroadmap段階で未出荷と説明している。Minigrafとはport関係でないため、両者を同一実装として扱わない。[D-LS-RECALLGRAPH-README]
+- Apache AGEはPostgreSQL extensionとしてopenCypher property graphを提供する。PostgreSQLのtransactionとgraph queryは関連するが、今回確認した資料では独自の推論、来歴、Fact時点履歴を認定する根拠が不足したため保留した。[D-R2-S-AGE]
+- KyzoDBはCozoDBからの独立forkで、公式fork記録はfirst-witness provenance等を掲げる。Mnesticと重なるDatalog/Cozo系譜であるため、同じ14件枠へ追加する前にprovenance形式、撤回時の挙動、release状態を独立に確認する。[D-R2-S-KYZO]
+
+## 参照資料
+
+根拠の確認範囲と検索記録は [semantic-evidence.json](semantic-evidence.json) に、既存調査の資料一覧は [資料台帳](../sources.md) に記録した。以下は本文中の出典IDとURLの対応である。
+
+[D-R2-S-JENA-FUSEKI]: https://jena.apache.org/documentation/fuseki2/
+[D-R2-S-JENA-TDB2]: https://jena.apache.org/documentation/tdb2/
+[D-R2-S-JENA-TXN]: https://jena.apache.org/documentation/tdb/tdb_transactions.html
+[D-JENARULE]: https://jena.apache.org/documentation/inference/
+[D-R2-S-RDF4J-REPO]: https://rdf4j.org/documentation/programming/repository/
+[D-RDF4J]: https://rdf4j.org/documentation/programming/shacl/
+[D-OXI]: https://github.com/oxigraph/oxigraph
+[D-R2-S-OXIGRAPH-ARCH]: https://github.com/oxigraph/oxigraph/wiki/Architecture
+[D-R2-S-VIRTUOSO-REPO]: https://github.com/openlink/virtuoso-opensource
+[D-R2-S-VIRTUOSO-INFERENCE]: https://docs.openlinksw.com/virtuoso/rdfsparqlrule/
+[D-R2-S-VIRTUOSO-VIEWS]: https://docs.openlinksw.com/virtuoso/rdfviewsrdbms/
+[D-R2-S-AG-DOCS]: https://agraph.franz.com/agraph/support/documentation/
+[D-R2-S-AG-MATERIALIZER]: https://agraph.franz.com/agraph/support/documentation/materializer.html
+[D-R2-S-AG-TEMPORAL]: https://agraph.franz.com/agraph/support/documentation/magic-properties.html
+[D-R2-S-AG-TRIPLE-ATTR]: https://agraph.franz.com/agraph/support/documentation/triple-attributes.html
+[D-R2-S-AG-PITR]: https://agraph.franz.com/agraph/support/documentation/point-in-time-recovery.html
+[D-R2-S-FLUREE-README]: https://github.com/fluree/db/blob/main/README.md
+[D-R2-S-FLUREE-REASONING]: https://fluree.github.io/db/concepts/reasoning.html
+[D-R2-S-FLUREE-OWL]: https://fluree.github.io/db/reference/owl-rdfs-support.html
+[D-R2-S-FLUREE-TIME]: https://fluree.github.io/db/guides/cookbook-time-travel.html
+[D-R2-S-FLUREE-ANNOTATIONS]: https://fluree.github.io/db/guides/cookbook-edge-annotations.html
+[D-R2-S-FLUREE-TXN]: https://fluree.github.io/db/transactions/overview.html
+[D-R2-S-ANZO-COMPONENTS]: https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/components.htm
+[D-R2-S-ANZO-STORAGE]: https://docs.cambridgesemantics.com/anzo/userdoc/data-storage.htm
+[D-R2-S-ANZO-VERSIONS]: https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/backups.htm
+[D-R2-S-ANZO-GLOSSARY]: https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/glossary.htm
+[D-R2-S-ANZO-EDITIONS]: https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/edition-limit.htm
+[D-R2-S-DATOMIC-OVERVIEW]: https://docs.datomic.com/datomic-overview.html
+[D-R2-S-DATOMIC-HISTORY]: https://docs.datomic.com/client-tutorial/history.html
+[D-R2-S-DATOMIC-FILTERS]: https://docs.datomic.com/reference/filters.html
+[D-R2-S-DATOMIC-TXDATA]: https://docs.datomic.com/transactions/transaction-data-reference.html
+[D-R2-S-DATOMIC-ACID]: https://docs.datomic.com/transactions/acid.html
+[D-R2-S-DOLT-VERSION]: https://www.dolthub.com/docs/sql-reference/version-control/
+[D-R2-S-DOLT-HISTORY]: https://www.dolthub.com/docs/sql-reference/version-control/querying-history/
+[D-R2-S-COZO-README]: https://github.com/cozodb/cozo
+[D-R2-S-COZO-TIME]: https://docs.cozodb.org/en/latest/timetravel.html
+[D-R2-S-COZO-RELEASES]: https://github.com/cozodb/cozo/releases
+[D-R2-S-MNESTIC-README]: https://github.com/shuruheel/mnestic
+[D-R2-S-MNESTIC-BITEMPORAL]: https://github.com/shuruheel/mnestic/blob/main/docs/specs/bitemporality.md
+[D-R2-S-MNESTIC-PROVENANCE]: https://github.com/shuruheel/mnestic/blob/main/docs/specs/provenance-semirings.md
+[D-R2-S-MNESTIC-CHANGELOG]: https://github.com/shuruheel/mnestic/blob/main/CHANGELOG-FORK.md
+[D-R2-S-SURREAL-RELATE]: https://surrealdb.com/docs/reference/query-language/statements/relate
+[D-R2-S-SURREAL-SELECT]: https://surrealdb.com/docs/reference/query-language/statements/select
+[D-R2-S-SURREAL-START]: https://surrealdb.com/docs/reference/cli/surrealdb-cli/commands/start
+[D-R2-S-LADYBUG]: https://github.com/LadybugDB/ladybug
+[D-R2-S-KUZU]: https://github.com/kuzudb/kuzu
+[D-LS-MINIGRAF-README]: https://github.com/project-minigraf/minigraf
+[D-R2-S-MINIGRAF-RELEASES]: https://github.com/project-minigraf/minigraf/releases
+[D-LS-RECALLGRAPH-README]: https://github.com/RecallGraph/RecallGraph
+[D-R2-S-OPENREFINE-API]: https://openrefine.org/docs/technical-reference/reconciliation-api
+[D-R2-S-OPENREFINE-MANUAL]: https://openrefine.org/docs/manual/reconciling
+[D-R2-S-SPLINK-README]: https://github.com/moj-analytical-services/splink
+[D-R2-S-SPLINK-MODEL]: https://moj-analytical-services.github.io/splink/topic_guides/theory/fellegi_sunter.html
+[D-R2-S-SPLINK-INFERENCE]: https://moj-analytical-services.github.io/splink/api_docs/inference.html
+[D-R2-S-SPLINK-CLUSTER]: https://moj-analytical-services.github.io/splink/api_docs/linker_clustering.html
+[D-R2-S-AGE]: https://github.com/apache/age
+[D-R2-S-KYZO]: https://github.com/kyzodb/kyzo/blob/main/FORK.md

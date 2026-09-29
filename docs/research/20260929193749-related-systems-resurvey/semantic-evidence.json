@@ -1,0 +1,842 @@
+{
+  "sources": [
+    {
+      "id": "D-R2-S-JENA-FUSEKI",
+      "title": "Apache Jena Fuseki documentation",
+      "url": "https://jena.apache.org/documentation/fuseki2/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "FusekiのSPARQL 1.1 query/update、Graph Store protocol、TDB連携と公開形態を確認。実行なし。"
+    },
+    {
+      "id": "D-R2-S-JENA-TDB2",
+      "title": "Apache Jena TDB2",
+      "url": "https://jena.apache.org/documentation/tdb2/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "TDB2がJena API用の永続RDF storeであることを確認。"
+    },
+    {
+      "id": "D-R2-S-JENA-TXN",
+      "title": "Apache Jena TDB transactions",
+      "url": "https://jena.apache.org/documentation/tdb/tdb_transactions.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "TDB2のserializable transaction、reader/writer構成、multi-JVM制約を確認。"
+    },
+    {
+      "id": "D-JENARULE",
+      "title": "Apache Jena inference",
+      "url": "https://jena.apache.org/documentation/inference/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Jena reasonerの層構成とRDFS・rule reasonerの種別を確認。"
+    },
+    {
+      "id": "D-R2-S-RDF4J-REPO",
+      "title": "The Repository API - Eclipse RDF4J",
+      "url": "https://rdf4j.org/documentation/programming/repository/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Repository/Sailの役割、RDFS inferencerの組成と性能注意を確認。"
+    },
+    {
+      "id": "D-RDF4J",
+      "title": "Validation With SHACL - Eclipse RDF4J",
+      "url": "https://rdf4j.org/documentation/programming/shacl/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "transaction commit時のSHACL validation、shape更新時再検査、feature scopeを確認。"
+    },
+    {
+      "id": "D-OXI",
+      "title": "Oxigraph repository",
+      "url": "https://github.com/oxigraph/oxigraph",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "Rust DB library、Python/JavaScript bindings、standalone SPARQL server、公開される標準対応を確認。"
+    },
+    {
+      "id": "D-R2-S-OXIGRAPH-ARCH",
+      "title": "Oxigraph architecture wiki",
+      "url": "https://github.com/oxigraph/oxigraph/wiki/Architecture",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "v0.4を対象とする古いarchitecture説明を確認。current releaseへの挙動外挿には使わない。"
+    },
+    {
+      "id": "D-R2-S-VIRTUOSO-REPO",
+      "title": "Virtuoso Open Source repository",
+      "url": "https://github.com/openlink/virtuoso-opensource",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "製品のオープンソースrepositoryの存在と公開位置を確認。ライセンス監査なし。"
+    },
+    {
+      "id": "D-R2-S-VIRTUOSO-INFERENCE",
+      "title": "Virtuoso inference rules and reasoning",
+      "url": "https://docs.openlinksw.com/virtuoso/rdfsparqlrule/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "rule-baseによるquery inferenceと物理保存quads/virtual tripleの適用境界、対応語彙を確認。"
+    },
+    {
+      "id": "D-R2-S-VIRTUOSO-VIEWS",
+      "title": "Virtuoso Linked Data Views over RDBMS",
+      "url": "https://docs.openlinksw.com/virtuoso/rdfviewsrdbms/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "SQL-to-RDF mappingを動的に提供するLinked Data Viewsの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-DOCS",
+      "title": "AllegroGraph 9.0.3 documentation index",
+      "url": "https://agraph.franz.com/agraph/support/documentation/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "公開文書の版表示とreasoning、temporal、triple attributes、PIT recovery項目を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-MATERIALIZER",
+      "title": "AllegroGraph materialized reasoner",
+      "url": "https://agraph.franz.com/agraph/support/documentation/materializer.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "動的RDFS++とOWL 2 RL materializationの相違、データ更新後の再materialization注意を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-TEMPORAL",
+      "title": "AllegroGraph SPARQL magic properties",
+      "url": "https://agraph.franz.com/agraph/support/documentation/magic-properties.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Temporal magic propertiesの範囲とquery時の利用を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-TRIPLE-ATTR",
+      "title": "AllegroGraph triple attributes",
+      "url": "https://agraph.franz.com/agraph/support/documentation/triple-attributes.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "文字列属性の付与時点と、既存tripleでは変更できない仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-AG-PITR",
+      "title": "AllegroGraph point-in-time recovery",
+      "url": "https://agraph.franz.com/agraph/support/documentation/point-in-time-recovery.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "backupとtransaction logを使う運用上のrecoveryを確認。claim semanticsとは区別。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-README",
+      "title": "Fluree DB README",
+      "url": "https://github.com/fluree/db/blob/main/README.md",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "公開READMEのRDF、immutable history、branching、reasoning、SHACL機能の説明を確認。実行なし。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-REASONING",
+      "title": "Fluree reasoning and inference",
+      "url": "https://fluree.github.io/db/concepts/reasoning.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "RDFS、OWL 2 QL query rewriting、OWL 2 RL materialization、Datalog modeの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-OWL",
+      "title": "Fluree OWL and RDFS support reference",
+      "url": "https://fluree.github.io/db/reference/owl-rdfs-support.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "対応constructとowl:sameAs/hasKeyを含む公開reasoning scopeを確認。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-TIME",
+      "title": "Fluree time travel patterns",
+      "url": "https://fluree.github.io/db/guides/cookbook-time-travel.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "transaction number/timeによるsnapshot queryとassert/retract historyの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-ANNOTATIONS",
+      "title": "Fluree edge annotations",
+      "url": "https://fluree.github.io/db/guides/cookbook-edge-annotations.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "source/confidence等のstatement annotationの書き込みモデルを確認。自動citation生成とは解釈しない。"
+    },
+    {
+      "id": "D-R2-S-FLUREE-TXN",
+      "title": "Fluree transaction overview",
+      "url": "https://fluree.github.io/db/transactions/overview.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "assert/retract transaction、atomicity、immutability、transaction timeとmetadataの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-COMPONENTS",
+      "title": "Graph Studio platform components",
+      "url": "https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/components.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Graph Studio Server、Graph Lakehouse等のcomponentと役割を確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-STORAGE",
+      "title": "Graph Studio graph storage concepts",
+      "url": "https://docs.cambridgesemantics.com/anzo/userdoc/data-storage.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "embedded metadata graph storeとGraph Lakehouse graph storeの分担を確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-VERSIONS",
+      "title": "Creating and restoring Graph Studio artifact versions",
+      "url": "https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/backups.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "artifact/related entities/metadata graphのsnapshot、compare、restoreを確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-GLOSSARY",
+      "title": "Graph Studio glossary",
+      "url": "https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/glossary.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "dataset catalogが変換工程・操作metadataを記録するという公式定義を確認。"
+    },
+    {
+      "id": "D-R2-S-ANZO-EDITIONS",
+      "title": "Limiting Graph Studio dataset editions",
+      "url": "https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/edition-limit.htm",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "dataset editionの保存数制限と古いeditionの削除を確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-OVERVIEW",
+      "title": "Datomic overview",
+      "url": "https://docs.datomic.com/datomic-overview.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "datom、assert/retract、transaction entity、歴史的database valueの公開説明を確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-HISTORY",
+      "title": "Datomic history tutorial",
+      "url": "https://docs.datomic.com/client-tutorial/history.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "as-ofとhistory query、assertion/retractionの例を確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-FILTERS",
+      "title": "Datomic database filters",
+      "url": "https://docs.datomic.com/reference/filters.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "as-of, since, history各viewの相違と履歴APIを確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-TXDATA",
+      "title": "Datomic transaction data reference",
+      "url": "https://docs.datomic.com/transactions/transaction-data-reference.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "transaction entityへpurpose/source/provenance metadataを記録する公開例を確認。"
+    },
+    {
+      "id": "D-R2-S-DATOMIC-ACID",
+      "title": "Datomic ACID transactions",
+      "url": "https://docs.datomic.com/transactions/acid.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "ACIDとserialized writesに関する公式説明を確認。"
+    },
+    {
+      "id": "D-R2-S-DOLT-VERSION",
+      "title": "Dolt version control",
+      "url": "https://www.dolthub.com/docs/sql-reference/version-control/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "SQL上のcommit graph、branch、merge、diff機能の説明を確認。"
+    },
+    {
+      "id": "D-R2-S-DOLT-HISTORY",
+      "title": "Querying Dolt database history",
+      "url": "https://www.dolthub.com/docs/sql-reference/version-control/querying-history/",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "AS OF、timestamp、diffと通常SQL COMMITがDolt commitを作らない仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-COZO-README",
+      "title": "CozoDB repository README",
+      "url": "https://github.com/cozodb/cozo",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "Datalog relational/graph/vector DBの概要、pre-1.0互換性注意を確認。"
+    },
+    {
+      "id": "D-R2-S-COZO-TIME",
+      "title": "CozoDB v0.7 time travel",
+      "url": "https://docs.cozodb.org/en/latest/timetravel.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Validityキーのassert/retractとvalid-time queryの意味を確認。"
+    },
+    {
+      "id": "D-R2-S-COZO-RELEASES",
+      "title": "CozoDB releases",
+      "url": "https://github.com/cozodb/cozo/releases",
+      "kind": "official_release_page",
+      "accessed": "2026-09-29",
+      "review_depth": "公式releaseページの最新表記v0.7.6と公開日を確認。活動状態全体の保証ではない。"
+    },
+    {
+      "id": "D-R2-S-MNESTIC-README",
+      "title": "Mnestic repository README",
+      "url": "https://github.com/shuruheel/mnestic",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "Cozo-derived forkと公開機能概要を確認。runtime/build/testは行っていない。"
+    },
+    {
+      "id": "D-R2-S-MNESTIC-BITEMPORAL",
+      "title": "Mnestic bitemporality specification",
+      "url": "https://github.com/shuruheel/mnestic/blob/main/docs/specs/bitemporality.md",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "Validityとengine-assigned TxTime、二時制query/retraction/history仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-MNESTIC-PROVENANCE",
+      "title": "Mnestic provenance semirings specification",
+      "url": "https://github.com/shuruheel/mnestic/blob/main/docs/specs/provenance-semirings.md",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "semiring、k-best derivation、proof-chain表現の公開仕様を確認。"
+    },
+    {
+      "id": "D-R2-S-MNESTIC-CHANGELOG",
+      "title": "Mnestic fork changelog",
+      "url": "https://github.com/shuruheel/mnestic/blob/main/CHANGELOG-FORK.md",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "reconcileによる再計算、未自動化のtruth maintenance、TxTimeとの非互換機能等を確認。"
+    },
+    {
+      "id": "D-R2-S-SURREAL-RELATE",
+      "title": "SurrealDB RELATE statement",
+      "url": "https://surrealdb.com/docs/reference/query-language/statements/relate",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "property graph relation recordの作成方法を確認。"
+    },
+    {
+      "id": "D-R2-S-SURREAL-SELECT",
+      "title": "SurrealDB SELECT statement",
+      "url": "https://surrealdb.com/docs/reference/query-language/statements/select",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "VERSION historical queryのbackend/versioned条件とSurrealMX制約を確認。"
+    },
+    {
+      "id": "D-R2-S-SURREAL-START",
+      "title": "SurrealDB start command",
+      "url": "https://surrealdb.com/docs/reference/cli/surrealdb-cli/commands/start",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "RocksDB/SurrealKVのversioned/retention設定とin-memory制約を確認。"
+    },
+    {
+      "id": "D-R2-S-LADYBUG",
+      "title": "LadybugDB repository",
+      "url": "https://github.com/LadybugDB/ladybug",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "embedded property graph, Cypher, serializable ACID transaction、formerly known as Kuzuの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-KUZU",
+      "title": "Kuzu repository",
+      "url": "https://github.com/kuzudb/kuzu",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "旧repositoryのarchive状態を確認。Ladybugとの機能同一性は仮定しない。"
+    },
+    {
+      "id": "D-LS-MINIGRAF-README",
+      "title": "Minigraf repository README",
+      "url": "https://github.com/project-minigraf/minigraf",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "embedded Datalog graphとtransaction-time/valid-timeの公開説明を確認。性能・実行は未検証。"
+    },
+    {
+      "id": "D-R2-S-MINIGRAF-RELEASES",
+      "title": "Minigraf releases",
+      "url": "https://github.com/project-minigraf/minigraf/releases",
+      "kind": "official_release_page",
+      "accessed": "2026-09-29",
+      "review_depth": "v2.0.2 release時点と既知issue #371、修正予定versionに関する情報を確認。"
+    },
+    {
+      "id": "D-R2-S-OPENREFINE-API",
+      "title": "OpenRefine Reconciliation API",
+      "url": "https://openrefine.org/docs/technical-reference/reconciliation-api",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "API v0.2のname/type/property候補検索とentity identifierの役割を確認。"
+    },
+    {
+      "id": "D-R2-S-OPENREFINE-MANUAL",
+      "title": "OpenRefine reconciling manual",
+      "url": "https://openrefine.org/docs/manual/reconciling",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "半自動の人手確定、候補判断破棄、照合データ消去・元値復元を確認。"
+    },
+    {
+      "id": "D-R2-S-SPLINK-README",
+      "title": "Splink repository",
+      "url": "https://github.com/moj-analytical-services/splink",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "Python probabilistic record linkage libraryと現行major releaseの説明を確認。"
+    },
+    {
+      "id": "D-R2-S-SPLINK-MODEL",
+      "title": "Splink Fellegi-Sunter model guide",
+      "url": "https://moj-analytical-services.github.io/splink/topic_guides/theory/fellegi_sunter.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "m/u/事前確率、比較feature、match weight/probabilityと仮定を確認。"
+    },
+    {
+      "id": "D-R2-S-SPLINK-INFERENCE",
+      "title": "Splink inference API",
+      "url": "https://moj-analytical-services.github.io/splink/api_docs/inference.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "blockingしたペアのscore/probability予測APIを確認。"
+    },
+    {
+      "id": "D-R2-S-SPLINK-CLUSTER",
+      "title": "Splink clustering API",
+      "url": "https://moj-analytical-services.github.io/splink/api_docs/linker_clustering.html",
+      "kind": "official_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "match probability/weight thresholdからconnected-component clusterを作る仕様を確認。"
+    },
+    {
+      "id": "D-LS-RECALLGRAPH-README",
+      "title": "RecallGraph repository README",
+      "url": "https://github.com/RecallGraph/RecallGraph",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "archive、transaction-time中心の過去状態照会、valid-time未出荷の説明を確認。既存調査候補。"
+    },
+    {
+      "id": "D-R2-S-AGE",
+      "title": "Apache AGE repository README",
+      "url": "https://github.com/apache/age",
+      "kind": "official_repository",
+      "accessed": "2026-09-29",
+      "review_depth": "PostgreSQL extensionとしてSQL/openCypher graph機能を確認。推論・来歴・Fact-timeは未調査。"
+    },
+    {
+      "id": "D-R2-S-KYZO",
+      "title": "KyzoDB CozoDB fork record",
+      "url": "https://github.com/kyzodb/kyzo/blob/main/FORK.md",
+      "kind": "official_repository_documentation",
+      "accessed": "2026-09-29",
+      "review_depth": "CozoDB fork系譜とfirst-witness provenance等の主張を確認。実装、撤回挙動、releaseは深掘り保留。"
+    }
+  ],
+  "systems": [
+    {
+      "id": "R2-S-JENA-FUSEKI",
+      "name": "Apache Jena / Fuseki",
+      "category": "RDF framework and SPARQL server",
+      "entry_type": "framework-and-server",
+      "prior_coverage": "概要のみ・今回深化",
+      "source_ids": [
+        "D-R2-S-JENA-FUSEKI",
+        "D-R2-S-JENA-TDB2",
+        "D-R2-S-JENA-TXN",
+        "D-JENARULE"
+      ],
+      "role": "RDF datasetをTDB2へ永続化し、FusekiのSPARQL serverとJena reasonerを組み合わせる。",
+      "limitations": "reasoner構成と対応範囲は選択依存。TDB2ファイルは単一JVM管理であり、二時制fact historyは確認していない。",
+      "review_depth": "Fuseki/TDB2/inference/transaction公式docsの該当項を確認。実行・code reviewなし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-RDF4J",
+      "name": "Eclipse RDF4J",
+      "category": "RDF framework and Repository API",
+      "entry_type": "framework-and-server",
+      "prior_coverage": "概要のみ・今回深化",
+      "source_ids": [
+        "D-R2-S-RDF4J-REPO",
+        "D-RDF4J"
+      ],
+      "role": "Repository/Sail構成でストレージ・推論を組み、SHACL Sailでcommit時データ制約を検証する。",
+      "limitations": "推論はSail stack依存。検証はshape適合であり根拠の真偽評価ではない。大規模推論更新コストとSHACL feature subsetを要確認。",
+      "review_depth": "Repository APIとSHACL docsの構成、commit、再検証の説明を確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-OXIGRAPH",
+      "name": "Oxigraph",
+      "category": "RDF database library and server",
+      "entry_type": "library-and-server",
+      "prior_coverage": "概要のみ・今回深化",
+      "source_ids": [
+        "D-OXI",
+        "D-R2-S-OXIGRAPH-ARCH"
+      ],
+      "role": "Rust RDF store、language bindings、standalone SPARQL serverとして標準RDF/SPARQL処理を提供する。",
+      "limitations": "確認したREADMEではreasoning、evidence lineage、valid-time historyを掲げない。transaction wikiは古い対象版の記述で現行版に外挿しない。",
+      "review_depth": "official repositoryとv0.4向けarchitecture wikiを確認。API/DB実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-VIRTUOSO",
+      "name": "Virtuoso",
+      "category": "Hybrid relational and RDF database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-VIRTUOSO-REPO",
+        "D-R2-S-VIRTUOSO-INFERENCE",
+        "D-R2-S-VIRTUOSO-VIEWS"
+      ],
+      "role": "SQLとRDF/SPARQLを同一サーバーに持ち、Linked Data Viewsで関係データを仮想RDFとして公開する。",
+      "limitations": "query inferenceの対象は物理quadsであり仮想Linked Data Viewsとは異なる。公開文書のOWL/RDFS対象も限定的。",
+      "review_depth": "OpenLink公式docsのinference/Linked Data Viewsと公式repositoryを確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-ALLEGROGRAPH",
+      "name": "AllegroGraph",
+      "category": "RDF triple store",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-AG-DOCS",
+        "D-R2-S-AG-MATERIALIZER",
+        "D-R2-S-AG-TEMPORAL",
+        "D-R2-S-AG-TRIPLE-ATTR",
+        "D-R2-S-AG-PITR"
+      ],
+      "role": "動的RDFS++またはOWL 2 RL materialization、temporal SPARQL query、triple attributesを提供するRDF store。",
+      "limitations": "materialized entailmentはbase更新後再実行が必要な場合がある。triple attributesは作成時付与。時間queryと運用復旧はfactのbitemporal semanticsと異なる。",
+      "review_depth": "AllegroGraph 9.0.3 official docsの推論、temporal、attributes、PIT recoveryを確認。製品実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-FLUREE",
+      "name": "Fluree DB",
+      "category": "Semantic RDF graph ledger",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-FLUREE-README",
+        "D-R2-S-FLUREE-REASONING",
+        "D-R2-S-FLUREE-OWL",
+        "D-R2-S-FLUREE-TIME",
+        "D-R2-S-FLUREE-ANNOTATIONS",
+        "D-R2-S-FLUREE-TXN"
+      ],
+      "role": "immutable transaction history/time travelを持つRDF graphにOWL/RDFS/Datalog、SHACL、branch/mergeとuser annotationsを組み合わせると公式説明。",
+      "limitations": "source/confidence annotationは利用者が付けるmetadataで、自動的な出典引用やderivation proofとは限らない。確認した文書では独立valid-time軸を確認できず、実行・license評価なし。",
+      "review_depth": "公式READMEとcurrent docsのreasoner、OWL、time travel、annotations、transaction項を確認。主張のコード実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-ANZO-GRAPH-STUDIO",
+      "name": "Anzo / Graph Studio",
+      "category": "Enterprise semantic data integration platform",
+      "entry_type": "platform",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-ANZO-COMPONENTS",
+        "D-R2-S-ANZO-STORAGE",
+        "D-R2-S-ANZO-VERSIONS",
+        "D-R2-S-ANZO-GLOSSARY",
+        "D-R2-S-ANZO-EDITIONS"
+      ],
+      "role": "RDF/OWL/SKOS graph integration, metadata catalog, pipeline action history, artifact snapshots/restoresを統合する。",
+      "limitations": "Graph Studio metadata storeとGraph Lakehouse analytic storeを区別する。artifact/dataset versionsはFactごとのvalid-time historyではない。",
+      "review_depth": "Graph Studio 2025.0 official docsのcomponents, catalog, storage, artifact version, edition retentionを確認。環境導入なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-DATOMIC",
+      "name": "Datomic",
+      "category": "Immutable datom / Datalog database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-DATOMIC-OVERVIEW",
+        "D-R2-S-DATOMIC-HISTORY",
+        "D-R2-S-DATOMIC-FILTERS",
+        "D-R2-S-DATOMIC-TXDATA",
+        "D-R2-S-DATOMIC-ACID"
+      ],
+      "role": "assertion/retractionをtransaction-time付きdatomとして記録し、as-of/history viewとtransaction metadataを提供する。",
+      "limitations": "RDF/OWL reasonerではなく、domain valid-timeの別軸も確認していない。source/purpose metadataは任意schemaとwriter入力に依存。",
+      "review_depth": "公式overview/history/filters/tx-data/ACID docsを確認。コード・サービス実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-DOLT",
+      "name": "Dolt",
+      "category": "Version-controlled relational database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-DOLT-VERSION",
+        "D-R2-S-DOLT-HISTORY"
+      ],
+      "role": "SQL database stateにcommit graph、branch、merge、diff、AS OF historyを提供する。",
+      "limitations": "SQL transaction COMMITは自動でDolt commitを作らない。ontology inference、claim provenance、valid-timeは組み込まれていない。",
+      "review_depth": "Dolt official SQL docsのversion controlとhistorical queryingを確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-COZO",
+      "name": "CozoDB",
+      "category": "Datalog relational-graph-vector database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-COZO-README",
+        "D-R2-S-COZO-TIME",
+        "D-R2-S-COZO-RELEASES"
+      ],
+      "role": "Datalog上のrelational/graph/vector処理とValidity relationによるvalid-time queryを提供する。",
+      "limitations": "確認したv0.7.6 docsではtransaction-time軸なし。公式releaseページのlatest表示は2023年、1.0未満のAPI/storage互換性保証なし。",
+      "review_depth": "公式README、v0.7 time-travel manual、releases pageを確認。現行保守状態の完全な監査なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-MNESTIC",
+      "name": "Mnestic",
+      "category": "Cozo-derived temporal Datalog database",
+      "entry_type": "database-fork",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-MNESTIC-README",
+        "D-R2-S-MNESTIC-BITEMPORAL",
+        "D-R2-S-MNESTIC-PROVENANCE",
+        "D-R2-S-MNESTIC-CHANGELOG"
+      ],
+      "role": "Cozo Validityとengine-stamped TxTimeの二時制、semiring evidence/proof、derived relationのrecompute reconcileを掲げる。",
+      "limitations": "公開仕様とchange logのみ。依存fact変更時の自動propagationではなくユーザーがreconcileを実行する。一般的なsource citationではなく、TxTime relationの組合せ制限あり。",
+      "review_depth": "README、bitemporality/provenance specs、fork changelogを静的確認。build/test/query未実施。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-SURREALDB",
+      "name": "SurrealDB",
+      "category": "Multi-model database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-SURREAL-RELATE",
+        "D-R2-S-SURREAL-SELECT",
+        "D-R2-S-SURREAL-START"
+      ],
+      "role": "multi-model DB上のproperty graphとbackend依存のrecord version queryを提供する。",
+      "limitations": "VERSIONはversion-enabled persistent backendとretention設定に依存し、in-memory SurrealMXは非対応。valid-time、reasoning、evidence semanticsではない。",
+      "review_depth": "現行official SELECT、RELATE、start CLI docsの関連項目を確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-LADYBUG-KUZU",
+      "name": "LadybugDB（旧Kuzu）",
+      "category": "Embedded property graph database",
+      "entry_type": "database-engine",
+      "prior_coverage": "既出概要・今回深化",
+      "source_ids": [
+        "D-R2-S-LADYBUG",
+        "D-R2-S-KUZU"
+      ],
+      "role": "embedded Cypher property graph engineとserializable ACID transactionsを提供する。",
+      "limitations": "過去Kuzuとの機能・format・保守同一性は仮定しない。今回の公式資料ではreasoning、provenance、history queryを確認できない。",
+      "review_depth": "Ladybug READMEとKuzu repositoryの状態を確認。source/build/runtimeなし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-MINIGRAF",
+      "name": "Minigraf",
+      "category": "Embedded bitemporal graph database",
+      "entry_type": "database-engine",
+      "prior_coverage": "既出保留・今回深化",
+      "source_ids": [
+        "D-LS-MINIGRAF-README",
+        "D-R2-S-MINIGRAF-RELEASES",
+        "D-LS-RECALLGRAPH-README"
+      ],
+      "role": "Datalog graph queryとtransaction time / valid timeの二時制履歴を持つembedded storeと公式説明。",
+      "limitations": "latest v2.0.2公開releaseは同一transaction複数値に関する既知issue #371を記載。実行未検証で、RDF/OWLと自動claim provenanceは確認していない。",
+      "review_depth": "README・release pageを確認。RecallGraphとの関係は旧repo READMEでも照合。実行・データformat試験なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    }
+  ],
+  "searches": [
+    {
+      "query": "既存 docs/research のsystem候補一覧、Apache Jena RDF4J Oxigraph RecallGraph Minigraf prior coverage",
+      "method": "rtk rg による全文検索。implementation/infrastructure.md、systems/semantic-data-landscape.md、evidence/system-landscape.jsonを照合。",
+      "outcome": "Jena/Fuseki、RDF4J、Oxigraphはinfra概要既出として深化へ分類。Ladybugはinfrastructure.mdの概要、Minigraf/RecallGraphはsemantic-data-landscape.mdおよびsystem-landscape.jsonの既出保留記録を照合。主比較で5系統を既出深化、9系統を新規追加として分類。"
+    },
+    {
+      "query": "RDF reasoning transaction provenance Jena Fuseki RDF4J Oxigraph Virtuoso AllegroGraph",
+      "method": "Web検索後、Apache Jena、Eclipse RDF4J、Oxigraph、OpenLink、Franzの公式docs/repositoryを優先して該当章を確認。",
+      "outcome": "RDF storage、query-time/materialized reasoning、SHACL commit validation、virtual RDB mapping、triple metadataと運用PIT recoveryを区別。"
+    },
+    {
+      "query": "Fluree RDF immutable ledger time travel annotations OWL RDFS SHACL",
+      "method": "Fluree official GitHub READMEと公式docsのreasoning、OWL support、time travel、annotation、transactionsを確認。",
+      "outcome": "transaction-time history/branchとsource/confidence annotationの存在を確認。annotationを自動citation/proofと解釈せず、独立valid-time軸は確認できないと整理。"
+    },
+    {
+      "query": "Anzo Graph Studio dataset catalog transformation metadata artifact version restore",
+      "method": "Cambridge Semantics / Graph Studio official 2025.0 docsでcomponents、storage、catalog、backups、edition retentionを照合。",
+      "outcome": "enterprise data integration platformとartifact lineage/versionの範囲を確認。fact-level bitemporal historyとは分離。"
+    },
+    {
+      "query": "Datomic immutable datom retractions as-of history transaction source; Dolt git version SQL AS OF",
+      "method": "DatomicとDoltの公式docsでtransaction model、history filters、transaction metadata、commit graph、AS OF semanticsを確認。",
+      "outcome": "transaction historyとbranch/commit snapshotを比較し、domain valid-time/ontology/provenanceと区別。"
+    },
+    {
+      "query": "CozoDB Validity time travel release status; Mnestic bitemporality provenance semirings reconcile",
+      "method": "公式CozoDB docs/releases/READMEとMnestic README/specs/changelogを静的確認。",
+      "outcome": "Cozoはuser-interpreted Validity軸、Mnesticは公開説明上のengine TxTimeとValidity、provenance semiring/recompute reconcile。最新のruntime品質は未検証。"
+    },
+    {
+      "query": "SurrealDB VERSION history backend retention; LadybugDB Kuzu archive; Minigraf bi-temporal release issue",
+      "method": "SurrealDB current docs、Ladybug/Kuzu official GitHub、Minigraf/RecallGraph official repo and releasesを照合。",
+      "outcome": "backend依存のrecord history、Kuzu archiveとLadybug project line、Minigraf二時制claimとv2.0.2 issue #371を記録。"
+    },
+    {
+      "query": "OpenRefine reconciliation API candidate review clear restore; Splink probabilistic linkage pair probability clustering",
+      "method": "OpenRefine official reconciliation API/manualとSplink official repository/API/model guidesを確認。",
+      "outcome": "authority照合と確率的record linkageを隣接責務に採用。両者をFact store/historyとして数えず、merge/split propagationは呼出側と整理。"
+    },
+    {
+      "query": "Apache AGE PostgreSQL openCypher graph; Kyzo CozoDB fork first-witness provenance; RecallGraph status",
+      "method": "Apache AGE、Kyzo、RecallGraph各公式repository/readme/fork recordを検索し、未精査候補として限定確認。",
+      "outcome": "AGEは汎用property graph extension、KyzoはCozo forkの新規主張、RecallGraphはarchivedかつvalid-time未出荷。AGE/Kyzoは責務差または要深掘りとして保留、RecallGraphは歴史参考。"
+    }
+  ],
+  "deferred": [
+    {
+      "name": "RecallGraph",
+      "url": "https://github.com/RecallGraph/RecallGraph",
+      "reason": "既存調査で確認済みの歴史的参考。公式READMEでarchive済み、transaction-time中心、valid-timeは未出荷roadmapと説明。Minigrafとはportではない。"
+    },
+    {
+      "name": "Apache AGE",
+      "url": "https://github.com/apache/age",
+      "reason": "PostgreSQL上のopenCypher graph extensionとしては関連するが、今回の公式README確認では固有のinference/provenance/Fact-time責務を示す根拠が不足。"
+    },
+    {
+      "name": "KyzoDB",
+      "url": "https://github.com/kyzodb/kyzo",
+      "reason": "Cozo由来forkとしてfirst-witness provenance等の追加主張があり、Mnesticとの機能差は実装仕様・撤回挙動・releaseを別途深掘りする必要がある。"
+    }
+  ],
+  "supplemental": [
+    {
+      "id": "R2-S-OPENREFINE",
+      "name": "OpenRefine reconciliation",
+      "category": "Vocabulary and authority reconciliation",
+      "entry_type": "application-tool",
+      "prior_coverage": "未掲載・今回隣接責務として追加",
+      "source_ids": [
+        "D-R2-S-OPENREFINE-API",
+        "D-R2-S-OPENREFINE-MANUAL"
+      ],
+      "role": "external authority APIへname/type/property候補を照会し、人手でentity ID照合を確定・取消できる。",
+      "limitations": "Fact storeやimmutable link historyではない。確定link merge/splitと影響する下流facts/indexの訂正は連携側の責務。",
+      "review_depth": "OpenRefine official reconciliation API v0.2とmanualの候補・判断・revert項目を確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "supplemental"
+    },
+    {
+      "id": "R2-S-SPLINK",
+      "name": "Splink",
+      "category": "Probabilistic record linkage / entity resolution",
+      "entry_type": "python-library",
+      "prior_coverage": "未掲載・今回隣接責務として追加",
+      "source_ids": [
+        "D-R2-S-SPLINK-README",
+        "D-R2-S-SPLINK-MODEL",
+        "D-R2-S-SPLINK-INFERENCE",
+        "D-R2-S-SPLINK-CLUSTER"
+      ],
+      "role": "Fellegi–Sunter record pair scoring/probabilityを計算し、閾値に従いrecord clusterを構成する。",
+      "limitations": "scoreは確定identityや校正済み真偽を意味しない。clusterの採否、分割、撤回、Fact storeへの影響記録は別層。",
+      "review_depth": "official READMEとmodel, inference, clustering docsを確認。機能実行・モデル精度再現なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "supplemental"
+    }
+  ],
+  "accessed": "2026-09-29",
+  "counts": {
+    "primary": 14,
+    "sources": 57,
+    "new": 9,
+    "expanded": 5
+  }
+}

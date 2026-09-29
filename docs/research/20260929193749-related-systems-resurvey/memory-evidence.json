@@ -1,0 +1,767 @@
+{
+  "sources": [
+    {
+      "id": "P-R2-M-GAM",
+      "title": "GAM: Hierarchical Graph-based Agentic Memory for LLM Agents",
+      "url": "https://arxiv.org/html/2604.12285v1",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv v1本文の構成・検索方式・制約に関連する節を確認。実験再現なし。",
+      "arxiv_version": "v1"
+    },
+    {
+      "id": "P-R2-M-GAM-DR",
+      "title": "General Agentic Memory Via Deep Research",
+      "url": "https://arxiv.org/html/2511.18423v1",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "v1本文のJIT構成、検索・統合方式と関連制約を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-GAM-DR-REPO",
+      "title": "VectorSpaceLab general-agentic-memory official repository README",
+      "url": "https://github.com/VectorSpaceLab/general-agentic-memory/blob/main/README.md",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "README概要・掲示された利用形態を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMR3",
+      "title": "MemR³: Transforming Agents into Reflective Searchers through Reflective Reasoning",
+      "url": "https://arxiv.org/html/2512.20237",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "論文本文の検索制御・証拠追跡方式を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-MEMR3-REPO",
+      "title": "MemR3 official repository",
+      "url": "https://github.com/Leagein/memr3",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoの概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-NEMORI",
+      "title": "What Deserves Memory: Adaptive Memory Distillation for LLM Agents",
+      "url": "https://arxiv.org/html/2508.03341",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "最新版v4の本文、方式と制約の関連節を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-NEMORI-REPO",
+      "title": "Nemori official repository",
+      "url": "https://github.com/nemori-ai/nemori",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoの概要と旧MVPからの互換性に関する説明を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMINSIGHT",
+      "title": "MemInsight: Autonomous Memory Augmentation for LLM Agents",
+      "url": "https://aclanthology.org/2025.emnlp-main.1683/",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "EMNLP 2025論文の手法・関連評価・制約を確認。再現実験なし。"
+    },
+    {
+      "id": "D-R2-M-MEMINSIGHT-REPO",
+      "title": "Amazon Science MemInsight official repository",
+      "url": "https://github.com/amazon-science/MemInsight",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoのREADME概要のみ確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMTREE",
+      "title": "From Isolated Conversations to Hierarchical Schemas: Dynamic Tree Memory Representation for LLMs",
+      "url": "https://arxiv.org/html/2410.14052",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "v3論文本文の方式・評価上の制約を確認。公式実装と実験は未検証。"
+    },
+    {
+      "id": "P-R2-M-MEMFOREST",
+      "title": "MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing",
+      "url": "https://arxiv.org/html/2605.23986v3",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv v3（2026-09-06改訂）の保存構造、撤回・検索手順、制約に関係する節を確認。実行なし。",
+      "arxiv_version": "v3"
+    },
+    {
+      "id": "D-R2-M-MEMFOREST-REPO",
+      "title": "Concyclics MemForest official repository",
+      "url": "https://github.com/Concyclics/MemForest",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo説明を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-ARIGRAPH",
+      "title": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents",
+      "url": "https://arxiv.org/html/2407.04363",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "論文本文のグラフ更新・検索方式を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-ARIGRAPH-REPO",
+      "title": "AIRI Institute AriGraph official repository",
+      "url": "https://github.com/AIRI-Institute/AriGraph",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-AGEMEM",
+      "title": "AgeMem: Agentic Memory for LLM Agents",
+      "url": "https://arxiv.org/html/2601.01885",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "v3本文の長短期メモリー操作、学習手順、制約を確認。再現実験なし。"
+    },
+    {
+      "id": "D-R2-M-AGEMEM-REPO",
+      "title": "AgeMem author repository",
+      "url": "https://github.com/y1y5/AgeMem",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "著者repoのREADME等の概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMBANK",
+      "title": "MemoryBank: Enhancing Large Language Models with Long-Term Memory",
+      "url": "https://arxiv.org/html/2305.10250",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の保持構造、想起・減衰方式を確認。既存の要旨級記載を深化。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-MEMBANK-REPO",
+      "title": "MemoryBank-SiliconFriend author repository",
+      "url": "https://github.com/zhongwanjun/MemoryBank-SiliconFriend",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMENGINE",
+      "title": "MemEngine: A Modular and High-Performance Memory Framework for LLM Agents",
+      "url": "https://arxiv.org/html/2505.02099",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の目的・構造・比較範囲を確認。実装・性能の再現なし。"
+    },
+    {
+      "id": "D-R2-M-MEMENGINE-REPO",
+      "title": "MemEngine official repository",
+      "url": "https://github.com/nuster1128/MemEngine",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoのREADME概要のみ確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-LONGMEM",
+      "title": "LongMem: Augmenting Language Models with Long-Term Memory",
+      "url": "https://arxiv.org/html/2306.07174",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "論文本文の構成と取得方式の関連節を確認。公式コード短縮URLは直接取得できず、実装未確認。"
+    },
+    {
+      "id": "P-R2-M-MEMAGENT",
+      "title": "MemAgent: Reshaping Long-Context LLM with Memory-Agent Training",
+      "url": "https://arxiv.org/html/2507.02259",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の逐次圧縮・学習手順を確認。実験再現なし。"
+    },
+    {
+      "id": "D-R2-M-MEMAGENT-REPO",
+      "title": "BytedTsinghua-SIA MemAgent official repository",
+      "url": "https://github.com/BytedTsinghua-SIA/MemAgent",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-MEMORYLLM",
+      "title": "MemoryLLM: Towards Self-Updatable Large Language Models",
+      "url": "https://arxiv.org/html/2402.04624",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の内部記憶構造と更新方式を確認。実験再現なし。"
+    },
+    {
+      "id": "P-R2-M-MPLUS",
+      "title": "M+: Extending MemoryLLM with Readable Memory",
+      "url": "https://arxiv.org/abs/2502.00592",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "論文の要旨とMemoryLLM系列への位置づけを確認。本文全体・実験は未確認。"
+    },
+    {
+      "id": "D-R2-M-MEMORYLLM-REPO",
+      "title": "MemoryLLM official repository",
+      "url": "https://github.com/wangyu-ustc/MemoryLLM",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要でMemoryLLMとM+双方の実装を掲げることを確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-GENAGENT",
+      "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "url": "https://arxiv.org/html/2304.03442",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "既存の要旨級記載を深化し、本文のmemory stream・reflection関連節を確認。再現なし。"
+    },
+    {
+      "id": "D-R2-M-GENAGENT-REPO",
+      "title": "Generative Agents official research repository",
+      "url": "https://github.com/joonspk-research/generative_agents",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repo概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "P-R2-M-REFLEXION",
+      "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+      "url": "https://arxiv.org/html/2303.11366",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "既存の要旨級記載を深化し、本文の反省・エピソード記憶方式を確認。再現なし。"
+    },
+    {
+      "id": "D-R2-M-REFLEXION-REPO",
+      "title": "Reflexion author repository",
+      "url": "https://github.com/noahshinn024/reflexion",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "論文から参照されるrepoを確認対象としたが、ページ取得に失敗。コード・READMEを確認していない。"
+    },
+    {
+      "id": "P-R2-M-EXPEL",
+      "title": "ExpeL: LLM Agents Are Experiential Learners",
+      "url": "https://arxiv.org/html/2308.10144",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "v3本文の経験収集・洞察抽出・推論時利用を確認。評価再現なし。"
+    },
+    {
+      "id": "D-R2-M-EXPEL-REPO",
+      "title": "LeapLab THU ExpeL official repository",
+      "url": "https://github.com/LeapLabTHU/ExpeL",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "repoのREADME概要を確認。コード監査・実行なし。"
+    },
+    {
+      "id": "D-R2-M-SOAR-SEMANTIC",
+      "title": "Soar Manual: Semantic Memory",
+      "url": "https://soar.eecs.umich.edu/soar_manual/06_SemanticMemory/",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式マニュアルの意味記憶に関する節を確認。環境での動作未検証。"
+    },
+    {
+      "id": "D-R2-M-SOAR-EPISODIC",
+      "title": "Soar Manual: Episodic Memory",
+      "url": "https://soar.eecs.umich.edu/soar_manual/07_EpisodicMemory/",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式マニュアルのエピソード記憶に関する節を確認。環境での動作未検証。"
+    },
+    {
+      "id": "D-R2-M-HYPERON-ATOMSPACE",
+      "title": "Hyperon: Atomspace",
+      "url": "https://wiki.opencog.org/w/Hyperon:Atomspace",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式wikiのAtomSpace説明と未解決範囲に関する記述を確認。実行なし。"
+    },
+    {
+      "id": "D-R2-M-HYPERON-REPO",
+      "title": "Hyperon Experimental official repository README",
+      "url": "https://github.com/trueagi-io/hyperon-experimental/blob/main/README.md",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEのプロジェクト状態と概要を確認。コード監査・実行なし。"
+    }
+  ],
+  "systems": [
+    {
+      "id": "R2-M-S-GAM-HIERARCHICAL",
+      "name": "GAM-Hierarchical: Hierarchical Graph-based Agentic Memory",
+      "category": "graph-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-GAM"
+      ],
+      "role": "局所的なイベント進行グラフと大域的な話題連想ネットワークを分け、エピソードを要約・横断検索する研究方式",
+      "limitations": "意味境界判定にLLMを使う。確信度は正しさの保証ではなく、訂正・削除・監査履歴の運用仕様を確認できない。",
+      "review_depth": "論文本文の関連節を確認。実装監査、サービス実行、評価再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-GAM-DEEP-RESEARCH",
+      "name": "General Agentic Memory via Deep Research (GAM)",
+      "category": "just-in-time-research-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-GAM-DR",
+        "D-R2-M-GAM-DR-REPO"
+      ],
+      "role": "軽量メモリーを索引として全セッションをページ保存し、要求時にResearcherが計画・検索・統合するJIT型メモリー",
+      "limitations": "同略称の階層グラフGAMとは別方式。履歴保持と取得ページの出力は説明されるが、訂正・削除手順は確認できない。repo READMEのみ確認。",
+      "review_depth": "v1論文本文とrepo README概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMR3",
+      "name": "MemR³ / MemR3",
+      "category": "retrieval-controller",
+      "entry_type": "research-controller",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMR3",
+        "D-R2-M-MEMR3-REPO"
+      ],
+      "role": "検索・内省・回答を制御し、取得証拠と不足情報を追跡する既存メモリーストア向け制御層",
+      "limitations": "検索時の証拠追跡は永続的な出典台帳、主張の改訂履歴、削除伝播を意味しない。",
+      "review_depth": "論文本文とrepo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-NEMORI",
+      "name": "Nemori",
+      "category": "adaptive-memory-distillation",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-NEMORI",
+        "D-R2-M-NEMORI-REPO"
+      ],
+      "role": "対話を時間アンカー付きエピソードに分割し、予測と観察の差から保持する事実を蒸留する",
+      "limitations": "現行repoは旧MVPから書き換えられている。主張の改訂履歴、撤回後の派生削除、監査ログは確認できない。",
+      "review_depth": "最新版論文本文の関連節とrepo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMINSIGHT",
+      "name": "MemInsight",
+      "category": "attribute-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMINSIGHT",
+        "D-R2-M-MEMINSIGHT-REPO"
+      ],
+      "role": "文脈・実体の属性を抽出し、属性または埋め込み類似性によってメモリーを検索する",
+      "limitations": "属性の根拠確認、誤属性の訂正・削除、派生データへの伝播は確認できない。論文の個別評価は一般的な正しさ保証ではない。",
+      "review_depth": "論文の手法・制約とrepo README概要を確認。コード監査・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMTREE-2024",
+      "name": "MemTree (Rezazadeh et al., 2024)",
+      "category": "semantic-hierarchy-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMTREE"
+      ],
+      "role": "入力内容を意味的な階層木へオンライン統合し、上位要約や埋め込みから検索する方式",
+      "limitations": "要約の誤りの上位伝播や、個別削除後の要約再構成が不明。独自の公式実装を確認できていない。",
+      "review_depth": "論文本文の方式と制約を確認。実装・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMFOREST-2026",
+      "name": "MemForest (Chen et al., Concyclics implementation, 2026)",
+      "category": "temporal-graph-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMFOREST",
+        "D-R2-M-MEMFOREST-REPO"
+      ],
+      "role": "正規事実とスコープ別時間木・派生索引を分離し、情報源撤回時の事実・ノード削除と過去状態検索を記述する",
+      "limitations": "確認は論文とrepo説明の範囲。情報源の真正性、真偽判定、削除後の独立監査証跡まで保証するとは確認できない。",
+      "review_depth": "論文v3の関連節とrepo概要を確認。コード監査・実行なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-ARIGRAPH",
+      "name": "AriGraph",
+      "category": "episodic-semantic-graph",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-ARIGRAPH",
+        "D-R2-M-ARIGRAPH-REPO"
+      ],
+      "role": "環境観察をエピソードとして保持し、そこから抽出する意味的事実グラフを更新する",
+      "limitations": "主な対象はゲーム等の対話環境。エッジ置換は一般的な会話知識の出典履歴・削除保証ではない。",
+      "review_depth": "論文本文とrepo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-AGEMEM",
+      "name": "AgeMem",
+      "category": "learned-memory-management",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-AGEMEM",
+        "D-R2-M-AGEMEM-REPO"
+      ],
+      "role": "強化学習により長期・短期メモリー操作を選び、長期項目の追加・更新・削除や短期文脈の検索・要約を行う",
+      "limitations": "更新は項目を置き換える操作として説明され、旧値の監査保存や情報源の追跡は確認できない。",
+      "review_depth": "論文v3本文と著者repo概要を確認。実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMBANK",
+      "name": "MemoryBank (Zhong et al., 2023)",
+      "category": "profile-and-episodic-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "既存概要から深化",
+      "source_ids": [
+        "P-R2-M-MEMBANK",
+        "D-R2-M-MEMBANK-REPO"
+      ],
+      "role": "時刻付き対話、日次・全体イベント要約、人物像を併用し、想起強化と時間減衰を行う研究方式",
+      "limitations": "減衰・想起強度は事実訂正とは異なる。主張単位の来歴、版履歴、完全削除伝播は確認できない。Google Agent Platform Memory Bankとは別。",
+      "review_depth": "既存の要旨級記載を論文本文とrepo概要で深化。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMENGINE",
+      "name": "MemEngine",
+      "category": "memory-library-framework",
+      "entry_type": "research-library",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMENGINE",
+        "D-R2-M-MEMENGINE-REPO"
+      ],
+      "role": "複数のメモリー方式を構成・差し替えできる研究ライブラリ",
+      "limitations": "ライブラリ自体で一つの保存単位や訂正・来歴・削除仕様を定めるものではなく、選択モジュールに依存する。",
+      "review_depth": "論文本文の目的・構造とrepo READMEを確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-LONGMEM",
+      "name": "LongMem",
+      "category": "retrieval-augmented-model-memory",
+      "entry_type": "model-memory",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-LONGMEM"
+      ],
+      "role": "凍結モデル由来のKV表現をキャッシュし、SideNetで検索・融合して長い文脈を補助する",
+      "limitations": "利用者に紐づく事実台帳ではない。論文の公式コード短縮URLを取得できず実装未確認。",
+      "review_depth": "論文本文の構成・検索方式を確認。実装・実行なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMAGENT",
+      "name": "MemAgent",
+      "category": "long-context-compression",
+      "entry_type": "model-memory",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMAGENT",
+        "D-R2-M-MEMAGENT-REPO"
+      ],
+      "role": "長文をチャンク処理し、後続回答に必要な内容を固定長の自然言語メモリーへ逐次圧縮する",
+      "limitations": "タスク内の文脈圧縮が主眼。永続的な主張来歴、版更新、個別削除を確認できない。",
+      "review_depth": "論文本文とrepo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMORYLLM",
+      "name": "MemoryLLM / M+",
+      "category": "parametric-memory",
+      "entry_type": "model-memory",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMORYLLM",
+        "P-R2-M-MPLUS",
+        "D-R2-M-MEMORYLLM-REPO"
+      ],
+      "role": "Transformer内部の潜在記憶プールを更新し、M+では検索機構を加える同系列のモデル方式",
+      "limitations": "同系列として一件計上。ユーザー可読の出典付き主張、版履歴、選択的な事実削除を提供するとは確認できない。M+は要旨とrepo概要のみ確認。",
+      "review_depth": "MemoryLLM本文、M+要旨、repo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-GENAGENT",
+      "name": "Generative Agents",
+      "category": "experience-reflection-architecture",
+      "entry_type": "agent-architecture",
+      "prior_coverage": "既存概要から深化",
+      "source_ids": [
+        "P-R2-M-GENAGENT",
+        "D-R2-M-GENAGENT-REPO"
+      ],
+      "role": "経験ログを想起し、reflectionを作って計画へ渡す仮想エージェント研究アーキテクチャ",
+      "limitations": "仮想社会の行動研究であり、個人知識の訂正・削除・出典管理を担うサービスではない。",
+      "review_depth": "既存の要旨級記載を本文とrepo概要で深化。コード監査・実行なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-REFLEXION",
+      "name": "Reflexion",
+      "category": "verbal-experience-learning",
+      "entry_type": "agent-architecture",
+      "prior_coverage": "既存概要から深化",
+      "source_ids": [
+        "P-R2-M-REFLEXION",
+        "D-R2-M-REFLEXION-REPO"
+      ],
+      "role": "環境フィードバックを言語化して、後続のタスク試行で読むエピソード記憶へ追加する",
+      "limitations": "タスク経験の再利用が主眼。恒久知識の根拠追跡、反省文の失効・撤回仕様は確認できない。著者repoページは取得できず。",
+      "review_depth": "本文の方式を確認し既存概要を深化。repoコード・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-EXPEL",
+      "name": "ExpeL",
+      "category": "experience-reuse",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-EXPEL",
+        "D-R2-M-EXPEL-REPO"
+      ],
+      "role": "複数タスクの軌跡から自然言語の洞察・経験を抽出し、後続タスクで再利用する",
+      "limitations": "抽出洞察の原軌跡への依存、矛盾時の改訂、削除伝播は確認できない。",
+      "review_depth": "論文本文とrepo README概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-SOAR",
+      "name": "Soar semantic and episodic memory",
+      "category": "cognitive-architecture",
+      "entry_type": "cognitive-architecture",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-M-SOAR-SEMANTIC",
+        "D-R2-M-SOAR-EPISODIC"
+      ],
+      "role": "状況非依存の意味記憶とエージェント経験系列のエピソード記憶を分ける認知アーキテクチャ",
+      "limitations": "LLM向けの完成済みメモリー製品ではない。選定したマニュアル節から一般的な主張訂正・削除保証は確認できない。",
+      "review_depth": "公式マニュアルの関連節を確認。動作検証・実装比較なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-OPencog-HYPERON",
+      "name": "OpenCog Hyperon / AtomSpace",
+      "category": "cognitive-architecture",
+      "entry_type": "cognitive-architecture",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-M-HYPERON-ATOMSPACE",
+        "D-R2-M-HYPERON-REPO"
+      ],
+      "role": "AtomSpaceをAIアルゴリズム間で知識を表現・共有する基盤とする認知アーキテクチャ研究",
+      "limitations": "分散エピソード記憶は未確立と公式wikiが記載。現行repoは実験段階で、汎用メモリー製品の保証はない。",
+      "review_depth": "公式wikiとrepo READMEを確認。コード監査・実行なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    }
+  ],
+  "searches": [
+    {
+      "query": "\"General Agentic Memory Via Deep Research\" arXiv 2511.18423 GAM VectorSpaceLab; \"GAM: Hierarchical Graph-based Agentic Memory\" 2604.12285",
+      "method": "disambiguation search, then open full primary paper and official repository README",
+      "outcome": "GAM略称を共有する別方式を確認。Deep Research版は全履歴ページに対するJIT探索、Hierarchical版は二種のグラフ記憶であり、別システムとして計上。"
+    },
+    {
+      "query": "site:arxiv.org agent long-term memory GAM graph agent memory system",
+      "method": "web search then open primary paper",
+      "outcome": "GAMを発見し本文の階層グラフ記憶とエピソード参照を確認。"
+    },
+    {
+      "query": "site:arxiv.org MemEngine memory agent long-term memory; site:arxiv.org MemR3 memory agent reflection retrieval",
+      "method": "web search then open primary paper and author repository",
+      "outcome": "MemEngineのモジュール型ライブラリとMemR3の検索制御を識別し、保存先と管理層を分離した。"
+    },
+    {
+      "query": "site:arxiv.org Nemori memory agent; site:arxiv.org \"MemInsight\" memory agent; \"MemInsight: Autonomous Memory Augmentation\" github",
+      "method": "web search then open latest paper, ACL record, and author repositories",
+      "outcome": "Nemori最新版の題名・旧repoからの非互換書き換え、MemInsightの属性抽出・検索方式を確認。"
+    },
+    {
+      "query": "site:arxiv.org \"MemTree\" agent memory; \"MemForest\" GitHub MemTree",
+      "method": "web search then open multiple primary papers and official repository",
+      "outcome": "2024年の意味階層MemTreeと2026年のMemForest内時間木を区別。別プロジェクトの同名MemForestも発見し保留。"
+    },
+    {
+      "query": "site:arxiv.org \"AriGraph\" memory; \"AriGraph\" GitHub",
+      "method": "web search then open primary paper and institute repository",
+      "outcome": "エピソード観察と意味グラフの連結、古い意味エッジの更新を確認。"
+    },
+    {
+      "query": "site:arxiv.org \"MemoryBank: Enhancing Large Language Models with Long-Term Memory\"; site:arxiv.org LongMem long-term memory language models",
+      "method": "web search then open primary paper and author repository",
+      "outcome": "MemoryBank論文を既存のGoogle Agent Platform Memory Bankと区別。LongMemのKVキャッシュとSideNetを確認。"
+    },
+    {
+      "query": "site:arxiv.org MemAgent long context memory agent; site:arxiv.org AgeMem learning unified memory management",
+      "method": "web search then open primary papers and author repositories",
+      "outcome": "タスク内の固定長文脈圧縮と、長短期メモリーの学習型操作を分けて整理。"
+    },
+    {
+      "query": "site:arxiv.org MemoryLLM self-updatable large language models; site:arxiv.org \"M+\" MemoryLLM",
+      "method": "web search then open MemoryLLM paper, M+ abstract, and official repository",
+      "outcome": "内部潜在記憶の研究系列を確認。MemoryLLMとM+は二重計上せず一系列とした。"
+    },
+    {
+      "query": "site:arxiv.org ExpeL LLM Agents Are Experiential Learners; site:arxiv.org Reflexion verbal reinforcement learning; site:arxiv.org Generative Agents memory stream",
+      "method": "web search then open primary papers and linked author repositories",
+      "outcome": "経験の再利用、試行内反省、仮想社会の記憶計画を区別。Generative AgentsとReflexionは既存の概要掲載から深化。"
+    },
+    {
+      "query": "Soar cognitive architecture episodic semantic memory official docs; OpenCog Hyperon official documentation AtomSpace learning memory architecture",
+      "method": "web search then open official manuals, wiki, and project repository",
+      "outcome": "Soarの意味・エピソード記憶の区別、HyperonのAtomSpaceと実験段階の制約を一次資料で確認。"
+    },
+    {
+      "query": "site:arxiv.org \"agent memory\" \"experience reuse\" long-term memory system 2025 2026",
+      "method": "broad web search followed by primary-source triage",
+      "outcome": "Mem-αと新しいエピステミクス／認知アーキテクチャ研究を発見。本文または具体的なランタイムの確認優先で採否を判断。"
+    },
+    {
+      "query": "site:arxiv.org \"cognitive architecture\" LLM agent memory episodic semantic system",
+      "method": "broad web search followed by official documentation and paper review",
+      "outcome": "SoarとHyperonを記憶を含むアーキテクチャ参照として採用し、概念提案のみの候補を保留。"
+    },
+    {
+      "query": "site:arxiv.org \"Mem-alpha\" learning memory construction reinforcement learning; site:arxiv.org \"The Epistemics of Agent Memory\"",
+      "method": "web search and abstract-level screening",
+      "outcome": "Mem-αは近接研究として保留。2026-09-26公開のEpistemics論文は検索時点で要旨しか確認できず保留。"
+    },
+    {
+      "query": "site:arxiv.org \"The Missing Knowledge Layer in Cognitive Architectures for AI Agents\"; site:arxiv.org GWA \"Theater of Mind\"",
+      "method": "web search and abstract-level screening",
+      "outcome": "認知アーキテクチャの全体提案であり、対象範囲内で記憶ランタイムと訂正・削除手順を確認できず保留。"
+    },
+    {
+      "query": "site:github.com \"GAM: Hierarchical Graph-based Agentic Memory\"; site:github.com \"AgeMem\" \"Learning Unified\"; site:github.com \"MemoryBank\" \"2305.10250\"",
+      "method": "web search and author-project identity checks",
+      "outcome": "GAMは確認可能な公式repoを特定できず論文のみ採用。AgeMem著者repoを同名コミュニティrepoから区別し、MemoryBank論文の著者repoを確認。"
+    },
+    {
+      "query": "site:arxiv.org \"Memento 2\" \"Learning by Stateful Reflective Memory\"; existing-name checks for Mem0 Graphiti Hindsight Letta ReMe Memori Memvid MemoryOS memU OpenViking MIRIX ACE Memento-Skills SkillWeaver Agent KB MACE",
+      "method": "repository-wide rg comparison, web discovery, and primary-source lookup",
+      "outcome": "既存掲載済みの製品・研究は重複計上しない。Memento-Skills等は個別再調査の新規行にせず既存比較へ委譲。"
+    }
+  ],
+  "deferred": [
+    {
+      "name": "Mem-α",
+      "url": "https://arxiv.org/abs/2509.25911",
+      "reason": "RLによるメモリー構築という近接研究。検索では要旨・リンク確認に留まり、選定した18件より一次資料の方式確認が浅いため保留。"
+    },
+    {
+      "name": "The Epistemics of Agent Memory: Measuring, and Governing, the Consolidation Decision in Long-Horizon LLM Agents",
+      "url": "https://arxiv.org/abs/2609.33013",
+      "reason": "2026-09-26公開で検索時点に要旨しか確認できず、ランタイムではなく評価・統治寄りの研究として別調査へ保留。"
+    },
+    {
+      "name": "The Missing Knowledge Layer in Cognitive Architectures for AI Agents",
+      "url": "https://arxiv.org/abs/2604.11364",
+      "reason": "複数の知識層を論じる全体アーキテクチャ提案。今回、永続記憶の具体的な運用・訂正手順を一次資料から十分確認できず保留。"
+    },
+    {
+      "name": "GWA: Theater of Mind",
+      "url": "https://arxiv.org/abs/2604.08206",
+      "reason": "広範な認知・グローバルワークスペース構成で、要旨以外の記憶ライフサイクルを確認できず保留。"
+    },
+    {
+      "name": "MemForest: Efficient Agent Memory Management via EventTree Partitioning and Progressive Merging",
+      "url": "https://arxiv.org/abs/2609.08273",
+      "reason": "Concyclics版とは著者・設計の異なる同名論文。別候補と識別したが要旨段階であり、名称衝突と調査範囲のため保留。"
+    },
+    {
+      "name": "AgeMem community repositories",
+      "url": "https://github.com/gianpd/agemem",
+      "reason": "論文著者のAgeMemとは独立した同名コミュニティ実装と論文が区別しているため、対象システムとして数えない。"
+    },
+    {
+      "name": "Existing systems: Mem0, Graphiti, Hindsight, Letta, ReMe, Memori, Memvid, MemoryOS, memU, OpenViking, MIRIX, ACE, Memento-Skills, SkillWeaver, Agent KB, MACE",
+      "url": "../systems/README.md",
+      "reason": "repo内のsystems/evidenceで既に比較対象。重複行として再計上せず、今回の追加調査の比較基準として扱った。"
+    }
+  ],
+  "accessed": "2026-09-29",
+  "counts": {
+    "primary": 19,
+    "sources": 36,
+    "new": 16,
+    "expanded": 3
+  }
+}

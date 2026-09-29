@@ -1,0 +1,162 @@
+# クラウド検索・同期・検索エンジンの追加比較
+
+[調査トップ](../README.md) / [今回の横断比較](index.mdx) / [前回の文書検索比較](../systems/retrieval-landscape.md)
+
+確認日: 2026-09-29。**検索をサービスに委ねる候補9系統と、検索エンジン3系統**を調べた。Vespa は既存概要の追加確認、残る11系統は今回の比較資料への新規掲載である。ブランド全体ではなく、下記の検索機能を数える。Bedrock Knowledge Bases と AgentCore Memory、Google RAG Engine と Memory Bank、Azure AI Search と Foundry Memory は責務が異なる。
+
+根拠は公式文書の関連節であり、サービス契約、API実行、性能比較、実装コードの監査は行っていない。動的な文書は確認日の説明として扱う。検索精度、権限変更の反映時間、日本語品質、費用の順位は付けない。
+
+<Toc depth="2" title="目次" />
+
+## 提供形態と比較する役割
+
+<Matrix title="今回確認した12系統" cols="提供形態・保存単位,検索と更新の中心,grimoireで比較する点">
+
+- Glean | 企業向けサービス・接続元の文書と人物情報 | connector経由の索引・必要時のlive retrieval | 企業内横断検索と権限同期の運用
+- Vectara | サービス/API・corpusと文書 | hybrid retrieval・再ランキング・取り込みpipeline | 検索の委託と文書ACLの責任分担
+- Amazon Bedrock Knowledge Bases | クラウド機能・knowledge base | managed/customer-managed構成と差分同期 | 取り込みから引用付き回答までの管理範囲
+- Amazon Kendra | 企業検索サービス・indexと文書 | connectorとuser-context filtering | 認証済み利用者情報と文書ACLの対応
+- Google RAG Engine | クラウドRAG基盤・corpus/file | 取り込み・chunk・embedding・retrieval | 文書検索pipelineの部品としての組み込み
+- Google Agent Search | 検索アプリ基盤・data store | 検索・生成回答・接続元別アクセス制御 | 既成の企業検索機能を使う構成
+- Azure AI Search / Foundry IQ | クラウド検索基盤・index/knowledge source | indexed/remote sourceとagentic retrieval | 引用・検索計画・利用者IDの伝搬
+- Snowflake Cortex Search | データ基盤内サービス・SQL由来の行 | keyword/vector検索・索引refresh | SQL正本からの検索投影と権限の境界
+- Databricks AI Search | データ基盤内サービス・表由来のindex | Delta SyncまたはDirect Vector Access | 変更同期と元表のpolicyを分けた設計
+- Elasticsearch | 検索エンジン・文書index | full-text/vector・RRF・content connector | 索引とACL同期を制御する構成
+- OpenSearch | 検索エンジン・文書index | hybrid queryとsearch pipeline | 検索スコア融合・読み取り権限
+- Vespa | 検索・ランキング基盤・document | retrievalとrankingの分離・document API | 同一候補集合でのランキング比較
+
+</Matrix>
+
+この表は機能保証のチェックリストではない。根拠と条件は以下の各節、出典IDと確認範囲は[検索分野の台帳](search-evidence.json)に置く。
+
+## 企業検索をサービスに委ねる
+
+### Glean
+
+公式connector文書は、本文・metadata・identity・permissionの取り込みを分け、索引検索、live retrieval、両者の併用を説明する。検索結果は同期した権限を使って絞る。引用は原資料へのdeep link等として提示されるが、画面や処理によって範囲が変わる。[D-R2-R-GLEAN]
+
+**比較上の判断:** 既存候補Onyxとともに、接続元が多い組織の文書発見を比較する対象。connectorがあることから、あらゆる権限変更が即時に反映されるとは推定しない。対象connectorで、権限取り消しから検索・回答への反映、原資料の版固定、削除後の残存を測る必要がある。
+
+### Vectara
+
+公式文書は、corpus内の検索にkeyword/dense検索、再ランキング、引用を組み合わせる。corpusへのアクセス権と文書ごとのアクセスは別で、元システムの文書ACLは自動継承されない。利用側が検証済みユーザー属性から`metadata_filter`を作り、索引側の権限metadataも更新する。外部toolを本人のcredentialで呼ぶ経路では、接続元が権限を評価する。[D-R2-R-VECTARA-KNOWLEDGE] [D-R2-R-VECTARA-INTEGRATIONS]
+
+**比較上の判断:** 検索と根拠返却を委託する候補。全社共通の知識corpusと個人の記憶を区別し、source revision、引用の位置、派生主張への撤回伝搬は独自契約で確認する。
+
+## クラウドの文書検索機能
+
+### Amazon Bedrock Knowledge Bases
+
+確認したoverviewは、取り込み・保存等を管理するManaged Knowledge Baseと、vector store等を利用者が構成するCustomer-managed Knowledge Baseを区別する。引用付き回答やretrievalに利用できる。managed構成の同期文書では、追加・変更・削除を同期対象とし、差分処理と同期scheduleを説明している。[D-R2-R-BEDROCK] [D-R2-R-BEDROCK-SYNC]
+
+**比較上の判断:** 既存のAgentCore Memoryとは別の文書QA候補。製品総称の機能を全構成へ一律に適用しない。原資料のACL、同期中の版混在、引用元の保持期間、graph/multimodal構成の適用条件は今回未検証。
+
+### Amazon Kendra
+
+公式文書は、取り込んだ文書ACLと、検索要求に渡すuser/group情報による絞り込みを説明する。同時に、そのフィルター自体は利用者の認証を行わず、正当なuser/group情報を渡す責任はアプリにあると明記する。対応方式はindex editionと検索APIに依存する。[D-R2-R-KENDRA]
+
+**比較上の判断:** 企業検索の独立候補として数え、Bedrockへの接続形態は二重計上しない。グループ変更と文書削除の反映、GenAI/Enterprise等のedition差は導入前の確認事項。
+
+### Google RAG Engine
+
+旧Vertex AIのURLは、確認時点でGemini Enterprise Agent PlatformのRAG Engine文書へ転送された。公式overviewは、原資料の取り込み、chunk化、embedding、corpusへのindexing、retrieval、回答へのgroundingを分ける。地域と提供段階に条件がある。[D-R2-R-GOOGLE-RAG]
+
+**比較上の判断:** memory抽出サービスではなく、文書QAの取り込み・検索基盤として比較する。corpusやfileの識別子を、そのまま原資料の不変な版と見なさない。原資料ACLの継承、自動削除同期、再投入時の引用の安定性はoverviewだけでは確認できていない。
+
+### Google Agent Search（旧Vertex AI Search等）
+
+公式overviewに旧名称の説明があり、現行文書はAgent Searchと表記する。data storeを検索するアプリ、生成回答、widget/API等を提供する。アクセス制御文書ではidentity providerとdocument権限を対応させ、接続元による設定差を説明する。この文書の対象機能にはPreview表示がある。[D-R2-R-GOOGLE-SEARCH] [D-R2-R-GOOGLE-ACL]
+
+**比較上の判断:** RAG Engineと同一製品としてまとめない。既成の検索アプリを使う場合の候補であり、identity federation、文書権限metadata、同期遅延を一体で試す。旧名称は別候補数に加えない。
+
+### Azure AI Search / Foundry IQ
+
+公式overviewは、indexed/remoteなknowledge sourceを対象に検索し、根拠とactivity logを返すagentic retrievalを説明する。Foundry IQはこの基盤を利用する。確認文書では、`2026-04-01` APIのminimalなextractive retrievalと、`2026-08-01-preview`のLLM query planning等を分けている。[D-R2-R-AZURE]
+
+権限付きのindexed sourceでは、取り込み時の`ingestionPermissionOptions`と検索時の利用者identityの両方が必要になる。公式手順は、必要なmetadataやidentityを省略した場合に結果がフィルターされない経路を明記する。remote sourceの権限評価は接続先とtokenの種類に依存する。[D-R2-R-AZURE-RETRIEVE]
+
+**比較上の判断:** source選択と複数検索の調整を委託する候補。Foundry Memoryの代替としては扱わない。API版、source type、引用参照と原ページの対応、権限変更の反映を比較条件に固定する。
+
+## データ基盤の上に検索投影を置く
+
+### Snowflake Cortex Search
+
+Cortex SearchはSnowflakeのデータからhybrid検索と索引refreshを構成する。`TARGET_LAG`は元データの更新に対する目標遅延を指定する。検索時にはownerの権限で動作し、serviceを問い合わせる権限を持つ利用者は、元表に対する本人の権限とは独立して索引済みデータを検索できると公式文書にある。[D-R2-R-SNOWFLAKE] [D-R2-R-SNOWFLAKE-ACCESS]
+
+**比較上の判断:** 既にSnowflakeが正本の組織で検討する検索層。grimoireのPostgreSQL案を置き換える理由にはならない。元表のrow policyと検索可視性を同じものとして扱わず、index対象、問い合わせ権限、filter、削除の反映を確認する。
+
+### Databricks AI Search（旧Vector Search）
+
+公式overviewはDelta Syncによる元表との同期と、Direct Vector Accessで利用者が更新する方式を区別する。hybrid検索、metadata filter、rerankingを扱い、indexはUnity Catalogで管理する。別のABAC仕様は、元表のrow filter/column maskがAI Search indexの検索時には適用されないと明記する。[D-R2-R-DATABRICKS] [D-R2-R-DATABRICKS-ABAC]
+
+**比較上の判断:** 既存のDatabricksデータpipelineを使う場合の候補。Unity Catalog管理下であることだけを根拠に、元表と同じ行単位権限や時点照会が得られると結論しない。同期mode、削除伝搬、権限metadataの扱いを別途検証する。
+
+## 独自に検索層を構築する
+
+### Elasticsearch
+
+公式hybrid検索資料はfull-textとvector検索を合わせ、RRFで順位を統合する構成を示す。content connectorのDLSは、本文indexとaccess-control用indexの対応、ACL同期、検索時の絞り込みを説明する。[D-R2-R-ELASTIC-HYBRID] [D-R2-R-ELASTIC-DLS]
+
+**世代差:** 旧Enterprise SearchのApp Search/Workplace Search等はElastic 9.0以降で提供されない。公式release notesはElasticsearch、Open Web Crawler、self-managed connector等への移行を案内する。旧製品を独立した現行候補として追加しない。[D-R2-R-ELASTIC-LIFECYCLE]
+
+**比較上の判断:** PostgreSQL FTSだけでは検索要件を満たせない場合の比較対象。対象connector、version、提供形態、DLS対応範囲と契約条件を固定して評価する。索引更新を、抽出主張の意味的な訂正と同一視しない。
+
+### OpenSearch
+
+公式hybrid検索手順はkeyword/semantic検索を組み合わせ、search pipelineでスコアを正規化・統合する。Security pluginの文書は、DLSがsearch/get等の読み取り対象を制限し、書き込み操作の制限はindex権限に従うと説明する。[D-R2-R-OPENSEARCH-HYBRID] [D-R2-R-OPENSEARCH-DLS]
+
+**比較上の判断:** 自分たちで検索とアクセス制御を構成する候補。ここで確認したのはOpenSearchプロジェクトの文書であり、Amazon OpenSearch Serviceの全提供機能へ自動的に一般化しない。索引の版、原資料削除、派生要約の撤回は共通層の実装・試験事項。
+
+### Vespa
+
+既存資料にもあるVespaは、候補を取り出すretrievalと順位を決めるrankingを分け、keyword/vectorの組み合わせやrank profileを構成する。今回Document APIも確認し、ID指定の書き込み・更新・削除と条件付き操作の説明を追った。[D-VESPA] [D-R2-R-VESPA-DOCUMENT]
+
+**比較上の判断:** 検索方式とランキング方式を切り分ける実験用候補。条件付き文書更新は、複数の主張と根拠を一括して訂正する意味論を保証するものではない。前回の一行概要からの追加確認として数える。
+
+## 現行設計への追加提案
+
+以下は資料から導いた**本調査の設計判断**であり、製品の実測結果ではない。
+
+<Matrix title="比較実験で分ける契約" cols="固定する条件,追加する観測">
+
+- 取り込み | 同じSourceRevisionと解析結果 | 検索に現れるまでの時間・失敗後の再投入
+- 原資料の差し替え | 新旧revisionと質問を固定 | 旧引用の再現性・新旧版の混在
+- 権限変更 | 認証済み利用者と同じ取り消しイベント | 検索・rerank・LLM入力から除かれるまでの時間
+- 削除 | sourceと子chunkの対応を固定 | index・cache・派生要約に残る根拠
+- 検索品質 | 同じ文書集合・回答器・token予算 | 根拠ページrecall・引用位置・棄却・費用
+- 同期mode | indexed/live/手動更新を区別 | 鮮度と接続元API費用の交換条件
+
+</Matrix>
+
+検索サービスの`document_id`、更新job、source metadataを、grimoireの`SourceRevision`、`ParseRevision`、`IndexBuild`へ対応付けるadapterが必要になる。PageIndexを併用するなら、認可済みの文書候補を選んだ後に文書内探索へ渡し、その結果を同じ原資料版・原ページへ解決する。外部サービスの検索結果が優れていても、主張の訂正・支持根拠の撤回・時点再現は独立に評価する。
+
+## 関連資料
+
+- [今回の全体像と採否基準](index.mdx)
+- [RAGアプリケーション](rag-applications.mdx)
+- [知識・保存基盤](knowledge-and-storage.mdx)
+- [現行の推奨設計](../../design/ontology-knowledge-system.md)
+- [共通の評価方法](../evaluation.md)
+
+[D-R2-R-GLEAN]: https://docs.glean.com/connectors/connectors-power-glean
+[D-R2-R-VECTARA-KNOWLEDGE]: https://docs.vectara.com/docs/platform-architecture/knowledge
+[D-R2-R-VECTARA-INTEGRATIONS]: https://docs.vectara.com/docs/agents/integrations
+[D-R2-R-BEDROCK]: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html
+[D-R2-R-BEDROCK-SYNC]: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-sync.html
+[D-R2-R-KENDRA]: https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html
+[D-R2-R-GOOGLE-RAG]: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview
+[D-R2-R-GOOGLE-SEARCH]: https://docs.cloud.google.com/generative-ai-app-builder/docs
+[D-R2-R-GOOGLE-ACL]: https://docs.cloud.google.com/generative-ai-app-builder/docs/data-source-access-control
+[D-R2-R-AZURE]: https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview
+[D-R2-R-AZURE-RETRIEVE]: https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-retrieve
+[D-R2-R-SNOWFLAKE]: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview
+[D-R2-R-SNOWFLAKE-ACCESS]: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/query-cortex-search-service
+[D-R2-R-DATABRICKS]: https://docs.databricks.com/aws/en/ai-search/ai-search
+[D-R2-R-DATABRICKS-ABAC]: https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac/requirements
+[D-R2-R-ELASTIC-HYBRID]: https://www.elastic.co/docs/solutions/search/hybrid-search
+[D-R2-R-ELASTIC-DLS]: https://www.elastic.co/docs/reference/search-connectors/es-dls-overview
+[D-R2-R-ELASTIC-LIFECYCLE]: https://www.elastic.co/docs/reference/search-connectors/release-notes
+[D-R2-R-OPENSEARCH-HYBRID]: https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/index/
+[D-R2-R-OPENSEARCH-DLS]: https://docs.opensearch.org/latest/security/access-control/document-level-security/
+[D-VESPA]: https://docs.vespa.ai/en/learn/tutorials/hybrid-search
+[D-R2-R-VESPA-DOCUMENT]: https://docs.vespa.ai/en/writing/document-v1-api-guide.html

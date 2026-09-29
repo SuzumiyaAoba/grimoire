@@ -1,0 +1,517 @@
+{
+  "accessed": "2026-09-29",
+  "scope": "managed-document-search-and-search-engines",
+  "sources": [
+    {
+      "id": "D-R2-R-GLEAN",
+      "title": "Glean: How connectors power the Glean experience",
+      "url": "https://docs.glean.com/connectors/connectors-power-glean",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-VECTARA-KNOWLEDGE",
+      "title": "Vectara: Knowledge",
+      "url": "https://docs.vectara.com/docs/platform-architecture/knowledge",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-VECTARA-INTEGRATIONS",
+      "title": "Vectara: Integrations / Where permissions live",
+      "url": "https://docs.vectara.com/docs/agents/integrations",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-BEDROCK",
+      "title": "Amazon Bedrock Knowledge Bases overview",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-BEDROCK-SYNC",
+      "title": "Amazon Bedrock Managed Knowledge Bases: Sync a data source",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-sync.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-KENDRA",
+      "title": "Amazon Kendra: Filtering on user context",
+      "url": "https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-GOOGLE-RAG",
+      "title": "RAG Engine on Gemini Enterprise Agent Platform overview",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-GOOGLE-SEARCH",
+      "title": "Google Agent Search overview and product name terminology",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-GOOGLE-ACL",
+      "title": "Google Agent Search: Set up data source access control",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/data-source-access-control",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認ページでPreviewと記載されたアクセス制御機能。"
+    },
+    {
+      "id": "D-R2-R-AZURE",
+      "title": "Azure AI Search: Agentic retrieval overview",
+      "url": "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "2026-04-01 と 2026-08-01-preview の区別、indexed sourceの権限設定に関する確認時点の文書。"
+    },
+    {
+      "id": "D-R2-R-AZURE-RETRIEVE",
+      "title": "Azure AI Search: Query Knowledge Base via API or MCP",
+      "url": "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-retrieve",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "2026-04-01 と 2026-08-01-preview の区別、indexed sourceの権限設定に関する確認時点の文書。"
+    },
+    {
+      "id": "D-R2-R-SNOWFLAKE",
+      "title": "Snowflake Cortex Search overview",
+      "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-SNOWFLAKE-ACCESS",
+      "title": "Snowflake: Query a Cortex Search Service / Access control requirements",
+      "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/query-cortex-search-service",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-DATABRICKS",
+      "title": "Databricks AI Search overview (AWS)",
+      "url": "https://docs.databricks.com/aws/en/ai-search/ai-search",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-DATABRICKS-ABAC",
+      "title": "Databricks: ABAC requirements, quotas and limitations (AWS)",
+      "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac/requirements",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-ELASTIC-HYBRID",
+      "title": "Elasticsearch: Hybrid search",
+      "url": "https://www.elastic.co/docs/solutions/search/hybrid-search",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-ELASTIC-DLS",
+      "title": "Elasticsearch content connectors: How DLS works",
+      "url": "https://www.elastic.co/docs/reference/search-connectors/es-dls-overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-ELASTIC-LIFECYCLE",
+      "title": "Elasticsearch connector release notes: Enterprise Search discontinued in 9.0",
+      "url": "https://www.elastic.co/docs/reference/search-connectors/release-notes",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-OPENSEARCH-HYBRID",
+      "title": "OpenSearch: Hybrid search",
+      "url": "https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/index/",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-OPENSEARCH-DLS",
+      "title": "OpenSearch: Document-level security",
+      "url": "https://docs.opensearch.org/latest/security/access-control/document-level-security/",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-VESPA",
+      "title": "Vespa hybrid search",
+      "url": "https://docs.vespa.ai/en/learn/tutorials/hybrid-search",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    },
+    {
+      "id": "D-R2-R-VESPA-DOCUMENT",
+      "title": "Vespa: /document/v1 API guide",
+      "url": "https://docs.vespa.ai/en/writing/document-v1-api-guide.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。",
+      "version_scope": "確認日時点の動的文書。全文の固定snapshotは保存していない。"
+    }
+  ],
+  "systems": [
+    {
+      "id": "r2-glean",
+      "name": "Glean",
+      "category": "managed-enterprise-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-GLEAN"
+      ],
+      "role": "文書・人物・権限をconnectorで取り込み、indexed/live retrievalを提供",
+      "limitations": "connectorごとの権限反映時間、原資料版の引用、削除後の残存は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-vectara",
+      "name": "Vectara",
+      "category": "managed-rag",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-VECTARA-KNOWLEDGE",
+        "D-R2-R-VECTARA-INTEGRATIONS"
+      ],
+      "role": "corpus検索、hybrid/reranking/citations、取り込みpipeline",
+      "limitations": "文書ACL metadataとquery filterの構築・同期は利用側。撤回の伝搬は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-bedrock-knowledge-bases",
+      "name": "Amazon Bedrock Knowledge Bases",
+      "category": "managed-rag",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-BEDROCK",
+        "D-R2-R-BEDROCK-SYNC"
+      ],
+      "role": "ManagedとCustomer-managedを選ぶ文書取り込み・検索・引用回答",
+      "limitations": "方式別の権限継承、同期中の版混在、graph/multimodal条件は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-amazon-kendra",
+      "name": "Amazon Kendra",
+      "category": "managed-enterprise-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-KENDRA"
+      ],
+      "role": "文書ACLとuser/group情報を用いる企業検索",
+      "limitations": "利用側の認証・認可責任、index edition差、権限反映遅延は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-google-rag-engine",
+      "name": "Google RAG Engine",
+      "category": "managed-rag",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-GOOGLE-RAG"
+      ],
+      "role": "corpus/fileへの取り込み、chunk、embedding、retrieval",
+      "limitations": "元資料ACLと削除同期、原資料revision保持をoverviewだけから保証しない",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-google-agent-search",
+      "name": "Google Agent Search (formerly Vertex AI Search)",
+      "category": "managed-enterprise-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-GOOGLE-SEARCH",
+        "D-R2-R-GOOGLE-ACL"
+      ],
+      "role": "data storeから検索・生成回答、identityと文書権限の対応",
+      "limitations": "アクセス制御のPreview表示、接続元別設定、同期時間は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-azure-ai-search",
+      "name": "Azure AI Search / Foundry IQ",
+      "category": "managed-search-orchestration",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-AZURE",
+        "D-R2-R-AZURE-RETRIEVE"
+      ],
+      "role": "indexed/remote sourcesへの検索と根拠・activity logの返却",
+      "limitations": "GA/PreviewとAPI版を区別。indexed sourceは権限metadataと利用者identity両方が必要",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-snowflake-cortex-search",
+      "name": "Snowflake Cortex Search",
+      "category": "warehouse-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-SNOWFLAKE",
+        "D-R2-R-SNOWFLAKE-ACCESS"
+      ],
+      "role": "SQL由来のデータのhybrid検索と索引refresh",
+      "limitations": "owner rightsであり元表の利用者権限と別。削除反映、文書引用を未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-databricks-ai-search",
+      "name": "Databricks AI Search (formerly Vector Search)",
+      "category": "lakehouse-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-DATABRICKS",
+        "D-R2-R-DATABRICKS-ABAC"
+      ],
+      "role": "Delta SyncまたはDirect Vector Accessで更新する検索index",
+      "limitations": "元表のABAC row filter/column maskはindexの検索時に継承されないと文書に記載。実機未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-elasticsearch",
+      "name": "Elasticsearch",
+      "category": "search-engine",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-ELASTIC-HYBRID",
+        "D-R2-R-ELASTIC-DLS",
+        "D-R2-R-ELASTIC-LIFECYCLE"
+      ],
+      "role": "全文/vectorのhybrid検索、content connectorとACL index",
+      "limitations": "旧Enterprise Searchの終了と区別。connector、版、提供形態、契約条件の横断保証なし",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "search-engine/self-managed-or-service; 今回配備なし",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-opensearch",
+      "name": "OpenSearch",
+      "category": "search-engine",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-OPENSEARCH-HYBRID",
+        "D-R2-R-OPENSEARCH-DLS"
+      ],
+      "role": "search pipelineでのhybrid検索、DLS",
+      "limitations": "DLSはread対象。write権限は別。AWS managed service全体へ一般化しない",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "search-engine/self-managed-or-service; 今回配備なし",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-vespa",
+      "name": "Vespa",
+      "category": "search-engine",
+      "entry_type": "system",
+      "prior_coverage": "概要から深化",
+      "source_ids": [
+        "D-VESPA",
+        "D-R2-R-VESPA-DOCUMENT"
+      ],
+      "role": "retrievalとrankingの分離、ID指定の文書CRUDと条件付き操作",
+      "limitations": "文書更新を主張の訂正・根拠依存のtransactionと見なさない",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "search-engine/self-managed-or-service; 今回配備なし",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "search"
+    }
+  ],
+  "searches": [
+    {
+      "query": "Vectara Glean Amazon Bedrock Knowledge Bases Azure AI Search RAG document permissions synchronization official",
+      "method": "web-search-then-primary-document",
+      "outcome": "Glean/Vectara/Bedrock/Azureの公式資料を発見。広告・二次比較の順位や数値は採用せず"
+    },
+    {
+      "query": "site:docs.cloud.google.com vertex ai rag engine overview delete corpus",
+      "method": "web-search-then-primary-document",
+      "outcome": "旧URLから現行RAG Engine文書へのredirectを確認"
+    },
+    {
+      "query": "site:learn.microsoft.com azure search agentic retrieval knowledge base overview permissions",
+      "method": "web-search-then-primary-document",
+      "outcome": "GA/Preview区別とretrieve時の権限設定を確認"
+    },
+    {
+      "query": "site:docs.cloud.google.com generative-ai-app-builder access control data source vertex ai search permissions",
+      "method": "web-search-then-primary-document",
+      "outcome": "Agent Searchの現行名とdata source access controlのPreview表示を確認"
+    },
+    {
+      "query": "site:docs.aws.amazon.com kendra user context filtering document access control",
+      "method": "web-search-then-primary-document",
+      "outcome": "user-context filterと利用者認証を区別"
+    },
+    {
+      "query": "site:docs.snowflake.com Cortex Search overview owner rights row access policies",
+      "method": "web-search-then-primary-document",
+      "outcome": "検索がowner rightsであることを確認"
+    },
+    {
+      "query": "site:docs.databricks.com ai search vector search permissions row column filters source table",
+      "method": "web-search-then-primary-document",
+      "outcome": "overviewの現行名と同期modeを追い、ABAC仕様へ展開"
+    },
+    {
+      "query": "site:elastic.co/docs hybrid search document level security connector",
+      "method": "web-search-then-primary-document",
+      "outcome": "hybrid、connector DLS、旧Enterprise Searchの終了を確認"
+    },
+    {
+      "query": "site:docs.opensearch.org hybrid search document level security",
+      "method": "web-search-then-primary-document",
+      "outcome": "公式hybrid/DLS文書を直接openして確認"
+    },
+    {
+      "query": "site:docs.databricks.com \"AI Search\" \"row\" \"policies\"",
+      "method": "web-search-then-primary-document",
+      "outcome": "AWS版ABAC仕様のAI Search制限を確認。GCP版table-level policyの説明と混同しない"
+    },
+    {
+      "query": "site:docs.vespa.ai document api put update remove document",
+      "method": "web-search-then-primary-document",
+      "outcome": "既出hybrid tutorialからDocument APIの更新・削除・条件付き操作を追加確認"
+    },
+    {
+      "method": "official-document-open-and-redirect-check",
+      "query": "Glean, Vectara, AWS, Google, Microsoft, Snowflake, Databricks, Elastic, OpenSearch, Vespa の公式本文と関連節",
+      "outcome": "本文の説明を確認。検索結果のスニペットだけで最終比較に採用せず。全文ランキングや全検索結果は保存していない。"
+    }
+  ],
+  "deferred": [
+    {
+      "name": "Elastic App Search / Workplace Search",
+      "url": "https://www.elastic.co/docs/reference/search-connectors/release-notes",
+      "reason": "旧Enterprise Search機能。9.0以降で提供されない説明があるため、現行独立候補に数えない。"
+    },
+    {
+      "name": "Amazon OpenSearch Service",
+      "url": "https://docs.opensearch.org/latest/security/access-control/document-level-security/",
+      "reason": "OpenSearchプロジェクトとマネージド製品を同一視しない。今回は後者の固有機能を追加監査していない。"
+    }
+  ],
+  "limits": [
+    "性能・課金・SLA・実稼働・ライセンス適合を検証していない。",
+    "公式文書の変更により同じURLの内容が変化し得る。",
+    "名称変更は別候補として数えない。"
+  ],
+  "counts": {
+    "primary": 12,
+    "sources": 22,
+    "new": 11,
+    "expanded": 1
+  }
+}

@@ -8,6 +8,10 @@
 
 ## 関連システムの再調査
 
+**最先端研究への拡張（2026-09-29）:** [論文・理論を含めた追加調査](papers.md#最先端研究への拡張)では、実装公開を採用の条件にせず、中核非公開・部分公開の研究と、実行モデルのない理論研究まで比較します。記憶制御の学習、モデル内部記憶・継続学習、構造化知識、訂正・撤回の評価を対象に、手法・著者の報告・限界・コード/重み/データの公開範囲を整理しました。[調査方法](methodology.md)と[研究台帳](evidence/frontier-research.json)から確認範囲を辿れます。
+
+**第2次調査（2026-09-29）:** [既存比較の抜けを補う追加調査](20260929193749-related-systems-resurvey/index.mdx)を追加しました。既存資料全体と照合し、未掲載のメモリー研究、RAGアプリ、クラウド検索、知識・保存基盤を確認しています。新規掲載と既存概要の深化を分け、4分野の比較、一次資料、探索・保留理由をまとめました。
+
 2026-09-29 に、既存の概要候補を深掘りし、文書集合の検索・同期、作業経験の再利用、意味データ基盤、クラウド・実行基盤へ調査を広げました。[横断比較と設計への示唆](systems/extended-landscape.md)から読むと、PageIndex の比較対象と組み合わせる候補を区別できます。
 
 - [メモリーと経験の追加比較](systems/memory-landscape.md)
@@ -39,7 +43,7 @@
 | 実装候補と未解決点を把握する     | [システム比較](systems/README.md) → [知識更新](foundations/knowledge-updates.md) → [評価方法](evaluation.md) → [設計・実験案](design-directions.md)                                                                   |
 | 基礎から理解する           | [基本概念](foundations/concepts.md) → [オントロジー](foundations/ontology.md)・[メモリー](foundations/memory.md) → [知識更新](foundations/knowledge-updates.md) → [応用例](foundations/ontology-memory-applications.md) |
 | 実装に使う技術を検討する       | [システム比較](systems/README.md) → [実装の依存関係](implementation/dependencies.md) → [周辺ライブラリと基盤](implementation/infrastructure.md)                                                                          |
-| 研究・比較実験を計画する       | [研究の系譜](papers.md) → [評価方法](evaluation.md) → [設計・実験案](design-directions.md)                                                                                                                       |
+| 研究・比較実験を計画する       | [研究の系譜・実装未公開を含む最先端研究](papers.md) → [評価方法](evaluation.md) → [設計・実験案](design-directions.md)                                                                                                                       |
 | 判断の根拠を確認する         | [調査方法](methodology.md) → [資料台帳](sources.md) → [根拠データの読み方](evidence/README.md)                                                                                                                     |
 
 ## 調査から得られた判断
@@ -67,6 +71,7 @@
 | 文書                                            | 内容                                                           |
 | --------------------------------------------- | ------------------------------------------------------------ |
 | [システム比較の一覧](systems/README.md)                | 各方式の比較軸と詳細文書への案内                                             |
+| [関連システムの第2次調査](20260929193749-related-systems-resurvey/index.mdx) | 既存資料との重複を除いた追加候補、メモリー研究・RAGアプリ・クラウド検索・保存基盤の4分野 |
 | [関連システムの再調査](systems/extended-landscape.md) | 四領域の横断比較、PageIndex との役割分担、比較実験の候補 |
 | [メモリーと経験](systems/memory-landscape.md) | 既存概要の深掘り、ファイル・長期・手順記憶、評価研究 |
 | [文書検索・RAG 基盤](systems/retrieval-landscape.md) | 統合製品、構築部品、文書同期、グラフ・視覚検索 |

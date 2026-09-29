@@ -4,6 +4,8 @@
 
 同じデータをどの単位で保存し、どの操作で更新するかを比較する。下表は機能の有無を保証する製品チェックリストではなく、各方式の中心を示す。対象版・根拠・未確認点は詳細ページに記載した。
 
+**第2次調査（2026-09-29）:** [既存比較の抜けを補う追加調査](../20260929193749-related-systems-resurvey/index.mdx)では、[メモリー研究](../20260929193749-related-systems-resurvey/memory-and-learning.mdx)、[RAGアプリ](../20260929193749-related-systems-resurvey/rag-applications.mdx)、[クラウド検索](../20260929193749-related-systems-resurvey/managed-search.mdx)、[知識・保存基盤](../20260929193749-related-systems-resurvey/knowledge-and-storage.mdx)を追加確認しました。新規掲載と概要からの深化、主比較と補足・保留を分けています。
+
 **2026-09-29 の追加:** [関連システムの再調査](extended-landscape.md)で比較範囲を拡大した。以下の既存主要システムに加え、[メモリーと経験](memory-landscape.md)、[文書検索・RAG](retrieval-landscape.md)、[意味データ基盤](semantic-data-landscape.md)、[クラウド・実行基盤](managed-memory-landscape.md)を確認した。新規と概要の深掘りを分け、全候補の資料 ID と未確認点を[候補台帳](../evidence/system-landscape.json)に記録している。
 
 ## システム一覧

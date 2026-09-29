@@ -1,0 +1,134 @@
+# 長期メモリー・経験再利用・認知アーキテクチャの追加調査
+
+[調査トップ](../README.md) / [横断比較](index.mdx)
+
+## 調査範囲と数え方
+
+確認日は2026-09-29。[システム比較](../systems/README.md)、[メモリー調査](../systems/memory-landscape.md)、[管理型メモリーの比較](../systems/managed-memory-landscape.md)、[基礎資料](../foundations/memory.md)、[論文一覧](../papers.md)、[出典台帳](../sources.md)、`evidence/system-landscape.json`、`evidence/sources.json` を名前検索で照合した。確認した19件のうち、repoに本格的な個別掲載がないものは16件、既存の要旨・概要を本文と公式資料で補ったものは3件（MemoryBank、Generative Agents、Reflexion）。既出の Mem0、Graphiti、Hindsight、Letta、ReMe、Memori、Memvid、MemoryOS、memU、OpenViking、MIRIX、ACE、Memento-Skills、SkillWeaver、Agent KB、MACE は再計上していない。
+
+ここでの「新規掲載」はこのrepoの既存研究資料全体への初掲載を指す。研究論文の提案、公式実装、製品として提供されるメモリー、モデル内部の状態更新、認知アーキテクチャは同一種のシステムとして扱わない。以下は論文本文または一次の公式文書で主張と構成を確認した調査であり、コード監査、実行、ベンチマーク再現は行っていない。リポジトリを参照した場合もREADME等の概要確認であり、コード確認を意味しない。
+
+## 比較早見
+
+<Matrix title="今回確認した対象の種類と比較上の位置" cols="種別,記憶・学習単位と既存調査との差分">
+- GAM-Hierarchical | 新規・研究システム | 局所イベント進行グラフと大域的な話題グラフを分ける。既存の時系列・知識グラフ系メモリーと、統合タイミング／生ログへの根拠リンクを比較できる。
+- GAM-Deep Research | 新規・研究システム | 軽量メモリーを索引に全履歴ページを要求時に探索し、文脈を組み立てる。同じGAM略称の階層グラフ方式とは別論文・別実装。
+- MemR³ | 新規・検索制御器 | 検索・内省・回答の動作と証拠不足の追跡を制御する。長期保存先そのものではなく、既存ストアに被せる層。
+- Nemori | 新規・研究システム | 会話をエピソード化して予測誤差から事実を蒸留する。時間情報と来歴を持つ設計だが、履歴管理製品ではない。
+- MemInsight | 新規・研究システム | 文脈・実体の属性を抽出し、属性または埋め込みで再検索する。構造化属性による想起に焦点がある。
+- MemTree (2024) | 新規・研究システム | 意味階層へオンラインで要約を積み上げる。MemForest論文内の同名時間木とは別方式。
+- MemForest (2026) | 新規・研究システム | 正規事実・スコープ別時間木・派生索引を分け、情報源の撤回を関連事実へ伝える。確認範囲では訂正・履歴の話が最も具体的。
+- AriGraph | 新規・研究システム | 生の環境観察を残すエピソード記憶と意味グラフを結ぶ。ゲーム環境のエージェント向け。
+- AgeMem | 新規・研究システム | 強化学習で長期・短期メモリーの追加、更新、削除、検索、要約、絞り込みを選ぶ。
+- MemoryBank | 概要から深化・研究システム | 対話ログ、日次要約、人物像を併用し、想起で強化・時間で減衰させる。Google Agent Platformの同名製品とは別。
+- MemEngine | 新規・研究ライブラリ | 複数のメモリー方式を差し替え可能にまとめる。固有の訂正・来歴仕様を持つ一つのメモリー製品ではない。
+- LongMem | 新規・モデル補助記憶 | 凍結した言語モデルのKV状態を外部キャッシュ化し、SideNetで読む。利用者に紐づく事実メモリーとは異なる。
+- MemAgent | 新規・モデル補助記憶 | 長文をチャンクごとに読み、固定長の自然言語状態を書き換える。主に一タスク内の文脈圧縮。
+- MemoryLLM / M+ | 新規・モデル内部記憶 | Transformer層に学習可能な潜在記憶を持たせる。外部の主張単位レコードや根拠管理を提供しない。
+- Generative Agents | 概要から深化・研究アーキテクチャ | 経験ログ、振り返り、計画の連結を仮想社会で調べる。製品としての個人メモリーとは異なる。
+- Reflexion | 概要から深化・研究アーキテクチャ | タスク結果への言語的振り返りを後続試行のエピソード記憶へ追加する。
+- ExpeL | 新規・研究システム | 複数タスクの軌跡から再利用可能な自然言語の洞察を作り、推論時に検索する。
+- Soar | 新規・認知アーキテクチャ | 文脈に依存しない意味記憶と経験系列のエピソード記憶を区別する。LLM用の製品APIではない。
+- OpenCog Hyperon | 新規・認知アーキテクチャ | AtomSpaceをアルゴリズム間の知識表現・共有基盤として説明する。汎用の会話記憶サービスではない。
+</Matrix>
+
+## 外部メモリー、グラフ、階層
+
+**GAM-Hierarchical — Hierarchical Graph-based Agentic Memory for LLM Agents（新規）**は、局所的な出来事の進行を保持する Event Progression Graph と、話題を横断して結び付ける Topic Associative Network を分離する。意味の変化を検出した時に局所グラフを統合し、生のエピソードグラフは要約から参照できる形で残す構成である。論文本文は意味境界の判定にLLMを使うこと、時間・確信度・役割などを検索に加えることを記述する。[論文本文v1][P-R2-M-GAM]。研究提案であり、確認した論文には訂正・削除のライフサイクルや運用サービスの保証はない。確信度の付与も事実確認と同じではない。
+
+**General Agentic Memory via Deep Research（GAM-Deep Research、新規）**は、上のGAM-Hierarchicalとは略称が同じ別研究である。オフライン時に軽量メモリーを作る一方、元セッションをヘッダー付きページとして全件保存し、要求時にResearcherが軽量メモリーを手がかりに計画・検索・統合・振り返りを繰り返すJIT方式を提案する。論文は取得ページや原文スニペットを統合結果に添える構成も調べる。[論文本文v1][P-R2-M-GAM-DR]、[VectorSpaceLab公式repo][D-R2-M-GAM-DR-REPO]。repoのREADMEはPython SDK、CLI、REST API、Web UIを挙げるが、ここではコード実行や監査をしていない。履歴ページを残す設計は根拠の参照を助けるものの、誤ったページや情報源を訂正・削除する手順は確認できない。
+
+**MemR³（MemR3、新規）**は、メモリーストアではなく既存の保存先を利用する検索制御器である。retrieve／reflect／answerの動作を選び、得られた証拠と未解決の情報ギャップを追跡して、追加検索や問い直しを行う。[論文][P-R2-M-MEMR3]と[著者の公式リポジトリ][D-R2-M-MEMR3-REPO]を確認した。これは回答時の証拠過程を見やすくするが、保存済み主張の出典履歴、矛盾解消、削除伝播を提供する根拠にはならない。
+
+**Nemori（新規）**の現行論文は *What Deserves Memory: Adaptive Memory Distillation for LLM Agents* という題で、過去版のMVPから現行実装への全面書き換えについても公式repoが注意を促す。対話をまとまりのあるエピソードへ分割し、予測と実際の差から保持する事実を選ぶ。エピソードの時間アンカーと情報源を意識した表現を持ち、論文はメモリー管理方式から独立した枠組みとして説明する。[論文本文][P-R2-M-NEMORI]、[公式repo][D-R2-M-NEMORI-REPO]。確認した資料だけでは主張の改訂履歴、撤回後の依存データ削除、監査ログは確定できない。
+
+**MemInsight（新規）**は、会話文脈や実体に結びつく属性を抽出し、属性条件またはベクトル類似度で記憶を呼び戻す方式である。論文本文ではセッション／ターンの文脈、エンティティ属性、FAISSを使う検索構成を確認した。[EMNLP 2025論文][P-R2-M-MEMINSIGHT]、[公式repo][D-R2-M-MEMINSIGHT-REPO]。属性単位の検索は単純な会話要約と異なるが、属性が誤っていた時の根拠照合・修正・削除伝播の契約は確認できない。論文内の評価や注釈結果を一般的な正しさ保証とは扱わない。
+
+**MemTree（Rezazadehら、2024、新規）**は、継続入力を意味的な木へまとめ、各ノードに内容、埋め込み、上位ノードの要約を持たせるオンライン階層化方式である。木の枝に意味的に近い情報を加え、LLMで親要約を更新し、検索時に木をたどるか平坦化して候補を選ぶ。[論文本文][P-R2-M-MEMTREE]。階層要約は検索の整理に使える一方、要約の誤りが上位に伝わる場合や、個別情報の削除で親要約をどこまで再構成するかは別途確認が必要である。独自の公式実装は今回確認できなかった。
+
+**MemForest（Chenら、Concyclics実装、2026、新規）**は、上記2024年のMemTreeとは別論文・別方式である。論文が説明する実装では、正規の事実を基準とし、セッション・人物・場面などの範囲に時間順のMemTreeを持つ。木への参照や要約・埋め込みは派生データとして更新し、会話源を撤回した場合は関連する事実・ノードを削除して索引を局所的に整える。過去状態を残した時間問い合わせも扱う。[論文本文v3][P-R2-M-MEMFOREST]、[公式repo][D-R2-M-MEMFOREST-REPO]。この19件では出典から事実への撤回伝播と歴史問い合わせが最も明示的だった。ただしこれは論文記述の確認で、実装監査ではない。削除後に過去内容を保持する監査証跡、情報源の真正性、真偽判定まで保証すると解釈してはならない。
+
+**AriGraph（新規）**は、ゲーム／対話環境の観察をエピソードノードとして残し、そこから抽出した意味的事実をグラフにする。論文は、新しい観察と矛盾する古い意味エッジを除いてから新しい関係を加える流れを説明するため、更新を伴う世界モデルの例として参考になる。[論文本文][P-R2-M-ARIGRAPH]、[AIRI Institute公式repo][D-R2-M-ARIGRAPH-REPO]。これは観察の変化に応じたグラフ更新であって、会話上の主張の来歴台帳や一般的な削除契約ではない。対象も任意の利用者プロフィールではなく対話型環境である。
+
+**MemoryBank（Zhongら、2023、概要から深化）**は、repo既存の[P-MBANK要旨](../sources.md)と基礎資料の概要を、論文本文および[著者公式repo][D-R2-M-MEMBANK-REPO]で補った。時刻付き対話、日次・全体イベント要約、人物像を並行して保持し、dual-encoder/FAISS検索と簡略化したエビングハウス型の減衰・想起による強化を組み合わせる。[論文本文][P-R2-M-MEMBANK]。想起頻度や経過時間に応じた保持強度は、事実が変わったか、誤記を訂正したかを表す仕組みではない。確認した資料では主張単位の出典・訂正履歴、完全削除の伝播は明らかでない。
+
+## メモリー管理器と実装基盤
+
+**AgeMem（新規）**は長期記憶と短期コンテキストの管理方針を強化学習で学ぶ研究システムである。論文ではLTM向けのAdd／Update／Deleteと、STM向けのRetrieve／Summary／Filterをエージェントのツールとして訓練する。Updateは既存項目の内容を置き換え、更新時刻を付ける。[論文本文][P-R2-M-AGEMEM]、[著者repo][D-R2-M-AGEMEM-REPO]。UpdateとDeleteの操作は示されるが、置換前の主張を監査用に保存すること、削除対象の情報源をたどることは確認できない。`gianpd/agemem`等の同名コミュニティrepoは論文の著者実装とは別物である。
+
+**MemEngine（新規）**は複数の既存メモリーモデルを構成可能な形で組み合わせる研究ライブラリであり、一つの特定メモリー方式の名前ではない。論文と[公式repo][D-R2-M-MEMENGINE-REPO]は、モジュール化、設定による構成、モデルやローカル／リモート実行先の差し替えを主眼に置く。採用したモジュール次第で保存単位や更新挙動が変わるため、訂正・証拠・削除の仕様をMemEngine全体に帰属させられない。[論文][P-R2-M-MEMENGINE]。
+
+## モデル内部・一時的な文脈記憶
+
+**LongMem（新規）**は、凍結した基盤モデルの表現をメモリーバンクに保存し、別のSideNetが過去のKV状態を検索・融合するモデル補助方式である。[論文本文][P-R2-M-LONGMEM]。これは利用者の事実を主張レコードとして保存・訂正する製品ではなく、文脈を超える言語モデル計算の仕組みである。論文記載の公式コード短縮URLは今回直接取得できなかったため、実装範囲を確認したとは扱わない。
+
+**MemAgent（新規）**は長文をチャンクに分けて読み、後続の回答に必要な内容を残す固定長の自然言語メモリーを書き換えながら処理する。論文は情報保持を報酬にする強化学習を説明する。[論文本文][P-R2-M-MEMAGENT]、[公式repo][D-R2-M-MEMAGENT-REPO]。逐次圧縮であり、長期の事実台帳や個別の出典リンク、誤記訂正・削除の履歴を維持する設計としては示されていない。
+
+**MemoryLLM / M+（新規、同一研究系列として1件）**は、モデル層内に固定容量の潜在ベクトル記憶を置く。MemoryLLMは部分的に更新される表現プールで古い情報が薄れる構成、M+は訓練した検索機構を加えて長文文脈を扱う拡張として論文・公式repoに記載される。[MemoryLLM論文][P-R2-M-MEMORYLLM]、[M+論文][P-R2-M-MPLUS]、[公式repo][D-R2-M-MEMORYLLM-REPO]。両者を別システムとして二重計上しない。内部状態の更新と忘却は、ユーザーが読める主張履歴、出典管理、選択的な事実削除を意味しない。
+
+## 経験の振り返りと再利用
+
+**Generative Agents（概要から深化）**は、repo既存の[P-GEN要旨](../sources.md)と[基礎資料](../foundations/memory.md)を論文本文および[公式repo][D-R2-M-GENAGENT-REPO]で補った。エージェントの経験を自然言語のmemory streamに記録し、重要度・新しさ・関連性に基づいて想起し、複数の記憶からreflectionを作って次の計画へ渡す。仮想の町でのエージェント行動を示す研究アーキテクチャであり、個人の事実を訂正・削除するメモリーサービスではない。[論文本文][P-R2-M-GENAGENT]。
+
+**Reflexion（概要から深化）**は、repo既存の[P-REFLEX要旨](../sources.md)を論文本文と[著者repo][D-R2-M-REFLEXION-REPO]で補った。環境結果や採点フィードバックを言語化して、後続のタスク試行が読むエピソード記憶へ追加する。モデル重みの更新を前提としないタスク学習の仕組みである。[論文本文][P-R2-M-REFLEXION]。反省文が失敗を次回に生かす用途はあるが、恒久的な知識ベースの根拠追跡や反省文の失効・撤回を定めるものではない。
+
+**ExpeL（新規）**は、訓練タスクの軌跡から一般化可能な自然言語の洞察と再利用する経験を抽出し、後続タスク時に検索して利用する。[論文本文][P-R2-M-EXPEL]、[LeapLab THU公式repo][D-R2-M-EXPEL-REPO]。Reflexionの一試行内の反省より、異なるタスク間で洞察を再利用する構成に重心がある。ただし、抽出した洞察がどの原軌跡に依存するか、矛盾時の訂正や削除をどう伝播するかは論文からは確認できない。
+
+## 認知アーキテクチャ
+
+**Soar（新規）**はLLMアプリのメモリー製品ではなく、エージェントの知識や経験を扱う認知アーキテクチャである。公式マニュアルは、状況から独立した宣言的事実を意味記憶へ格納し、エージェントの経験系列をエピソード記憶へ記録して将来の推論に使う構成を説明する。[Semantic Memory][D-R2-M-SOAR-SEMANTIC]、[Episodic Memory][D-R2-M-SOAR-EPISODIC]。アプリ向けにどの事実を訂正・削除するかは、対象アーキテクチャをそのまま導入すれば解決するものではない。
+
+**OpenCog Hyperon / AtomSpace（新規）**は、AtomSpaceを知識を表現・共有するグラフ状の基盤として説明する認知アーキテクチャ研究である。[公式Hyperon文書][D-R2-M-HYPERON-ATOMSPACE]、[現在の実験repo][D-R2-M-HYPERON-REPO]。公式wikiは分散エピソード記憶の設計が十分に探索されていないことにも触れ、repoはpre-alpha／実験段階と説明する。従って完成済みの永続メモリー製品や確立した来歴・削除ポリシーとしては扱わない。
+
+## 訂正、根拠、履歴、削除の見取り図
+
+この調査の主な発見は、「記憶がある」ことと「記憶の誤りを安全に直せる」ことの間には大きな差がある点である。MemForestは論文上、情報源から事実や索引への撤回伝播と過去状態の問い合わせを具体的に説明する。AriGraphは観察の変化に合わせて古い意味エッジを置き換え、AgeMemは長期記憶に対するUpdate/Delete操作を学ぶ。しかし、これらも同じ機能ではない。グラフの古い関係を除くことは監査可能な版履歴を保証せず、ツールで上書きできることは旧値の根拠を保持することを保証しない。
+
+GAM-Hierarchicalの生エピソード参照、Nemoriの時刻・来歴表現、MemR³の検索時の証拠・不足追跡は、それぞれ異なる段階の根拠情報である。検索過程の証拠メモは永続的な事実の出典台帳ではなく、エピソード参照も情報源の真正性や事実の正しさを判定しない。MemInsightやMemoryBankの構造化属性・人物要約、MemTreeの親要約は想起を助けるが、基礎となる主張へ戻る操作や削除後の派生要約の再生成について明確な保証を確認できなかった。
+
+一方、LongMem、MemAgent、MemoryLLM/M+は、モデル表現や現在の長文処理を補う記憶であり、製品型の個人メモリーへそのまま並べるべきではない。Generative Agents、Reflexion、ExpeLは経験から次の行動やタスクへ学びを渡す点で関連するが、経験再利用とユーザー知識の訂正管理も別課題である。SoarとHyperonは記憶を含む認知アーキテクチャの参照先であり、導入可能なメモリーAPIとみなさない。
+
+名前が近い方式も区別する。2024年の独立したMemTreeは意味的な階層木で、2026年のMemForest内にあるMemTreeはスコープ付き時間木である。また、MemoryBank論文はGoogle Agent Platform Memory Bankという管理型機能とは別の研究提案である。Nemori現行repoは論文と互換しない旧MVPから書き直したと説明しているため、バージョンを混ぜない。
+
+## 確認の深さと保留候補
+
+論文の「本文確認」は各方式の関連する構成・更新手順・制約を読んだことを指し、全論文全節の精読や実験再現を指さない。公式repoはREADMEや概要文書までを見ており、コード監査・依存確認・実行はしていない。Soar / Hyperonは公式説明文書の関連節を確認した。評価の順位やスコアは本比較に持ち込んでいない。
+
+検索から見つかった候補のうち、Mem-αはメモリー構築を強化学習する近接研究で、今回の18件に比べて一次資料の読み込みが短いため保留した。2026年9月公開の *The Epistemics of Agent Memory* は検索時点で要旨しか確認できず、ランタイムではなく統治・評価の研究方向として保留した。*The Missing Knowledge Layer in Cognitive Architectures for AI Agents* とGWAの *Theater of Mind* も認知アーキテクチャ全体の提案で、今回の範囲で実装・記憶ライフサイクルを確認できなかったため保留した。さらに “MemForest” という同名の別論文（2609.08273）はEventTreeを使う別プロジェクトで、Concyclics版と混ぜず別候補として保留した。出典と検索・保留理由は[証拠JSON](./memory-evidence.json)に記録した。
+
+[D-R2-M-AGEMEM-REPO]: https://github.com/y1y5/AgeMem
+[D-R2-M-ARIGRAPH-REPO]: https://github.com/AIRI-Institute/AriGraph
+[D-R2-M-EXPEL-REPO]: https://github.com/LeapLabTHU/ExpeL
+[D-R2-M-GAM-DR-REPO]: https://github.com/VectorSpaceLab/general-agentic-memory/blob/main/README.md
+[D-R2-M-GENAGENT-REPO]: https://github.com/joonspk-research/generative_agents
+[D-R2-M-HYPERON-ATOMSPACE]: https://wiki.opencog.org/w/Hyperon:Atomspace
+[D-R2-M-HYPERON-REPO]: https://github.com/trueagi-io/hyperon-experimental/blob/main/README.md
+[D-R2-M-MEMAGENT-REPO]: https://github.com/BytedTsinghua-SIA/MemAgent
+[D-R2-M-MEMBANK-REPO]: https://github.com/zhongwanjun/MemoryBank-SiliconFriend
+[D-R2-M-MEMENGINE-REPO]: https://github.com/nuster1128/MemEngine
+[D-R2-M-MEMFOREST-REPO]: https://github.com/Concyclics/MemForest
+[D-R2-M-MEMINSIGHT-REPO]: https://github.com/amazon-science/MemInsight
+[D-R2-M-MEMORYLLM-REPO]: https://github.com/wangyu-ustc/MemoryLLM
+[D-R2-M-MEMR3-REPO]: https://github.com/Leagein/memr3
+[D-R2-M-NEMORI-REPO]: https://github.com/nemori-ai/nemori
+[D-R2-M-REFLEXION-REPO]: https://github.com/noahshinn024/reflexion
+[D-R2-M-SOAR-EPISODIC]: https://soar.eecs.umich.edu/soar_manual/07_EpisodicMemory/
+[D-R2-M-SOAR-SEMANTIC]: https://soar.eecs.umich.edu/soar_manual/06_SemanticMemory/
+[P-R2-M-AGEMEM]: https://arxiv.org/html/2601.01885
+[P-R2-M-ARIGRAPH]: https://arxiv.org/html/2407.04363
+[P-R2-M-EXPEL]: https://arxiv.org/html/2308.10144
+[P-R2-M-GAM]: https://arxiv.org/html/2604.12285v1
+[P-R2-M-GAM-DR]: https://arxiv.org/html/2511.18423v1
+[P-R2-M-GENAGENT]: https://arxiv.org/html/2304.03442
+[P-R2-M-LONGMEM]: https://arxiv.org/html/2306.07174
+[P-R2-M-MEMAGENT]: https://arxiv.org/html/2507.02259
+[P-R2-M-MEMBANK]: https://arxiv.org/html/2305.10250
+[P-R2-M-MEMENGINE]: https://arxiv.org/html/2505.02099
+[P-R2-M-MEMFOREST]: https://arxiv.org/html/2605.23986v3
+[P-R2-M-MEMINSIGHT]: https://aclanthology.org/2025.emnlp-main.1683/
+[P-R2-M-MEMORYLLM]: https://arxiv.org/html/2402.04624
+[P-R2-M-MEMR3]: https://arxiv.org/html/2512.20237
+[P-R2-M-MEMTREE]: https://arxiv.org/html/2410.14052
+[P-R2-M-MPLUS]: https://arxiv.org/abs/2502.00592
+[P-R2-M-NEMORI]: https://arxiv.org/html/2508.03341
+[P-R2-M-REFLEXION]: https://arxiv.org/html/2303.11366

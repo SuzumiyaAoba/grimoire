@@ -6,6 +6,7 @@
 
 ## 目次
 
+- [最先端研究の追加調査（2026-09-29）](#2026-09-29-の最先端研究追加調査)
 - [公開実装の固定版](#repositories)
 - [論文](#papers)
 - [標準仕様](#standards)
@@ -1730,3 +1731,224 @@ arXiv の comment に会議名がある場合も、それは版の書誌情報�
 用途: 構築・検索・生成の段階別費用を比較する評価視点。性能値は転載していない。
 
 既存 ID で再確認した資料: `D-STARDOG` ([公式資料](https://docs.stardog.com/inference-engine/)), `D-TYPEDB` ([公式資料](https://typedb.com/docs/core-concepts/typeql/schema-data/)), `D-VIRTUAL` ([公式資料](https://docs.stardog.com/virtual-graphs/)), `D-XTDB` ([公式資料](https://docs.xtdb.com/concepts/key-concepts.html)), `P-ACE` ([公式資料](https://arxiv.org/abs/2510.04618v3)), `P-MSKILLS` ([公式資料](https://arxiv.org/abs/2603.18743v1)), `S-PROV` ([公式資料](https://www.w3.org/TR/prov-o/)), `S-SHACL` ([公式資料](https://www.w3.org/TR/shacl/))。追加の確認範囲は sources.json の additional\_reviews に記録した。
+
+## 2026-09-29 の関連システム第2次調査
+
+[横断比較](20260929193749-related-systems-resurvey/index.mdx)の4分野で参照した一次資料。今回の主比較は54系統、参照資料は142件。補足・保留の確認用資料も含む。各資料の対象箇所と未確認点は分野別JSONおよび `sources.json` の追加レビューを参照。動的URLの公式文書・READMEの説明と、コード監査・実行検証を区別する。
+
+### 第2次: メモリー・学習
+
+| ID | 一次資料 | 今回の確認範囲 |
+|---|---|---|
+| P-R2-M-GAM | [GAM: Hierarchical Graph-based Agentic Memory for LLM Agents](https://arxiv.org/html/2604.12285v1) | arXiv v1本文の構成・検索方式・制約に関連する節を確認。実験再現なし。 |
+| P-R2-M-GAM-DR | [General Agentic Memory Via Deep Research](https://arxiv.org/html/2511.18423v1) | v1本文のJIT構成、検索・統合方式と関連制約を確認。実験再現なし。 |
+| D-R2-M-GAM-DR-REPO | [VectorSpaceLab general-agentic-memory official repository README](https://github.com/VectorSpaceLab/general-agentic-memory/blob/main/README.md) | README概要・掲示された利用形態を確認。コード監査・実行なし。 |
+| P-R2-M-MEMR3 | [MemR³: Transforming Agents into Reflective Searchers through Reflective Reasoning](https://arxiv.org/html/2512.20237) | 論文本文の検索制御・証拠追跡方式を確認。実験再現なし。 |
+| D-R2-M-MEMR3-REPO | [MemR3 official repository](https://github.com/Leagein/memr3) | repoの概要を確認。コード監査・実行なし。 |
+| P-R2-M-NEMORI | [What Deserves Memory: Adaptive Memory Distillation for LLM Agents](https://arxiv.org/html/2508.03341) | 最新版v4の本文、方式と制約の関連節を確認。実験再現なし。 |
+| D-R2-M-NEMORI-REPO | [Nemori official repository](https://github.com/nemori-ai/nemori) | repoの概要と旧MVPからの互換性に関する説明を確認。コード監査・実行なし。 |
+| P-R2-M-MEMINSIGHT | [MemInsight: Autonomous Memory Augmentation for LLM Agents](https://aclanthology.org/2025.emnlp-main.1683/) | EMNLP 2025論文の手法・関連評価・制約を確認。再現実験なし。 |
+| D-R2-M-MEMINSIGHT-REPO | [Amazon Science MemInsight official repository](https://github.com/amazon-science/MemInsight) | repoのREADME概要のみ確認。コード監査・実行なし。 |
+| P-R2-M-MEMTREE | [From Isolated Conversations to Hierarchical Schemas: Dynamic Tree Memory Representation for LLMs](https://arxiv.org/html/2410.14052) | v3論文本文の方式・評価上の制約を確認。公式実装と実験は未検証。 |
+| P-R2-M-MEMFOREST | [MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing](https://arxiv.org/html/2605.23986v3) | arXiv v3（2026-09-06改訂）の保存構造、撤回・検索手順、制約に関係する節を確認。実行なし。 |
+| D-R2-M-MEMFOREST-REPO | [Concyclics MemForest official repository](https://github.com/Concyclics/MemForest) | repo説明を確認。コード監査・実行なし。 |
+| P-R2-M-ARIGRAPH | [AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents](https://arxiv.org/html/2407.04363) | 論文本文のグラフ更新・検索方式を確認。実験再現なし。 |
+| D-R2-M-ARIGRAPH-REPO | [AIRI Institute AriGraph official repository](https://github.com/AIRI-Institute/AriGraph) | repo概要を確認。コード監査・実行なし。 |
+| P-R2-M-AGEMEM | [AgeMem: Agentic Memory for LLM Agents](https://arxiv.org/html/2601.01885) | v3本文の長短期メモリー操作、学習手順、制約を確認。再現実験なし。 |
+| D-R2-M-AGEMEM-REPO | [AgeMem author repository](https://github.com/y1y5/AgeMem) | 著者repoのREADME等の概要を確認。コード監査・実行なし。 |
+| P-R2-M-MEMBANK | [MemoryBank: Enhancing Large Language Models with Long-Term Memory](https://arxiv.org/html/2305.10250) | 本文の保持構造、想起・減衰方式を確認。既存の要旨級記載を深化。実験再現なし。 |
+| D-R2-M-MEMBANK-REPO | [MemoryBank-SiliconFriend author repository](https://github.com/zhongwanjun/MemoryBank-SiliconFriend) | repo概要を確認。コード監査・実行なし。 |
+| P-R2-M-MEMENGINE | [MemEngine: A Modular and High-Performance Memory Framework for LLM Agents](https://arxiv.org/html/2505.02099) | 本文の目的・構造・比較範囲を確認。実装・性能の再現なし。 |
+| D-R2-M-MEMENGINE-REPO | [MemEngine official repository](https://github.com/nuster1128/MemEngine) | repoのREADME概要のみ確認。コード監査・実行なし。 |
+| P-R2-M-LONGMEM | [LongMem: Augmenting Language Models with Long-Term Memory](https://arxiv.org/html/2306.07174) | 論文本文の構成と取得方式の関連節を確認。公式コード短縮URLは直接取得できず、実装未確認。 |
+| P-R2-M-MEMAGENT | [MemAgent: Reshaping Long-Context LLM with Memory-Agent Training](https://arxiv.org/html/2507.02259) | 本文の逐次圧縮・学習手順を確認。実験再現なし。 |
+| D-R2-M-MEMAGENT-REPO | [BytedTsinghua-SIA MemAgent official repository](https://github.com/BytedTsinghua-SIA/MemAgent) | repo概要を確認。コード監査・実行なし。 |
+| P-R2-M-MEMORYLLM | [MemoryLLM: Towards Self-Updatable Large Language Models](https://arxiv.org/html/2402.04624) | 本文の内部記憶構造と更新方式を確認。実験再現なし。 |
+| P-R2-M-MPLUS | [M+: Extending MemoryLLM with Readable Memory](https://arxiv.org/abs/2502.00592) | 論文の要旨とMemoryLLM系列への位置づけを確認。本文全体・実験は未確認。 |
+| D-R2-M-MEMORYLLM-REPO | [MemoryLLM official repository](https://github.com/wangyu-ustc/MemoryLLM) | repo概要でMemoryLLMとM+双方の実装を掲げることを確認。コード監査・実行なし。 |
+| P-R2-M-GENAGENT | [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/html/2304.03442) | 既存の要旨級記載を深化し、本文のmemory stream・reflection関連節を確認。再現なし。 |
+| D-R2-M-GENAGENT-REPO | [Generative Agents official research repository](https://github.com/joonspk-research/generative_agents) | repo概要を確認。コード監査・実行なし。 |
+| P-R2-M-REFLEXION | [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/html/2303.11366) | 既存の要旨級記載を深化し、本文の反省・エピソード記憶方式を確認。再現なし。 |
+| D-R2-M-REFLEXION-REPO | [Reflexion author repository](https://github.com/noahshinn024/reflexion) | 論文から参照されるrepoを確認対象としたが、ページ取得に失敗。コード・READMEを確認していない。 |
+| P-R2-M-EXPEL | [ExpeL: LLM Agents Are Experiential Learners](https://arxiv.org/html/2308.10144) | v3本文の経験収集・洞察抽出・推論時利用を確認。評価再現なし。 |
+| D-R2-M-EXPEL-REPO | [LeapLab THU ExpeL official repository](https://github.com/LeapLabTHU/ExpeL) | repoのREADME概要を確認。コード監査・実行なし。 |
+| D-R2-M-SOAR-SEMANTIC | [Soar Manual: Semantic Memory](https://soar.eecs.umich.edu/soar_manual/06_SemanticMemory/) | 公式マニュアルの意味記憶に関する節を確認。環境での動作未検証。 |
+| D-R2-M-SOAR-EPISODIC | [Soar Manual: Episodic Memory](https://soar.eecs.umich.edu/soar_manual/07_EpisodicMemory/) | 公式マニュアルのエピソード記憶に関する節を確認。環境での動作未検証。 |
+| D-R2-M-HYPERON-ATOMSPACE | [Hyperon: Atomspace](https://wiki.opencog.org/w/Hyperon:Atomspace) | 公式wikiのAtomSpace説明と未解決範囲に関する記述を確認。実行なし。 |
+| D-R2-M-HYPERON-REPO | [Hyperon Experimental official repository README](https://github.com/trueagi-io/hyperon-experimental/blob/main/README.md) | READMEのプロジェクト状態と概要を確認。コード監査・実行なし。 |
+
+### 第2次: RAGアプリ
+
+| ID | 一次資料 | 今回の確認範囲 |
+|---|---|---|
+| D-R2-A-ANYTHING-DOCS | [AnythingLLM: Chatting with Documents](https://docs.anythingllm.com/chatting-with-documents/introduction) | 文書チャットと workspace/thread のスコープに関する関連節を確認。製品実行なし。 |
+| D-R2-A-ANYTHING-API | [AnythingLLM Server OpenAPI specification](https://github.com/Mintplex-Labs/anything-llm/blob/master/server/swagger/openapi.json) | workspace chat 応答と workspace document の操作に関する API 定義を確認。API 実行なし。 |
+| D-R2-A-OPENWEBUI-RAG | [Open WebUI: Retrieval Augmented Generation](https://docs.openwebui.com/features/chat-conversations/rag/) | RAG、引用、Focused Retrieval、Full Context、native tools の説明を確認。製品実行なし。 |
+| D-R2-A-OPENWEBUI-KNOWLEDGE | [Open WebUI: Knowledge](https://docs.openwebui.com/features/workspace/knowledge/) | Knowledge Base と local directory sync の説明を確認。同期を実行していない。 |
+| D-R2-A-KHOJ-README | [Khoj official repository README](https://github.com/khoj-ai/khoj/blob/master/README.md) | 製品の位置づけ、対応データ源、検索の概要を確認。コード監査なし。 |
+| D-R2-A-KHOJ-SYNC | [Khoj: Setup and sync data sources](https://docs.khoj.dev/get-started/setup/) | Desktop 等の client と外部 source の設定・同期案内を確認。同期の実行なし。 |
+| D-R2-A-KHOJ-SEARCH | [Khoj: Search](https://docs.khoj.dev/features/search/) | 文書検索と順位付けの説明を確認。引用 UI は確認できた範囲に限定。 |
+| D-R2-A-KHOJ-AGENTS | [Khoj: Agents](https://docs.khoj.dev/features/agents/) | agent の公開範囲に関する関連節を確認。権限設定の実行なし。 |
+| D-R2-A-KOTAEMON-README | [Kotaemon official repository README](https://github.com/Cinnamon/kotaemon/blob/main/README.md) | multi-user、collection、hybrid retrieval、引用表示の概要を確認。製品実行なし。 |
+| D-R2-A-KOTAEMON-USAGE | [Kotaemon: Usage guide](https://github.com/Cinnamon/kotaemon/blob/main/docs/usage.md) | file index、collection、PDF citation viewer、file deletion の案内を確認。操作なし。 |
+| D-R2-A-FASTGPT-DATASET | [FastGPT: Dataset API](https://doc.fastgpt.io/en/openapi/dataset) | dataset、collection、data entry の作成・更新・削除 API を確認。API 実行なし。 |
+| D-R2-A-FASTGPT-PERMISSIONS | [FastGPT: Team roles and permissions](https://doc.fastgpt.io/en/guide/workspace/team/team_roles_permissions) | team と member group の権限説明を確認。権限を構成していない。 |
+| D-R2-A-FASTGPT-FILE-PERM | [FastGPT: Collection permissions](https://doc.fastgpt.io/zh-CN/guide/dataset/collection_permission) | file / folder 単位の dataset 権限と提供区分を確認。権限を構成していない。 |
+| D-R2-A-FASTGPT-CITATIONS | [FastGPT: Quote list and chunk reader](https://doc.fastgpt.io/en/guide/chat/quoteList) | 回答 citation、原文表示、highlight、relevance score の説明を確認。製品実行なし。 |
+| D-R2-A-MAXKB-KNOWLEDGE | [MaxKB: Dataset management](https://docs.maxkb.pro/user_manual/dataset/dataset/) | document / website dataset、segment 編集、sync、vectorization の案内を確認。操作なし。 |
+| D-R2-A-MAXKB-APP | [MaxKB: Simple application](https://docs.maxkb.pro/user_manual/app/simple_app/) | application の関連 dataset、検索 segment、参照なし時の応答設定を確認。製品実行なし。 |
+| D-R2-A-QANYTHING-README | [QAnything official repository README](https://github.com/netease-youdao/QAnything) | local / offline QA の位置づけと user_id / kb_id の API 利用例を確認。製品実行なし。 |
+| D-R2-A-QANYTHING-API | [QAnything v2 API documentation](https://github.com/netease-youdao/QAnything/blob/qanything-v2/docs/API.md) | file / KB 削除、chunk 更新、duplicate policy、source_documents schema を確認。API 実行なし。 |
+| D-R2-A-DOCSGPT-HOME | [DocsGPT documentation](https://docs.docsgpt.cloud/) | source ingestion と回答 citation の製品案内を確認。製品実行なし。 |
+| D-R2-A-DOCSGPT-SOURCE-CONFIG | [DocsGPT: Per-source configuration](https://docs.docsgpt.cloud/Sources/Per-source-configuration) | source の検索設定と chunking / re-ingestion の案内を確認。操作なし。 |
+| D-R2-A-DOCSGPT-SCOPES | [DocsGPT: Personal access tokens](https://docs.docsgpt.cloud/Extensions/personal-access-tokens) | API token の scope と source / chunk 操作を確認。API 実行なし。 |
+| D-R2-A-OPENNOTEBOOK-SOURCES | [Open Notebook: Adding sources](https://github.com/lfnovo/open-notebook/blob/main/docs/3-USER-GUIDE/adding-sources.md) | source として追加できる形式と notebook 内での整理を確認。操作なし。 |
+| D-R2-A-OPENNOTEBOOK-CITATIONS | [Open Notebook: Citations](https://github.com/lfnovo/open-notebook/blob/main/docs/3-USER-GUIDE/citations.md) | citation から source passage を確認する案内と note 内 citation を確認。製品実行なし。 |
+| D-R2-A-OPENNOTEBOOK-API | [Open Notebook: API reference](https://github.com/lfnovo/open-notebook/blob/main/docs/7-DEVELOPMENT/api-reference.md) | notebook を指定する検索 API を確認。API 実行なし。 |
+| D-R2-A-OPENNOTEBOOK-MCP | [Open Notebook: MCP integration](https://github.com/lfnovo/open-notebook/blob/main/docs/5-CONFIGURATION/mcp-integration.md) | MCP が公開する source metadata update / delete 操作を確認。操作なし。 |
+| D-R2-A-QUIVR-README | [Quivr current official repository README](https://github.com/The-Vibe-Company/quivr) | 旧 repository の転送先にある現行 README の位置づけ、対応ファイルと parser の説明を確認。 |
+| D-R2-A-QUIVR-OLD-DOCS | [Quivr legacy documentation](https://core.quivr.com/en/stable/) | 現行 repository と異なる旧製品の案内として存在を確認。現行挙動の根拠には使用していない。 |
+
+### 第2次: クラウド検索・検索エンジン
+
+| ID | 一次資料 | 今回の確認範囲 |
+|---|---|---|
+| D-R2-R-GLEAN | [Glean: How connectors power the Glean experience](https://docs.glean.com/connectors/connectors-power-glean) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-VECTARA-KNOWLEDGE | [Vectara: Knowledge](https://docs.vectara.com/docs/platform-architecture/knowledge) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-VECTARA-INTEGRATIONS | [Vectara: Integrations / Where permissions live](https://docs.vectara.com/docs/agents/integrations) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-BEDROCK | [Amazon Bedrock Knowledge Bases overview](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-BEDROCK-SYNC | [Amazon Bedrock Managed Knowledge Bases: Sync a data source](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-sync.html) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-KENDRA | [Amazon Kendra: Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-GOOGLE-RAG | [RAG Engine on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-GOOGLE-SEARCH | [Google Agent Search overview and product name terminology](https://docs.cloud.google.com/generative-ai-app-builder/docs) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-GOOGLE-ACL | [Google Agent Search: Set up data source access control](https://docs.cloud.google.com/generative-ai-app-builder/docs/data-source-access-control) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-AZURE | [Azure AI Search: Agentic retrieval overview](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-AZURE-RETRIEVE | [Azure AI Search: Query Knowledge Base via API or MCP](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-retrieve) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-SNOWFLAKE | [Snowflake Cortex Search overview](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-SNOWFLAKE-ACCESS | [Snowflake: Query a Cortex Search Service / Access control requirements](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/query-cortex-search-service) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-DATABRICKS | [Databricks AI Search overview (AWS)](https://docs.databricks.com/aws/en/ai-search/ai-search) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-DATABRICKS-ABAC | [Databricks: ABAC requirements, quotas and limitations (AWS)](https://docs.databricks.com/aws/en/data-governance/unity-catalog/abac/requirements) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-ELASTIC-HYBRID | [Elasticsearch: Hybrid search](https://www.elastic.co/docs/solutions/search/hybrid-search) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-ELASTIC-DLS | [Elasticsearch content connectors: How DLS works](https://www.elastic.co/docs/reference/search-connectors/es-dls-overview) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-ELASTIC-LIFECYCLE | [Elasticsearch connector release notes: Enterprise Search discontinued in 9.0](https://www.elastic.co/docs/reference/search-connectors/release-notes) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-OPENSEARCH-HYBRID | [OpenSearch: Hybrid search](https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/index/) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-OPENSEARCH-DLS | [OpenSearch: Document-level security](https://docs.opensearch.org/latest/security/access-control/document-level-security/) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-VESPA | [Vespa hybrid search](https://docs.vespa.ai/en/learn/tutorials/hybrid-search) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+| D-R2-R-VESPA-DOCUMENT | [Vespa: /document/v1 API guide](https://docs.vespa.ai/en/writing/document-v1-api-guide.html) | 公式文書の本文の関連節を確認。コード監査、サービスAPI実行、性能再現なし。 |
+
+### 第2次: 知識・保存基盤
+
+| ID | 一次資料 | 今回の確認範囲 |
+|---|---|---|
+| D-R2-S-JENA-FUSEKI | [Apache Jena Fuseki documentation](https://jena.apache.org/documentation/fuseki2/) | FusekiのSPARQL 1.1 query/update、Graph Store protocol、TDB連携と公開形態を確認。実行なし。 |
+| D-R2-S-JENA-TDB2 | [Apache Jena TDB2](https://jena.apache.org/documentation/tdb2/) | TDB2がJena API用の永続RDF storeであることを確認。 |
+| D-R2-S-JENA-TXN | [Apache Jena TDB transactions](https://jena.apache.org/documentation/tdb/tdb_transactions.html) | TDB2のserializable transaction、reader/writer構成、multi-JVM制約を確認。 |
+| D-JENARULE | [Apache Jena inference](https://jena.apache.org/documentation/inference/) | Jena reasonerの層構成とRDFS・rule reasonerの種別を確認。 |
+| D-R2-S-RDF4J-REPO | [The Repository API - Eclipse RDF4J](https://rdf4j.org/documentation/programming/repository/) | Repository/Sailの役割、RDFS inferencerの組成と性能注意を確認。 |
+| D-RDF4J | [Validation With SHACL - Eclipse RDF4J](https://rdf4j.org/documentation/programming/shacl/) | transaction commit時のSHACL validation、shape更新時再検査、feature scopeを確認。 |
+| D-OXI | [Oxigraph repository](https://github.com/oxigraph/oxigraph) | Rust DB library、Python/JavaScript bindings、standalone SPARQL server、公開される標準対応を確認。 |
+| D-R2-S-OXIGRAPH-ARCH | [Oxigraph architecture wiki](https://github.com/oxigraph/oxigraph/wiki/Architecture) | v0.4を対象とする古いarchitecture説明を確認。current releaseへの挙動外挿には使わない。 |
+| D-R2-S-VIRTUOSO-REPO | [Virtuoso Open Source repository](https://github.com/openlink/virtuoso-opensource) | 製品のオープンソースrepositoryの存在と公開位置を確認。ライセンス監査なし。 |
+| D-R2-S-VIRTUOSO-INFERENCE | [Virtuoso inference rules and reasoning](https://docs.openlinksw.com/virtuoso/rdfsparqlrule/) | rule-baseによるquery inferenceと物理保存quads/virtual tripleの適用境界、対応語彙を確認。 |
+| D-R2-S-VIRTUOSO-VIEWS | [Virtuoso Linked Data Views over RDBMS](https://docs.openlinksw.com/virtuoso/rdfviewsrdbms/) | SQL-to-RDF mappingを動的に提供するLinked Data Viewsの説明を確認。 |
+| D-R2-S-AG-DOCS | [AllegroGraph 9.0.3 documentation index](https://agraph.franz.com/agraph/support/documentation/) | 公開文書の版表示とreasoning、temporal、triple attributes、PIT recovery項目を確認。 |
+| D-R2-S-AG-MATERIALIZER | [AllegroGraph materialized reasoner](https://agraph.franz.com/agraph/support/documentation/materializer.html) | 動的RDFS++とOWL 2 RL materializationの相違、データ更新後の再materialization注意を確認。 |
+| D-R2-S-AG-TEMPORAL | [AllegroGraph SPARQL magic properties](https://agraph.franz.com/agraph/support/documentation/magic-properties.html) | Temporal magic propertiesの範囲とquery時の利用を確認。 |
+| D-R2-S-AG-TRIPLE-ATTR | [AllegroGraph triple attributes](https://agraph.franz.com/agraph/support/documentation/triple-attributes.html) | 文字列属性の付与時点と、既存tripleでは変更できない仕様を確認。 |
+| D-R2-S-AG-PITR | [AllegroGraph point-in-time recovery](https://agraph.franz.com/agraph/support/documentation/point-in-time-recovery.html) | backupとtransaction logを使う運用上のrecoveryを確認。claim semanticsとは区別。 |
+| D-R2-S-FLUREE-README | [Fluree DB README](https://github.com/fluree/db/blob/main/README.md) | 公開READMEのRDF、immutable history、branching、reasoning、SHACL機能の説明を確認。実行なし。 |
+| D-R2-S-FLUREE-REASONING | [Fluree reasoning and inference](https://fluree.github.io/db/concepts/reasoning.html) | RDFS、OWL 2 QL query rewriting、OWL 2 RL materialization、Datalog modeの説明を確認。 |
+| D-R2-S-FLUREE-OWL | [Fluree OWL and RDFS support reference](https://fluree.github.io/db/reference/owl-rdfs-support.html) | 対応constructとowl:sameAs/hasKeyを含む公開reasoning scopeを確認。 |
+| D-R2-S-FLUREE-TIME | [Fluree time travel patterns](https://fluree.github.io/db/guides/cookbook-time-travel.html) | transaction number/timeによるsnapshot queryとassert/retract historyの説明を確認。 |
+| D-R2-S-FLUREE-ANNOTATIONS | [Fluree edge annotations](https://fluree.github.io/db/guides/cookbook-edge-annotations.html) | source/confidence等のstatement annotationの書き込みモデルを確認。自動citation生成とは解釈しない。 |
+| D-R2-S-FLUREE-TXN | [Fluree transaction overview](https://fluree.github.io/db/transactions/overview.html) | assert/retract transaction、atomicity、immutability、transaction timeとmetadataの説明を確認。 |
+| D-R2-S-ANZO-COMPONENTS | [Graph Studio platform components](https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/components.htm) | Graph Studio Server、Graph Lakehouse等のcomponentと役割を確認。 |
+| D-R2-S-ANZO-STORAGE | [Graph Studio graph storage concepts](https://docs.cambridgesemantics.com/anzo/userdoc/data-storage.htm) | embedded metadata graph storeとGraph Lakehouse graph storeの分担を確認。 |
+| D-R2-S-ANZO-VERSIONS | [Creating and restoring Graph Studio artifact versions](https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/backups.htm) | artifact/related entities/metadata graphのsnapshot、compare、restoreを確認。 |
+| D-R2-S-ANZO-GLOSSARY | [Graph Studio glossary](https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/glossary.htm) | dataset catalogが変換工程・操作metadataを記録するという公式定義を確認。 |
+| D-R2-S-ANZO-EDITIONS | [Limiting Graph Studio dataset editions](https://docs.cambridgesemantics.com/anzo/v2025.0/userdoc/edition-limit.htm) | dataset editionの保存数制限と古いeditionの削除を確認。 |
+| D-R2-S-DATOMIC-OVERVIEW | [Datomic overview](https://docs.datomic.com/datomic-overview.html) | datom、assert/retract、transaction entity、歴史的database valueの公開説明を確認。 |
+| D-R2-S-DATOMIC-HISTORY | [Datomic history tutorial](https://docs.datomic.com/client-tutorial/history.html) | as-ofとhistory query、assertion/retractionの例を確認。 |
+| D-R2-S-DATOMIC-FILTERS | [Datomic database filters](https://docs.datomic.com/reference/filters.html) | as-of, since, history各viewの相違と履歴APIを確認。 |
+| D-R2-S-DATOMIC-TXDATA | [Datomic transaction data reference](https://docs.datomic.com/transactions/transaction-data-reference.html) | transaction entityへpurpose/source/provenance metadataを記録する公開例を確認。 |
+| D-R2-S-DATOMIC-ACID | [Datomic ACID transactions](https://docs.datomic.com/transactions/acid.html) | ACIDとserialized writesに関する公式説明を確認。 |
+| D-R2-S-DOLT-VERSION | [Dolt version control](https://www.dolthub.com/docs/sql-reference/version-control/) | SQL上のcommit graph、branch、merge、diff機能の説明を確認。 |
+| D-R2-S-DOLT-HISTORY | [Querying Dolt database history](https://www.dolthub.com/docs/sql-reference/version-control/querying-history/) | AS OF、timestamp、diffと通常SQL COMMITがDolt commitを作らない仕様を確認。 |
+| D-R2-S-COZO-README | [CozoDB repository README](https://github.com/cozodb/cozo) | Datalog relational/graph/vector DBの概要、pre-1.0互換性注意を確認。 |
+| D-R2-S-COZO-TIME | [CozoDB v0.7 time travel](https://docs.cozodb.org/en/latest/timetravel.html) | Validityキーのassert/retractとvalid-time queryの意味を確認。 |
+| D-R2-S-COZO-RELEASES | [CozoDB releases](https://github.com/cozodb/cozo/releases) | 公式releaseページの最新表記v0.7.6と公開日を確認。活動状態全体の保証ではない。 |
+| D-R2-S-MNESTIC-README | [Mnestic repository README](https://github.com/shuruheel/mnestic) | Cozo-derived forkと公開機能概要を確認。runtime/build/testは行っていない。 |
+| D-R2-S-MNESTIC-BITEMPORAL | [Mnestic bitemporality specification](https://github.com/shuruheel/mnestic/blob/main/docs/specs/bitemporality.md) | Validityとengine-assigned TxTime、二時制query/retraction/history仕様を確認。 |
+| D-R2-S-MNESTIC-PROVENANCE | [Mnestic provenance semirings specification](https://github.com/shuruheel/mnestic/blob/main/docs/specs/provenance-semirings.md) | semiring、k-best derivation、proof-chain表現の公開仕様を確認。 |
+| D-R2-S-MNESTIC-CHANGELOG | [Mnestic fork changelog](https://github.com/shuruheel/mnestic/blob/main/CHANGELOG-FORK.md) | reconcileによる再計算、未自動化のtruth maintenance、TxTimeとの非互換機能等を確認。 |
+| D-R2-S-SURREAL-RELATE | [SurrealDB RELATE statement](https://surrealdb.com/docs/reference/query-language/statements/relate) | property graph relation recordの作成方法を確認。 |
+| D-R2-S-SURREAL-SELECT | [SurrealDB SELECT statement](https://surrealdb.com/docs/reference/query-language/statements/select) | VERSION historical queryのbackend/versioned条件とSurrealMX制約を確認。 |
+| D-R2-S-SURREAL-START | [SurrealDB start command](https://surrealdb.com/docs/reference/cli/surrealdb-cli/commands/start) | RocksDB/SurrealKVのversioned/retention設定とin-memory制約を確認。 |
+| D-R2-S-LADYBUG | [LadybugDB repository](https://github.com/LadybugDB/ladybug) | embedded property graph, Cypher, serializable ACID transaction、formerly known as Kuzuの説明を確認。 |
+| D-R2-S-KUZU | [Kuzu repository](https://github.com/kuzudb/kuzu) | 旧repositoryのarchive状態を確認。Ladybugとの機能同一性は仮定しない。 |
+| D-LS-MINIGRAF-README | [Minigraf repository README](https://github.com/project-minigraf/minigraf) | embedded Datalog graphとtransaction-time/valid-timeの公開説明を確認。性能・実行は未検証。 |
+| D-R2-S-MINIGRAF-RELEASES | [Minigraf releases](https://github.com/project-minigraf/minigraf/releases) | v2.0.2 release時点と既知issue #371、修正予定versionに関する情報を確認。 |
+| D-R2-S-OPENREFINE-API | [OpenRefine Reconciliation API](https://openrefine.org/docs/technical-reference/reconciliation-api) | API v0.2のname/type/property候補検索とentity identifierの役割を確認。 |
+| D-R2-S-OPENREFINE-MANUAL | [OpenRefine reconciling manual](https://openrefine.org/docs/manual/reconciling) | 半自動の人手確定、候補判断破棄、照合データ消去・元値復元を確認。 |
+| D-R2-S-SPLINK-README | [Splink repository](https://github.com/moj-analytical-services/splink) | Python probabilistic record linkage libraryと現行major releaseの説明を確認。 |
+| D-R2-S-SPLINK-MODEL | [Splink Fellegi-Sunter model guide](https://moj-analytical-services.github.io/splink/topic_guides/theory/fellegi_sunter.html) | m/u/事前確率、比較feature、match weight/probabilityと仮定を確認。 |
+| D-R2-S-SPLINK-INFERENCE | [Splink inference API](https://moj-analytical-services.github.io/splink/api_docs/inference.html) | blockingしたペアのscore/probability予測APIを確認。 |
+| D-R2-S-SPLINK-CLUSTER | [Splink clustering API](https://moj-analytical-services.github.io/splink/api_docs/linker_clustering.html) | match probability/weight thresholdからconnected-component clusterを作る仕様を確認。 |
+| D-LS-RECALLGRAPH-README | [RecallGraph repository README](https://github.com/RecallGraph/RecallGraph) | archive、transaction-time中心の過去状態照会、valid-time未出荷の説明を確認。既存調査候補。 |
+| D-R2-S-AGE | [Apache AGE repository README](https://github.com/apache/age) | PostgreSQL extensionとしてSQL/openCypher graph機能を確認。推論・来歴・Fact-timeは未調査。 |
+| D-R2-S-KYZO | [KyzoDB CozoDB fork record](https://github.com/kyzodb/kyzo/blob/main/FORK.md) | CozoDB fork系譜とfirst-witness provenance等の主張を確認。実装、撤回挙動、releaseは深掘り保留。 |
+
+## 2026-09-29 の最先端研究追加調査
+
+実装公開を条件にしない研究を比較した。以下は今回の確認範囲であり、過去の確認を上書きしない。手法・公開状態・探索記録は[研究台帳](evidence/frontier-research.json)、本文は[最先端研究への拡張](papers.md#最先端研究への拡張)を参照。
+
+| ID | 一次資料 | 今回の確認範囲 |
+|---|---|---|
+| P-F3-MOOSEDEV | [Ontology-Grounded Project Memory for Coding Agents](https://arxiv.org/html/2608.13662v1) | 本文の構成・評価・導入制約を確認。追試なし。 |
+| D-F3-MOOSEDEV | [Trivyn/moosedev — open source and MOOSE boundary](https://github.com/Trivyn/moosedev) | READMEの公開範囲、非公開engineとsource build条件を確認。コード監査・実行なし。 |
+| P-F3-NEST | [Nested Episodic State Topology (NEST): A Graph-Theoretic Architecture of Cognitive States](https://arxiv.org/html/2607.06055v1) | 形式体系・比較枠・限界の関連箇所を確認。形式証明全体の検証なし。 |
+| P-F3-ENSIMEM | [EnSIMem: Entity-Structured Indexing for Long-Term Agent Memory](https://arxiv.org/html/2609.27279v2) | 手法・評価条件・ablation・制約を確認。追試なし。 |
+| D-F3-ENSIMEM | [RamonMeng/EnSIMem official repository](https://github.com/RamonMeng/EnSIMem) | 公開リポジトリとLoCoMo/LongMemEvalディレクトリの存在を確認。完全性・実行可能性・性能は未検証。 |
+| P-F3-WORLDDB | [WorldDB: A Vector Graph-of-Worlds Memory Engine with Ontology-Aware Write-Time Reconciliation](https://arxiv.org/html/2604.18478v1) | データモデル・更新handler・評価条件・再現性付録を確認。本文内の条件/数値の不整合を記録し、性能順位の根拠には不採用。 |
+| P-F3-FILESYSTEM | [Filesystem-Based Memory for LLM Agents: Organization, Evolution, and Sustainability](https://arxiv.org/html/2607.26637v1) | arXiv HTML本文を確認。方式、実験、主要結果、結論、ベンチマークのサンプル範囲と限界を確認。コードは実行していない。 |
+| P-F3-REFIND | [When Your Agent Opens the Chat App: Agent-Controlled Search over Raw Chat Logs Rivals Structured Memory](https://arxiv.org/html/2608.12888v2) | arXiv HTML v2の本文、比較表、アブレーション、評価条件と付録を確認。報告値は著者の実験値として扱い、追試していない。 |
+| P-F3-MEMO | [MEMO: Multimodal Evidence Memory Organization for Long-Horizon LLM Agents](https://arxiv.org/html/2609.07471v1) | arXiv HTML v1の本文を確認。方法、4ベンチマークの結果、アブレーション、公開状態を確認。著者はコメント欄でworking in progressと記載。 |
+| P-F3-MEMCON | [Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agents](https://arxiv.org/html/2607.13591v1) | arXiv HTML v1の要旨、MDP状態・行動の定義、評価概要、公開コードの記載を確認。バックエンド実装を実行していない。 |
+| P-F3-MEMCON-REPO | [MemCon official GitHub repository](https://github.com/ericjiang18/MemCon) | GitHub webで公開状態、README、実ファイルへの直リンクを確認。ファイルの存在と本文表示まで確認し、コード監査・実行はしていない。参照したブランチはmainで、commit SHAは固定できていない。 |
+| P-F3-LRN-MIRAS | [It's All Connected: A Journey Through Test-Time Memorization, Attentional Bias, Retention, and Online Optimization](https://arxiv.org/html/2504.13173v1) | 方式、実験設定・結果、制約を確認。追試・コード実行なし。 |
+| P-F3-LRN-MIRAS-ICLR | [ICLR 2026 poster: It's All Connected](https://iclr.cc/virtual/2026/poster/10008141) | 公式ポスター掲載と論文リンクを確認。 |
+| P-F3-LRN-MIRAS-GOOGLE | [Titans + MIRAS: Helping AI have long-term memory](https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/) | MIRASの紹介と一次論文リンクを確認。 |
+| P-F3-LRN-NEST | [Nested Learning: The Illusion of Deep Learning Architectures](https://arxiv.org/html/2512.24695v1) | 枠組み、HOPE/CMS、評価課題、議論を確認。実装・追試なし。 |
+| P-F3-LRN-NEST-NEURIPS | [Nested Learning: The Illusion of Deep Learning Architectures](https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html) | NeurIPS 2025 Main Conference掲載と概要を確認。 |
+| P-F3-LRN-NEST-GOOGLE | [Introducing Nested Learning: A new ML paradigm for continual learning](https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/) | NeurIPS発表との説明、HOPEの紹介、論文リンクを確認。 |
+| P-F3-LRN-MEMLAYERS | [Memory Layers at Scale](https://arxiv.org/html/2412.09764v2) | 方式、拡大条件、ベンチマーク、制約を確認。コード実行なし。 |
+| P-F3-LRN-MEMLAYERS-ICML | [Memory Layers at Scale](https://proceedings.mlr.press/v267/berges25a.html) | ICML 2025掲載情報と論文リンクを確認。 |
+| P-F3-LRN-MEMLAYERS-REPO | [facebookresearch/memory](https://github.com/facebookresearch/memory) | README、公開実装と学習データ記載を確認。実行・checkpoint全ファイル監査なし。 |
+| P-F3-LRN-SMF | [Continual Learning via Sparse Memory Finetuning](https://arxiv.org/html/2510.15103v1) | 方式、QA評価条件、忘却値、制約とartifact記載を確認。追試なし。 |
+| P-F3-LRN-SMF-OPENREVIEW | [Continual Learning via Sparse Memory Finetuning — OpenReview submission PDF](https://openreview.net/pdf?id=LGo7U1m24L) | 公開PDFの審査状態表記を確認。現在の採否を示す資料としては扱わない。 |
+| P-F3-LRN-SMF-AUTHOR | [Jessy Lin — Publications](https://jessylin.com/) | 当該論文のpreprint表示とリンクを確認。 |
+| P-F3-LRN-SMF-ICLR | [ICLR 2026 Papers](https://iclr.cc/virtual/2026/papers.html) | 完全題名を検索し、採択掲載を確認できないことを記録。ページ全体の独立照合ではない。 |
+| P-F3-LRN-SMF-COMMUNITY | [dtunai/continual_learning_via_sparse_memory_finetuning](https://github.com/dtunai/continual_learning_via_sparse_memory_finetuning) | READMEの実装説明を確認。コードレビュー、実行、完全性確認なし。 |
+| P-F3-LRN-E2E | [End-to-End Test-Time Training for Long Context](https://arxiv.org/html/2512.23675v2) | 手法、規模・長文実験、制約を確認。追試なし。 |
+| P-F3-LRN-E2E-REPO | [test-time-training/e2e](https://github.com/test-time-training/e2e) | READMEの実装・データbucket・checkpoint配布記載を確認。取得・実行なし。 |
+| P-F3-LRN-SDM | [Sparse Delta Memory: Scaling the State of Linear RNNs through Sparsity](https://arxiv.org/html/2607.07386v1) | 方式、規模・評価条件、制約を確認。追試なし。 |
+| P-F3-LRN-SDM-REPO | [facebookresearch/sparse-delta-memory](https://github.com/facebookresearch/sparse-delta-memory) | READMEのreference implementation、kernel、training workflowを確認。実行・checkpoint全件監査なし。 |
+| P-FR | [Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs](https://arxiv.org/abs/2609.10413v1) | 要旨・手法・評価・制約・書誌を本文確認 |
+| A-F3-FR | [Fortunate Recall codebase, benchmark and run logs](https://zenodo.org/records/20067778) | Zenodo record metadata・file inventoryを確認。取得・実行なし |
+| P-F3-STALE | [STALE: Can LLM Agents Know When Their Memories Are No Longer Valid?](https://arxiv.org/abs/2605.06527v1) | arXiv書誌・初稿日と本文の評価・公開情報を確認 |
+| P-F3-STALE-HTML | [STALE: Can LLM Agents Know When Their Memories Are No Longer Valid? (full text)](https://arxiv.org/html/2605.06527v1) | 本文の手法・評価・限界・成果物節を確認 |
+| A-F3-STALE-CODE | [STALE and CUP-Mem author repository](https://github.com/icedreamc/STALE) | READMEとrepository treeを確認。clone・実行なし |
+| A-F3-STALE-DATA | [STALE dataset](https://huggingface.co/datasets/STALEproj/STALE) | dataset card listingを確認。downloadなし |
+| P-F3-TRUST | [The Memory Trust Gap: Capability-Dependent Failures in Persistent-Memory Agents](https://arxiv.org/abs/2609.01852v1) | arXiv書誌・初稿日と全文の実験条件・限界を確認 |
+| P-F3-TRUST-HTML | [The Memory Trust Gap: Capability-Dependent Failures in Persistent-Memory Agents (full text)](https://arxiv.org/html/2609.01852v1) | 実験設計・結果・限界を確認 |
+| P-F3-REVOKED | [Revoked but Still Authoritative: An Empirical Study of Revocation Enforcement in Agent-Memory Systems](https://arxiv.org/abs/2609.08258v1) | arXiv書誌・初稿日と本文の評価・成果物記述を確認 |
+| P-F3-REVOKED-HTML | [Revoked but Still Authoritative: An Empirical Study of Revocation Enforcement in Agent-Memory Systems (full text)](https://arxiv.org/html/2609.08258v1) | 実験・防御・write-backを確認 |
+| A-F3-REVOKED-CODE | [Memory Rebirth Attack experimental code repository](https://github.com/VulcanLab/Memory-Rebirth-Attack) | READMEとrepository treeを確認。clone・実行なし |
+| P-F3-TEPA | [TEPA: Revoking Stale Memories for Conflict-Robust Language Agents](https://arxiv.org/abs/2608.07429v2) | arXiv書誌・初稿/改訂日と全文の方法・評価・限界を確認 |
+| P-F3-TEPA-HTML | [TEPA: Revoking Stale Memories for Conflict-Robust Language Agents (full text)](https://arxiv.org/html/2608.07429v2) | 方式・評価条件・限界を確認 |
+| P-F3-EAL | [Agent Memory Is a Surface for Endogenous Authorization Laundering](https://arxiv.org/abs/2609.01836v1) | arXiv書誌・初稿日と本文の方法・結果・限界を確認 |
+| P-F3-EAL-HTML | [Agent Memory Is a Surface for Endogenous Authorization Laundering (full text)](https://arxiv.org/html/2609.01836v1) | ベンチマーク条件・緩和策・外的妥当性の限界を確認 |
+| A-F3-EAL-CODE | [EAL-Bench author repository](https://github.com/tommasocerruti/eal-bench) | READMEのベンチマーク構成・再現範囲・結果公開条件を確認。clone・実行なし |
+| P-F3-TRACE | [TRACE: Governing Memory Validity in Evolving Multi-Agent Systems](https://arxiv.org/abs/2609.33517v1) | arXiv書誌・初稿日と全文の手法・評価・限界を確認 |
+| P-F3-TRACE-HTML | [TRACE: Governing Memory Validity in Evolving Multi-Agent Systems (full text)](https://arxiv.org/html/2609.33517v1) | return-time validity admission・評価条件・限界を確認 |
+| A-F3-TRACE-CODE | [TRACE author repository](https://github.com/xiong-wenjun/TRACE) | READMEの構成・データ依存・ライセンスを確認。clone・実行なし |

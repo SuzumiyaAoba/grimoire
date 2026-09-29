@@ -13,6 +13,8 @@
 | [dependency-inventory.json](dependency-inventory.json) | 固定コミットの manifest に宣言された依存、版、ライセンスなど             | `manifests[]` の `repository`、`commit`、`path`、`source_url`、`source_sha256`、`format`               |
 | [system-landscape.json](system-landscape.json) | 関連システム再調査の候補、従来の扱い、用途、確認の深さ、保留理由 | `systems[]`、`counts_by_group`、`supplemental_records`、`deferred_records` |
 | [landscape-searches.json](landscape-searches.json) | 分野別の代表クエリ、直接参照、選定・保留の記録 | `groups[]`。検索結果全件や順位を保存したデータではない |
+| [frontier-research.json](frontier-research.json) | 実装公開を条件にしない研究比較。手法・評価・限界、コード/重み/データの公開状態、探索と保留 | `studies[]`、`sources[]`、`searches[]`、`deferred[]`。実行再現の記録ではない |
+| [第2次調査の統合台帳](../20260929193749-related-systems-resurvey/survey-evidence.json) | 追加4分野の候補、件数、既存掲載・確認範囲と分野別台帳への参照 | `systems[]`、`counts`、`groups[]`。前回50系統の台帳とは別の調査記録 |
 
 出典の種類によって項目は異なります。論文には `arxiv_version` や `submission_history`、コードには `repository`、`commit`、`path`、`sha256` などがあります。依存宣言も manifest の形式に応じて `runtime`、`optional`、`development`、`build`、`peer` などに分かれます。
 
@@ -36,6 +38,10 @@
 同日の[関連システム再調査](../systems/extended-landscape.md)では、四領域の追加・深掘り候補を `system-landscape.json` に記録した。これは今回の比較範囲であり、既存の全システムを重ねて数えた総製品数ではない。研究のみ・探索保留の記録も区別する。資料と選択コードは既存台帳へ追記したが、`dependency-inventory.json` の全候補・全推移依存の監査を更新したものではない。
 
 ## 本文から根拠を辿る
+
+[最先端研究の追加調査](../papers.md#最先端研究への拡張)では、`frontier-research.json`の各研究に初稿日、確認版、査読情報、既存掲載、手法、著者の評価、限界、設計への示唆を記録します。`artifact_status`はコード・重み・データを別々に持ち、根拠URLと確認範囲を伴います。「非公開と明記」「公開予定」「今回の確認範囲で見つからない」を区別し、理論提案の未実装と、実装はあるが配布されていない状態も混同しません。同じURLの出典は`sources.json`の既存IDと過去の確認記録を保ち、今回の確認だけを追加します。
+
+[第2次調査](../20260929193749-related-systems-resurvey/index.mdx)の分野別JSONは文書と同じディレクトリに置いた。出典はこのディレクトリの `sources.json` にも統合している。主比較の候補、隣接ツール、探索保留は分けて集計し、過去資料との単純な件数の加算は行わない。
 
 1. 本文の参照 ID（例: `C-M0`）を[資料台帳](../sources.md)または `sources.json` の `sources[].id` で探します。
 2. `url` と `review_depth` を確認します。コードの出典なら `repository`、`commit`、`path` を使い、`repository-snapshots.json` の対象リポジトリと `retrieved_files` に対応させます。

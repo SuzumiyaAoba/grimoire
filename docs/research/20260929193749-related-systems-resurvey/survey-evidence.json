@@ -1,0 +1,1404 @@
+{
+  "accessed": "2026-09-29",
+  "survey_id": "20260929193749-related-systems-resurvey",
+  "scope": "関連システム第2次調査: 既存資料との差分を役割別に確認",
+  "counting_unit": "primary systemsの独立系列。研究系列・製品機能・基盤を含み、ブランドやAPIごとの件数ではない。",
+  "counting_rules": [
+    "newは既存研究資料全体への新規掲載、expandedは概要・候補・保留等からの追加確認。",
+    "MemoryLLM/M+等の同一研究系列と製品の旧称は個別節で扱いを示す。",
+    "supplementalとdeferred_recordsはprimaryの件数へ加えない。",
+    "前回50系統と単純加算しない。"
+  ],
+  "counts": {
+    "primary": 54,
+    "new": 45,
+    "expanded": 9,
+    "sources_referenced": 142,
+    "new_source_records": 136,
+    "supplemental": 3,
+    "deferred_records": 13,
+    "by_group": {
+      "memory": 19,
+      "applications": 9,
+      "search": 12,
+      "semantic": 14
+    },
+    "by_entry_type": {
+      "research-system": 10,
+      "research-controller": 1,
+      "research-library": 1,
+      "model-memory": 3,
+      "agent-architecture": 2,
+      "cognitive-architecture": 2,
+      "RAG アプリケーション": 4,
+      "個人用検索・assistant": 1,
+      "RAG アプリケーション・platform": 3,
+      "個人用検索・research notebook": 1,
+      "system": 12,
+      "framework-and-server": 2,
+      "library-and-server": 1,
+      "database-product": 7,
+      "platform": 1,
+      "database-fork": 1,
+      "database-engine": 2
+    }
+  },
+  "groups": [
+    {
+      "id": "memory",
+      "label": "メモリー・学習",
+      "evidence": "memory-evidence.json",
+      "document": "memory-and-learning.mdx",
+      "counts": {
+        "primary": 19,
+        "sources": 36,
+        "new": 16,
+        "expanded": 3
+      },
+      "search_records": 17
+    },
+    {
+      "id": "applications",
+      "label": "RAGアプリ",
+      "evidence": "apps-evidence.json",
+      "document": "rag-applications.mdx",
+      "counts": {
+        "primary": 9,
+        "sources": 27,
+        "new": 9,
+        "expanded": 0
+      },
+      "search_records": 3
+    },
+    {
+      "id": "search",
+      "label": "クラウド検索・検索エンジン",
+      "evidence": "search-evidence.json",
+      "document": "managed-search.mdx",
+      "counts": {
+        "primary": 12,
+        "sources": 22,
+        "new": 11,
+        "expanded": 1
+      },
+      "search_records": 12
+    },
+    {
+      "id": "semantic",
+      "label": "知識・保存基盤",
+      "evidence": "semantic-evidence.json",
+      "document": "knowledge-and-storage.mdx",
+      "counts": {
+        "primary": 14,
+        "sources": 57,
+        "new": 9,
+        "expanded": 5
+      },
+      "search_records": 9
+    }
+  ],
+  "systems": [
+    {
+      "id": "R2-M-S-GAM-HIERARCHICAL",
+      "name": "GAM-Hierarchical: Hierarchical Graph-based Agentic Memory",
+      "category": "graph-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-GAM"
+      ],
+      "role": "局所的なイベント進行グラフと大域的な話題連想ネットワークを分け、エピソードを要約・横断検索する研究方式",
+      "limitations": "意味境界判定にLLMを使う。確信度は正しさの保証ではなく、訂正・削除・監査履歴の運用仕様を確認できない。",
+      "review_depth": "論文本文の関連節を確認。実装監査、サービス実行、評価再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-GAM-DEEP-RESEARCH",
+      "name": "General Agentic Memory via Deep Research (GAM)",
+      "category": "just-in-time-research-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-GAM-DR",
+        "D-R2-M-GAM-DR-REPO"
+      ],
+      "role": "軽量メモリーを索引として全セッションをページ保存し、要求時にResearcherが計画・検索・統合するJIT型メモリー",
+      "limitations": "同略称の階層グラフGAMとは別方式。履歴保持と取得ページの出力は説明されるが、訂正・削除手順は確認できない。repo READMEのみ確認。",
+      "review_depth": "v1論文本文とrepo README概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMR3",
+      "name": "MemR³ / MemR3",
+      "category": "retrieval-controller",
+      "entry_type": "research-controller",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMR3",
+        "D-R2-M-MEMR3-REPO"
+      ],
+      "role": "検索・内省・回答を制御し、取得証拠と不足情報を追跡する既存メモリーストア向け制御層",
+      "limitations": "検索時の証拠追跡は永続的な出典台帳、主張の改訂履歴、削除伝播を意味しない。",
+      "review_depth": "論文本文とrepo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-NEMORI",
+      "name": "Nemori",
+      "category": "adaptive-memory-distillation",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-NEMORI",
+        "D-R2-M-NEMORI-REPO"
+      ],
+      "role": "対話を時間アンカー付きエピソードに分割し、予測と観察の差から保持する事実を蒸留する",
+      "limitations": "現行repoは旧MVPから書き換えられている。主張の改訂履歴、撤回後の派生削除、監査ログは確認できない。",
+      "review_depth": "最新版論文本文の関連節とrepo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMINSIGHT",
+      "name": "MemInsight",
+      "category": "attribute-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMINSIGHT",
+        "D-R2-M-MEMINSIGHT-REPO"
+      ],
+      "role": "文脈・実体の属性を抽出し、属性または埋め込み類似性によってメモリーを検索する",
+      "limitations": "属性の根拠確認、誤属性の訂正・削除、派生データへの伝播は確認できない。論文の個別評価は一般的な正しさ保証ではない。",
+      "review_depth": "論文の手法・制約とrepo README概要を確認。コード監査・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMTREE-2024",
+      "name": "MemTree (Rezazadeh et al., 2024)",
+      "category": "semantic-hierarchy-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMTREE"
+      ],
+      "role": "入力内容を意味的な階層木へオンライン統合し、上位要約や埋め込みから検索する方式",
+      "limitations": "要約の誤りの上位伝播や、個別削除後の要約再構成が不明。独自の公式実装を確認できていない。",
+      "review_depth": "論文本文の方式と制約を確認。実装・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMFOREST-2026",
+      "name": "MemForest (Chen et al., Concyclics implementation, 2026)",
+      "category": "temporal-graph-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMFOREST",
+        "D-R2-M-MEMFOREST-REPO"
+      ],
+      "role": "正規事実とスコープ別時間木・派生索引を分離し、情報源撤回時の事実・ノード削除と過去状態検索を記述する",
+      "limitations": "確認は論文とrepo説明の範囲。情報源の真正性、真偽判定、削除後の独立監査証跡まで保証するとは確認できない。",
+      "review_depth": "論文v3の関連節とrepo概要を確認。コード監査・実行なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-ARIGRAPH",
+      "name": "AriGraph",
+      "category": "episodic-semantic-graph",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-ARIGRAPH",
+        "D-R2-M-ARIGRAPH-REPO"
+      ],
+      "role": "環境観察をエピソードとして保持し、そこから抽出する意味的事実グラフを更新する",
+      "limitations": "主な対象はゲーム等の対話環境。エッジ置換は一般的な会話知識の出典履歴・削除保証ではない。",
+      "review_depth": "論文本文とrepo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-AGEMEM",
+      "name": "AgeMem",
+      "category": "learned-memory-management",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-AGEMEM",
+        "D-R2-M-AGEMEM-REPO"
+      ],
+      "role": "強化学習により長期・短期メモリー操作を選び、長期項目の追加・更新・削除や短期文脈の検索・要約を行う",
+      "limitations": "更新は項目を置き換える操作として説明され、旧値の監査保存や情報源の追跡は確認できない。",
+      "review_depth": "論文v3本文と著者repo概要を確認。実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMBANK",
+      "name": "MemoryBank (Zhong et al., 2023)",
+      "category": "profile-and-episodic-memory",
+      "entry_type": "research-system",
+      "prior_coverage": "既存概要から深化",
+      "source_ids": [
+        "P-R2-M-MEMBANK",
+        "D-R2-M-MEMBANK-REPO"
+      ],
+      "role": "時刻付き対話、日次・全体イベント要約、人物像を併用し、想起強化と時間減衰を行う研究方式",
+      "limitations": "減衰・想起強度は事実訂正とは異なる。主張単位の来歴、版履歴、完全削除伝播は確認できない。Google Agent Platform Memory Bankとは別。",
+      "review_depth": "既存の要旨級記載を論文本文とrepo概要で深化。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMENGINE",
+      "name": "MemEngine",
+      "category": "memory-library-framework",
+      "entry_type": "research-library",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMENGINE",
+        "D-R2-M-MEMENGINE-REPO"
+      ],
+      "role": "複数のメモリー方式を構成・差し替えできる研究ライブラリ",
+      "limitations": "ライブラリ自体で一つの保存単位や訂正・来歴・削除仕様を定めるものではなく、選択モジュールに依存する。",
+      "review_depth": "論文本文の目的・構造とrepo READMEを確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-LONGMEM",
+      "name": "LongMem",
+      "category": "retrieval-augmented-model-memory",
+      "entry_type": "model-memory",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-LONGMEM"
+      ],
+      "role": "凍結モデル由来のKV表現をキャッシュし、SideNetで検索・融合して長い文脈を補助する",
+      "limitations": "利用者に紐づく事実台帳ではない。論文の公式コード短縮URLを取得できず実装未確認。",
+      "review_depth": "論文本文の構成・検索方式を確認。実装・実行なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMAGENT",
+      "name": "MemAgent",
+      "category": "long-context-compression",
+      "entry_type": "model-memory",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMAGENT",
+        "D-R2-M-MEMAGENT-REPO"
+      ],
+      "role": "長文をチャンク処理し、後続回答に必要な内容を固定長の自然言語メモリーへ逐次圧縮する",
+      "limitations": "タスク内の文脈圧縮が主眼。永続的な主張来歴、版更新、個別削除を確認できない。",
+      "review_depth": "論文本文とrepo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-MEMORYLLM",
+      "name": "MemoryLLM / M+",
+      "category": "parametric-memory",
+      "entry_type": "model-memory",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-MEMORYLLM",
+        "P-R2-M-MPLUS",
+        "D-R2-M-MEMORYLLM-REPO"
+      ],
+      "role": "Transformer内部の潜在記憶プールを更新し、M+では検索機構を加える同系列のモデル方式",
+      "limitations": "同系列として一件計上。ユーザー可読の出典付き主張、版履歴、選択的な事実削除を提供するとは確認できない。M+は要旨とrepo概要のみ確認。",
+      "review_depth": "MemoryLLM本文、M+要旨、repo概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-GENAGENT",
+      "name": "Generative Agents",
+      "category": "experience-reflection-architecture",
+      "entry_type": "agent-architecture",
+      "prior_coverage": "既存概要から深化",
+      "source_ids": [
+        "P-R2-M-GENAGENT",
+        "D-R2-M-GENAGENT-REPO"
+      ],
+      "role": "経験ログを想起し、reflectionを作って計画へ渡す仮想エージェント研究アーキテクチャ",
+      "limitations": "仮想社会の行動研究であり、個人知識の訂正・削除・出典管理を担うサービスではない。",
+      "review_depth": "既存の要旨級記載を本文とrepo概要で深化。コード監査・実行なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-REFLEXION",
+      "name": "Reflexion",
+      "category": "verbal-experience-learning",
+      "entry_type": "agent-architecture",
+      "prior_coverage": "既存概要から深化",
+      "source_ids": [
+        "P-R2-M-REFLEXION",
+        "D-R2-M-REFLEXION-REPO"
+      ],
+      "role": "環境フィードバックを言語化して、後続のタスク試行で読むエピソード記憶へ追加する",
+      "limitations": "タスク経験の再利用が主眼。恒久知識の根拠追跡、反省文の失効・撤回仕様は確認できない。著者repoページは取得できず。",
+      "review_depth": "本文の方式を確認し既存概要を深化。repoコード・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-EXPEL",
+      "name": "ExpeL",
+      "category": "experience-reuse",
+      "entry_type": "research-system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "P-R2-M-EXPEL",
+        "D-R2-M-EXPEL-REPO"
+      ],
+      "role": "複数タスクの軌跡から自然言語の洞察・経験を抽出し、後続タスクで再利用する",
+      "limitations": "抽出洞察の原軌跡への依存、矛盾時の改訂、削除伝播は確認できない。",
+      "review_depth": "論文本文とrepo README概要を確認。コード監査・実行・再現なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-SOAR",
+      "name": "Soar semantic and episodic memory",
+      "category": "cognitive-architecture",
+      "entry_type": "cognitive-architecture",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-M-SOAR-SEMANTIC",
+        "D-R2-M-SOAR-EPISODIC"
+      ],
+      "role": "状況非依存の意味記憶とエージェント経験系列のエピソード記憶を分ける認知アーキテクチャ",
+      "limitations": "LLM向けの完成済みメモリー製品ではない。選定したマニュアル節から一般的な主張訂正・削除保証は確認できない。",
+      "review_depth": "公式マニュアルの関連節を確認。動作検証・実装比較なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-M-S-OPencog-HYPERON",
+      "name": "OpenCog Hyperon / AtomSpace",
+      "category": "cognitive-architecture",
+      "entry_type": "cognitive-architecture",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-M-HYPERON-ATOMSPACE",
+        "D-R2-M-HYPERON-REPO"
+      ],
+      "role": "AtomSpaceをAIアルゴリズム間で知識を表現・共有する基盤とする認知アーキテクチャ研究",
+      "limitations": "分散エピソード記憶は未確立と公式wikiが記載。現行repoは実験段階で、汎用メモリー製品の保証はない。",
+      "review_depth": "公式wikiとrepo READMEを確認。コード監査・実行なし。",
+      "document": "20260929193749-related-systems-resurvey/memory-and-learning.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "memory"
+    },
+    {
+      "id": "R2-A-ANYTHINGLLM",
+      "name": "AnythingLLM",
+      "category": "self-hosted / managed document chat",
+      "entry_type": "RAG アプリケーション",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-ANYTHING-DOCS",
+        "D-R2-A-ANYTHING-API"
+      ],
+      "role": "workspace に共有する文書と thread 限定の添付を分ける文書チャット。workspace chat API は source title と利用 chunk を返す。",
+      "limitations": "再取り込み・削除後の派生物の範囲、claim の版・訂正責任は確認できていない。",
+      "review_depth": "公式 docs と OpenAPI の関連箇所を確認。実行・権限検証なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-OPENWEBUI",
+      "name": "Open WebUI",
+      "category": "self-hosted assistant / document RAG",
+      "entry_type": "RAG アプリケーション",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-OPENWEBUI-RAG",
+        "D-R2-A-OPENWEBUI-KNOWLEDGE"
+      ],
+      "role": "再利用可能な Knowledge Base、会話・モデルへの添付、focused retrieval、全文 context、native file tools を併せ持つ。directory sync の変更・削除も説明されている。",
+      "limitations": "sync の記述は製品ドキュメント上の機能説明であり、削除完了性や旧 chat citation の失効を実験していない。claim-level history は未確認。",
+      "review_depth": "公式 RAG / Knowledge docs を確認。同期・検索・引用の実行なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-KHOJ",
+      "name": "Khoj",
+      "category": "personal knowledge assistant",
+      "entry_type": "個人用検索・assistant",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-KHOJ-README",
+        "D-R2-A-KHOJ-SYNC",
+        "D-R2-A-KHOJ-SEARCH",
+        "D-R2-A-KHOJ-AGENTS"
+      ],
+      "role": "個人の notes / documents を複数 client や Notion から同期して検索し、private または public agent に接続する候補。",
+      "limitations": "同期時の削除・同名更新、主張から原文位置へ移る citation 表示は確認した docs の範囲で未確定。claim history も未確認。",
+      "review_depth": "公式 README と setup / search / agents docs を確認。同期や ACL は実行検証なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-KOTAEMON",
+      "name": "Kotaemon",
+      "category": "document RAG application",
+      "entry_type": "RAG アプリケーション",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-KOTAEMON-README",
+        "D-R2-A-KOTAEMON-USAGE"
+      ],
+      "role": "private / public collections と multi-user login を備え、PDF 上の citation highlight と relevance score を人が確認できる文書 RAG。",
+      "limitations": "既存 file の内容更新や sync / replacement 規則は確認できていない。citation 確認は主張の改訂履歴を提供するものではない。",
+      "review_depth": "公式 README と usage guide を確認。検索・更新・削除を実行していない。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-FASTGPT",
+      "name": "FastGPT",
+      "category": "team / workflow RAG platform",
+      "entry_type": "RAG アプリケーション・platform",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-FASTGPT-DATASET",
+        "D-R2-A-FASTGPT-PERMISSIONS",
+        "D-R2-A-FASTGPT-FILE-PERM",
+        "D-R2-A-FASTGPT-CITATIONS"
+      ],
+      "role": "team / group / app / dataset の権限と dataset API を持ち、回答から chunk reader で引用箇所を確認する比較候補。",
+      "limitations": "file / folder 権限は docs 上で商用版機能。原ファイル置換後の再解析、更新による古い引用・主張の失効は確認できていない。",
+      "review_depth": "公式 API と権限・citation docs を確認。権限・API の実行なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-MAXKB",
+      "name": "MaxKB",
+      "category": "knowledge-base application platform",
+      "entry_type": "RAG アプリケーション・platform",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-MAXKB-KNOWLEDGE",
+        "D-R2-A-MAXKB-APP"
+      ],
+      "role": "document / website knowledge base、segment 編集、website replace / full sync を持つ application-oriented RAG 候補。",
+      "limitations": "利用者別 ACL と原資料位置を示す citation UI は参照 docs だけでは確認できず、claim revision history も未確認。",
+      "review_depth": "公式 dataset と simple app docs を確認。取り込み・sync を実行していない。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-QANYTHING",
+      "name": "QAnything",
+      "category": "local / offline knowledge QA",
+      "entry_type": "RAG アプリケーション",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-QANYTHING-README",
+        "D-R2-A-QANYTHING-API"
+      ],
+      "role": "offline knowledge QA として、API で user_id / kb_id、file / KB 削除、chunk 更新、source_documents を扱う比較候補。",
+      "limitations": "user_id を認証・認可保証として扱えない。source preview、更新後の旧 chunk 失効、claim lifecycle は確認できていない。稼働状況も評価していない。",
+      "review_depth": "公式 README と v2 API docs を確認。API、認証境界、索引更新の実行検証なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-DOCSGPT",
+      "name": "DocsGPT",
+      "category": "source-oriented assistant / RAG platform",
+      "entry_type": "RAG アプリケーション・platform",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-DOCSGPT-HOME",
+        "D-R2-A-DOCSGPT-SOURCE-CONFIG",
+        "D-R2-A-DOCSGPT-SCOPES"
+      ],
+      "role": "Source ごとの ingestion / retrieval 設定、回答 citation、source / chunk 操作を scope で制御する API が比較できる。",
+      "limitations": "利用者・workspace ACL の詳細、置換後にどの履歴や引用が残るか、claim の訂正履歴は確認できていない。",
+      "review_depth": "公式 docs の home、per-source configuration、PAT scope を確認。source 同期・API の実行なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-OPENNOTEBOOK",
+      "name": "Open Notebook",
+      "category": "research notebook / source-grounded assistant",
+      "entry_type": "個人用検索・research notebook",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-OPENNOTEBOOK-SOURCES",
+        "D-R2-A-OPENNOTEBOOK-CITATIONS",
+        "D-R2-A-OPENNOTEBOOK-API",
+        "D-R2-A-OPENNOTEBOOK-MCP"
+      ],
+      "role": "notebook に sources と notes をまとめ、引用から source passage を確認し、検索対象を notebook_id で絞る research assistant。",
+      "limitations": "notebook 間の利用者 ACL、source 内容置換後の再解析、citation 失効や永続 claim history は確認できていない。会話での訂正は claim record の改訂とは異なる。",
+      "review_depth": "公式 user guide、citation guide、API reference、MCP docs を確認。操作・ACL 検証なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "r2-glean",
+      "name": "Glean",
+      "category": "managed-enterprise-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-GLEAN"
+      ],
+      "role": "文書・人物・権限をconnectorで取り込み、indexed/live retrievalを提供",
+      "limitations": "connectorごとの権限反映時間、原資料版の引用、削除後の残存は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-vectara",
+      "name": "Vectara",
+      "category": "managed-rag",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-VECTARA-KNOWLEDGE",
+        "D-R2-R-VECTARA-INTEGRATIONS"
+      ],
+      "role": "corpus検索、hybrid/reranking/citations、取り込みpipeline",
+      "limitations": "文書ACL metadataとquery filterの構築・同期は利用側。撤回の伝搬は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-bedrock-knowledge-bases",
+      "name": "Amazon Bedrock Knowledge Bases",
+      "category": "managed-rag",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-BEDROCK",
+        "D-R2-R-BEDROCK-SYNC"
+      ],
+      "role": "ManagedとCustomer-managedを選ぶ文書取り込み・検索・引用回答",
+      "limitations": "方式別の権限継承、同期中の版混在、graph/multimodal条件は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-amazon-kendra",
+      "name": "Amazon Kendra",
+      "category": "managed-enterprise-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-KENDRA"
+      ],
+      "role": "文書ACLとuser/group情報を用いる企業検索",
+      "limitations": "利用側の認証・認可責任、index edition差、権限反映遅延は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-google-rag-engine",
+      "name": "Google RAG Engine",
+      "category": "managed-rag",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-GOOGLE-RAG"
+      ],
+      "role": "corpus/fileへの取り込み、chunk、embedding、retrieval",
+      "limitations": "元資料ACLと削除同期、原資料revision保持をoverviewだけから保証しない",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-google-agent-search",
+      "name": "Google Agent Search (formerly Vertex AI Search)",
+      "category": "managed-enterprise-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-GOOGLE-SEARCH",
+        "D-R2-R-GOOGLE-ACL"
+      ],
+      "role": "data storeから検索・生成回答、identityと文書権限の対応",
+      "limitations": "アクセス制御のPreview表示、接続元別設定、同期時間は未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-azure-ai-search",
+      "name": "Azure AI Search / Foundry IQ",
+      "category": "managed-search-orchestration",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-AZURE",
+        "D-R2-R-AZURE-RETRIEVE"
+      ],
+      "role": "indexed/remote sourcesへの検索と根拠・activity logの返却",
+      "limitations": "GA/PreviewとAPI版を区別。indexed sourceは権限metadataと利用者identity両方が必要",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-snowflake-cortex-search",
+      "name": "Snowflake Cortex Search",
+      "category": "warehouse-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-SNOWFLAKE",
+        "D-R2-R-SNOWFLAKE-ACCESS"
+      ],
+      "role": "SQL由来のデータのhybrid検索と索引refresh",
+      "limitations": "owner rightsであり元表の利用者権限と別。削除反映、文書引用を未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-databricks-ai-search",
+      "name": "Databricks AI Search (formerly Vector Search)",
+      "category": "lakehouse-search",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-DATABRICKS",
+        "D-R2-R-DATABRICKS-ABAC"
+      ],
+      "role": "Delta SyncまたはDirect Vector Accessで更新する検索index",
+      "limitations": "元表のABAC row filter/column maskはindexの検索時に継承されないと文書に記載。実機未検証",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "cloud/service",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-elasticsearch",
+      "name": "Elasticsearch",
+      "category": "search-engine",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-ELASTIC-HYBRID",
+        "D-R2-R-ELASTIC-DLS",
+        "D-R2-R-ELASTIC-LIFECYCLE"
+      ],
+      "role": "全文/vectorのhybrid検索、content connectorとACL index",
+      "limitations": "旧Enterprise Searchの終了と区別。connector、版、提供形態、契約条件の横断保証なし",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "search-engine/self-managed-or-service; 今回配備なし",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-opensearch",
+      "name": "OpenSearch",
+      "category": "search-engine",
+      "entry_type": "system",
+      "prior_coverage": "新規掲載",
+      "source_ids": [
+        "D-R2-R-OPENSEARCH-HYBRID",
+        "D-R2-R-OPENSEARCH-DLS"
+      ],
+      "role": "search pipelineでのhybrid検索、DLS",
+      "limitations": "DLSはread対象。write権限は別。AWS managed service全体へ一般化しない",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "search-engine/self-managed-or-service; 今回配備なし",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "search"
+    },
+    {
+      "id": "r2-vespa",
+      "name": "Vespa",
+      "category": "search-engine",
+      "entry_type": "system",
+      "prior_coverage": "概要から深化",
+      "source_ids": [
+        "D-VESPA",
+        "D-R2-R-VESPA-DOCUMENT"
+      ],
+      "role": "retrievalとrankingの分離、ID指定の文書CRUDと条件付き操作",
+      "limitations": "文書更新を主張の訂正・根拠依存のtransactionと見なさない",
+      "review_depth": "公式文書の関連節。実装コード・稼働・ベンチマークは未確認。",
+      "deployment": "search-engine/self-managed-or-service; 今回配備なし",
+      "document": "20260929193749-related-systems-resurvey/managed-search.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "search"
+    },
+    {
+      "id": "R2-S-JENA-FUSEKI",
+      "name": "Apache Jena / Fuseki",
+      "category": "RDF framework and SPARQL server",
+      "entry_type": "framework-and-server",
+      "prior_coverage": "概要のみ・今回深化",
+      "source_ids": [
+        "D-R2-S-JENA-FUSEKI",
+        "D-R2-S-JENA-TDB2",
+        "D-R2-S-JENA-TXN",
+        "D-JENARULE"
+      ],
+      "role": "RDF datasetをTDB2へ永続化し、FusekiのSPARQL serverとJena reasonerを組み合わせる。",
+      "limitations": "reasoner構成と対応範囲は選択依存。TDB2ファイルは単一JVM管理であり、二時制fact historyは確認していない。",
+      "review_depth": "Fuseki/TDB2/inference/transaction公式docsの該当項を確認。実行・code reviewなし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-RDF4J",
+      "name": "Eclipse RDF4J",
+      "category": "RDF framework and Repository API",
+      "entry_type": "framework-and-server",
+      "prior_coverage": "概要のみ・今回深化",
+      "source_ids": [
+        "D-R2-S-RDF4J-REPO",
+        "D-RDF4J"
+      ],
+      "role": "Repository/Sail構成でストレージ・推論を組み、SHACL Sailでcommit時データ制約を検証する。",
+      "limitations": "推論はSail stack依存。検証はshape適合であり根拠の真偽評価ではない。大規模推論更新コストとSHACL feature subsetを要確認。",
+      "review_depth": "Repository APIとSHACL docsの構成、commit、再検証の説明を確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-OXIGRAPH",
+      "name": "Oxigraph",
+      "category": "RDF database library and server",
+      "entry_type": "library-and-server",
+      "prior_coverage": "概要のみ・今回深化",
+      "source_ids": [
+        "D-OXI",
+        "D-R2-S-OXIGRAPH-ARCH"
+      ],
+      "role": "Rust RDF store、language bindings、standalone SPARQL serverとして標準RDF/SPARQL処理を提供する。",
+      "limitations": "確認したREADMEではreasoning、evidence lineage、valid-time historyを掲げない。transaction wikiは古い対象版の記述で現行版に外挿しない。",
+      "review_depth": "official repositoryとv0.4向けarchitecture wikiを確認。API/DB実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-VIRTUOSO",
+      "name": "Virtuoso",
+      "category": "Hybrid relational and RDF database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-VIRTUOSO-REPO",
+        "D-R2-S-VIRTUOSO-INFERENCE",
+        "D-R2-S-VIRTUOSO-VIEWS"
+      ],
+      "role": "SQLとRDF/SPARQLを同一サーバーに持ち、Linked Data Viewsで関係データを仮想RDFとして公開する。",
+      "limitations": "query inferenceの対象は物理quadsであり仮想Linked Data Viewsとは異なる。公開文書のOWL/RDFS対象も限定的。",
+      "review_depth": "OpenLink公式docsのinference/Linked Data Viewsと公式repositoryを確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-ALLEGROGRAPH",
+      "name": "AllegroGraph",
+      "category": "RDF triple store",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-AG-DOCS",
+        "D-R2-S-AG-MATERIALIZER",
+        "D-R2-S-AG-TEMPORAL",
+        "D-R2-S-AG-TRIPLE-ATTR",
+        "D-R2-S-AG-PITR"
+      ],
+      "role": "動的RDFS++またはOWL 2 RL materialization、temporal SPARQL query、triple attributesを提供するRDF store。",
+      "limitations": "materialized entailmentはbase更新後再実行が必要な場合がある。triple attributesは作成時付与。時間queryと運用復旧はfactのbitemporal semanticsと異なる。",
+      "review_depth": "AllegroGraph 9.0.3 official docsの推論、temporal、attributes、PIT recoveryを確認。製品実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-FLUREE",
+      "name": "Fluree DB",
+      "category": "Semantic RDF graph ledger",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-FLUREE-README",
+        "D-R2-S-FLUREE-REASONING",
+        "D-R2-S-FLUREE-OWL",
+        "D-R2-S-FLUREE-TIME",
+        "D-R2-S-FLUREE-ANNOTATIONS",
+        "D-R2-S-FLUREE-TXN"
+      ],
+      "role": "immutable transaction history/time travelを持つRDF graphにOWL/RDFS/Datalog、SHACL、branch/mergeとuser annotationsを組み合わせると公式説明。",
+      "limitations": "source/confidence annotationは利用者が付けるmetadataで、自動的な出典引用やderivation proofとは限らない。確認した文書では独立valid-time軸を確認できず、実行・license評価なし。",
+      "review_depth": "公式READMEとcurrent docsのreasoner、OWL、time travel、annotations、transaction項を確認。主張のコード実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-ANZO-GRAPH-STUDIO",
+      "name": "Anzo / Graph Studio",
+      "category": "Enterprise semantic data integration platform",
+      "entry_type": "platform",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-ANZO-COMPONENTS",
+        "D-R2-S-ANZO-STORAGE",
+        "D-R2-S-ANZO-VERSIONS",
+        "D-R2-S-ANZO-GLOSSARY",
+        "D-R2-S-ANZO-EDITIONS"
+      ],
+      "role": "RDF/OWL/SKOS graph integration, metadata catalog, pipeline action history, artifact snapshots/restoresを統合する。",
+      "limitations": "Graph Studio metadata storeとGraph Lakehouse analytic storeを区別する。artifact/dataset versionsはFactごとのvalid-time historyではない。",
+      "review_depth": "Graph Studio 2025.0 official docsのcomponents, catalog, storage, artifact version, edition retentionを確認。環境導入なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-DATOMIC",
+      "name": "Datomic",
+      "category": "Immutable datom / Datalog database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-DATOMIC-OVERVIEW",
+        "D-R2-S-DATOMIC-HISTORY",
+        "D-R2-S-DATOMIC-FILTERS",
+        "D-R2-S-DATOMIC-TXDATA",
+        "D-R2-S-DATOMIC-ACID"
+      ],
+      "role": "assertion/retractionをtransaction-time付きdatomとして記録し、as-of/history viewとtransaction metadataを提供する。",
+      "limitations": "RDF/OWL reasonerではなく、domain valid-timeの別軸も確認していない。source/purpose metadataは任意schemaとwriter入力に依存。",
+      "review_depth": "公式overview/history/filters/tx-data/ACID docsを確認。コード・サービス実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-DOLT",
+      "name": "Dolt",
+      "category": "Version-controlled relational database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-DOLT-VERSION",
+        "D-R2-S-DOLT-HISTORY"
+      ],
+      "role": "SQL database stateにcommit graph、branch、merge、diff、AS OF historyを提供する。",
+      "limitations": "SQL transaction COMMITは自動でDolt commitを作らない。ontology inference、claim provenance、valid-timeは組み込まれていない。",
+      "review_depth": "Dolt official SQL docsのversion controlとhistorical queryingを確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-COZO",
+      "name": "CozoDB",
+      "category": "Datalog relational-graph-vector database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-COZO-README",
+        "D-R2-S-COZO-TIME",
+        "D-R2-S-COZO-RELEASES"
+      ],
+      "role": "Datalog上のrelational/graph/vector処理とValidity relationによるvalid-time queryを提供する。",
+      "limitations": "確認したv0.7.6 docsではtransaction-time軸なし。公式releaseページのlatest表示は2023年、1.0未満のAPI/storage互換性保証なし。",
+      "review_depth": "公式README、v0.7 time-travel manual、releases pageを確認。現行保守状態の完全な監査なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-MNESTIC",
+      "name": "Mnestic",
+      "category": "Cozo-derived temporal Datalog database",
+      "entry_type": "database-fork",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-MNESTIC-README",
+        "D-R2-S-MNESTIC-BITEMPORAL",
+        "D-R2-S-MNESTIC-PROVENANCE",
+        "D-R2-S-MNESTIC-CHANGELOG"
+      ],
+      "role": "Cozo Validityとengine-stamped TxTimeの二時制、semiring evidence/proof、derived relationのrecompute reconcileを掲げる。",
+      "limitations": "公開仕様とchange logのみ。依存fact変更時の自動propagationではなくユーザーがreconcileを実行する。一般的なsource citationではなく、TxTime relationの組合せ制限あり。",
+      "review_depth": "README、bitemporality/provenance specs、fork changelogを静的確認。build/test/query未実施。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-SURREALDB",
+      "name": "SurrealDB",
+      "category": "Multi-model database",
+      "entry_type": "database-product",
+      "prior_coverage": "未掲載・今回追加確認",
+      "source_ids": [
+        "D-R2-S-SURREAL-RELATE",
+        "D-R2-S-SURREAL-SELECT",
+        "D-R2-S-SURREAL-START"
+      ],
+      "role": "multi-model DB上のproperty graphとbackend依存のrecord version queryを提供する。",
+      "limitations": "VERSIONはversion-enabled persistent backendとretention設定に依存し、in-memory SurrealMXは非対応。valid-time、reasoning、evidence semanticsではない。",
+      "review_depth": "現行official SELECT、RELATE、start CLI docsの関連項目を確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-LADYBUG-KUZU",
+      "name": "LadybugDB（旧Kuzu）",
+      "category": "Embedded property graph database",
+      "entry_type": "database-engine",
+      "prior_coverage": "既出概要・今回深化",
+      "source_ids": [
+        "D-R2-S-LADYBUG",
+        "D-R2-S-KUZU"
+      ],
+      "role": "embedded Cypher property graph engineとserializable ACID transactionsを提供する。",
+      "limitations": "過去Kuzuとの機能・format・保守同一性は仮定しない。今回の公式資料ではreasoning、provenance、history queryを確認できない。",
+      "review_depth": "Ladybug READMEとKuzu repositoryの状態を確認。source/build/runtimeなし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-MINIGRAF",
+      "name": "Minigraf",
+      "category": "Embedded bitemporal graph database",
+      "entry_type": "database-engine",
+      "prior_coverage": "既出保留・今回深化",
+      "source_ids": [
+        "D-LS-MINIGRAF-README",
+        "D-R2-S-MINIGRAF-RELEASES",
+        "D-LS-RECALLGRAPH-README"
+      ],
+      "role": "Datalog graph queryとtransaction time / valid timeの二時制履歴を持つembedded storeと公式説明。",
+      "limitations": "latest v2.0.2公開releaseは同一transaction複数値に関する既知issue #371を記載。実行未検証で、RDF/OWLと自動claim provenanceは確認していない。",
+      "review_depth": "README・release pageを確認。RecallGraphとの関係は旧repo READMEでも照合。実行・データformat試験なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "expanded",
+      "survey_group": "semantic"
+    }
+  ],
+  "supplemental": [
+    {
+      "id": "R2-A-QUIVR",
+      "name": "Quivr (current repository)",
+      "category": "補足候補・developer RAG core",
+      "entry_type": "開発者向け RAG component",
+      "prior_coverage": "主比較9件には含めず補足候補として掲載。現行 repository は旧 QuivrHQ/quivr から転送。",
+      "source_ids": [
+        "D-R2-A-QUIVR-README",
+        "D-R2-A-QUIVR-OLD-DOCS"
+      ],
+      "role": "資料の深掘りが不十分なため主比較外の補足候補とし、現行 repository が文書 parser を備えた RAG core と説明する点のみ監視する。",
+      "limitations": "旧 user-facing second-brain docs と現行 repository の同一性・継続性が不明確。利用者/workspace、citation、source 更新・削除操作は現行 README から確認できず、旧 docs は現行機能の根拠にしていない。",
+      "review_depth": "repository 転送先 README と旧公式 docs の位置づけを確認。製品実行・コード監査なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "supplemental",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-S-OPENREFINE",
+      "name": "OpenRefine reconciliation",
+      "category": "Vocabulary and authority reconciliation",
+      "entry_type": "application-tool",
+      "prior_coverage": "未掲載・今回隣接責務として追加",
+      "source_ids": [
+        "D-R2-S-OPENREFINE-API",
+        "D-R2-S-OPENREFINE-MANUAL"
+      ],
+      "role": "external authority APIへname/type/property候補を照会し、人手でentity ID照合を確定・取消できる。",
+      "limitations": "Fact storeやimmutable link historyではない。確定link merge/splitと影響する下流facts/indexの訂正は連携側の責務。",
+      "review_depth": "OpenRefine official reconciliation API v0.2とmanualの候補・判断・revert項目を確認。実行なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "supplemental",
+      "survey_group": "semantic"
+    },
+    {
+      "id": "R2-S-SPLINK",
+      "name": "Splink",
+      "category": "Probabilistic record linkage / entity resolution",
+      "entry_type": "python-library",
+      "prior_coverage": "未掲載・今回隣接責務として追加",
+      "source_ids": [
+        "D-R2-S-SPLINK-README",
+        "D-R2-S-SPLINK-MODEL",
+        "D-R2-S-SPLINK-INFERENCE",
+        "D-R2-S-SPLINK-CLUSTER"
+      ],
+      "role": "Fellegi–Sunter record pair scoring/probabilityを計算し、閾値に従いrecord clusterを構成する。",
+      "limitations": "scoreは確定identityや校正済み真偽を意味しない。clusterの採否、分割、撤回、Fact storeへの影響記録は別層。",
+      "review_depth": "official READMEとmodel, inference, clustering docsを確認。機能実行・モデル精度再現なし。",
+      "document": "20260929193749-related-systems-resurvey/knowledge-and-storage.mdx",
+      "comparison_status": "supplemental",
+      "survey_group": "semantic"
+    }
+  ],
+  "deferred_records": [
+    {
+      "name": "Mem-α",
+      "url": "https://arxiv.org/abs/2509.25911",
+      "reason": "RLによるメモリー構築という近接研究。検索では要旨・リンク確認に留まり、選定した18件より一次資料の方式確認が浅いため保留。",
+      "survey_group": "memory"
+    },
+    {
+      "name": "The Epistemics of Agent Memory: Measuring, and Governing, the Consolidation Decision in Long-Horizon LLM Agents",
+      "url": "https://arxiv.org/abs/2609.33013",
+      "reason": "2026-09-26公開で検索時点に要旨しか確認できず、ランタイムではなく評価・統治寄りの研究として別調査へ保留。",
+      "survey_group": "memory"
+    },
+    {
+      "name": "The Missing Knowledge Layer in Cognitive Architectures for AI Agents",
+      "url": "https://arxiv.org/abs/2604.11364",
+      "reason": "複数の知識層を論じる全体アーキテクチャ提案。今回、永続記憶の具体的な運用・訂正手順を一次資料から十分確認できず保留。",
+      "survey_group": "memory"
+    },
+    {
+      "name": "GWA: Theater of Mind",
+      "url": "https://arxiv.org/abs/2604.08206",
+      "reason": "広範な認知・グローバルワークスペース構成で、要旨以外の記憶ライフサイクルを確認できず保留。",
+      "survey_group": "memory"
+    },
+    {
+      "name": "MemForest: Efficient Agent Memory Management via EventTree Partitioning and Progressive Merging",
+      "url": "https://arxiv.org/abs/2609.08273",
+      "reason": "Concyclics版とは著者・設計の異なる同名論文。別候補と識別したが要旨段階であり、名称衝突と調査範囲のため保留。",
+      "survey_group": "memory"
+    },
+    {
+      "name": "AgeMem community repositories",
+      "url": "https://github.com/gianpd/agemem",
+      "reason": "論文著者のAgeMemとは独立した同名コミュニティ実装と論文が区別しているため、対象システムとして数えない。",
+      "survey_group": "memory"
+    },
+    {
+      "name": "Existing systems: Mem0, Graphiti, Hindsight, Letta, ReMe, Memori, Memvid, MemoryOS, memU, OpenViking, MIRIX, ACE, Memento-Skills, SkillWeaver, Agent KB, MACE",
+      "url": "../systems/README.md",
+      "reason": "repo内のsystems/evidenceで既に比較対象。重複行として再計上せず、今回の追加調査の比較基準として扱った。",
+      "survey_group": "memory"
+    },
+    {
+      "name": "Quivr legacy second-brain application behavior",
+      "url": "https://core.quivr.com/en/stable/",
+      "reason": "旧 docs は現行 GitHub repository の転送先と異なる世代の利用者向けアプリを説明しているように見える。現行挙動と同一と確認できないため、workspace / citation / import / deletion の比較根拠から除外した。",
+      "survey_group": "applications"
+    },
+    {
+      "name": "Elastic App Search / Workplace Search",
+      "url": "https://www.elastic.co/docs/reference/search-connectors/release-notes",
+      "reason": "旧Enterprise Search機能。9.0以降で提供されない説明があるため、現行独立候補に数えない。",
+      "survey_group": "search"
+    },
+    {
+      "name": "Amazon OpenSearch Service",
+      "url": "https://docs.opensearch.org/latest/security/access-control/document-level-security/",
+      "reason": "OpenSearchプロジェクトとマネージド製品を同一視しない。今回は後者の固有機能を追加監査していない。",
+      "survey_group": "search"
+    },
+    {
+      "name": "RecallGraph",
+      "url": "https://github.com/RecallGraph/RecallGraph",
+      "reason": "既存調査で確認済みの歴史的参考。公式READMEでarchive済み、transaction-time中心、valid-timeは未出荷roadmapと説明。Minigrafとはportではない。",
+      "survey_group": "semantic"
+    },
+    {
+      "name": "Apache AGE",
+      "url": "https://github.com/apache/age",
+      "reason": "PostgreSQL上のopenCypher graph extensionとしては関連するが、今回の公式README確認では固有のinference/provenance/Fact-time責務を示す根拠が不足。",
+      "survey_group": "semantic"
+    },
+    {
+      "name": "KyzoDB",
+      "url": "https://github.com/kyzodb/kyzo",
+      "reason": "Cozo由来forkとしてfirst-witness provenance等の追加主張があり、Mnesticとの機能差は実装仕様・撤回挙動・releaseを別途深掘りする必要がある。",
+      "survey_group": "semantic"
+    }
+  ],
+  "source_ids": [
+    "D-JENARULE",
+    "D-LS-MINIGRAF-README",
+    "D-LS-RECALLGRAPH-README",
+    "D-OXI",
+    "D-R2-A-ANYTHING-API",
+    "D-R2-A-ANYTHING-DOCS",
+    "D-R2-A-DOCSGPT-HOME",
+    "D-R2-A-DOCSGPT-SCOPES",
+    "D-R2-A-DOCSGPT-SOURCE-CONFIG",
+    "D-R2-A-FASTGPT-CITATIONS",
+    "D-R2-A-FASTGPT-DATASET",
+    "D-R2-A-FASTGPT-FILE-PERM",
+    "D-R2-A-FASTGPT-PERMISSIONS",
+    "D-R2-A-KHOJ-AGENTS",
+    "D-R2-A-KHOJ-README",
+    "D-R2-A-KHOJ-SEARCH",
+    "D-R2-A-KHOJ-SYNC",
+    "D-R2-A-KOTAEMON-README",
+    "D-R2-A-KOTAEMON-USAGE",
+    "D-R2-A-MAXKB-APP",
+    "D-R2-A-MAXKB-KNOWLEDGE",
+    "D-R2-A-OPENNOTEBOOK-API",
+    "D-R2-A-OPENNOTEBOOK-CITATIONS",
+    "D-R2-A-OPENNOTEBOOK-MCP",
+    "D-R2-A-OPENNOTEBOOK-SOURCES",
+    "D-R2-A-OPENWEBUI-KNOWLEDGE",
+    "D-R2-A-OPENWEBUI-RAG",
+    "D-R2-A-QANYTHING-API",
+    "D-R2-A-QANYTHING-README",
+    "D-R2-A-QUIVR-OLD-DOCS",
+    "D-R2-A-QUIVR-README",
+    "D-R2-M-AGEMEM-REPO",
+    "D-R2-M-ARIGRAPH-REPO",
+    "D-R2-M-EXPEL-REPO",
+    "D-R2-M-GAM-DR-REPO",
+    "D-R2-M-GENAGENT-REPO",
+    "D-R2-M-HYPERON-ATOMSPACE",
+    "D-R2-M-HYPERON-REPO",
+    "D-R2-M-MEMAGENT-REPO",
+    "D-R2-M-MEMBANK-REPO",
+    "D-R2-M-MEMENGINE-REPO",
+    "D-R2-M-MEMFOREST-REPO",
+    "D-R2-M-MEMINSIGHT-REPO",
+    "D-R2-M-MEMORYLLM-REPO",
+    "D-R2-M-MEMR3-REPO",
+    "D-R2-M-NEMORI-REPO",
+    "D-R2-M-REFLEXION-REPO",
+    "D-R2-M-SOAR-EPISODIC",
+    "D-R2-M-SOAR-SEMANTIC",
+    "D-R2-R-AZURE",
+    "D-R2-R-AZURE-RETRIEVE",
+    "D-R2-R-BEDROCK",
+    "D-R2-R-BEDROCK-SYNC",
+    "D-R2-R-DATABRICKS",
+    "D-R2-R-DATABRICKS-ABAC",
+    "D-R2-R-ELASTIC-DLS",
+    "D-R2-R-ELASTIC-HYBRID",
+    "D-R2-R-ELASTIC-LIFECYCLE",
+    "D-R2-R-GLEAN",
+    "D-R2-R-GOOGLE-ACL",
+    "D-R2-R-GOOGLE-RAG",
+    "D-R2-R-GOOGLE-SEARCH",
+    "D-R2-R-KENDRA",
+    "D-R2-R-OPENSEARCH-DLS",
+    "D-R2-R-OPENSEARCH-HYBRID",
+    "D-R2-R-SNOWFLAKE",
+    "D-R2-R-SNOWFLAKE-ACCESS",
+    "D-R2-R-VECTARA-INTEGRATIONS",
+    "D-R2-R-VECTARA-KNOWLEDGE",
+    "D-R2-R-VESPA-DOCUMENT",
+    "D-R2-S-AG-DOCS",
+    "D-R2-S-AG-MATERIALIZER",
+    "D-R2-S-AG-PITR",
+    "D-R2-S-AG-TEMPORAL",
+    "D-R2-S-AG-TRIPLE-ATTR",
+    "D-R2-S-AGE",
+    "D-R2-S-ANZO-COMPONENTS",
+    "D-R2-S-ANZO-EDITIONS",
+    "D-R2-S-ANZO-GLOSSARY",
+    "D-R2-S-ANZO-STORAGE",
+    "D-R2-S-ANZO-VERSIONS",
+    "D-R2-S-COZO-README",
+    "D-R2-S-COZO-RELEASES",
+    "D-R2-S-COZO-TIME",
+    "D-R2-S-DATOMIC-ACID",
+    "D-R2-S-DATOMIC-FILTERS",
+    "D-R2-S-DATOMIC-HISTORY",
+    "D-R2-S-DATOMIC-OVERVIEW",
+    "D-R2-S-DATOMIC-TXDATA",
+    "D-R2-S-DOLT-HISTORY",
+    "D-R2-S-DOLT-VERSION",
+    "D-R2-S-FLUREE-ANNOTATIONS",
+    "D-R2-S-FLUREE-OWL",
+    "D-R2-S-FLUREE-README",
+    "D-R2-S-FLUREE-REASONING",
+    "D-R2-S-FLUREE-TIME",
+    "D-R2-S-FLUREE-TXN",
+    "D-R2-S-JENA-FUSEKI",
+    "D-R2-S-JENA-TDB2",
+    "D-R2-S-JENA-TXN",
+    "D-R2-S-KUZU",
+    "D-R2-S-KYZO",
+    "D-R2-S-LADYBUG",
+    "D-R2-S-MINIGRAF-RELEASES",
+    "D-R2-S-MNESTIC-BITEMPORAL",
+    "D-R2-S-MNESTIC-CHANGELOG",
+    "D-R2-S-MNESTIC-PROVENANCE",
+    "D-R2-S-MNESTIC-README",
+    "D-R2-S-OPENREFINE-API",
+    "D-R2-S-OPENREFINE-MANUAL",
+    "D-R2-S-OXIGRAPH-ARCH",
+    "D-R2-S-RDF4J-REPO",
+    "D-R2-S-SPLINK-CLUSTER",
+    "D-R2-S-SPLINK-INFERENCE",
+    "D-R2-S-SPLINK-MODEL",
+    "D-R2-S-SPLINK-README",
+    "D-R2-S-SURREAL-RELATE",
+    "D-R2-S-SURREAL-SELECT",
+    "D-R2-S-SURREAL-START",
+    "D-R2-S-VIRTUOSO-INFERENCE",
+    "D-R2-S-VIRTUOSO-REPO",
+    "D-R2-S-VIRTUOSO-VIEWS",
+    "D-RDF4J",
+    "D-VESPA",
+    "P-R2-M-AGEMEM",
+    "P-R2-M-ARIGRAPH",
+    "P-R2-M-EXPEL",
+    "P-R2-M-GAM",
+    "P-R2-M-GAM-DR",
+    "P-R2-M-GENAGENT",
+    "P-R2-M-LONGMEM",
+    "P-R2-M-MEMAGENT",
+    "P-R2-M-MEMBANK",
+    "P-R2-M-MEMENGINE",
+    "P-R2-M-MEMFOREST",
+    "P-R2-M-MEMINSIGHT",
+    "P-R2-M-MEMORYLLM",
+    "P-R2-M-MEMR3",
+    "P-R2-M-MEMTREE",
+    "P-R2-M-MPLUS",
+    "P-R2-M-NEMORI",
+    "P-R2-M-REFLEXION"
+  ],
+  "source_id_aliases": {
+    "D-R2-S-JENA-REASONER": "D-JENARULE",
+    "D-R2-S-RDF4J-SHACL": "D-RDF4J",
+    "D-R2-S-OXIGRAPH-REPO": "D-OXI",
+    "D-R2-S-MINIGRAF-README": "D-LS-MINIGRAF-README",
+    "D-R2-S-RECALLGRAPH": "D-LS-RECALLGRAPH-README"
+  },
+  "source_registry": "../evidence/sources.json",
+  "prior_survey": "../evidence/system-landscape.json",
+  "limits": [
+    "全公開・非公開製品を漏れなく収集したsystematic reviewではない。",
+    "各資料の確認範囲は分野別sourcesのreview_depthを参照。",
+    "製品の配備・実行、研究の追試、全コード監査、課金・契約適合の評価は未実施。",
+    "動的な公式文書は確認日時点の記述。全文の固定snapshotを保存したものではない。"
+  ]
+}

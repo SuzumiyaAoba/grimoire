@@ -1,0 +1,440 @@
+{
+  "sources": [
+    {
+      "id": "D-R2-A-ANYTHING-DOCS",
+      "title": "AnythingLLM: Chatting with Documents",
+      "url": "https://docs.anythingllm.com/chatting-with-documents/introduction",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "文書チャットと workspace/thread のスコープに関する関連節を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-ANYTHING-API",
+      "title": "AnythingLLM Server OpenAPI specification",
+      "url": "https://github.com/Mintplex-Labs/anything-llm/blob/master/server/swagger/openapi.json",
+      "kind": "公式 API 定義",
+      "accessed": "2026-09-29",
+      "review_depth": "workspace chat 応答と workspace document の操作に関する API 定義を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENWEBUI-RAG",
+      "title": "Open WebUI: Retrieval Augmented Generation",
+      "url": "https://docs.openwebui.com/features/chat-conversations/rag/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "RAG、引用、Focused Retrieval、Full Context、native tools の説明を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENWEBUI-KNOWLEDGE",
+      "title": "Open WebUI: Knowledge",
+      "url": "https://docs.openwebui.com/features/workspace/knowledge/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "Knowledge Base と local directory sync の説明を確認。同期を実行していない。"
+    },
+    {
+      "id": "D-R2-A-KHOJ-README",
+      "title": "Khoj official repository README",
+      "url": "https://github.com/khoj-ai/khoj/blob/master/README.md",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "製品の位置づけ、対応データ源、検索の概要を確認。コード監査なし。"
+    },
+    {
+      "id": "D-R2-A-KHOJ-SYNC",
+      "title": "Khoj: Setup and sync data sources",
+      "url": "https://docs.khoj.dev/get-started/setup/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "Desktop 等の client と外部 source の設定・同期案内を確認。同期の実行なし。"
+    },
+    {
+      "id": "D-R2-A-KHOJ-SEARCH",
+      "title": "Khoj: Search",
+      "url": "https://docs.khoj.dev/features/search/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "文書検索と順位付けの説明を確認。引用 UI は確認できた範囲に限定。"
+    },
+    {
+      "id": "D-R2-A-KHOJ-AGENTS",
+      "title": "Khoj: Agents",
+      "url": "https://docs.khoj.dev/features/agents/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "agent の公開範囲に関する関連節を確認。権限設定の実行なし。"
+    },
+    {
+      "id": "D-R2-A-KOTAEMON-README",
+      "title": "Kotaemon official repository README",
+      "url": "https://github.com/Cinnamon/kotaemon/blob/main/README.md",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "multi-user、collection、hybrid retrieval、引用表示の概要を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-KOTAEMON-USAGE",
+      "title": "Kotaemon: Usage guide",
+      "url": "https://github.com/Cinnamon/kotaemon/blob/main/docs/usage.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "file index、collection、PDF citation viewer、file deletion の案内を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-FASTGPT-DATASET",
+      "title": "FastGPT: Dataset API",
+      "url": "https://doc.fastgpt.io/en/openapi/dataset",
+      "kind": "公式 API ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "dataset、collection、data entry の作成・更新・削除 API を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-FASTGPT-PERMISSIONS",
+      "title": "FastGPT: Team roles and permissions",
+      "url": "https://doc.fastgpt.io/en/guide/workspace/team/team_roles_permissions",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "team と member group の権限説明を確認。権限を構成していない。"
+    },
+    {
+      "id": "D-R2-A-FASTGPT-FILE-PERM",
+      "title": "FastGPT: Collection permissions",
+      "url": "https://doc.fastgpt.io/zh-CN/guide/dataset/collection_permission",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "file / folder 単位の dataset 権限と提供区分を確認。権限を構成していない。"
+    },
+    {
+      "id": "D-R2-A-FASTGPT-CITATIONS",
+      "title": "FastGPT: Quote list and chunk reader",
+      "url": "https://doc.fastgpt.io/en/guide/chat/quoteList",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "回答 citation、原文表示、highlight、relevance score の説明を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-MAXKB-KNOWLEDGE",
+      "title": "MaxKB: Dataset management",
+      "url": "https://docs.maxkb.pro/user_manual/dataset/dataset/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "document / website dataset、segment 編集、sync、vectorization の案内を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-MAXKB-APP",
+      "title": "MaxKB: Simple application",
+      "url": "https://docs.maxkb.pro/user_manual/app/simple_app/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "application の関連 dataset、検索 segment、参照なし時の応答設定を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-QANYTHING-README",
+      "title": "QAnything official repository README",
+      "url": "https://github.com/netease-youdao/QAnything",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "local / offline QA の位置づけと user_id / kb_id の API 利用例を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-QANYTHING-API",
+      "title": "QAnything v2 API documentation",
+      "url": "https://github.com/netease-youdao/QAnything/blob/qanything-v2/docs/API.md",
+      "kind": "公式 API ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "file / KB 削除、chunk 更新、duplicate policy、source_documents schema を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-DOCSGPT-HOME",
+      "title": "DocsGPT documentation",
+      "url": "https://docs.docsgpt.cloud/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "source ingestion と回答 citation の製品案内を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-DOCSGPT-SOURCE-CONFIG",
+      "title": "DocsGPT: Per-source configuration",
+      "url": "https://docs.docsgpt.cloud/Sources/Per-source-configuration",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "source の検索設定と chunking / re-ingestion の案内を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-DOCSGPT-SCOPES",
+      "title": "DocsGPT: Personal access tokens",
+      "url": "https://docs.docsgpt.cloud/Extensions/personal-access-tokens",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "API token の scope と source / chunk 操作を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENNOTEBOOK-SOURCES",
+      "title": "Open Notebook: Adding sources",
+      "url": "https://github.com/lfnovo/open-notebook/blob/main/docs/3-USER-GUIDE/adding-sources.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "source として追加できる形式と notebook 内での整理を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-OPENNOTEBOOK-CITATIONS",
+      "title": "Open Notebook: Citations",
+      "url": "https://github.com/lfnovo/open-notebook/blob/main/docs/3-USER-GUIDE/citations.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "citation から source passage を確認する案内と note 内 citation を確認。製品実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENNOTEBOOK-API",
+      "title": "Open Notebook: API reference",
+      "url": "https://github.com/lfnovo/open-notebook/blob/main/docs/7-DEVELOPMENT/api-reference.md",
+      "kind": "公式 API ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "notebook を指定する検索 API を確認。API 実行なし。"
+    },
+    {
+      "id": "D-R2-A-OPENNOTEBOOK-MCP",
+      "title": "Open Notebook: MCP integration",
+      "url": "https://github.com/lfnovo/open-notebook/blob/main/docs/5-CONFIGURATION/mcp-integration.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "MCP が公開する source metadata update / delete 操作を確認。操作なし。"
+    },
+    {
+      "id": "D-R2-A-QUIVR-README",
+      "title": "Quivr current official repository README",
+      "url": "https://github.com/The-Vibe-Company/quivr",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "旧 repository の転送先にある現行 README の位置づけ、対応ファイルと parser の説明を確認。"
+    },
+    {
+      "id": "D-R2-A-QUIVR-OLD-DOCS",
+      "title": "Quivr legacy documentation",
+      "url": "https://core.quivr.com/en/stable/",
+      "kind": "旧公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "現行 repository と異なる旧製品の案内として存在を確認。現行挙動の根拠には使用していない。"
+    }
+  ],
+  "systems": [
+    {
+      "id": "R2-A-ANYTHINGLLM",
+      "name": "AnythingLLM",
+      "category": "self-hosted / managed document chat",
+      "entry_type": "RAG アプリケーション",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-ANYTHING-DOCS",
+        "D-R2-A-ANYTHING-API"
+      ],
+      "role": "workspace に共有する文書と thread 限定の添付を分ける文書チャット。workspace chat API は source title と利用 chunk を返す。",
+      "limitations": "再取り込み・削除後の派生物の範囲、claim の版・訂正責任は確認できていない。",
+      "review_depth": "公式 docs と OpenAPI の関連箇所を確認。実行・権限検証なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-OPENWEBUI",
+      "name": "Open WebUI",
+      "category": "self-hosted assistant / document RAG",
+      "entry_type": "RAG アプリケーション",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-OPENWEBUI-RAG",
+        "D-R2-A-OPENWEBUI-KNOWLEDGE"
+      ],
+      "role": "再利用可能な Knowledge Base、会話・モデルへの添付、focused retrieval、全文 context、native file tools を併せ持つ。directory sync の変更・削除も説明されている。",
+      "limitations": "sync の記述は製品ドキュメント上の機能説明であり、削除完了性や旧 chat citation の失効を実験していない。claim-level history は未確認。",
+      "review_depth": "公式 RAG / Knowledge docs を確認。同期・検索・引用の実行なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-KHOJ",
+      "name": "Khoj",
+      "category": "personal knowledge assistant",
+      "entry_type": "個人用検索・assistant",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-KHOJ-README",
+        "D-R2-A-KHOJ-SYNC",
+        "D-R2-A-KHOJ-SEARCH",
+        "D-R2-A-KHOJ-AGENTS"
+      ],
+      "role": "個人の notes / documents を複数 client や Notion から同期して検索し、private または public agent に接続する候補。",
+      "limitations": "同期時の削除・同名更新、主張から原文位置へ移る citation 表示は確認した docs の範囲で未確定。claim history も未確認。",
+      "review_depth": "公式 README と setup / search / agents docs を確認。同期や ACL は実行検証なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-KOTAEMON",
+      "name": "Kotaemon",
+      "category": "document RAG application",
+      "entry_type": "RAG アプリケーション",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-KOTAEMON-README",
+        "D-R2-A-KOTAEMON-USAGE"
+      ],
+      "role": "private / public collections と multi-user login を備え、PDF 上の citation highlight と relevance score を人が確認できる文書 RAG。",
+      "limitations": "既存 file の内容更新や sync / replacement 規則は確認できていない。citation 確認は主張の改訂履歴を提供するものではない。",
+      "review_depth": "公式 README と usage guide を確認。検索・更新・削除を実行していない。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-FASTGPT",
+      "name": "FastGPT",
+      "category": "team / workflow RAG platform",
+      "entry_type": "RAG アプリケーション・platform",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-FASTGPT-DATASET",
+        "D-R2-A-FASTGPT-PERMISSIONS",
+        "D-R2-A-FASTGPT-FILE-PERM",
+        "D-R2-A-FASTGPT-CITATIONS"
+      ],
+      "role": "team / group / app / dataset の権限と dataset API を持ち、回答から chunk reader で引用箇所を確認する比較候補。",
+      "limitations": "file / folder 権限は docs 上で商用版機能。原ファイル置換後の再解析、更新による古い引用・主張の失効は確認できていない。",
+      "review_depth": "公式 API と権限・citation docs を確認。権限・API の実行なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-MAXKB",
+      "name": "MaxKB",
+      "category": "knowledge-base application platform",
+      "entry_type": "RAG アプリケーション・platform",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-MAXKB-KNOWLEDGE",
+        "D-R2-A-MAXKB-APP"
+      ],
+      "role": "document / website knowledge base、segment 編集、website replace / full sync を持つ application-oriented RAG 候補。",
+      "limitations": "利用者別 ACL と原資料位置を示す citation UI は参照 docs だけでは確認できず、claim revision history も未確認。",
+      "review_depth": "公式 dataset と simple app docs を確認。取り込み・sync を実行していない。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-QANYTHING",
+      "name": "QAnything",
+      "category": "local / offline knowledge QA",
+      "entry_type": "RAG アプリケーション",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-QANYTHING-README",
+        "D-R2-A-QANYTHING-API"
+      ],
+      "role": "offline knowledge QA として、API で user_id / kb_id、file / KB 削除、chunk 更新、source_documents を扱う比較候補。",
+      "limitations": "user_id を認証・認可保証として扱えない。source preview、更新後の旧 chunk 失効、claim lifecycle は確認できていない。稼働状況も評価していない。",
+      "review_depth": "公式 README と v2 API docs を確認。API、認証境界、索引更新の実行検証なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-DOCSGPT",
+      "name": "DocsGPT",
+      "category": "source-oriented assistant / RAG platform",
+      "entry_type": "RAG アプリケーション・platform",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-DOCSGPT-HOME",
+        "D-R2-A-DOCSGPT-SOURCE-CONFIG",
+        "D-R2-A-DOCSGPT-SCOPES"
+      ],
+      "role": "Source ごとの ingestion / retrieval 設定、回答 citation、source / chunk 操作を scope で制御する API が比較できる。",
+      "limitations": "利用者・workspace ACL の詳細、置換後にどの履歴や引用が残るか、claim の訂正履歴は確認できていない。",
+      "review_depth": "公式 docs の home、per-source configuration、PAT scope を確認。source 同期・API の実行なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    },
+    {
+      "id": "R2-A-OPENNOTEBOOK",
+      "name": "Open Notebook",
+      "category": "research notebook / source-grounded assistant",
+      "entry_type": "個人用検索・research notebook",
+      "prior_coverage": "先行文書に個別掲載なし",
+      "source_ids": [
+        "D-R2-A-OPENNOTEBOOK-SOURCES",
+        "D-R2-A-OPENNOTEBOOK-CITATIONS",
+        "D-R2-A-OPENNOTEBOOK-API",
+        "D-R2-A-OPENNOTEBOOK-MCP"
+      ],
+      "role": "notebook に sources と notes をまとめ、引用から source passage を確認し、検索対象を notebook_id で絞る research assistant。",
+      "limitations": "notebook 間の利用者 ACL、source 内容置換後の再解析、citation 失効や永続 claim history は確認できていない。会話での訂正は claim record の改訂とは異なる。",
+      "review_depth": "公式 user guide、citation guide、API reference、MCP docs を確認。操作・ACL 検証なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "primary",
+      "coverage_change": "new",
+      "survey_group": "applications"
+    }
+  ],
+  "searches": [
+    {
+      "query": "AnythingLLM workspaces feature official docs",
+      "method": "AnythingLLM の旧 /features/workspaces URL は取得できなかったため、公式 docs root から workspace と document chat の現行ページを検索し、関連 docs と公式 OpenAPI を確認。",
+      "outcome": "現行 document chat の workspace/thread 境界と workspace document API を確認。旧 URL は根拠に使わない。"
+    },
+    {
+      "query": "official documentation and repository: Open WebUI, Khoj, Kotaemon, FastGPT, MaxKB, QAnything, DocsGPT, Open Notebook, Quivr; workspace/user, citations, import, update, delete",
+      "method": "各候補の公式 docs / README 内を、利用者境界・引用表示・source lifecycle に分けて確認。比較対象に必要なページは個別に開いた。",
+      "outcome": "9候補を主比較し、Quivr は継続性を確認できない補足候補とした。仕様ページが見つからない機能は未確認として記載し、機能がないとは結論していない。"
+    },
+    {
+      "query": "QuivrHQ/quivr current repository and legacy documentation",
+      "method": "旧 GitHub repository URL の転送先 README と旧 quivr core docs を照合。",
+      "outcome": "現行 repository は developer RAG core と説明され、旧 second-brain docs との継続性を確認できないため、Quivr は低優先度の監視候補として扱った。"
+    }
+  ],
+  "deferred": [
+    {
+      "name": "Quivr legacy second-brain application behavior",
+      "url": "https://core.quivr.com/en/stable/",
+      "reason": "旧 docs は現行 GitHub repository の転送先と異なる世代の利用者向けアプリを説明しているように見える。現行挙動と同一と確認できないため、workspace / citation / import / deletion の比較根拠から除外した。"
+    }
+  ],
+  "supplemental": [
+    {
+      "id": "R2-A-QUIVR",
+      "name": "Quivr (current repository)",
+      "category": "補足候補・developer RAG core",
+      "entry_type": "開発者向け RAG component",
+      "prior_coverage": "主比較9件には含めず補足候補として掲載。現行 repository は旧 QuivrHQ/quivr から転送。",
+      "source_ids": [
+        "D-R2-A-QUIVR-README",
+        "D-R2-A-QUIVR-OLD-DOCS"
+      ],
+      "role": "資料の深掘りが不十分なため主比較外の補足候補とし、現行 repository が文書 parser を備えた RAG core と説明する点のみ監視する。",
+      "limitations": "旧 user-facing second-brain docs と現行 repository の同一性・継続性が不明確。利用者/workspace、citation、source 更新・削除操作は現行 README から確認できず、旧 docs は現行機能の根拠にしていない。",
+      "review_depth": "repository 転送先 README と旧公式 docs の位置づけを確認。製品実行・コード監査なし。",
+      "document": "20260929193749-related-systems-resurvey/rag-applications.mdx",
+      "comparison_status": "supplemental"
+    }
+  ],
+  "accessed": "2026-09-29",
+  "counts": {
+    "primary": 9,
+    "sources": 27,
+    "new": 9,
+    "expanded": 0
+  }
+}

@@ -1,0 +1,1512 @@
+{
+  "checked": "2026-09-29",
+  "scope": "実装の公開・完成を採用条件にしない、主に2025–2026年のメモリー・知識更新研究。",
+  "method": "論文・著者公式資料の関連節を確認。公開状態をコード・重み・データごとに区別。実験・コードの独立再現なし。",
+  "counts": {
+    "studies": 20,
+    "groups": 4,
+    "sources": 48,
+    "deferred": 10
+  },
+  "groups": [
+    {
+      "id": "structure",
+      "title": "構造化知識・理論",
+      "count": 3
+    },
+    {
+      "id": "control",
+      "title": "外部記憶の検索・整理・提示",
+      "count": 4
+    },
+    {
+      "id": "learned",
+      "title": "モデル内部記憶・継続学習",
+      "count": 6
+    },
+    {
+      "id": "lifecycle",
+      "title": "訂正・失効・撤回・共有状態の評価",
+      "count": 7
+    }
+  ],
+  "studies": [
+    {
+      "name": "MOOSEDev / MOOSE",
+      "paper_url": "https://arxiv.org/html/2608.13662v1",
+      "first_submitted": "2026-08-13",
+      "version": "v1",
+      "publication_status": "arXiv書誌にNeSy 2026 Industry Track採択の記載あり。会議録の独立確認はしていない。",
+      "existing_coverage": "既存資料に掲載なし",
+      "mechanism": "意思決定・制約・理由をOWL/SHACLの型付き記録にし、来歴と置換関係を辿って現在有効な知識を取得する。",
+      "reported_evaluation": "CodeGraph由来835件の型付き記録で集合の網羅、否定、置換の質問を比較。回答器はGPT-5.x系列、judgeはGPT-5.4-mini。構造質問で改善を報告する一方、関連性検索は概ね同等と報告。",
+      "limitations": "構造化captureの品質とagentのtool呼出に依存。大きい集合の列挙はtoken費用が増える。単一agent系列の事例で、数か月の理解維持は継続試験段階。",
+      "relevance": "構造質問と曖昧な関連性検索を分け、置換関係・型・原資料参照の効果を個別に検証する比較候補。",
+      "artifact_status": {
+        "code": "部分公開・中核非公開を明記。MOOSEDevはApache-2.0、MOOSE engineはclosed source。ソースビルドに非公開engineが必要。",
+        "weights": "READMEは配布binaryへのlocal embedding weights同梱を説明。個別重みの版/公開条件は未確認。",
+        "data": "論文はbenchの公開corpus/harness/transcriptsを案内し、private corpusのtranscriptsは非公開と明記。全ファイルの完全性未検証。",
+        "evidence_urls": [
+          "https://arxiv.org/html/2608.13662v1#S3",
+          "https://github.com/Trivyn/moosedev"
+        ],
+        "checked_scope": "2026-09-29の論文と公式README。公開binaryの実行なし。"
+      },
+      "source_ids": [
+        "P-F3-MOOSEDEV",
+        "D-F3-MOOSEDEV"
+      ],
+      "group": "structure",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "NEST",
+      "paper_url": "https://arxiv.org/html/2607.06055v1",
+      "first_submitted": "2026-07-07",
+      "version": "v1",
+      "publication_status": "プレプリント。採択情報は今回の書誌で確認できず。",
+      "existing_coverage": "既存資料に掲載なし",
+      "mechanism": "永続的な信念graphと容量制限付き作業記憶graphを分け、衝突・根拠付け・信念更新を共通のgraph表現で定義する。",
+      "reported_evaluation": "理論・表現枠の提案。ACT-RやSoar等との対応を示すが、実行比較やbenchmarkによる優位は報告していない。",
+      "limitations": "6.2で学習algorithmは未指定、belief updateは抽象的、他体系との対応は実行simulationではないと明記。",
+      "relevance": "検索で得た作業上の仮説と確定した信念を分ける設計語彙になる。導入可能なmemory engineとして扱わない。",
+      "artifact_status": {
+        "code": "理論提案・実行モデル未提示。6.3は計算的実装を今後の課題とする。論文・名称検索範囲で著者公式実装を確認できず。",
+        "weights": "対象外（学習algorithm未指定）",
+        "data": "対象外（実験benchmark未提示）",
+        "evidence_urls": [
+          "https://arxiv.org/html/2607.06055v1#S6.SS2",
+          "https://arxiv.org/html/2607.06055v1#S6.SS3"
+        ],
+        "checked_scope": "論文2/5/6節、書誌、完全題名による実装検索。"
+      },
+      "source_ids": [
+        "P-F3-NEST"
+      ],
+      "group": "structure",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "EnSIMem",
+      "paper_url": "https://arxiv.org/html/2609.27279v2",
+      "first_submitted": "2026-09-23",
+      "version": "v2（2026-09-27）",
+      "publication_status": "書誌にpreprintと記載。",
+      "existing_coverage": "既存資料に掲載なし",
+      "mechanism": "entity・type・propertyの索引をepisodeと原発話へ結び、質問を必要証拠に分解して検索する。回答は保存した原文根拠から生成する。",
+      "reported_evaluation": "LoCoMo/LongMemEval。GPT-4.1-miniで構築/回答、GPT-4o-miniとQwen3-32Bのjudgeを別々に報告。固定subsetで構造索引とdense検索等を比較。",
+      "limitations": "会話想起の評価で、技能実行・長期の意味統合は今後の課題。計画/検索のonline latencyが増える。比較表の既報値と自前実験、全体とablation subset、offline構築費用の除外を区別する。",
+      "relevance": "型付き索引を原資料へ戻るアドレスとして使う発想を、現行EvidenceRef/SourceSpanの設計と比較できる。",
+      "artifact_status": {
+        "code": "著者公式公開repositoryの存在を確認。ファイル一覧の確認に留め、再現一式の完全性は未検証。",
+        "weights": "論文は外部APIモデルを使用。固有学習済み重みの配布は今回未確認。",
+        "data": "既存LoCoMo/LongMemEvalを使用。repoに両評価ディレクトリを確認したがデータ一式の監査なし。",
+        "evidence_urls": [
+          "https://arxiv.org/html/2609.27279v2",
+          "https://github.com/RamonMeng/EnSIMem"
+        ],
+        "checked_scope": "論文3–5節、公式repo一覧。実行なし。"
+      },
+      "source_ids": [
+        "P-F3-ENSIMEM",
+        "D-F3-ENSIMEM"
+      ],
+      "group": "structure",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "MEMO",
+      "paper_url": "https://arxiv.org/abs/2609.07471v1",
+      "first_submitted": "2026-09-07",
+      "version": "v1 (2026-09-07)",
+      "publication_status": "arXivプレプリント。コメント欄に8ページ・2図・Working in progressと記載。査読採録は確認できない。",
+      "existing_coverage": "docs/research全域で論文名・MEMO名を検索したが未掲載。既存のMIRIX等のマルチモーダル記憶とは異なり、読出し時の証拠選択と提示形式を学習する。",
+      "mechanism": "クエリと候補記憶から学習済み証拠抽出器が出典・文字span付きの証拠単位を作り、学習済みmemory managerが各単位をtext/image/dual/dropに割り当て、レイアウトも選ぶ。凍結readerによるオフライン結果でmanagerを学習し、決定的builderが共通予算下のworking memoryを構築する。",
+      "reported_evaluation": "著者は複数readerで、multi-hop QA・長期会話・ALFWorldを共通予算下で比較し、証拠の抽出と提示形式を組み合わせた方式が複数baselineを上回ると報告。アブレーションも実施。記載値は論文報告で、当方では追試していない。",
+      "limitations": "本文に専用Limitations節はない。v1の進行中研究であり、学習例は各ベンチマークの訓練側証拠annotationまたは決定的weak labelに依存する。主張は著者の4ベンチマーク・固定reader群の実験結果で、独立追試や未見タスクへの外部検証は本調査で確認していない。",
+      "relevance": "外部メモリーの保存形式やgraph構造ではなく、検索後にどの証拠を残し、限られた入力予算でどう提示するかを学ぶ新しい読出し制御。原資料span・出典保持と圧縮／マルチモーダル表示の比較対象になる。",
+      "artifact_status": {
+        "code": "論文本文とarXivのCode/Data欄に著者コードのリンクを確認できず、完全一致タイトルのGitHub検索でも公式repositoryを特定できなかった。公開されていないとは断定しない。",
+        "weights": "証拠抽出器とmemory managerを全パラメータSFTで学習すると本文にある。重みの配布先は確認できず。",
+        "data": "HotpotQA、2WikiMultiHopQA、LoCoMo、ALFWorldを使用。独立した新規データセットの配布は確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2609.07471v1",
+          "https://arxiv.org/html/2609.07471v1"
+        ],
+        "checked_scope": "arXiv本文とarXivのCode, Data, Media欄、完全一致タイトルを使ったGitHub検索結果。repository clone、モデル取得、コード実行はしていない。"
+      },
+      "source_ids": [
+        "P-F3-MEMO"
+      ],
+      "group": "control",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "ReFind",
+      "paper_url": "https://arxiv.org/abs/2608.12888v2",
+      "first_submitted": "2026-08-13",
+      "version": "v2 (2026-08-16)",
+      "publication_status": "arXivプレプリントv2。arXivコメント欄に採録先の記載を確認できない。",
+      "existing_coverage": "docs/research全域でReFindおよび論文名を検索したが未掲載。既存のstructured-memory比較に対し、生ログを変換せず検索操作側を制御する独立比較を追加する。",
+      "mechanism": "元の会話ログを変更せずturn単位で語彙index化し、反復keyword searchとsession-aware rank fusion、局所context展開、時間範囲の絞り込み、既読sessionの除外を組み合わせる。retrieval agentが証拠を集め、別stageのreaderが回答する。",
+      "reported_evaluation": "著者は会話記憶検索benchmarkで、同じLLMによる比較とLongMemEval評価を行い、生ログへの反復的な語彙検索が構造化memory・汎用agentic検索より概ね高い回答精度を示したと報告。baselineの一部は既報値。論文結果の要約で、当方では追試していない。",
+      "limitations": "対象は会話記録に対する正確な根拠検索・事実追跡で、意味圧縮や低遅延な常時readには別機構が必要と著者自身が位置づける。MABench比較では一部baseline値を既存論文から再利用し、全systemを同一controller/tool-call予算で再実行していない。1 query平均約5 LLM callsと検索制御コストがある。",
+      "relevance": "整理済みメモリーを前提とせず、未加工の原記録から対話的な検索と時間・session情報で根拠を組み立てる。変換前保存と構造化memory構築の費用・回答品質を切り分ける比較候補。",
+      "artifact_status": {
+        "code": "arXiv本文・artifact欄に著者repositoryのURLを確認できず、完全一致タイトルのGitHub検索でも公式repositoryを特定できなかった。公開されていないとは断定しない。",
+        "weights": "著者独自の学習済みmemory model配布を確認できず。評価ではGPT-4o-mini、GPT-5-mini等を使用。",
+        "data": "MemoryAgentBenchとLongMemEval等の既存benchmarkを利用。新規benchmarkの公開は確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2608.12888v2",
+          "https://arxiv.org/html/2608.12888v2"
+        ],
+        "checked_scope": "arXiv v2本文・artifact use節と完全一致タイトルのGitHub検索結果。比較baselineの一部は既報値を再利用。repository clone・コード実行なし。"
+      },
+      "source_ids": [
+        "P-F3-REFIND"
+      ],
+      "group": "control",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "Filesystem-Based Memory for LLM Agents",
+      "paper_url": "https://arxiv.org/abs/2607.26637v1",
+      "first_submitted": "2026-07-29",
+      "version": "v1 (2026-07-29)",
+      "publication_status": "arXivプレプリントv1。arXivコメント欄に採録先の記載を確認できない。",
+      "existing_coverage": "docs/research全域で論文名・Filesystem-Based Memoryを検索したが未掲載。既存のfile-based agent memoryの製品紹介と異なり、記憶の形・成長時の整理・検索コストを比較実験する。",
+      "mechanism": "Markdown file treeを共有storeとし、管理agentが新着内容を追加・改訂・統合・分割・移動・削除し、search agentが引用付き回答を返す。実行agentの軌跡をskillsに蒸留する設定も統合する。agentのtool harness自体を比較因子として扱う。",
+      "reported_evaluation": "著者は会話QA・skill-reuse条件で、agentが整理した階層file storeをverbatim dump・chunk retrievalと比較。整理は大規模storeで検索コストを下げた一方、回答精度を一貫して上げないと報告。結果は限定された評価slice・horizonに基づき、当方では追試していない。",
+      "limitations": "著者は、測定したのは最長140 tasksと単一会話規模で月単位の長期蓄積ではないと明記。LoCoMoはheld-out会話1件、PersonaMem 32kは3会話に縮約するなど、各benchmarkの評価sliceが限定的。論文の結果はその測定horizon・model/tool条件に限定して読む必要がある。",
+      "relevance": "日常のagent memoryに近いMarkdown filesystemを対象に、整理の質・検索効率・蓄積後のstore健全性を個別測定する。実装論文に限定しない研究比較のよい例で、製品機能比較で見えない運用horizonの問いを補う。",
+      "artifact_status": {
+        "code": "本文とarXivのCode/Data欄に著者コードのリンクを確認できず、完全一致タイトルのGitHub検索でも公式repositoryを特定できなかった。公開されていないとは断定しない。",
+        "weights": "論文は複数のLLM backboneで評価する。著者学習の専用重み公開は確認できず。",
+        "data": "LoCoMo、REALTALK、PersonaMem、ALFWorldの既存benchmarkを使用し、一部評価sliceを明記。新規benchmark配布は確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2607.26637v1",
+          "https://arxiv.org/html/2607.26637v1"
+        ],
+        "checked_scope": "arXiv本文・付録のbenchmark provenanceとarXiv artifact欄、完全一致タイトルのGitHub検索結果。コード実行なし。"
+      },
+      "source_ids": [
+        "P-F3-FILESYSTEM"
+      ],
+      "group": "control",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "MemCon (Memory as a Controlled Process)",
+      "paper_url": "https://arxiv.org/abs/2607.13591v1",
+      "first_submitted": "2026-07-15",
+      "version": "v1 (2026-07-15)",
+      "publication_status": "arXivプレプリントv1。本文に投稿先・採録先の記載を確認できない。",
+      "existing_coverage": "docs/research全域でMemConおよび論文名を検索したが未掲載。Memory-R1/AgeMem等の学習系に近いが、既存memory backend上で動く軽量オンライン制御policyに焦点を置く。",
+      "mechanism": "既存backendをMDPの操作先として包み、離散化したtask/memory状態からcontextual bandit + UCBがRetrieve、PlanInject、Re-Retrieve、Consolidate、Forget、NoOpとtop-k等の引数を選ぶ。成功/失敗のtask feedbackでオンライン更新し、事前学習や追加LLM callを使わないと説明。",
+      "reported_evaluation": "著者は複数benchmark・agent framework・LLM backboneで、固定policyやmemory baselineと比べ、学習controllerによるtask success向上とtoken使用減少を報告。component ablationも実施。数字は論文報告で、当方では再現していない。",
+      "limitations": "policy stateはtask type/phase/stuck状態など人手設計の離散featureに依存し、各backendのmaintenance hookがなければConsolidate/Forgetはno-op。汎用wrapperでも、バックエンドが提供しない履歴・削除保証を付与するものではない。独立追試は未実施。",
+      "relevance": "保存形式を固定せず、タスク進捗・memory量・停滞に応じて何をいつ検索し、再検索・整理するかをオンラインで適応する。query-time検索の固定heuristicと書込・整理policyを比較する候補。",
+      "artifact_status": {
+        "code": "著者論文に記載の公式GitHub repositoryをwebで開き、READMEの構成とmemory_mdp.py・policy.py・wrapper.pyの実ファイル表示を確認。公開状態とファイル存在の確認までで、コード監査・実行・再現確認はしていない。参照はmainブランチでcommit SHA未固定。",
+        "weights": "著者はtabular contextual banditで追加LLM call・事前学習不要と説明。専用学習済み重みの配布は確認できず。",
+        "data": "6 benchmarkを用いる。新規データセットの配布記載は確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2607.13591v1",
+          "https://arxiv.org/html/2607.13591v1",
+          "https://github.com/ericjiang18/MemCon",
+          "https://github.com/ericjiang18/MemCon/blob/main/hmf/mcp_framework/memory_mdp.py",
+          "https://github.com/ericjiang18/MemCon/blob/main/hmf/mcp_framework/policy.py",
+          "https://github.com/ericjiang18/MemCon/blob/main/hmf/mcp_framework/wrapper.py"
+        ],
+        "checked_scope": "arXiv v1本文のMDP・操作定義、評価概要、コード公開記載を確認。公式GitHubの公開repositoryと上記3ソースファイルの存在・本文表示も確認した。コード監査・実行なし。GitHub参照はmainブランチでcommit SHA未固定。"
+      },
+      "source_ids": [
+        "P-F3-MEMCON",
+        "P-F3-MEMCON-REPO"
+      ],
+      "group": "control",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "MIRAS / MONETA・YAAD・MEMORA",
+      "paper_url": "https://arxiv.org/abs/2504.13173v1",
+      "first_submitted": "2025-04-17",
+      "version": "v1",
+      "publication_status": "ICLR 2026の公式ポスター・論文掲載を確認。",
+      "existing_coverage": "既存資料にTitansの短い紹介はある。MIRASの4設計軸と各変種の検証は未整理。",
+      "mechanism": "系列モデルをkey-value連想記憶として捉え、内部メモリ構造・記憶目的関数（attentional bias）・retention gate・更新algorithmの4軸で統一する。異なる損失や保持制御を使う深層メモリ変種を設計する枠組み。",
+      "reported_evaluation": "論文はFineWeb-Edu/C4による言語モデル学習、commonsense QA、RULERのneedle-in-a-haystackを報告。4,096 token学習や最大8K文脈の想起課題を含む。全て著者報告。",
+      "limitations": "実験は系列モデリング、言語モデル、合成想起課題。個人の事実記憶・会話横断の訂正、根拠来歴、削除を評価しない。設計枠組みから実運用memory systemの保証は導けない。",
+      "relevance": "コードや重みの導入可否に依らず、記憶容量・類似度/損失・忘却・オンライン更新を分けて考える理論的な比較軸になる。",
+      "artifact_status": {
+        "code": "論文、Google Research紹介、ICLRページで著者公式コードへのリンクを確認できず。実装が存在しないとは断定しない。",
+        "weights": "確認した一次資料に著者配布checkpointへのリンクなし。配布なしの断定ではない。",
+        "data": "FineWeb-Edu/C4等の既存データを報告。固有データセットの配布は確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2504.13173v1",
+          "https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/",
+          "https://iclr.cc/virtual/2026/poster/10008141",
+          "https://arxiv.org/html/2504.13173v1"
+        ],
+        "checked_scope": "arXiv論文、Google Research記事、公式ICLR発表ページ。GitHubの完全網羅検索・第三者実装の監査はしていない。"
+      },
+      "source_ids": [
+        "P-F3-LRN-MIRAS",
+        "P-F3-LRN-MIRAS-ICLR",
+        "P-F3-LRN-MIRAS-GOOGLE"
+      ],
+      "group": "learned",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "Nested Learning / HOPE",
+      "paper_url": "https://arxiv.org/abs/2512.24695v1",
+      "first_submitted": "2025-12-31",
+      "version": "v1",
+      "publication_status": "NeurIPS 2025 Main Conferenceの公式会議録掲載を確認。arXiv初稿は会議開催後の2025-12-31。",
+      "existing_coverage": "既存資料に個別論文の記載なし。",
+      "mechanism": "学習器を異なる頻度・context flowを持つ多段の最適化問題として扱う。Adam等のoptimizerも勾配情報を圧縮する連想記憶と解釈し、自己更新型系列モデルと短期・長期を連続体として扱うContinuum Memory Systemを組み合わせHOPEを構成する。",
+      "reported_evaluation": "言語モデル、知識取り込み・few-shot、継続学習、長文脈推論を評価。本文はRULER、LongHealth、QASPER等を含む課題群を報告。小規模から中規模の研究設定による著者報告で、独立追試なし。",
+      "limitations": "多段最適化による記憶の見方とHOPEは実証的提案だが、実験はモデル学習・benchmark課題。利用者の複数sessionをまたぐ事実台帳、出典保持、訂正・撤回を検証しない。",
+      "relevance": "具体実装に依存しない、更新頻度・状態圧縮・optimizerを含む学習過程自体を記憶として見る枠組み。長期学習の理論比較に使える。",
+      "artifact_status": {
+        "code": "確認したNeurIPS・arXiv・Google Research公式資料で著者公式repositoryを特定できず。第三者のHOPE実装は検索結果にあるが、著者公式ではない。",
+        "weights": "一次資料で著者配布HOPE checkpointを確認できず。",
+        "data": "RULER等の既存課題・データを用いる。新規dataset配布は確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2512.24695v1",
+          "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+          "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+          "https://arxiv.org/html/2512.24695v1"
+        ],
+        "checked_scope": "arXiv本文、NeurIPS公式会議録、Google Research記事。著者公式公開物を確認し、第三者コードの挙動は調べていない。"
+      },
+      "source_ids": [
+        "P-F3-LRN-NEST",
+        "P-F3-LRN-NEST-NEURIPS",
+        "P-F3-LRN-NEST-GOOGLE"
+      ],
+      "group": "learned",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "Memory Layers at Scale",
+      "paper_url": "https://arxiv.org/abs/2412.09764v2",
+      "first_submitted": "2024-12-12",
+      "version": "v2 (2024-12-20)",
+      "publication_status": "ICML 2025、PMLR volume 267の公式会議録掲載を確認。",
+      "existing_coverage": "既存のMemoryLLM/M+とは別系統。本論文の大規模化条件・比較結果は未掲載。",
+      "mechanism": "FFNの一部を疎なkey-value lookupに置き換え、top-kで活性化する学習可能な記憶層を追加。Memory+は射影と入力依存gateを加え、少ない追加FLOPsで大きなパラメータ容量を持たせる。",
+      "reported_evaluation": "Llama系134M–1.3Bの学習と8B基盤を含み、最大128B memory parameters、1T training tokensを報告。知識QA、commonsense、MMLU、HumanEval等を評価し、計算量・parameter-matchedなdense/MoEと比較。数値は著者報告。",
+      "limitations": "事前学習で蓄える容量であり、推論中にユーザーごとの記憶を編集する仕組みではない。小規模基盤での学習不安定性や正規化の必要を報告。出典・訂正・忘却を評価していない。",
+      "relevance": "学習可能な疎なlookupの容量/FLOPs trade-offを比較できる。Memory LayersのMemory+とMemoryLLMのM+は別系統であり、外部記憶との比較では事前学習した知識とセッション中の状態を区別する。",
+      "artifact_status": {
+        "code": "Meta FAIR公式repositoryにreference implementationを確認。",
+        "weights": "確認した公式repository/会議録で論文checkpointの配布を確認できず。",
+        "data": "READMEはDCLM/FineWeb系公開データを記載。論文固有のデータ配布は確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2412.09764v2",
+          "https://proceedings.mlr.press/v267/berges25a.html",
+          "https://github.com/facebookresearch/memory",
+          "https://arxiv.org/html/2412.09764v2"
+        ],
+        "checked_scope": "arXiv本文、PMLR公式ページ、公式repository README。コード実行・全checkpoint探索はしていない。"
+      },
+      "source_ids": [
+        "P-F3-LRN-MEMLAYERS",
+        "P-F3-LRN-MEMLAYERS-ICML",
+        "P-F3-LRN-MEMLAYERS-REPO"
+      ],
+      "group": "learned",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "Continual Learning via Sparse Memory Finetuning (SMF)",
+      "paper_url": "https://arxiv.org/abs/2510.15103v1",
+      "first_submitted": "2025-10-16",
+      "version": "v1",
+      "publication_status": "arXiv preprint。公開審査PDFにはICLR 2026審査中表記がある。2026-09-29時点で公式採択一覧に題名を確認できず、採択扱いしない。",
+      "existing_coverage": "既存資料に掲載なし。",
+      "mechanism": "Memory Layersのactivation slotを用い、新しいbatchでpretraining背景より相対的に強く活性化したtop-t slotだけを更新する。更新対象を疎にして既存能力との干渉を抑える。",
+      "reported_evaluation": "1.3B基盤にmemory layerを置き、TriviaQA/SimpleQAの新知識学習をFull FT・LoRAと比較。NaturalQuestions F1の低下をそれぞれ89%、71%、11%と報告し、新知識獲得量を揃えた条件を示す。評価は2 QA task。",
+      "limitations": "短い知識注入と質問応答の設定であり、連続会話の流入、事実の時系列変化、訂正・根拠追跡を検証しない。報告数値は著者評価で、独立追試なし。",
+      "relevance": "一般的なfine-tuneの忘却を、疎な連想記憶slotへの選択更新で抑える学習方法。モデル内部記憶が長期更新に使える条件を検討する候補。",
+      "artifact_status": {
+        "code": "論文・著者ページで公式code linkを確認できず。第三者repositoryのREADMEに実装を確認したが著者公式とは確認せず、実装品質も未監査。",
+        "weights": "研究固有checkpointの配布先は確認できず。",
+        "data": "TriviaQA/SimpleQA等の既存QAを利用。評価一式の新規配布は確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2510.15103v1",
+          "https://openreview.net/pdf?id=LGo7U1m24L",
+          "https://iclr.cc/virtual/2026/papers.html",
+          "https://github.com/dtunai/continual_learning_via_sparse_memory_finetuning",
+          "https://arxiv.org/html/2510.15103v1"
+        ],
+        "checked_scope": "arXiv本文、著者ページ、OpenReview公開PDF、ICLR 2026公式一覧の完全題名検索、第三者repository README。取得・実行なし。"
+      },
+      "source_ids": [
+        "P-F3-LRN-SMF",
+        "P-F3-LRN-SMF-OPENREVIEW",
+        "P-F3-LRN-SMF-AUTHOR",
+        "P-F3-LRN-SMF-ICLR",
+        "P-F3-LRN-SMF-COMMUNITY"
+      ],
+      "group": "learned",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "End-to-End Test-Time Training for Long Context (TTT-E2E)",
+      "paper_url": "https://arxiv.org/abs/2512.23675v2",
+      "first_submitted": "2025-12-29",
+      "version": "v2 (2025-12-31)",
+      "publication_status": "arXiv preprint。査読採択を確認できず。",
+      "existing_coverage": "既存資料に掲載なし。",
+      "mechanism": "sliding-window Transformerを各sequenceのnext-token予測で推論時にも更新し、読んだcontextをfast weightsへ圧縮する。学習時のmeta-learningでtest-time update後の損失を直接最適化する。",
+      "reported_evaluation": "3Bモデルを164B tokenで学習。long-context言語モデル評価を最大128Kまで実施し、著者は128Kでfull-attentionより2.7倍速い定常decode latencyを報告。DCLM事前学習とBooks長文延長を含む。",
+      "limitations": "主眼は文脈長に応じたLM性能・計算量で、単一sequence内の学習状態を扱う。session横断のユーザー事実、選択的更新、根拠source、訂正/rollbackを検証していない。",
+      "relevance": "通常の外部memory layerを足さず、test-time learningでcontextを重みに圧縮する最先端例。長期記憶の「逐語保持」と「経験圧縮」の区別を考える材料。",
+      "artifact_status": {
+        "code": "著者公式JAX repositoryを公開。",
+        "weights": "公式repoに125M/1B/3Bと128K extension checkpointの一部をRequester Pays GCS bucketで公開。",
+        "data": "Llama-3 tokenized DCLM/Books datasetのGCS配布をREADMEに明記。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2512.23675v2",
+          "https://github.com/test-time-training/e2e",
+          "https://arxiv.org/html/2512.23675v2"
+        ],
+        "checked_scope": "arXiv本文と公式READMEのデータ・checkpoint節。重みやdatasetはダウンロード・再実行していない。"
+      },
+      "source_ids": [
+        "P-F3-LRN-E2E",
+        "P-F3-LRN-E2E-REPO"
+      ],
+      "group": "learned",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "Sparse Delta Memory (SDM)",
+      "paper_url": "https://arxiv.org/abs/2607.07386v1",
+      "first_submitted": "2026-07-08",
+      "version": "v1",
+      "publication_status": "arXiv v1 preprint。査読採択情報は今回確認できず。",
+      "existing_coverage": "既存資料に掲載なし。",
+      "mechanism": "Gated DeltaNet型の系列モデルにproduct-keyでアドレスする大規模疎メモリ表を加え、読み書きとdelta updateを疎にする。初期状態M0に事前学習知識を持たせ、sequenceを読むごとの状態更新と分ける。",
+      "reported_evaluation": "isoFLOPs・同一parameter budget（実行時memory stateを除外）の条件で線形RNNの状態容量を約1000倍にできると著者報告。1.4B/8B、最終8Bで1T超tokensの学習、128K長文評価、RULER 4K–131Kや長文code課題を報告。",
+      "limitations": "論文は状態memory footprintが無視できず、model parameter規模に近づき得ることと、8B超への拡大にはkernel改善が必要とする。合成長文/RULERやLM評価では個人記憶の出典・訂正・消去を検証しない。",
+      "relevance": "2026年の内部疎メモリ研究。parameter数/FLOPsの効率だけでなく、実行時状態のサイズを独立に計測する必要性を示す。",
+      "artifact_status": {
+        "code": "Meta FAIRの公式reference implementationとTriton/CUDA kernelsを公開。",
+        "weights": "確認した公式repository READMEでcheckpoint配布を確認できず。",
+        "data": "Meta Lingua系の一般学習・評価workflowを参照。固有dataset releaseは確認できず。",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2607.07386v1",
+          "https://github.com/facebookresearch/sparse-delta-memory",
+          "https://arxiv.org/html/2607.07386v1"
+        ],
+        "checked_scope": "arXiv本文と公式repository README。checkpoint全件・data bucket・実行結果は監査していない。"
+      },
+      "source_ids": [
+        "P-F3-LRN-SDM",
+        "P-F3-LRN-SDM-REPO"
+      ],
+      "group": "learned",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "Fortunate Recall",
+      "paper_url": "https://arxiv.org/abs/2609.10413v1",
+      "first_submitted": "2026-09-09",
+      "version": "v1",
+      "publication_status": "arXivプレプリント。書誌欄は査読中と明記",
+      "existing_coverage": "papers.mdに方式・比較・アブレーションの概要あり。LifecycleBench詳細、査読状態、成果物を一次本文で補足。knowledge-updates.mdとevaluation.mdには同ベンチマークの評価設計は未記載",
+      "mechanism": "個人的事実を行動型10+1分類へ割り当て、型別の減衰、slot置換、有効時刻、検索方針を抽出済みメタデータ上で決定的に適用する",
+      "reported_evaluation": "LifecycleBench 516問とLongMemEval-S 500問を評価。汎用的な有効期間・置換操作だけにした対照でも正答差は明確でなく、型分類は主に回答校正に寄与したと報告",
+      "limitations": "人手による回答検証がなくLLM judge依存。著者作成ベンチマークの同時設計を含み、10+1分類が最適・必須とは示していない。査読中",
+      "relevance": "鮮度と置換を事実型に分ける構成例だが、撤回・根拠依存の派生物再評価は別に設計・評価する必要がある",
+      "artifact_status": {
+        "code": "論文は公開済みと明記し、Zenodoにcodebase ZIPを掲載",
+        "weights": "専用重みの公開記載なし。評価モデルは論文で指定",
+        "data": "LifecycleBench、結果、run logsを論文とZenodoが公開と記載",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2609.10413v1",
+          "https://zenodo.org/records/20067778"
+        ],
+        "checked_scope": "arXiv §7・Reproducibility Supplement・checklistとZenodoのrecord/file一覧。ZIP取得・内容検証・再実行なし"
+      },
+      "source_ids": [
+        "P-FR",
+        "A-F3-FR"
+      ],
+      "group": "lifecycle",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid?",
+      "paper_url": "https://arxiv.org/abs/2605.06527v1",
+      "first_submitted": "2026-05-07",
+      "version": "v1",
+      "publication_status": "arXiv v1。確認した書誌欄に会議・査読状態の記載なし",
+      "existing_coverage": "LongMemEvalの更新質問はevaluation.mdにあるが、明示的否定なしの状態変化、連鎖的失効、古い前提を置く質問の評価は未掲載",
+      "mechanism": "新観察が旧属性を直接または関連属性経由で失効させる暗黙矛盾を定義し、状態解決・古い前提への抵抗・暗黙の行動適応の三方向で測る。CUPMemは書込時状態統合と伝播検索の試作",
+      "reported_evaluation": "専門家確認済み400場面・1,200質問、Type I同一属性とType II依存属性の失効を比較。長文脈は最大150K tokens。最高報告モデルの全体正答率は55.2%",
+      "limitations": "一場面一組の管理された矛盾で、反復更新・段階的変化・複数属性の複雑な依存を十分に表さない。生成対話とLLM judgeに依存し、実利用分布とは差がある",
+      "relevance": "訂正は明示語の一致だけでは発見できず、関連属性の変更から旧推論・助言を失効させる試験が必要",
+      "artifact_status": {
+        "code": "著者GitHubでベンチ生成・評価・CUPMem実装を公開",
+        "weights": "専用学習重みの公開記載なし",
+        "data": "400件の評価データをHugging Faceで公開",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2605.06527v1",
+          "https://github.com/icedreamc/STALE",
+          "https://huggingface.co/datasets/STALEproj/STALE"
+        ],
+        "checked_scope": "論文Appendix G、GitHub README/tree、Hugging Face dataset cardを確認。取得・実行なし"
+      },
+      "source_ids": [
+        "P-F3-STALE",
+        "P-F3-STALE-HTML",
+        "A-F3-STALE-CODE",
+        "A-F3-STALE-DATA"
+      ],
+      "group": "lifecycle",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "The Memory Trust Gap: Capability-Dependent Failures in Persistent-Memory Agents",
+      "paper_url": "https://arxiv.org/abs/2609.01852v1",
+      "first_submitted": "2026-09-01",
+      "version": "v1",
+      "publication_status": "プレプリント。著者はNeurIPS 2026 workshopで審査中と書誌欄に記載",
+      "existing_coverage": "evaluation.mdの既存評価軸はstale-fact率や正答・棄却を扱うが、記憶への依存行動とno-memory比の害を分ける対照試験は未掲載",
+      "mechanism": "記憶が必要なBenefit群と、正解を持つ権威ツールが常にあるSafety群を分け、古い値を信じる率とno-memory比の正答差を別指標にする",
+      "reported_evaluation": "固定300場面でQwen3 0.6/1.7/4/8Bを評価。記憶に沿って行動する率とno-memory比の正答差を分けて報告し、Llama系列やRGB・MisBenchでも一部再検証。",
+      "limitations": "主系列は単一モデル族。閉集合の行動採点で、実際の書込・更新・検索一連の処理は測らない。Memory固有でない古い証拠への過信も示す",
+      "relevance": "正しい記憶を保持する利益と、古い記憶が現在の根拠を上書きする害を別々に比較する基準を与える",
+      "artifact_status": {
+        "code": "確認した論文本文・arXiv書誌に公開先の明記なし。外部での公開有無は未判定",
+        "weights": "専用重みの公開記載なし。既存モデル系列を評価",
+        "data": "300場面をhash固定した記載あり。配布先の明記は確認できず、公開有無は未判定",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2609.01852v1",
+          "https://arxiv.org/html/2609.01852v1"
+        ],
+        "checked_scope": "arXiv書誌、§3 benchmark/scoring、結果・mitigation、limitations、HTML中のartifactリンクを確認。論文外の非公開性は断定しない"
+      },
+      "source_ids": [
+        "P-F3-TRUST",
+        "P-F3-TRUST-HTML"
+      ],
+      "group": "lifecycle",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "Revoked but Still Authoritative: An Empirical Study of Revocation Enforcement in Agent-Memory Systems",
+      "paper_url": "https://arxiv.org/abs/2609.08258v1",
+      "first_submitted": "2026-09-08",
+      "version": "v1",
+      "publication_status": "arXiv v1。確認した書誌欄に会議・査読状態の記載なし。コード公開先を明記",
+      "existing_coverage": "knowledge-updates.mdに根拠撤回と派生データ再評価の設計案はあるが、検索時にrevoke印が強制されるかの比較実測は未掲載",
+      "mechanism": "撤回済み方針と代替方針を記憶系へ投入し、検索が旧方針を返すか、行動器が従うかを分けて測定。検索前段のguardは撤回記録と置換候補を照合して抑止",
+      "reported_evaluation": "5記憶系、9方針シナリオ、9モデル、6防御条件を比較。検査条件ではretrieval filterがunsafe actionを0/1,620まで抑えた一方、単独prompt hardeningは残余行動を止めきれなかった",
+      "limitations": "結論は試験したadapter・設定と合成方針シナリオの範囲に限る。単発検索だけのfilter保証は、判断をjournalへ書き戻すと新しい現行記録に迂回され得る",
+      "relevance": "撤回状態の保存では足りず、検索時の適格性と、撤回済み根拠から作った要約・決定の再流入も監査すべきと示す",
+      "artifact_status": {
+        "code": "論文にGitHub公開を明記し、guardと複数実験のコードを掲載",
+        "weights": "専用学習重みの公開記載なし。LLMは実験依存",
+        "data": "9シナリオ定義をrepoに含む。READMEはraw model/retrieval logsを公開repoから除外すると明記",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2609.08258v1",
+          "https://github.com/VulcanLab/Memory-Rebirth-Attack"
+        ],
+        "checked_scope": "論文§3–5・Appendix CとGitHub README/treeの公開記述を確認。コード実行・試験再現なし"
+      },
+      "source_ids": [
+        "P-F3-REVOKED",
+        "P-F3-REVOKED-HTML",
+        "A-F3-REVOKED-CODE"
+      ],
+      "group": "lifecycle",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "TEPA: Revoking Stale Memories for Conflict-Robust Language Agents",
+      "paper_url": "https://arxiv.org/abs/2608.07429v2",
+      "first_submitted": "2026-08-07",
+      "version": "v2（2026-08-10改訂）",
+      "publication_status": "arXiv書誌でpreprintと明記",
+      "existing_coverage": "knowledge-updates.mdに有効期間・supersede・撤回の一般設計はあるが、明示状態付きevidence lifecycle方式とその比較値は未掲載",
+      "mechanism": "観測をkey付きprecedentとして保持し、有効状態の項目と同じkeyで新根拠が衝突すれば旧項目を撤回し、通常検索から除いて監査用履歴には残す。検証済み昇格の変種も評価",
+      "reported_evaluation": "50 seedの隠れた状態変化・実ファイル実行・嗜好更新とMemoryAgentBenchを評価。完全反転時の統制課題でTEPAは成功率0.95、append-onlyとlast-write-winsは0.21",
+      "limitations": "同じ事実を結ぶkey抽出が前提。多段推論・非常に長い文脈では検索連鎖とcontext選択が別のボトルネックになる",
+      "relevance": "旧事実の保持と現行検索対象からの撤回を分け、必要なら監査・再昇格できる具体モデルを提示",
+      "artifact_status": {
+        "code": "確認した論文書誌・本文に配布先の記載なし。有無は未判定",
+        "weights": "専用学習重みの公開記載なし",
+        "data": "独自のdrift streamsと再利用ベンチマークを評価。独自データの配布先明記は確認できず",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2608.07429v2",
+          "https://arxiv.org/html/2608.07429v2"
+        ],
+        "checked_scope": "arXiv書誌、abstract、method、evaluation、limitationsを確認。論文外の配布状況・再実行は未確認"
+      },
+      "source_ids": [
+        "P-F3-TEPA",
+        "P-F3-TEPA-HTML"
+      ],
+      "group": "lifecycle",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "Agent Memory Is a Surface for Endogenous Authorization Laundering",
+      "paper_url": "https://arxiv.org/abs/2609.01836v1",
+      "first_submitted": "2026-09-01",
+      "version": "v1",
+      "publication_status": "arXiv v1。確認した書誌欄に会議・査読状態の記載なし",
+      "existing_coverage": "knowledge-updates.mdはソース撤回と由来依存を論じるが、権限のscope・期限・取り消しが記憶更新で失われ行動権限に化ける評価は未掲載",
+      "mechanism": "正規の組織履歴からwriterが記憶を作り、後段executorがその記憶だけで行動する。外部攻撃なしで更新時に権限境界が薄れるendogenous authorization launderingを測る",
+      "reported_evaluation": "調達・サイバーセキュリティ・金融の3領域、5 writerと2 executorを評価。typed incremental更新では不許可依頼の最大50.2%に誤権限が生じ、その記憶があるとexecutorの98.6%が行動",
+      "limitations": "履歴は現実的な構造を残しつつ決定的判定のため明示的なイベントと模擬toolを使う。実運用頻度を推定しない。保護策は不正行動を減らす一方、正当操作も拒否",
+      "relevance": "知識内容の出典だけでなく、その出典が与える権限の主体・対象・範囲・期限・撤回を更新後も束縛する必要を示す",
+      "artifact_status": {
+        "code": "著者のEAL-Bench公開repoに評価コード・領域定義・結果資料あり",
+        "weights": "独自学習重みの公開記載なし。writer/executorは指定モデル依存",
+        "data": "benchmark履歴・hidden ledgerの構成を公開。READMEによればraw trial JSONLはrepoに含まず、完全な再採点には原記録が必要",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2609.01836v1",
+          "https://github.com/tommasocerruti/eal-bench"
+        ],
+        "checked_scope": "論文§3–4.6とREADMEのbench cases・memory conditions・outputsを確認。API実験は未実行"
+      },
+      "source_ids": [
+        "P-F3-EAL",
+        "P-F3-EAL-HTML",
+        "A-F3-EAL-CODE"
+      ],
+      "group": "lifecycle",
+      "checked": "2026-09-29"
+    },
+    {
+      "name": "TRACE: Governing Memory Validity in Evolving Multi-Agent Systems",
+      "paper_url": "https://arxiv.org/abs/2609.33517v1",
+      "first_submitted": "2026-09-27",
+      "version": "v1",
+      "publication_status": "arXiv v1。9月29日に確認した書誌欄は掲載先を記載していない",
+      "existing_coverage": "knowledge-updates.mdは時刻・出典・撤回と並行更新を扱うが、離脱中に変わった共有状態へ復帰するagentの記憶許可判定は未掲載",
+      "mechanism": "復帰時に離脱時点のsnapshotを共有状態の更新と照合し、時間有効性・出典・適用範囲・役割の未完了事項を検証。条件を満たすbounded Return Viewだけを再投入",
+      "reported_evaluation": "3 actor modelsで5-agentの復帰場面を評価し、Memora・STALE Type II・派生ManBench-Returnを使用。STALE Type IIで比較policyより改善する一方、tokenは約2.3倍。書込時統合pipelineには精度で及ばず、同pipelineはTRACEの約3.99倍のtokenを使うと著者報告。",
+      "limitations": "長い離脱で成績が低下し、暗黙依存の見落とし・過剰な棄却はverifierの範囲と校正に左右される。ManBench設定は派生評価で、報告token数は遅延・再試行費用を示さない",
+      "relevance": "検索できる・原文に忠実というだけでは現行行動への採用資格を示せず、再利用時点で共有状態に対する有効性を検査する案になる",
+      "artifact_status": {
+        "code": "arXiv本文と著者GitHubで公開を明記。MITライセンス",
+        "weights": "専用重みの公開記載なし。actor/judge modelは設定で選択",
+        "data": "ManBench一部は同梱、STALEとMemoraはhash検証付き取得。各元datasetの条件をREADMEで案内",
+        "evidence_urls": [
+          "https://arxiv.org/abs/2609.33517v1",
+          "https://arxiv.org/html/2609.33517v1",
+          "https://github.com/xiong-wenjun/TRACE"
+        ],
+        "checked_scope": "論文§3–6・Appendix A/D、READMEのdata/reproduction記載とlicenseを確認。匿名artifactは本文記載のみで取得せず、評価未実行"
+      },
+      "source_ids": [
+        "P-F3-TRACE",
+        "P-F3-TRACE-HTML",
+        "A-F3-TRACE-CODE"
+      ],
+      "group": "lifecycle",
+      "checked": "2026-09-29"
+    }
+  ],
+  "sources": [
+    {
+      "id": "P-F3-MOOSEDEV",
+      "title": "Ontology-Grounded Project Memory for Coding Agents",
+      "url": "https://arxiv.org/html/2608.13662v1",
+      "kind": "論文本文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の構成・評価・導入制約を確認。追試なし。",
+      "checked_sections": [
+        "2 System",
+        "3 Evaluation",
+        "4 Deployment, Bootstrap, and Lessons"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2608.13662v1"
+    },
+    {
+      "id": "D-F3-MOOSEDEV",
+      "title": "Trivyn/moosedev — open source and MOOSE boundary",
+      "url": "https://github.com/Trivyn/moosedev",
+      "kind": "著者公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの公開範囲、非公開engineとsource build条件を確認。コード監査・実行なし。",
+      "checked_sections": [
+        "What is MOOSEDev?",
+        "Open source and the MOOSE boundary",
+        "License"
+      ]
+    },
+    {
+      "id": "P-F3-NEST",
+      "title": "Nested Episodic State Topology (NEST): A Graph-Theoretic Architecture of Cognitive States",
+      "url": "https://arxiv.org/html/2607.06055v1",
+      "kind": "理論論文本文",
+      "accessed": "2026-09-29",
+      "review_depth": "形式体系・比較枠・限界の関連箇所を確認。形式証明全体の検証なし。",
+      "checked_sections": [
+        "2 Formal Architecture",
+        "5 Mappings to Existing Frameworks",
+        "6.2 Limitations",
+        "6.3 Open research directions"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2607.06055v1"
+    },
+    {
+      "id": "P-F3-ENSIMEM",
+      "title": "EnSIMem: Entity-Structured Indexing for Long-Term Agent Memory",
+      "url": "https://arxiv.org/html/2609.27279v2",
+      "kind": "論文本文",
+      "accessed": "2026-09-29",
+      "review_depth": "手法・評価条件・ablation・制約を確認。追試なし。",
+      "checked_sections": [
+        "3 EnSIMem",
+        "4 Experiments",
+        "5 Discussion, Limitations, and Future Work"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2609.27279v2"
+    },
+    {
+      "id": "D-F3-ENSIMEM",
+      "title": "RamonMeng/EnSIMem official repository",
+      "url": "https://github.com/RamonMeng/EnSIMem",
+      "kind": "著者公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "公開リポジトリとLoCoMo/LongMemEvalディレクトリの存在を確認。完全性・実行可能性・性能は未検証。",
+      "checked_sections": [
+        "repository file listing"
+      ]
+    },
+    {
+      "id": "P-F3-WORLDDB",
+      "title": "WorldDB: A Vector Graph-of-Worlds Memory Engine with Ontology-Aware Write-Time Reconciliation",
+      "url": "https://arxiv.org/html/2604.18478v1",
+      "kind": "論文本文（性能判断保留）",
+      "accessed": "2026-09-29",
+      "review_depth": "データモデル・更新handler・評価条件・再現性付録を確認。本文内の条件/数値の不整合を記録し、性能順位の根拠には不採用。",
+      "checked_sections": [
+        "2 Data Model",
+        "3 Reconciliation Pipeline",
+        "7.1 Experimental Setup",
+        "7.4 Ablation",
+        "Appendix C Reproducibility"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2604.18478v1"
+    },
+    {
+      "id": "P-F3-FILESYSTEM",
+      "title": "Filesystem-Based Memory for LLM Agents: Organization, Evolution, and Sustainability",
+      "url": "https://arxiv.org/html/2607.26637v1",
+      "kind": "arXiv primary preprint (version-pinned HTML body)",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML本文を確認。方式、実験、主要結果、結論、ベンチマークのサンプル範囲と限界を確認。コードは実行していない。",
+      "checked_sections": [
+        "Abstract and Introduction",
+        "§2 Formalizing Filesystem-Based Agent Memory",
+        "§3 Experimental Setup",
+        "§4 Results and Analysis",
+        "§5 Conclusion",
+        "Appendix C.2 Benchmark Data Provenance",
+        "Appendix D Additional Results"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2607.26637v1"
+    },
+    {
+      "id": "P-F3-REFIND",
+      "title": "When Your Agent Opens the Chat App: Agent-Controlled Search over Raw Chat Logs Rivals Structured Memory",
+      "url": "https://arxiv.org/html/2608.12888v2",
+      "kind": "arXiv primary preprint (version-pinned HTML body)",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v2の本文、比較表、アブレーション、評価条件と付録を確認。報告値は著者の実験値として扱い、追試していない。",
+      "checked_sections": [
+        "Abstract and Introduction",
+        "§3 Method and chat-native retrieval controls",
+        "§4 Experiments and main results",
+        "§5 Analysis and Discussion",
+        "§6 Conclusion",
+        "Appendix: prompts, hyperparameters, evaluation details, resource use, artifact use and licenses"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2608.12888v2"
+    },
+    {
+      "id": "P-F3-MEMO",
+      "title": "MEMO: Multimodal Evidence Memory Organization for Long-Horizon LLM Agents",
+      "url": "https://arxiv.org/html/2609.07471v1",
+      "kind": "arXiv primary preprint (version-pinned HTML body)",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v1の本文を確認。方法、4ベンチマークの結果、アブレーション、公開状態を確認。著者はコメント欄でworking in progressと記載。",
+      "checked_sections": [
+        "Abstract and Introduction",
+        "Related Work",
+        "Method: evidence extraction, memory manager training, working-memory construction",
+        "Experiments and component ablation",
+        "Conclusion"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2609.07471v1"
+    },
+    {
+      "id": "P-F3-MEMCON",
+      "title": "Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agents",
+      "url": "https://arxiv.org/html/2607.13591v1",
+      "kind": "arXiv primary preprint (version-pinned HTML body)",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv HTML v1の要旨、MDP状態・行動の定義、評価概要、公開コードの記載を確認。バックエンド実装を実行していない。",
+      "checked_sections": [
+        "Abstract and Introduction",
+        "§3.1 Memory MDP state and action definitions",
+        "Evaluation summary and contributions",
+        "Author code statement and linked repository"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2607.13591v1"
+    },
+    {
+      "id": "P-F3-MEMCON-REPO",
+      "title": "MemCon official GitHub repository",
+      "url": "https://github.com/ericjiang18/MemCon",
+      "metadata_url": null,
+      "kind": "著者の公式GitHub repository（公開）",
+      "accessed": "2026-09-29",
+      "review_depth": "GitHub webで公開状態、README、実ファイルへの直リンクを確認。ファイルの存在と本文表示まで確認し、コード監査・実行はしていない。参照したブランチはmainで、commit SHAは固定できていない。",
+      "checked_sections": [
+        "Repository root and README project structure",
+        "hmf/mcp_framework/memory_mdp.py — direct source page opened",
+        "hmf/mcp_framework/policy.py — direct source page opened",
+        "hmf/mcp_framework/wrapper.py — direct source page opened"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-MIRAS",
+      "title": "It's All Connected: A Journey Through Test-Time Memorization, Attentional Bias, Retention, and Online Optimization",
+      "url": "https://arxiv.org/html/2504.13173v1",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "方式、実験設定・結果、制約を確認。追試・コード実行なし。",
+      "checked_sections": [
+        "Abstract",
+        "MIRAS framework",
+        "Experimental setup and results",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2504.13173v1"
+    },
+    {
+      "id": "P-F3-LRN-MIRAS-ICLR",
+      "title": "ICLR 2026 poster: It's All Connected",
+      "url": "https://iclr.cc/virtual/2026/poster/10008141",
+      "kind": "公式会議発表ページ",
+      "accessed": "2026-09-29",
+      "review_depth": "公式ポスター掲載と論文リンクを確認。",
+      "checked_sections": [
+        "Poster title",
+        "Authors",
+        "Paper link"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-MIRAS-GOOGLE",
+      "title": "Titans + MIRAS: Helping AI have long-term memory",
+      "url": "https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/",
+      "kind": "著者所属機関の公式研究紹介",
+      "accessed": "2026-09-29",
+      "review_depth": "MIRASの紹介と一次論文リンクを確認。",
+      "checked_sections": [
+        "MIRAS overview",
+        "Linked paper"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-NEST",
+      "title": "Nested Learning: The Illusion of Deep Learning Architectures",
+      "url": "https://arxiv.org/html/2512.24695v1",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "枠組み、HOPE/CMS、評価課題、議論を確認。実装・追試なし。",
+      "checked_sections": [
+        "Abstract",
+        "Nested Learning formulation",
+        "HOPE and Continuum Memory System",
+        "Experiments",
+        "Discussion"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2512.24695v1"
+    },
+    {
+      "id": "P-F3-LRN-NEST-NEURIPS",
+      "title": "Nested Learning: The Illusion of Deep Learning Architectures",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/4309616aaed8e848009bc4a7ef73b493-Abstract-Conference.html",
+      "kind": "NeurIPS公式会議録",
+      "accessed": "2026-09-29",
+      "review_depth": "NeurIPS 2025 Main Conference掲載と概要を確認。",
+      "checked_sections": [
+        "Title and authors",
+        "Conference track",
+        "Abstract"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-NEST-GOOGLE",
+      "title": "Introducing Nested Learning: A new ML paradigm for continual learning",
+      "url": "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+      "kind": "著者所属機関の公式研究紹介",
+      "accessed": "2026-09-29",
+      "review_depth": "NeurIPS発表との説明、HOPEの紹介、論文リンクを確認。",
+      "checked_sections": [
+        "Publication statement",
+        "HOPE proof-of-concept",
+        "Linked paper"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-MEMLAYERS",
+      "title": "Memory Layers at Scale",
+      "url": "https://arxiv.org/html/2412.09764v2",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "方式、拡大条件、ベンチマーク、制約を確認。コード実行なし。",
+      "checked_sections": [
+        "Abstract",
+        "Memory+ architecture",
+        "Scaling experiments",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2412.09764v2"
+    },
+    {
+      "id": "P-F3-LRN-MEMLAYERS-ICML",
+      "title": "Memory Layers at Scale",
+      "url": "https://proceedings.mlr.press/v267/berges25a.html",
+      "kind": "PMLR公式会議録",
+      "accessed": "2026-09-29",
+      "review_depth": "ICML 2025掲載情報と論文リンクを確認。",
+      "checked_sections": [
+        "Citation",
+        "Proceedings volume",
+        "Paper"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-MEMLAYERS-REPO",
+      "title": "facebookresearch/memory",
+      "url": "https://github.com/facebookresearch/memory",
+      "kind": "著者所属研究所の公式repository",
+      "accessed": "2026-09-29",
+      "review_depth": "README、公開実装と学習データ記載を確認。実行・checkpoint全ファイル監査なし。",
+      "checked_sections": [
+        "README",
+        "Implementation",
+        "Training data"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SMF",
+      "title": "Continual Learning via Sparse Memory Finetuning",
+      "url": "https://arxiv.org/html/2510.15103v1",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "方式、QA評価条件、忘却値、制約とartifact記載を確認。追試なし。",
+      "checked_sections": [
+        "Abstract",
+        "Method",
+        "Experiments",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2510.15103v1"
+    },
+    {
+      "id": "P-F3-LRN-SMF-OPENREVIEW",
+      "title": "Continual Learning via Sparse Memory Finetuning — OpenReview submission PDF",
+      "url": "https://openreview.net/pdf?id=LGo7U1m24L",
+      "kind": "OpenReview公開審査用PDF",
+      "accessed": "2026-09-29",
+      "review_depth": "公開PDFの審査状態表記を確認。現在の採否を示す資料としては扱わない。",
+      "checked_sections": [
+        "Title",
+        "Submission status header"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SMF-AUTHOR",
+      "title": "Jessy Lin — Publications",
+      "url": "https://jessylin.com/",
+      "kind": "著者公式ページ",
+      "accessed": "2026-09-29",
+      "review_depth": "当該論文のpreprint表示とリンクを確認。",
+      "checked_sections": [
+        "Continual Learning via Sparse Memory Finetuning entry"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SMF-ICLR",
+      "title": "ICLR 2026 Papers",
+      "url": "https://iclr.cc/virtual/2026/papers.html",
+      "kind": "公式会議採択一覧",
+      "accessed": "2026-09-29",
+      "review_depth": "完全題名を検索し、採択掲載を確認できないことを記録。ページ全体の独立照合ではない。",
+      "checked_sections": [
+        "Exact-title search"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SMF-COMMUNITY",
+      "title": "dtunai/continual_learning_via_sparse_memory_finetuning",
+      "url": "https://github.com/dtunai/continual_learning_via_sparse_memory_finetuning",
+      "kind": "第三者repository（著者公式とは未確認）",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの実装説明を確認。コードレビュー、実行、完全性確認なし。",
+      "checked_sections": [
+        "README",
+        "Repository identity"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-E2E",
+      "title": "End-to-End Test-Time Training for Long Context",
+      "url": "https://arxiv.org/html/2512.23675v2",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "手法、規模・長文実験、制約を確認。追試なし。",
+      "checked_sections": [
+        "Abstract",
+        "Method",
+        "Main results",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2512.23675v2"
+    },
+    {
+      "id": "P-F3-LRN-E2E-REPO",
+      "title": "test-time-training/e2e",
+      "url": "https://github.com/test-time-training/e2e",
+      "kind": "著者公式repository",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの実装・データbucket・checkpoint配布記載を確認。取得・実行なし。",
+      "checked_sections": [
+        "Abstract",
+        "Dataset Download",
+        "Model Checkpoints"
+      ]
+    },
+    {
+      "id": "P-F3-LRN-SDM",
+      "title": "Sparse Delta Memory: Scaling the State of Linear RNNs through Sparsity",
+      "url": "https://arxiv.org/html/2607.07386v1",
+      "kind": "著者論文（arXiv本文）",
+      "accessed": "2026-09-29",
+      "review_depth": "方式、規模・評価条件、制約を確認。追試なし。",
+      "checked_sections": [
+        "Abstract",
+        "Method",
+        "Experiments",
+        "Limitations"
+      ],
+      "metadata_url": "https://arxiv.org/abs/2607.07386v1"
+    },
+    {
+      "id": "P-F3-LRN-SDM-REPO",
+      "title": "facebookresearch/sparse-delta-memory",
+      "url": "https://github.com/facebookresearch/sparse-delta-memory",
+      "kind": "著者所属研究所の公式repository",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEのreference implementation、kernel、training workflowを確認。実行・checkpoint全件監査なし。",
+      "checked_sections": [
+        "README",
+        "Reference implementation",
+        "Training/evaluation workflow"
+      ]
+    },
+    {
+      "id": "P-FR",
+      "title": "Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs",
+      "url": "https://arxiv.org/abs/2609.10413v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "要旨・手法・評価・制約・書誌を本文確認",
+      "checked_sections": [
+        "arXiv書誌と初稿履歴",
+        "§3 lifecycle mechanisms",
+        "§6 evaluation",
+        "§7 limitations",
+        "NeurIPS checklist",
+        "artifact release"
+      ]
+    },
+    {
+      "id": "A-F3-FR",
+      "title": "Fortunate Recall codebase, benchmark and run logs",
+      "url": "https://zenodo.org/records/20067778",
+      "kind": "著者が論文で指定した成果物",
+      "accessed": "2026-09-29",
+      "review_depth": "Zenodo record metadata・file inventoryを確認。取得・実行なし",
+      "checked_sections": [
+        "Description",
+        "Files",
+        "Dates",
+        "DOI"
+      ]
+    },
+    {
+      "id": "P-F3-STALE",
+      "title": "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid?",
+      "url": "https://arxiv.org/abs/2605.06527v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と本文の評価・公開情報を確認",
+      "checked_sections": [
+        "書誌・submission history",
+        "abstract",
+        "§3 benchmark",
+        "§4 experiments",
+        "Appendix A limitations",
+        "Appendix G code/data"
+      ]
+    },
+    {
+      "id": "P-F3-STALE-HTML",
+      "title": "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid? (full text)",
+      "url": "https://arxiv.org/html/2605.06527v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "本文の手法・評価・限界・成果物節を確認",
+      "checked_sections": [
+        "§3.2–3.5",
+        "§4",
+        "§5 CUPMem",
+        "Appendix A",
+        "Appendix G"
+      ]
+    },
+    {
+      "id": "A-F3-STALE-CODE",
+      "title": "STALE and CUP-Mem author repository",
+      "url": "https://github.com/icedreamc/STALE",
+      "kind": "著者公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEとrepository treeを確認。clone・実行なし",
+      "checked_sections": [
+        "README",
+        "STALE/ and cup_mem/ inventory",
+        "license metadata"
+      ]
+    },
+    {
+      "id": "A-F3-STALE-DATA",
+      "title": "STALE dataset",
+      "url": "https://huggingface.co/datasets/STALEproj/STALE",
+      "kind": "著者公開データ",
+      "accessed": "2026-09-29",
+      "review_depth": "dataset card listingを確認。downloadなし",
+      "checked_sections": [
+        "dataset card",
+        "license metadata"
+      ]
+    },
+    {
+      "id": "P-F3-TRUST",
+      "title": "The Memory Trust Gap: Capability-Dependent Failures in Persistent-Memory Agents",
+      "url": "https://arxiv.org/abs/2609.01852v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と全文の実験条件・限界を確認",
+      "checked_sections": [
+        "書誌・comments・submission history",
+        "abstract",
+        "§3 benchmark and scoring",
+        "§4–6 results and mitigation",
+        "§8 limitations"
+      ]
+    },
+    {
+      "id": "P-F3-TRUST-HTML",
+      "title": "The Memory Trust Gap: Capability-Dependent Failures in Persistent-Memory Agents (full text)",
+      "url": "https://arxiv.org/html/2609.01852v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "実験設計・結果・限界を確認",
+      "checked_sections": [
+        "§3.1–3.3",
+        "§4",
+        "§5 factorial",
+        "§6 mitigation",
+        "§7 validation",
+        "§8 limitations"
+      ]
+    },
+    {
+      "id": "P-F3-REVOKED",
+      "title": "Revoked but Still Authoritative: An Empirical Study of Revocation Enforcement in Agent-Memory Systems",
+      "url": "https://arxiv.org/abs/2609.08258v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と本文の評価・成果物記述を確認",
+      "checked_sections": [
+        "書誌・comments・submission history",
+        "abstract",
+        "§3 methodology",
+        "§4 evaluations",
+        "§5 guard",
+        "Appendix C propagation"
+      ]
+    },
+    {
+      "id": "P-F3-REVOKED-HTML",
+      "title": "Revoked but Still Authoritative: An Empirical Study of Revocation Enforcement in Agent-Memory Systems (full text)",
+      "url": "https://arxiv.org/html/2609.08258v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "実験・防御・write-backを確認",
+      "checked_sections": [
+        "§3.2–3.6",
+        "§4.1–4.4",
+        "§5",
+        "Appendix A.3",
+        "Appendix C.1–C.3"
+      ]
+    },
+    {
+      "id": "A-F3-REVOKED-CODE",
+      "title": "Memory Rebirth Attack experimental code repository",
+      "url": "https://github.com/VulcanLab/Memory-Rebirth-Attack",
+      "kind": "著者公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEとrepository treeを確認。clone・実行なし",
+      "checked_sections": [
+        "README overview",
+        "experiment inventory",
+        "guard module",
+        "raw-output disclosure"
+      ]
+    },
+    {
+      "id": "P-F3-TEPA",
+      "title": "TEPA: Revoking Stale Memories for Conflict-Robust Language Agents",
+      "url": "https://arxiv.org/abs/2608.07429v2",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿/改訂日と全文の方法・評価・限界を確認",
+      "checked_sections": [
+        "書誌・submission history",
+        "abstract",
+        "§4–5 method/evaluation",
+        "Limitations"
+      ]
+    },
+    {
+      "id": "P-F3-TEPA-HTML",
+      "title": "TEPA: Revoking Stale Memories for Conflict-Robust Language Agents (full text)",
+      "url": "https://arxiv.org/html/2608.07429v2",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "方式・評価条件・限界を確認",
+      "checked_sections": [
+        "Problem formulation",
+        "Method",
+        "controlled and executable drift",
+        "MemoryAgentBench",
+        "Limitations"
+      ]
+    },
+    {
+      "id": "P-F3-EAL",
+      "title": "Agent Memory Is a Surface for Endogenous Authorization Laundering",
+      "url": "https://arxiv.org/abs/2609.01836v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と本文の方法・結果・限界を確認",
+      "checked_sections": [
+        "書誌・submission history",
+        "abstract",
+        "§3 problem formulation",
+        "§4 experiments",
+        "§4.6 limitations"
+      ]
+    },
+    {
+      "id": "P-F3-EAL-HTML",
+      "title": "Agent Memory Is a Surface for Endogenous Authorization Laundering (full text)",
+      "url": "https://arxiv.org/html/2609.01836v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "ベンチマーク条件・緩和策・外的妥当性の限界を確認",
+      "checked_sections": [
+        "§3.1–3.3",
+        "§4.1–4.6",
+        "Appendix C mitigation results"
+      ]
+    },
+    {
+      "id": "A-F3-EAL-CODE",
+      "title": "EAL-Bench author repository",
+      "url": "https://github.com/tommasocerruti/eal-bench",
+      "kind": "著者公開コード・評価資料",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEのベンチマーク構成・再現範囲・結果公開条件を確認。clone・実行なし",
+      "checked_sections": [
+        "README overview",
+        "benchmark cases",
+        "memory conditions",
+        "run outputs and raw JSONL disclosure"
+      ]
+    },
+    {
+      "id": "P-F3-TRACE",
+      "title": "TRACE: Governing Memory Validity in Evolving Multi-Agent Systems",
+      "url": "https://arxiv.org/abs/2609.33517v1",
+      "kind": "研究論文・書誌",
+      "accessed": "2026-09-29",
+      "review_depth": "arXiv書誌・初稿日と全文の手法・評価・限界を確認",
+      "checked_sections": [
+        "書誌・comments・submission history",
+        "abstract",
+        "§2 related work",
+        "§3–5 method/evaluation",
+        "§6 limitations",
+        "Appendix A artifact"
+      ]
+    },
+    {
+      "id": "P-F3-TRACE-HTML",
+      "title": "TRACE: Governing Memory Validity in Evolving Multi-Agent Systems (full text)",
+      "url": "https://arxiv.org/html/2609.33517v1",
+      "kind": "研究論文・本文",
+      "accessed": "2026-09-29",
+      "review_depth": "return-time validity admission・評価条件・限界を確認",
+      "checked_sections": [
+        "§3–5",
+        "§6 limitations",
+        "Appendix A reproducibility artifact",
+        "Appendix D benchmark details"
+      ]
+    },
+    {
+      "id": "A-F3-TRACE-CODE",
+      "title": "TRACE author repository",
+      "url": "https://github.com/xiong-wenjun/TRACE",
+      "kind": "著者公開コード・評価データ案内",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの構成・データ依存・ライセンスを確認。clone・実行なし",
+      "checked_sections": [
+        "README overview",
+        "benchmark/data locations",
+        "reproduction instructions",
+        "license metadata"
+      ]
+    }
+  ],
+  "searches": [
+    {
+      "query": "site.arxiv.org temporal knowledge memory 2026 ontology",
+      "purpose": "ontologyと記憶更新を直接つなぐ2026研究の発見",
+      "selected": [
+        "WorldDB",
+        "NEST",
+        "MOOSEDev"
+      ],
+      "note": "二次まとめは探索にのみ使用し、一次本文で確認。",
+      "group": "structure"
+    },
+    {
+      "query": "site.arxiv.org agent memory September 2026",
+      "purpose": "9月の最新研究まで探索",
+      "selected": [
+        "EnSIMem"
+      ],
+      "note": "v2と初稿日をarXiv書誌で確認。",
+      "group": "structure"
+    },
+    {
+      "query": "\"WorldDB\" \"Harish\" github",
+      "purpose": "著者実装の有無を確認",
+      "selected": [],
+      "note": "公式実装を確認できず。非公開とは断定しない。",
+      "group": "structure"
+    },
+    {
+      "query": "\"Ontology-Grounded Project Memory\" \"MOOSE\" implementation",
+      "purpose": "公開範囲と中核engineの境界を確認",
+      "selected": [
+        "https://github.com/Trivyn/moosedev"
+      ],
+      "note": "公式READMEはMOOSE engineを明示的にclosed sourceと記載。",
+      "group": "structure"
+    },
+    {
+      "query": "\"Nested Episodic State Topology\" code implementation",
+      "purpose": "理論と実行モデルを区別",
+      "selected": [
+        "https://arxiv.org/html/2607.06055v1"
+      ],
+      "note": "論文自身が学習algorithm未指定・実装を将来課題と明記。",
+      "group": "structure"
+    },
+    {
+      "query": "2026 LLM agent external long-term memory management/retrieval/organization; arXiv September memory agents; learned consolidation, search control, filesystem organization",
+      "method": "web search; arXiv primary abstract/full-text pages used to verify candidates",
+      "date": "2026-09-29",
+      "outcome": "MEMO (2609.07471), ReFind (2608.12888), Filesystem-Based Memory (2607.26637), MemCon (2607.13591)を主候補に選定。9月v1、8月v2、7月の新しい系統を優先。",
+      "group": "control"
+    },
+    {
+      "query": "site:github.com exact paper title: Filesystem-Based Memory for LLM Agents; When Your Agent Opens the Chat App; MEMO Multimodal Evidence Memory Organization",
+      "method": "web search for exact-title GitHub matches; arXiv paper body and Code/Data/Media artifact metadata cross-check",
+      "date": "2026-09-29",
+      "outcome": "3候補について著者公式コードrepositoryを特定できなかった。これは検索範囲内での未発見であり、非公開と断定しない。",
+      "group": "control"
+    },
+    {
+      "query": "MemCon author code release",
+      "method": "arXiv primary full text; followed author repository link; opened the public GitHub root and direct pages for memory_mdp.py, policy.py, and wrapper.py",
+      "date": "2026-09-29",
+      "outcome": "論文本文のコード公開記載に加え、公式repositoryのREADMEと3つの実ソースファイルが公開され、webで内容を表示できることを確認。コード監査・実行はしていない。",
+      "group": "control"
+    },
+    {
+      "query": "MemCon MEMO ReFind Filesystem-Based Memory AgeMem Memory-R1",
+      "method": "local repository inventory: rtk proxy rg -n -i over docs/research",
+      "date": "2026-09-29",
+      "outcome": "AgeMem・Memory-R1は既存掲載。今回の4論文名・方式名はdocs/research内で一致せず、既存カバレッジなしと判定。",
+      "group": "control"
+    },
+    {
+      "query": "2025-2026 latent/internal memory, test-time learning, associative memory sequence models; MIRAS Nested Learning HOPE",
+      "method": "一次論文と公式会議録・著者機関ページをweb検索し、候補ごとに本文を照合。",
+      "date": "2026-09-29",
+      "outcome": "MIRASとNested Learningを理論枠組み候補として採用。",
+      "group": "learned"
+    },
+    {
+      "query": "Memory Layers at Scale ICML sparse memory finetuning continual learning",
+      "method": "arXiv本文、PMLR、著者ページ、OpenReview、repositoryを確認。",
+      "date": "2026-09-29",
+      "outcome": "事前学習型の大規模memory layerと知識注入時の疎更新SMFを別研究として選定。",
+      "group": "learned"
+    },
+    {
+      "query": "2026 test-time training long context sparse delta memory",
+      "method": "arXiv本文と著者公式GitHub repositoryを確認。",
+      "date": "2026-09-29",
+      "outcome": "TTT-E2Eと2026年のSDMを採用。評価対象と学習後/推論時のmemoryを区別。",
+      "group": "learned"
+    },
+    {
+      "query": "site:github.com MIRAS MONETA YAAD MEMORA; site:github.com Nested Learning HOPE official",
+      "method": "著者公式公開物を探索。非公式結果は公式実装の証拠として扱わない。",
+      "date": "2026-09-29",
+      "outcome": "MIRAS/Nested Learningの著者公式実装を確認できず。コード非公開とは断定せず。Nested Learningは第三者repositoryも検索結果にあった。",
+      "group": "learned"
+    },
+    {
+      "query": "\"Continual Learning via Sparse Memory Finetuning\" OpenReview ICLR 2026",
+      "method": "arXiv、公開審査PDF、著者ページ、公式ICLR採択一覧を照合。",
+      "date": "2026-09-29",
+      "outcome": "arXiv preprintと審査中表記は確認。公式採択掲載は確認できず、採択扱いを避けた。",
+      "group": "learned"
+    },
+    {
+      "query": "\"The Memory Trust Gap\"; \"Revoked but Still Authoritative\"; \"Fortunate Recall\"",
+      "method": "論文名の完全一致検索後、arXiv書誌・HTML本文へ移動",
+      "accessed": "2026-09-29",
+      "result": "3件を含め、初稿日・現行版・査読コメント・本文の評価条件を確認",
+      "group": "lifecycle"
+    },
+    {
+      "query": "2026 agent memory stale belief revision benchmark implicit conflict temporal update revocation",
+      "method": "arXiv検索と本文の関連研究・引用から候補を展開",
+      "accessed": "2026-09-29",
+      "result": "STALE、TEPA、TRACEを採用。STALEは暗黙・連鎖的失効、TEPAはkey単位撤回、TRACEは復帰時の適格性を扱う",
+      "group": "lifecycle"
+    },
+    {
+      "query": "agent memory revoked retrieval-time enforcement journaling propagation authorization laundering 2026",
+      "method": "arXiv検索、本文参照、論文が指定する著者repo確認",
+      "accessed": "2026-09-29",
+      "result": "Revoked but Still AuthoritativeとEALを採用。読取時のrevoke強制と、書込時の権限由来喪失を区別",
+      "group": "lifecycle"
+    },
+    {
+      "query": "memory freshness authorization collapse benchmark 2026 AuthMem-Bench RealMem eviction audit",
+      "method": "arXiv候補検索。非採用候補は関連度を本文または書誌で照合",
+      "accessed": "2026-09-29",
+      "result": "AuthMem-Bench、RealMem、What Eviction Destroysを隣接候補としてdeferredに記録",
+      "group": "lifecycle"
+    }
+  ],
+  "deferred": [
+    {
+      "name": "WorldDB",
+      "paper_url": "https://arxiv.org/html/2604.18478v1",
+      "source_ids": [
+        "P-F3-WORLDDB"
+      ],
+      "status": "設計案のみ補足、性能判断保留",
+      "reason": "再帰world、content hash、型ごとのwrite-time handlerは設計比較に有用。ただし7.1はLongMemEval-sと呼びつつlongmemeval_oracleを指定し、要旨と7.4でgraph寄与の数値も一致しない。比較相手の回答器も異なるため、著者への条件確認/再現なしに優位とは結論しない。",
+      "artifact_status": "論文と著者名検索の範囲で公式実装を確認できず。コード非公開の宣言は確認していない。",
+      "metadata_note": "arXiv書誌初稿2026-04-20に対しHTML本文の表紙日付はAugust 24, 2026。原資料の不整合として残し、推測で補正しない。",
+      "group": "structure"
+    },
+    {
+      "name": "LightMem: Lightweight LLM Agent Memory with Small Language Models",
+      "paper_url": "https://arxiv.org/abs/2604.07798v3",
+      "reason": "ACL 2026採録の近接研究。SLMでSTM/MTM/LTMへのwrite/retrieve/consolidationを分ける有用候補だが、本回の4枠では7–9月のより新しい外部記憶制御・検索・整理研究を優先。",
+      "group": "control"
+    },
+    {
+      "name": "Learning What to Retain: Gated-Memory Routing for Efficient Collaboration in Multi-Agent LLM Systems",
+      "paper_url": "https://arxiv.org/abs/2609.00237v2",
+      "reason": "2026-09の新しいgate研究だが、複数agentの実行履歴から次のrole/modelを選ぶ作業中stateが中心で、会話をまたぐ外部長期memory storeの制御から一段ずれる。",
+      "group": "control"
+    },
+    {
+      "name": "MemORAI: Memory Organization and Retrieval via Adaptive Graph Intelligence",
+      "paper_url": "https://arxiv.org/abs/2605.01386v2",
+      "reason": "適応subgraph retrievalで関連性が高いが、graph・provenance設計が中心のため親担当のgraph/ontology調査と重なる。",
+      "group": "control"
+    },
+    {
+      "name": "TRUSTMEM: Learning Trustworthy Memory Consolidation for LLM Agents with Long-Term Memory",
+      "paper_url": "https://arxiv.org/abs/2606.25161v1",
+      "reason": "外部memoryの更新policyだが、主眼がtransition omission/corruption/hallucination検証と訂正品質評価であり、別担当の訂正・撤回評価と重なる。",
+      "group": "control"
+    },
+    {
+      "name": "Learning to Remember: End-to-End Training of Memory Agents for Long-Context Reasoning (UMA)",
+      "paper_url": "https://arxiv.org/abs/2602.18493v2",
+      "reason": "v2は2026-09-01、EMNLP 2026採録、外部CRUD memoryとLedger-QAを扱う強い近接研究。end-to-end RLで記憶維持policyを学ぶ点が他担当の学習・継続学習範囲と重なるため保留。",
+      "group": "control"
+    },
+    {
+      "name": "When Memory Becomes Authority: Benchmarking Authority Collapse at the Memory Consolidation Boundary (AuthMem-Bench)",
+      "url": "https://arxiv.org/abs/2608.01679",
+      "reason": "要旨・書誌を確認。source authorityをwriterの記憶へ保存する評価で有用だが、EAL-Benchがscope・validity・revocationと下流行動まで扱うため、今回の7件からは重複候補として保留",
+      "review_depth": "arXiv要旨・版情報のみ。本文未精査",
+      "group": "lifecycle"
+    },
+    {
+      "name": "RealMem: Benchmarking LLMs in Real-World Memory-Driven Interaction",
+      "url": "https://arxiv.org/abs/2601.06966",
+      "reason": "動的な長期プロジェクト状態・予定を扱う評価。訂正・撤回・信念失効を直接分解するSTALE/TEPAより隣接する業務継続ベンチマークとして今回は保留",
+      "review_depth": "要旨・方式・評価の関連節を確認",
+      "group": "lifecycle"
+    },
+    {
+      "name": "What Eviction Destroys: A Restore-Counterfactual Audit of Forgetting in Agent Memory",
+      "url": "https://arxiv.org/abs/2609.08279",
+      "reason": "保持予算による不可逆な忘却と検索失敗を分離する新評価。価値は高いが、今回の焦点である訂正・根拠撤回・現行性の検査とは別の保持/eviction軸として保留",
+      "review_depth": "要旨・評価指標・限界・成果物記載を確認",
+      "group": "lifecycle"
+    },
+    {
+      "name": "MemSyco-Bench: Benchmarking Sycophancy in Agent Memory",
+      "url": "https://arxiv.org/abs/2607.01071",
+      "reason": "記憶への迎合、適用scope、客観根拠との矛盾、更新を測る隣接ベンチマーク。今回は検索結果の書誌・要旨からの候補抽出に留め、本文確認後に統合を判断",
+      "review_depth": "検索結果要旨のみ",
+      "group": "lifecycle"
+    }
+  ]
+}
