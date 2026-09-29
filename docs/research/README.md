@@ -6,6 +6,17 @@
 
 本調査は、実装方式、知識表現、更新意味論、検索、評価を横断して比較する。主要実装はコミットを固定して静的に読んだ。論文の実験を再実行した結果ではない。確認方法と未確認範囲は[調査方法](methodology.md)、出典と版は[資料台帳](sources.md)に記載した。推奨設計は PostgreSQL を正本とし、アクセス権・原資料版・原ページ引用を共通で管理しながら、原資料版への文書 QA と必要な主張抽出・メモリー更新を分けます。PageIndex は長文 PDF 内部検索の任意アダプターとし、文書集合検索は metadata/全文検索を基本に dense retrieval と pgvector を比較します。
 
+## 関連システムの再調査
+
+2026-09-29 に、既存の概要候補を深掘りし、文書集合の検索・同期、作業経験の再利用、意味データ基盤、クラウド・実行基盤へ調査を広げました。[横断比較と設計への示唆](systems/extended-landscape.md)から読むと、PageIndex の比較対象と組み合わせる候補を区別できます。
+
+- [メモリーと経験の追加比較](systems/memory-landscape.md)
+- [文書検索・RAG 基盤の追加比較](systems/retrieval-landscape.md)
+- [意味データ・オントロジー基盤の追加比較](systems/semantic-data-landscape.md)
+- [クラウド・実行基盤のメモリー比較](systems/managed-memory-landscape.md)
+
+新規・既存概要の深掘り・探索保留は[候補台帳](evidence/system-landscape.json)、探索経路は[検索記録](evidence/landscape-searches.json)に残しました。静的調査であり、性能の順位付けや導入済み構成ではありません。
+
 ## 基本から応用までの学習ガイド
 
 2026-09-29 に概念の基礎と応用を追加調査した。**オントロジーは意味を共有するための概念・関係・公理、メモリーは情報を保持して再利用するための表現と管理機構**として読み分ける。型・制約・来歴・更新方針を区別すると、両者をどこで組み合わせるべきかが明確になる。
@@ -56,6 +67,11 @@
 | 文書                                            | 内容                                                           |
 | --------------------------------------------- | ------------------------------------------------------------ |
 | [システム比較の一覧](systems/README.md)                | 各方式の比較軸と詳細文書への案内                                             |
+| [関連システムの再調査](systems/extended-landscape.md) | 四領域の横断比較、PageIndex との役割分担、比較実験の候補 |
+| [メモリーと経験](systems/memory-landscape.md) | 既存概要の深掘り、ファイル・長期・手順記憶、評価研究 |
+| [文書検索・RAG 基盤](systems/retrieval-landscape.md) | 統合製品、構築部品、文書同期、グラフ・視覚検索 |
+| [意味データ基盤](systems/semantic-data-landscape.md) | 推論、データ仮想化、語彙管理、型と履歴 |
+| [クラウド・実行基盤](systems/managed-memory-landscape.md) | 記憶抽出サービス、会話状態、経験ファイル、版管理 |
 | [事実抽出・個人化メモリー](systems/fact-memory.md)        | Mem0、LangMem、Memobase、SimpleMem、A-MEM                        |
 | [時間・グラフ・統合メモリー](systems/structured-memory.md) | Graphiti、Cognee、Hindsight、MemOS、EverMemOS                    |
 | [エージェント・ファイル・サービス](systems/agent-memory.md)   | Letta、Basic Memory、MCP Memory、Honcho、Supermemory、Mastra、クラウド |

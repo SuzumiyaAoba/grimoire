@@ -1,0 +1,334 @@
+{
+  "accessed": "2026-09-29",
+  "purpose": "分野ごとの探索・選定経路を再訪できるようにする代表クエリ記録。検索全件や順位を再現するアーカイブではない。",
+  "groups": [
+    {
+      "group": "memory",
+      "record": {
+        "scope": "long-term-memory-and-agent-experience",
+        "accessed": "2026-09-29",
+        "recording_scope": "代表的な一次資料の探索・確認記録。検索結果全件のランキングや再現可能な検索 index は保存していない。",
+        "queries": [
+          {
+            "method": "existing-coverage-follow-up",
+            "purpose": "additional-systems.md の MemoryOS、MemMachine、memU、OpenViking、MIRIX の既存記載と source ID を棚卸し",
+            "outcome": "OpenViking・MemoryOS・MIRIX は既存 paper/README、MemMachine・memU は pinned README のみと判明。後者は本文で今回未深化または現行 README の境界追記と明示。"
+          },
+          {
+            "method": "repository-tree-and-fixed-raw-files",
+            "purpose": "OpenViking の session memory、lifecycle、hierarchical retrieval と MemoryOS の update/retrieve/store entry point を特定",
+            "outcome": "commit 固定の各 4 files を公式 GitHub raw endpoint から取得し、byte/hash と選択箇所を記録。インストール・実行は行わず。"
+          },
+          {
+            "method": "official-repository-docs-and-fixed-code",
+            "purpose": "ReMe の file-as-memory model、検索、MemoryScope の系譜と runtime update 経路を確認",
+            "outcome": "commit 固定の docs 2 files と code 2 files を取得。MemoryScope を ReMe と別の現行候補として二重計上しない。"
+          },
+          {
+            "method": "official-docs-open",
+            "url": "https://memorilabs.ai/docs/memori-byodb/concepts/how-memory-works/",
+            "purpose": "MemoriLabs 製品の attribution scope、memory extraction、BYODB と augmentation の責任分界",
+            "outcome": "概念文書の関連節を確認。別 repository の同名 project や BYODB の完全ローカル処理を推定しない。"
+          },
+          {
+            "method": "official-docs-open",
+            "url": "https://docs.memvid.com/introduction/glossary",
+            "purpose": "Memvid v2 の frame、portable file、index、revision / deletion semantics",
+            "outcome": "公式 docs を確認。v1 と現行 v2 の機能を混ぜず、CLI は実行していない。"
+          },
+          {
+            "method": "fixed-official-repository-docs",
+            "url": "https://github.com/zilliztech/memsearch/tree/2a4652fa086fbd45e92bfd8da7781ebe1642baa7",
+            "purpose": "Markdown memory layout、Milvus index、source transcript 展開、導入 backend の確認",
+            "outcome": "固定 README と getting started docs を確認。コード audit なし。MemSearcher / 他の memsearch 名と区別。"
+          },
+          {
+            "method": "official-docs-open",
+            "url": "https://docs.acontext.io/learn/quick",
+            "purpose": "Acontext の learned SOP skill と session/artifact model",
+            "outcome": "learning quick guide を確認し、通常 profile/fact store ではなく task procedure memory と分類。"
+          },
+          {
+            "method": "official-docs-open",
+            "url": "https://docs.acontext.io/learn/learning-spaces",
+            "purpose": "Acontext learning-space deletion と残存 skill/session の範囲",
+            "outcome": "親 scope の deletion を子資源の削除と同一視できないことを記録。API は実行せず。"
+          },
+          {
+            "method": "arxiv-paper-and-official-repository-review",
+            "purpose": "ACE、Memento-Skills、SkillWeaver、Agent KB の memory unit と paper/repository distinction",
+            "outcome": "論文方式・著者報告・公開 repo overview を区分し、benchmark を再実行せず。"
+          },
+          {
+            "method": "new-preprint-boundary-review",
+            "url": "https://arxiv.org/abs/2609.21533v1",
+            "purpose": "MACE の提出日、機能単位、評価 caveat を確認",
+            "outcome": "paper の主張と appendix caveat のみを記録。実装・独立評価・adversarial security validation は未確認。"
+          },
+          {
+            "method": "evaluation-paper-review",
+            "url": "https://arxiv.org/abs/2606.24775v1",
+            "purpose": "MemoryData / OpenDataBox が product か evaluation study かを確認し、比較の評価軸を整理",
+            "outcome": "memory module decomposition と workload-oriented evaluation を部分確認。製品 inventory から分離し、結果の再計算は行わず。"
+          },
+          {
+            "method": "name-collision-and-lineage-check",
+            "purpose": "MemoryScope、Memori、memsearch、MemSearcher、Memento の重複・類似名を分離",
+            "outcome": "MemoryScope は ReMe lineage とし、MemoriLabs/Memori、zilliztech/memsearch、Memento-Skills は完全 repo/paper ID を記載。"
+          }
+        ]
+      }
+    },
+    {
+      "group": "retrieval",
+      "record": {
+        "accessed": "2026-09-29",
+        "queries": [
+          {
+            "query": "official README/docs for RAGFlow, Dify Knowledge, Onyx: document parsing, citations, update/delete sync, permissions, hosted/self-host editions",
+            "purpose": "統合型文書RAG製品の更新・権限・deployment boundary確認",
+            "scope": [
+              "RAGFlow",
+              "Dify Knowledge",
+              "Onyx"
+            ],
+            "source_policy": "公式README・公式docsを優先"
+          },
+          {
+            "query": "LlamaIndex document management ref_doc_id UPSERTS_AND_DELETE ingestion pipeline source code",
+            "purpose": "ref-document mapping、upsert、deletion strategyの仕様・実装確認",
+            "scope": [
+              "LlamaIndex"
+            ],
+            "source_policy": "公式docsとcommit固定公開コード"
+          },
+          {
+            "query": "Haystack DocumentStore protocol delete_documents metadata filters pipeline documentation",
+            "purpose": "framework CRUD抽象とfilter semanticsの境界確認",
+            "scope": [
+              "Haystack"
+            ],
+            "source_policy": "公式docs"
+          },
+          {
+            "query": "txtai indexing upsert delete keyword hybrid local API licensing",
+            "purpose": "embeddings database、更新API、deployment/license確認",
+            "scope": [
+              "txtai"
+            ],
+            "source_policy": "公式docs・README"
+          },
+          {
+            "query": "Pathway llm-app data synchronization update delete BSL license terms",
+            "purpose": "live-source RAG templateとlicense条件確認",
+            "scope": [
+              "Pathway / llm-app"
+            ],
+            "source_policy": "公式GitHub README・公式license page"
+          },
+          {
+            "query": "R2R document search citations access controls local Docker official guide",
+            "purpose": "REST RAG toolkitと公式access-control claimsの把握",
+            "scope": [
+              "R2R"
+            ],
+            "source_policy": "公式README/docs。claimは独立検証と区別"
+          },
+          {
+            "query": "Neo4j GraphRAG Python retriever metadata filters knowledge graph builder experimental source chunk lexical graph",
+            "purpose": "SDKの検索粒度、document/chunk provenance、experimental boundary確認",
+            "scope": [
+              "Neo4j GraphRAG Python"
+            ],
+            "source_policy": "公式README/docs"
+          },
+          {
+            "query": "FalkorDB GraphRAG-SDK getting started MENTIONED_IN source chunk provenance GraphRAG",
+            "purpose": "graph構築とsource chunkへの追跡手段確認",
+            "scope": [
+              "FalkorDB GraphRAG-SDK"
+            ],
+            "source_policy": "公式README/docs"
+          },
+          {
+            "query": "FastGraphRAG incremental updates PageRank managed MIT; nano-graphrag project scope",
+            "purpose": "既存GraphRAG方式の比較軸と公開/hosted区分確認",
+            "scope": [
+              "FastGraphRAG",
+              "nano-graphrag"
+            ],
+            "source_policy": "公式READMEのみ。性能・更新主張は未再現"
+          },
+          {
+            "query": "RAG-Anything LightRAG integration multimodal backend reprocess source page; Byaldi ColPali ColQwen2 page number GPU",
+            "purpose": "視覚文書の抽出・retrieval役割、PageIndex補完候補と制約確認",
+            "scope": [
+              "RAG-Anything",
+              "Byaldi / ColPali / ColQwen2"
+            ],
+            "source_policy": "公式READMEと原著論文。数値は再現せず"
+          },
+          {
+            "query": "MemoRAG global memory clue-guided retrieval source revision deletion ACL",
+            "purpose": "検索用global memoryと運用memoryの差を整理",
+            "scope": [
+              "MemoRAG"
+            ],
+            "source_policy": "公式READMEと原著論文。評価スコア未転載"
+          }
+        ]
+      }
+    },
+    {
+      "group": "semantic",
+      "record": {
+        "accessed": "2026-09-29",
+        "scope": "Searches locate official specifications and disambiguate names; they are not popularity rankings.",
+        "queries": [
+          {
+            "id": "Q-LS-ONTOLOGY-ENGINES",
+            "query": "RDF/OWL reasoner, SHACL validator, and materialized versus query-time inference",
+            "targets": [
+              "GraphDB",
+              "RDFox",
+              "Stardog",
+              "W3C"
+            ],
+            "result": "Specs distinguish forward or incremental materialization, query-time inference, and SHACL validation."
+          },
+          {
+            "id": "Q-LS-INTEGRATION-BOUNDARIES",
+            "query": "Virtual knowledge graph, OBDA/R2RML mapping, enterprise KG integration, ontology authoring",
+            "targets": [
+              "Ontop",
+              "Stardog Virtual Graphs",
+              "eccenca Corporate Memory",
+              "TriplyDB",
+              "TopBraid EDG",
+              "Palantir Foundry Ontology"
+            ],
+            "result": "Found separate engine, virtual-mapping, integration/governance, linked-data editing and business-application layers."
+          },
+          {
+            "id": "Q-LS-VERSION-TIME-PROVENANCE",
+            "query": "Dataset versions, working copies, immutable commits, system-time/valid-time, evidence provenance",
+            "targets": [
+              "TriplyDB",
+              "TopBraid EDG",
+              "eccenca",
+              "TerminusDB",
+              "XTDB",
+              "W3C PROV-O"
+            ],
+            "result": "Query/package/workflow versions, graph-state commits, bitemporal record history and provenance vocabularies are different mechanisms."
+          },
+          {
+            "id": "Q-LS-RECALLGRAPH",
+            "query": "RecallGraph versioned graph store valid time and successor",
+            "targets": [
+              "RecallGraph/RecallGraph",
+              "project-minigraf/minigraf"
+            ],
+            "result": "RecallGraph is archived; its own README says valid-time was not shipped and points to Minigraf, described as a spiritual successor rather than a port. A separate same-name PyPI result points to MemoGraph and is not treated as the same project."
+          }
+        ]
+      }
+    },
+    {
+      "group": "managed",
+      "record": {
+        "scope": "managed-runtime",
+        "accessed": "2026-09-29",
+        "recording_scope": "代表的な探索・精査クエリ。検索結果全件や順位の保存ではない。",
+        "queries": [
+          {
+            "query": "CrewAI unified memory scopes memory documentation",
+            "domains": [
+              "docs.crewai.com",
+              "github.com/crewAIInc"
+            ],
+            "purpose": "現行 memory 文書の探索",
+            "outcome": "検索・文書 URL から十分に取得できず、公式 GitHub の固定版文書とコードへ切り替えた。"
+          },
+          {
+            "method": "direct-open-and-follow",
+            "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/memory-bank/overview",
+            "purpose": "Memory Bank の現在の提供範囲",
+            "outcome": "現行 Agent Platform 文書への遷移から canonical URL と revisions を確認。"
+          },
+          {
+            "method": "official-docs-search-and-open",
+            "domains": [
+              "developers.openai.com"
+            ],
+            "purpose": "Agents SDK session と sandbox memory の区別",
+            "outcome": "OpenAI docs skill に従い公式文書へ限定。API は実行していない。"
+          },
+          {
+            "method": "existing-coverage-follow-up",
+            "purpose": "既存 LangGraph / AWS / Foundry / ADK の概要から公式機能文書を辿る",
+            "outcome": "sources.json に読んだ URL と対象節を記録。"
+          },
+          {
+            "method": "direct-open",
+            "url": "https://docs.oracle.com/en/database/oracle/agent-memory/26.6/guide/about.html",
+            "purpose": "Oracle Agent Memory の役割と責任境界",
+            "outcome": "同名に近い session 製品を混同せず、about の範囲で記載。"
+          }
+        ]
+      }
+    },
+    {
+      "group": "cross-cutting",
+      "record": {
+        "accessed": "2026-09-29",
+        "queries": [
+          {
+            "query": "agent memory systems survey memory data management ontology 2026",
+            "domains": [
+              "arxiv.org"
+            ],
+            "outcome": "MemoryData と段階別 workload 評価、GEM/MemState の問題設定を発見。後二件は要旨のみ。"
+          },
+          {
+            "query": "ontology knowledge graph enterprise semantic layer RAG systems 2026",
+            "domains": [
+              "ontotext.com",
+              "stardog.com",
+              "triplydb.com",
+              "eccenca.com"
+            ],
+            "outcome": "意味基盤と GraphRAG の用途差を再確認。個別仕様は semantic 分野の確認記録を採用。"
+          },
+          {
+            "query": "agent memory episodic procedural experience open source framework 2026",
+            "domains": [
+              "github.com"
+            ],
+            "outcome": "多数の小規模実装・同名候補を発見。検索スニペットだけの機能・性能値は本文に採用しない。"
+          }
+        ],
+        "screening_notes": [
+          {
+            "name": "agentclash/agentic-memory",
+            "url": "https://github.com/agentclash/agentic-memory",
+            "status": "discovered-only",
+            "reason": "検索結果で発見。今回、既存候補との差とライフサイクル実装を十分確認していないため深掘り保留。"
+          },
+          {
+            "name": "oxgeneral/agentmem",
+            "url": "https://github.com/oxgeneral/agentmem",
+            "status": "discovered-only",
+            "reason": "検索結果で発見。同名の複数 agentmem があり、独立した詳細比較は次回へ保留。"
+          },
+          {
+            "name": "kolegadev/Katra-Agentic-Memory",
+            "url": "https://github.com/kolegadev/Katra-Agentic-Memory",
+            "status": "discovered-only",
+            "reason": "検索結果で発見。機能・license 表示を本文の確定事実には使わず、一次本文・コードの追加確認待ち。"
+          }
+        ]
+      }
+    }
+  ]
+}

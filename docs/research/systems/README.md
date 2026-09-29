@@ -4,6 +4,8 @@
 
 同じデータをどの単位で保存し、どの操作で更新するかを比較する。下表は機能の有無を保証する製品チェックリストではなく、各方式の中心を示す。対象版・根拠・未確認点は詳細ページに記載した。
 
+**2026-09-29 の追加:** [関連システムの再調査](extended-landscape.md)で比較範囲を拡大した。以下の既存主要システムに加え、[メモリーと経験](memory-landscape.md)、[文書検索・RAG](retrieval-landscape.md)、[意味データ基盤](semantic-data-landscape.md)、[クラウド・実行基盤](managed-memory-landscape.md)を確認した。新規と概要の深掘りを分け、全候補の資料 ID と未確認点を[候補台帳](../evidence/system-landscape.json)に記録している。
+
 ## システム一覧
 
 | システム                      | 記憶の単位                            | 更新の中心                          | 今回の目的への適性                                          | 詳細                             |
@@ -33,6 +35,11 @@
 
 | 分類                                    | 主な対象                                                         |
 | ------------------------------------- | ------------------------------------------------------------ |
+| [関連システムの横断比較](extended-landscape.md) | 役割別の追加候補、PageIndex との配置、採否・保留と確認範囲 |
+| [メモリーと経験の追加調査](memory-landscape.md) | OpenViking、MemoryOS、ReMe、Memori、Memvid、手順記憶研究等 |
+| [文書検索・RAG の追加調査](retrieval-landscape.md) | RAGFlow、Dify、Onyx、LlamaIndex、Haystack、視覚検索等 |
+| [意味データ基盤の追加調査](semantic-data-landscape.md) | GraphDB、RDFox、Stardog、Ontop、TypeDB、XTDB 等 |
+| [クラウド・実行基盤の追加調査](managed-memory-landscape.md) | AgentCore、Memory Bank、Foundry、OpenAI、Claude、各 framework |
 | [事実抽出・個人化メモリー](fact-memory.md)        | Mem0、LangMem、Memobase、SimpleMem、A-MEM                        |
 | [時間・グラフ・統合メモリー](structured-memory.md) | Graphiti、Cognee、Hindsight、MemOS、EverMemOS                    |
 | [エージェント・ファイル・サービス](agent-memory.md)   | Letta、Basic Memory、MCP Memory、Honcho、Supermemory、Mastra、クラウド |

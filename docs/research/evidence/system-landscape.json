@@ -1,0 +1,1012 @@
+{
+  "accessed": "2026-09-29",
+  "scope": "今回新規に調査または従来の概要を深化した系統。既存主要システムは従来文書を参照し、重複計上しない。",
+  "counting_unit": "system-family; 内部 strategy、SDK と同系統のサービス、旧名称は可能な限り統合。研究・評価のみの記録は別枠。",
+  "counts_by_group": {
+    "memory": 14,
+    "retrieval": 15,
+    "semantic": 11,
+    "managed": 10
+  },
+  "systems": [
+    {
+      "id": "openviking",
+      "name": "OpenViking",
+      "category": "agent-memory-runtime",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "固定 commit の session / memory lifecycle / hierarchical retriever / 関連 docs を静的確認。実行なし。",
+      "source_ids": [
+        "D-OPENV",
+        "P-VIKING",
+        "D-LM-OPENV-SESSION",
+        "C-LM-OPENV-SESSION",
+        "C-LM-OPENV-LIFECYCLE",
+        "C-LM-OPENV-RETRIEVER"
+      ],
+      "repository": "volcengine/OpenViking",
+      "commit": "1f4f7039fc394c5d04637828166f4e4e74e249e0",
+      "deployment": "OSS / self-hostable; external model and storage configuration should be checked",
+      "role": "Session summaries and extracted memory/resources/skills with hierarchical context retrieval",
+      "limitations": "Code review covers selected files only; lifecycle hotness is not truth or validity; paper claims are not assumed implemented.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "memoryos",
+      "name": "MemoryOS (BAI-LAB)",
+      "category": "personal-agent-memory",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "Paper plus four pinned package files (updater, retriever, long_term, facade) static review; no runtime reproduction.",
+      "source_ids": [
+        "P-MEMORYOS",
+        "D-MEMORYOS",
+        "C-LM-MOS-UPDATER",
+        "C-LM-MOS-RETRIEVER",
+        "C-LM-MOS-LTM",
+        "C-LM-MOS-CORE"
+      ],
+      "repository": "BAI-LAB/MemoryOS",
+      "commit": "587ed7755c7aed179965792830ff1b5ad9a6fa92",
+      "deployment": "OSS Python package / local persistence in reviewed snapshot",
+      "role": "FIFO short-term dialogue pages feeding mid-term summaries, user profile and assistant knowledge retrieval",
+      "limitations": "Fixed-capacity knowledge and profile update semantics need workload testing; provenance/contradiction behavior not established by selected files; paper scores not reproduced.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "reme",
+      "name": "ReMe (including prior MemoryScope lineage)",
+      "category": "file-based-agent-memory",
+      "prior_coverage": "新規（追加候補ページに未掲載）",
+      "review_depth": "Four pinned design/update/search files statically reviewed; no watcher, dependency, full-repository or runtime audit.",
+      "source_ids": [
+        "D-LM-REME-FILE",
+        "D-LM-REME-SEARCH",
+        "C-LM-REME-AUTO",
+        "C-LM-REME-SEARCH"
+      ],
+      "repository": "agentscope-ai/ReMe",
+      "commit": "bebad3674573477ad294ca44eb15f508feea2665",
+      "deployment": "OSS / local-first file workspace with selectable indexing and model providers",
+      "role": "Human-readable Markdown as memory source of truth plus session archives and derived search indexes",
+      "limitations": "Agent-generated notes require review; full delete/update consistency, access control and crash behavior not audited; MemoryScope is treated as lineage, not separate current product.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "memu",
+      "name": "memU (NevaMind-AI)",
+      "category": "file-and-skill-agent-memory",
+      "prior_coverage": "概要のみ・今回 current README の責任境界を確認",
+      "review_depth": "Existing pinned README plus current README description; no implementation code review.",
+      "source_ids": [
+        "D-MEMU",
+        "D-LM-MEMU-CURRENT"
+      ],
+      "repository": "NevaMind-AI/memU",
+      "deployment": "Open source and hosted/service options described by current project; verify release-specific details",
+      "role": "Host-agent-authored Markdown memory/wiki and reusable skills with storage/search service",
+      "limitations": "MemoryService should not be assumed to perform LLM extraction; host agent is responsible for creating content; current README was not pinned.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "mirix",
+      "name": "MIRIX",
+      "category": "multimodal-personal-memory",
+      "prior_coverage": "論文概要のみ・今回固定版 README を追加確認",
+      "review_depth": "Existing paper abstract/overview plus current pinned repository README; code unreviewed.",
+      "source_ids": [
+        "P-MIRIX",
+        "D-LM-MIRIX-README"
+      ],
+      "repository": "Mirix-AI/MIRIX",
+      "commit": "8cb06a62bbb7c478beb33dd4f2815696a72df482",
+      "deployment": "OSS app / agent system as described by repository",
+      "role": "Paper-proposed core, episodic, semantic, procedural, resource and knowledge-vault memory types",
+      "limitations": "Paper architecture and evaluations are not verified against current implementation; no code or benchmark audit.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "memori-labs",
+      "name": "Memori (MemoriLabs)",
+      "category": "structured-long-term-memory",
+      "prior_coverage": "新規",
+      "review_depth": "Official BYODB concepts document only; no code, SDK or API execution.",
+      "source_ids": [
+        "D-LM-MEMORI"
+      ],
+      "repository": "MemoriLabs/Memori",
+      "commit": "574b1ea3e876f100ef82c37817d603eb7e258e59",
+      "deployment": "BYODB SDK and hosted augmentation/provider options described in official docs",
+      "role": "Attribution-scoped person/process/session facts, preferences, skills, rules, events and recall",
+      "limitations": "BYODB does not establish local model processing; provider/data flow needs separate inspection; similar project names exist.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "memvid",
+      "name": "Memvid v2",
+      "category": "portable-memory-storage",
+      "prior_coverage": "新規",
+      "review_depth": "Official glossary and CLI documentation only; no repository code or CLI operations reviewed.",
+      "source_ids": [
+        "D-LM-MEMVID-INTRO",
+        "D-LM-MEMVID-CLI"
+      ],
+      "repository": "memvid/memvid",
+      "commit": "e6bd9f7b9c38cd8d5370fa0fc936ac1dcd751813",
+      "deployment": "Local portable .mv2 file; enrichment/provider configuration varies",
+      "role": "Frame-oriented storage with lexical, temporal and optional semantic indexes",
+      "limitations": "Storage substrate does not define entity resolution, claim authority or truth; v1 descriptions should not be transferred to v2 without checking.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "zilliz-memsearch",
+      "name": "memsearch (zilliztech)",
+      "category": "coding-agent-file-memory",
+      "prior_coverage": "新規",
+      "review_depth": "Pinned README and getting-started docs only; no code execution or source audit.",
+      "source_ids": [
+        "D-LM-MEMSEARCH-README",
+        "D-LM-MEMSEARCH-GETTING"
+      ],
+      "repository": "zilliztech/memsearch",
+      "commit": "2a4652fa086fbd45e92bfd8da7781ebe1642baa7",
+      "deployment": "Local Milvus Lite, self-hosted or managed Milvus; local/cloud embedding options described",
+      "role": "Markdown source of truth for profile, journal, project context and optional procedural skills; derived Milvus shadow index",
+      "limitations": "Not a formal ontology; private session-log sharing depends on gitignore and workspace practice; code lifecycle not reviewed.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "acontext",
+      "name": "Acontext",
+      "category": "agent-skill-memory-runtime",
+      "prior_coverage": "新規",
+      "review_depth": "Official learning and learning-space docs only; no API or code execution.",
+      "source_ids": [
+        "D-LM-ACONTEXT-LEARN",
+        "D-LM-ACONTEXT-SPACE"
+      ],
+      "repository": "memodb-io/Acontext",
+      "commit": "259d73bfdebeed35ec2d4211ddc060a2d4126bc6",
+      "deployment": "Hosted APIs and self-hosting are described; no deployment performed",
+      "role": "Task sessions/artifacts plus SOP skills learned from outcomes",
+      "limitations": "Learning space deletion does not imply skills and sessions deletion; product is more procedural/task memory than general fact profile.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "ace-context-engineering",
+      "name": "ACE (Agentic Context Engineering)",
+      "category": "procedural-agent-memory-research",
+      "prior_coverage": "新規",
+      "review_depth": "Paper and pinned repository overview; no code execution or reported result reproduction.",
+      "source_ids": [
+        "P-ACE",
+        "D-LM-ACE-REPO"
+      ],
+      "repository": "ace-agent/ace",
+      "commit": "82709de050e1db6e6ef2f07bcb0393560b94992a",
+      "deployment": "Research code / agent context component",
+      "role": "Generator, Reflector and Curator evolve a natural-language playbook",
+      "limitations": "Playbook can accumulate noise or harmful advice; paper benchmarks are author-reported and not reproduced.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "research-system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "memento-skills",
+      "name": "Memento-Skills",
+      "category": "procedural-agent-memory-runtime",
+      "prior_coverage": "新規",
+      "review_depth": "Paper and pinned current repository overview; not a code audit or benchmark rerun.",
+      "source_ids": [
+        "P-MSKILLS",
+        "D-LM-MSKILLS-REPO"
+      ],
+      "repository": "Memento-Teams/Memento-Skills",
+      "commit": "ee9b9a45efd093d669c06fe318b4b1dceb246d19",
+      "deployment": "Open-source skill-centric runtime / research system",
+      "role": "Persistent structured Markdown skills with read-write reflection and skill-oriented execution",
+      "limitations": "Paper experiment and later repository runtime differ; paper-reported gains are not reproduced.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "research-system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "skillweaver",
+      "name": "SkillWeaver",
+      "category": "web-procedural-memory-research",
+      "prior_coverage": "新規",
+      "review_depth": "Paper and official repository overview; no code execution or benchmark reproduction.",
+      "source_ids": [
+        "P-LM-SKILLWEAVER",
+        "D-LM-SKILLWEAVER-REPO"
+      ],
+      "repository": "OSU-NLP-Group/SkillWeaver",
+      "deployment": "Research prototype / paper artifact",
+      "role": "Discover web workflows and distill repeatable procedures into skills/APIs",
+      "limitations": "Domain-specific web procedure memory, not a personal fact store; web UI changes require revalidation.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "research-system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "agent-kb",
+      "name": "Agent KB",
+      "category": "cross-domain-experience-research",
+      "prior_coverage": "新規",
+      "review_depth": "Paper HTML method, evaluation and caveats plus repository identity; code not audited and experiments not repeated.",
+      "source_ids": [
+        "P-LM-AGENTKB",
+        "D-LM-AGENTKB-REPO"
+      ],
+      "repository": "OPPO-PersonalAI/Agent-KB",
+      "deployment": "Research API / multi-framework prototype as paper describes",
+      "role": "Retrieve task trajectories, constraints, actions and reasoning snippets across agent frameworks",
+      "limitations": "Cross-framework transfer can fail; embedding disagreement is not proof of correctness or an authorization/security gate.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "research-system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "mace",
+      "name": "MACE",
+      "category": "multi-agent-procedural-memory-research",
+      "prior_coverage": "新規",
+      "review_depth": "New 2026-09 paper method, reported benchmark and appendix caveats only; unreviewed implementation and no reproduction.",
+      "source_ids": [
+        "P-LM-MACE"
+      ],
+      "deployment": "Research paper; no product or executable deployment verified",
+      "role": "Select and update functional-subgraph playbooks for multi-agent coordination",
+      "limitations": "Very recent unreviewed preprint; some baselines rely on imported results; robustness protocol is not adversarial security evaluation.",
+      "document": "systems/memory-landscape.md",
+      "entry_type": "research-system",
+      "survey_group": "memory"
+    },
+    {
+      "id": "LR-RAGFLOW",
+      "name": "RAGFlow",
+      "category": "統合RAG platform",
+      "prior_coverage": "新規",
+      "review_depth": "公式README・dataset parser/source sync docsを確認。document CRUD codeはcommit固定で静的読解",
+      "source_ids": [
+        "D-LR-RAGFLOW-README",
+        "D-LR-RAGFLOW-CONFIG",
+        "D-LR-RAGFLOW-SYNC",
+        "C-LR-RAGFLOW-CRUD"
+      ],
+      "repository": "infiniflow/ragflow",
+      "commit": "d64b84c7095b1edb81987bbf82cdc95b36a28cbf",
+      "deployment": "Apache-2.0表記のOSS、self-host DockerとCloudあり。Cloudとの機能差は未比較",
+      "role": "複雑な文書解析・chunk retrieval・citation表示・Agentをまとめる文書QA platform",
+      "limitations": "外部削除同期はsource設定に依存。静的コード上も派生cleanupの一部はbest-effort通知/ログ経路。性能や削除完了時間は未測定",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-DIFY-KNOWLEDGE",
+      "name": "Dify Knowledge",
+      "category": "AI app platform / knowledge base",
+      "prior_coverage": "新規",
+      "review_depth": "Knowledge/manage/settings docsとREADMEを確認。dataset permission/API registryをcommit固定で静的読解",
+      "source_ids": [
+        "D-LR-DIFY-KNOWLEDGE",
+        "D-LR-DIFY-MANAGE",
+        "D-LR-DIFY-SETTINGS",
+        "D-LR-DIFY-README",
+        "C-LR-DIFY-DATASET",
+        "C-LR-DIFY-KBFS"
+      ],
+      "repository": "langgenius/dify",
+      "commit": "e6f1d77ed5869e659e426b5459439d44bdabdbe5",
+      "deployment": "Dify Cloudとself-host Community Edition。EnterpriseはSSO/RBAC等。Dify Open Source LicenseはApache-2.0を基礎に追加条件あり",
+      "role": "knowledge ingestion、chunk/metadata管理、retrieval、workflow/app integration",
+      "limitations": "KB単位のpermissionと原システムACL同期を同一視しない。全API・edition・external KBを含む権限保証は今回監査していない",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-ONYX",
+      "name": "Onyx",
+      "category": "enterprise internal search / assistant platform",
+      "prior_coverage": "新規",
+      "review_depth": "READMEとconnector docsでconnector sync、permission edition、deployment modeを確認",
+      "source_ids": [
+        "D-LR-ONYX-CONNECTORS",
+        "D-LR-ONYX-README"
+      ],
+      "repository": "onyx-dot-app/onyx",
+      "deployment": "MIT Community Edition self-host、Onyx Cloud hosted option、Enterprise Editionは一部permission sync/RBAC機能",
+      "role": "50+ connector等で社内corpusを集約し、vector/keyword searchやassistantへ提供",
+      "limitations": "利用するconnectorのACL・削除伝播とEnterprise feature境界を個別確認。Lite modeはdocument indexingを含まない",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-LLAMAINDEX",
+      "name": "LlamaIndex",
+      "category": "composable RAG/agent framework",
+      "prior_coverage": "概要のみ（agent memory）。今回RAG文書管理・ingestionを深化",
+      "review_depth": "official document management/ingestion docsとcommit固定pipeline codeを確認",
+      "source_ids": [
+        "D-LR-LLAMA-DOCS",
+        "D-LR-LLAMA-INGESTION",
+        "D-LR-LLAMACLOUD",
+        "C-LR-LLAMA-PIPELINE"
+      ],
+      "repository": "run-llama/llama_index",
+      "commit": "9ca9664a7c3ddb8216edc5df0941be40aa63af2e",
+      "deployment": "MIT frameworkをself-host可能。LlamaCloudはmanaged serviceおよびself-hosted serviceを別提供",
+      "role": "loader/transformer/index/retriever/storeを組み合わせ、データQAやagentを構成",
+      "limitations": "UPSERTS_AND_DELETE等のstrategyとadapter能力の選択が必要。indexごとのdelete対応差があり、ACLはframeworkの外で設計",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-HAYSTACK",
+      "name": "Haystack",
+      "category": "composable orchestration framework",
+      "prior_coverage": "新規",
+      "review_depth": "DocumentStore protocol、metadata filterとpipeline docs、repository license表記を確認",
+      "source_ids": [
+        "D-LR-HAYSTACK-DOCSTORE",
+        "D-LR-HAYSTACK-FILTER",
+        "D-LR-HAYSTACK-PIPELINES",
+        "D-LR-HAYSTACK-REPO"
+      ],
+      "repository": "deepset-ai/haystack",
+      "deployment": "Apache-2.0 OSS framework。deepset Enterprise/managed platformは別サービス",
+      "role": "retriever・store・writer・prompt/generationを明示的なpipelineへ接続",
+      "limitations": "filter operators/semanticsはbackendごとに異なる。metadata filteringはACL enforcement自体ではない",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-TXTAI",
+      "name": "txtai",
+      "category": "all-in-one search / workflow framework",
+      "prior_coverage": "新規",
+      "review_depth": "公式overview/index guideでcomponent scope、license、upsert/deleteを確認",
+      "source_ids": [
+        "D-LR-TXTAI-OVERVIEW",
+        "D-LR-TXTAI-INDEX"
+      ],
+      "repository": "neuml/txtai",
+      "deployment": "Apache-2.0 OSS、local/container/API。hosted txtai.cloudの現行提供条件は未評価",
+      "role": "dense/sparse embeddings、SQL/metadata、graph、LLM pipelines/workflowsを一つのframeworkに統合",
+      "limitations": "個別ID操作はあるが社内connector sync、tenant ACL、監査の完成度を製品の保証とみなさない",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-PATHWAY",
+      "name": "Pathway / llm-app",
+      "category": "live-data pipeline / RAG templates",
+      "prior_coverage": "新規",
+      "review_depth": "公式llm-app READMEのconnector/update/delete同期と公式license pageを確認。運用実験なし",
+      "source_ids": [
+        "D-LR-PATHWAY-APP",
+        "D-LR-PATHWAY-LICENSE"
+      ],
+      "repository": "pathwaycom/llm-app",
+      "deployment": "llm-app templatesとBSL 1.1 Pathway Community framework。Community self-host、resource/use limitsあり。Scale/Enterprise条件は別",
+      "role": "更新イベントを受けながらdocument index/RAG pipelineを継続同期",
+      "limitations": "公開READMEのscale claimは未検証。licenseとresource limits、source deletion propagation、persistence/failoverを確認",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-R2R",
+      "name": "R2R",
+      "category": "RAG application/API toolkit",
+      "prior_coverage": "新規",
+      "review_depth": "公式READMEとofficial guideのfeatures/deployment/access-control claimsを確認",
+      "source_ids": [
+        "D-LR-R2R-README",
+        "D-LR-R2R-GUIDE"
+      ],
+      "repository": "SciPhi-AI/R2R",
+      "deployment": "MIT OSS; local Python/Docker/self-host documented. Hosted offering/terms were not compared",
+      "role": "REST/SDKでdocument processing、semantic+keyword retrieval、citation RAG、knowledge graphをまとめる",
+      "limitations": "user/access-control claimsをdocument-level ACL guaranteeと同一視しない。source delete/revocationはAPIと派生物ごとに確認",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-NEO4J-GRAPHRAG",
+      "name": "Neo4j GraphRAG for Python",
+      "category": "graph DB retrieval SDK",
+      "prior_coverage": "Neo4j graph databaseは実装候補で既出。GraphRAG Python SDKは新規確認",
+      "review_depth": "official repository/license listing、RAG guide、experimental KG builder docsを確認",
+      "source_ids": [
+        "D-LR-NEO4J-README",
+        "D-LR-NEO4J-RAG",
+        "D-LR-NEO4J-KGBUILDER"
+      ],
+      "repository": "neo4j/neo4j-graphrag-python",
+      "deployment": "Apache-2.0 first-party SDK。Neo4j database deployment/licensing is a separate choice",
+      "role": "Neo4j上でvector/hybrid/graph traversal/Cypher retrievalやschema-aware extractionを組成",
+      "limitations": "KG builder docsはexperimental。SDKがsource connector・document ACL・更新台帳・DB operationを代替するわけではない",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-FALKOR-GRAPHRAG-SDK",
+      "name": "FalkorDB GraphRAG-SDK",
+      "category": "graph construction / retrieval SDK",
+      "prior_coverage": "FalkorDB graph backendは実装候補で既出。GraphRAG-SDKは新規確認",
+      "review_depth": "official READMEとgetting-started pageを確認。marketing benchmark claimsは再現せず",
+      "source_ids": [
+        "D-LR-FALKOR-README",
+        "D-LR-FALKOR-START"
+      ],
+      "repository": "FalkorDB/GraphRAG-SDK",
+      "deployment": "Apache-2.0 SDK。FalkorDB graph serverはlocal/self-host可能; managed cloudは今回未評価",
+      "role": "schema guided graph extraction/retrievalとchunk source provenance edgeを組み立てる",
+      "limitations": "source edgeがあることはsource deletion propagation・ACL・graph derived node cleanup保証ではない。README benchmark claims未検証",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-FAST-GRAPHRAG",
+      "name": "FastGraphRAG",
+      "category": "graph/PPR retrieval framework",
+      "prior_coverage": "新規",
+      "review_depth": "公式READMEでPPR方式、incremental update claim、MIT/managed service記載を確認",
+      "source_ids": [
+        "D-LR-FASTGRAPH"
+      ],
+      "repository": "circlemind-ai/fast-graphrag",
+      "deployment": "MIT OSS repoと別のmanaged serviceをREADMEが案内",
+      "role": "graph traversalとpersonalized PageRankを使うcross-document candidate exploration",
+      "limitations": "README cost/accuracy/incremental claimsは再現なし。ACL/revocation/lineageの契約は今回確認していない",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-NANO-GRAPHRAG",
+      "name": "nano-graphrag",
+      "category": "compact GraphRAG reference implementation",
+      "prior_coverage": "新規",
+      "review_depth": "official READMEのpurpose/small implementation/provider integrationを確認",
+      "source_ids": [
+        "D-LR-NANO"
+      ],
+      "repository": "gusye1234/nano-graphrag",
+      "deployment": "MIT OSS library; self-host with selected model/database; no hosted service assessed",
+      "role": "GraphRAG architectureを小さなコードベースで読解・変更する比較軸",
+      "limitations": "本番connector、tenant isolation、audit、deletion lifecycleの完成度は保証資料から確認できず、製品比較でなくprototype軸",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-RAG-ANYTHING",
+      "name": "RAG-Anything",
+      "category": "multimodal parsing/retrieval extension",
+      "prior_coverage": "LightRAG自体は既出。RAG-Anythingのmultimodal extensionとの関係は今回新規確認",
+      "review_depth": "公式READMEとtechnical report abstractを確認。benchmarksは再現なし",
+      "source_ids": [
+        "D-LR-RAGANYTHING",
+        "P-LR-RAGANYTHING"
+      ],
+      "repository": "HKUDS/RAG-Anything",
+      "deployment": "Open-source repository layered on LightRAG; parser/VLM/backend service dependencies. Hosted deployment not assessed",
+      "role": "text/image/table/equation and other modal evidenceを共通retrieval pathへ投入",
+      "limitations": "LightRAGとの差を独立graph architectureとして水増ししない。backend switch後はmultimodal entitiesのforced reprocessingが必要になり得る",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-BYALDI-COLPALI",
+      "name": "Byaldi with ColPali / ColQwen2",
+      "category": "visual document page retriever",
+      "prior_coverage": "新規",
+      "review_depth": "official README and ColPali paper abstract; page fields, pre-release/storage/hardware notes checked",
+      "source_ids": [
+        "D-LR-BYALDI",
+        "P-LR-COLPALI"
+      ],
+      "repository": "AnswerDotAI/byaldi",
+      "deployment": "Apache-2.0 Python package with local multimodal models; no hosted service reviewed",
+      "role": "PDF page imagesをlate-interaction retrievalしdoc/page locationを返す",
+      "limitations": "pre-release, uncompressed index, GPU recommended. Retrieval componentのみでanswer generation/source ACL/source syncを含まない",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "LR-MEMORAG",
+      "name": "MemoRAG",
+      "category": "memory-assisted retrieval research framework",
+      "prior_coverage": "新規",
+      "review_depth": "official README and paper abstract; global memory/clue-guided retrieval framing checked, paper scores not reproduced",
+      "source_ids": [
+        "D-LR-MEMORAG",
+        "P-LR-MEMORAG"
+      ],
+      "repository": "qhjqhj00/MemoRAG",
+      "deployment": "Apache-2.0 research repository; local model and/or external LLM API configuration; hosted service not reviewed",
+      "role": "global memory model generates clues/surrogate questions that guide a separate passage retrieval stage",
+      "limitations": "retrieval memory is not an operational user memory: source IDs, permissions, revision update and deletion semantics were not established",
+      "survey_group": "retrieval",
+      "document": "systems/retrieval-landscape.md"
+    },
+    {
+      "id": "graphdb",
+      "name": "Ontotext GraphDB",
+      "category": "RDF graph database and rule reasoner",
+      "prior_coverage": "新規",
+      "review_depth": "GraphDB 11.0 docs: materialized reasoning, SHACL and experimental GraphRAG features; no runtime/API/performance check",
+      "source_ids": [
+        "D-LS-GDB-REASON",
+        "D-LS-GDB-TALK",
+        "D-LS-GDB-CONNECTOR",
+        "D-LS-GDB-SHACL"
+      ],
+      "deployment": "Server product; current license terms not compared",
+      "role": "RDF persistence and OWL/RDFS rule inference; can connect RDF to experimental retrieval components",
+      "limitations": "Inference does not establish evidence truth or citation. GraphRAG features are not separate database systems. Bitemporal fact history was not confirmed.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "rdfox",
+      "name": "Oxford Semantic Technologies RDFox",
+      "category": "RDF rule engine and semantic data store",
+      "prior_coverage": "新規",
+      "review_depth": "Official docs: materialization, incremental maintenance, proof explanation, SHACL, external sources and evaluation license; no runtime check",
+      "source_ids": [
+        "D-LS-RDFOX-FEATURES",
+        "D-LS-RDFOX-LICENSE"
+      ],
+      "deployment": "Standalone/library distributions; proprietary product with evaluation license",
+      "role": "RDF / rules / OWL store with materialized reasoning and access-control docs",
+      "limitations": "Proof explanation is logical derivation provenance, not source-document evidence. No valid-time model confirmed.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "stardog",
+      "name": "Stardog with Voicebox",
+      "category": "RDF graph database, virtual graph and ontology-assistance platform",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "Official docs: query-time reasoning, virtual mappings and Voicebox review flow; no install/API/quality/performance test",
+      "source_ids": [
+        "D-STARDOG",
+        "D-VIRTUAL",
+        "D-LS-STARDOG-VOICEBOX"
+      ],
+      "deployment": "Commercial graph product; deployment and contract details not compared",
+      "role": "Query-time RDF reasoning over stored and mapped sources; Voicebox proposes mappings for human review",
+      "limitations": "Mapping suggestions do not establish extracted-claim correctness. Query performance and bitemporal history were not measured or confirmed.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "triplydb",
+      "name": "TriplyDB",
+      "category": "Hosted RDF dataset, ETL and authoring platform",
+      "prior_coverage": "新規",
+      "review_depth": "Official docs: SHACL validation/forms, saved-query versioning and resource edit history; no live service use",
+      "source_ids": [
+        "D-LS-TRIPLY-ETL",
+        "D-LS-TRIPLY-SAVED",
+        "D-LS-TRIPLY-EDIT"
+      ],
+      "deployment": "Hosted linked-data platform; service/code licensing not assessed",
+      "role": "RDF publication and editing with validation workflow",
+      "limitations": "Versioned queries and per-resource editor history are narrower than a general bitemporal data store.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "eccenca-corporate-memory",
+      "name": "eccenca Corporate Memory",
+      "category": "Enterprise knowledge graph integration and governance platform",
+      "prior_coverage": "新規",
+      "review_depth": "Official architecture, Build and Marketplace docs: source-to-RDF integration and versioned package artifacts; no deployment",
+      "source_ids": [
+        "D-LS-ECCENCA-ARCH",
+        "D-LS-ECCENCA-BUILD",
+        "D-LS-ECCENCA-MARKETPLACE"
+      ],
+      "deployment": "Enterprise platform distributed as components/containers; contract not assessed",
+      "role": "Map relational/filesystem data into RDF KG; manage workflows, SHACL authoring and packages",
+      "limitations": "Integration/governance layer can use an external RDF store; versioned packages are not fact-validity histories.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "topbraid-edg",
+      "name": "TopBraid EDG",
+      "category": "Enterprise ontology, vocabulary and data governance",
+      "prior_coverage": "新規",
+      "review_depth": "Versioned official docs 7.4/8.0: collection governance and working-copy approval; current SKU/license not verified",
+      "source_ids": [
+        "D-LS-TOPBRAID-INTRO",
+        "D-LS-TOPBRAID-WORKFLOW",
+        "D-LS-W3C-OWL",
+        "S-SHACL"
+      ],
+      "deployment": "Commercial enterprise product; deployment/contract details not compared",
+      "role": "Govern RDF vocabularies, ontologies and reference data with workflow isolation",
+      "limitations": "Working-copy approval is governance/versioning, not claim-level temporal history or evidence provenance; docs are version-specific.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "ontop",
+      "name": "Ontop",
+      "category": "Open-source virtual knowledge graph and OBDA mapping engine",
+      "prior_coverage": "新規",
+      "review_depth": "Official guide/repo: SPARQL-to-SQL rewriting, R2RML/Ontop mapping, RDFS/OWL 2 QL and license; no code audit",
+      "source_ids": [
+        "D-LS-ONTOP-GUIDE",
+        "D-LS-ONTOP-REPO"
+      ],
+      "deployment": "Apache-2.0; SPARQL endpoint over supported databases",
+      "role": "Expose relational sources as virtual RDF without copying data by default",
+      "limitations": "Source consistency, permission and temporal history remain dependent on underlying database.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "typedb",
+      "name": "TypeDB",
+      "category": "Native typed graph database",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "Docs/repo: typed schema, validation, goal-driven functions versus rule materialization, CE license; no implementation code review",
+      "source_ids": [
+        "D-TYPEDB",
+        "D-LS-TYPEDB-FUNCTIONS",
+        "D-LS-TYPEDB-REPO"
+      ],
+      "deployment": "Community Edition MPL-2.0; other terms not compared",
+      "role": "Model entities, relations and attributes with schema and compute query-relevant results",
+      "limitations": "TypeQL is distinct from RDF/OWL/SHACL; general bitemporal history was not confirmed.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "terminusdb",
+      "name": "TerminusDB",
+      "category": "Versioned document and RDF graph database",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "Official version-control docs plus static docstring review of one fixed-commit source file; no build or execution",
+      "source_ids": [
+        "D-LS-TERMINUS-VERSION",
+        "D-LS-TERMINUS-REPO",
+        "C-LS-TERMINUS-LAYER"
+      ],
+      "deployment": "Public Community repository under Apache-2.0",
+      "role": "Commit, branch, diff, merge and historical read for graph/document state",
+      "limitations": "Commit history describes stored data states; it does not automatically attach source evidence, distinguish valid-time/system-time, or adjudicate claims.",
+      "repository": "terminusdb/terminusdb",
+      "commit": "57f2093baeafd65e16004e84b7b58e0c5cf72858",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "xtdb",
+      "name": "XTDB",
+      "category": "Open-source temporal SQL database",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "Official temporal, key-concept and license docs; no runtime query or benchmark",
+      "source_ids": [
+        "D-LS-XTDB-TIME",
+        "D-XTDB",
+        "D-LS-XTDB-LICENSE"
+      ],
+      "deployment": "Open-source MPL-2.0; deployment topology not compared",
+      "role": "Store SQL rows with separate system-time and valid-time axes",
+      "limitations": "Bitemporality records database/domain time, not semantic trust, extraction evidence or OWL/SHACL reasoning.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "palantir-foundry-ontology",
+      "name": "Palantir Foundry Ontology",
+      "category": "Enterprise operational/business semantic layer",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "Public Foundry docs: data/object layers, object/link/action, lineage and permissions; implementation not inspected",
+      "source_ids": [
+        "D-LS-PALANTIR-INTRO",
+        "D-LS-PALANTIR-ONTOLOGY",
+        "D-LS-PALANTIR-PERMISSIONS"
+      ],
+      "deployment": "Commercial enterprise platform; contract terms not compared",
+      "role": "Turn backing datasets into business objects/links/actions for applications and APIs",
+      "limitations": "Product-specific Ontology differs from W3C RDF/OWL. Reviewed pages do not establish bitemporal history or claim provenance.",
+      "survey_group": "semantic",
+      "document": "systems/semantic-data-landscape.md"
+    },
+    {
+      "id": "aws-agentcore-memory",
+      "name": "Amazon Bedrock AgentCore Memory",
+      "category": "managed-runtime",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-AWS-MEMORY",
+        "D-LC-AWS-STRATEGY",
+        "D-LC-AWS-DELETE"
+      ],
+      "deployment": "managed API",
+      "role": "イベントから長期記憶を抽出",
+      "limitations": "元イベント・派生物を含む削除完了は未検証",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    },
+    {
+      "id": "google-memory-bank",
+      "name": "Google Agent Platform Memory Bank",
+      "category": "managed-runtime",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-GOOGLE-MEMORY",
+        "D-LC-GOOGLE-REVISIONS"
+      ],
+      "deployment": "managed API",
+      "role": "scope ごとの抽出・統合・改訂",
+      "limitations": "revision は双時間の主張モデルと同一ではない",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    },
+    {
+      "id": "foundry-memory",
+      "name": "Microsoft Foundry Memory",
+      "category": "managed-runtime",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-FOUNDRY-MEMORY"
+      ],
+      "deployment": "managed API (preview)",
+      "role": "プロフィール・要約・手続き記憶",
+      "limitations": "preview、scope の認証主体との結合はアプリが判断",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    },
+    {
+      "id": "openai-agent-memory",
+      "name": "OpenAI Agents / Conversations / Sandbox Memory",
+      "category": "managed-runtime",
+      "prior_coverage": "新規（従来は消費者向け ChatGPT のみ）",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-OAI-RUN",
+        "D-LC-OAI-STATE",
+        "D-LC-OAI-SANDBOX"
+      ],
+      "deployment": "SDK / managed API",
+      "role": "会話状態と sandbox 経験ファイル",
+      "limitations": "新しい空環境への自動継承は前提にできない",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    },
+    {
+      "id": "claude-agent-memory",
+      "name": "Claude memory tool / Managed Agents memory",
+      "category": "managed-runtime",
+      "prior_coverage": "新規（従来は消費者向け Claude のみ）",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-CLAUDE-TOOL",
+        "D-LC-CLAUDE-STORE"
+      ],
+      "deployment": "client tool / managed beta",
+      "role": "ファイル操作と文書版管理",
+      "limitations": "tool の保存責任と managed store の責任は異なる",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    },
+    {
+      "id": "langgraph-memory",
+      "name": "LangGraph",
+      "category": "managed-runtime",
+      "prior_coverage": "概要のみ・今回深化",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-LANGGRAPH"
+      ],
+      "deployment": "library / selectable backend",
+      "role": "thread checkpoint と cross-thread Store",
+      "limitations": "抽出・訂正・根拠スキーマはアプリが定める",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    },
+    {
+      "id": "microsoft-agent-framework",
+      "name": "Microsoft Agent Framework",
+      "category": "managed-runtime",
+      "prior_coverage": "新規",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-MAF-CONTEXT",
+        "D-LC-MAF-HISTORY"
+      ],
+      "deployment": "library / selectable backend",
+      "role": "文脈 hook、履歴・ファイル記憶",
+      "limitations": "scope filter と利用者の認可は区別",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    },
+    {
+      "id": "agno-memory",
+      "name": "Agno",
+      "category": "managed-runtime",
+      "prior_coverage": "新規",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-AGNO"
+      ],
+      "deployment": "library / application DB",
+      "role": "自動抽出または tool によるユーザーメモリー更新",
+      "limitations": "ID だけで認可・根拠撤回は保証できない",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    },
+    {
+      "id": "crewai-memory",
+      "name": "CrewAI",
+      "category": "managed-runtime",
+      "prior_coverage": "新規",
+      "review_depth": "公式文書＋固定コードの関連経路",
+      "source_ids": [
+        "D-LC-CREWAI",
+        "C-LC-CREWAI-MEMORY",
+        "C-LC-CREWAI-SCOPE",
+        "C-LC-CREWAI-FACTORY",
+        "C-LC-CREWAI-LICENSE"
+      ],
+      "deployment": "public implementation / replaceable storage",
+      "role": "階層化した統合 Memory",
+      "limitations": "read-only slice の文書例と実装に差。runtime 未検証",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "repository": "crewAIInc/crewAI",
+      "commit": "deaa71e168069a1d5307340172875def4330e75b",
+      "survey_group": "managed"
+    },
+    {
+      "id": "oracle-agent-memory",
+      "name": "Oracle Agent Memory",
+      "category": "managed-runtime",
+      "prior_coverage": "新規",
+      "review_depth": "公式文書の関連節",
+      "source_ids": [
+        "D-LC-ORACLE"
+      ],
+      "deployment": "library / Oracle AI Database",
+      "role": "短期 context と長期 facts",
+      "limitations": "エンドユーザー認証・認可・scope はアプリの責任",
+      "document": "systems/managed-memory-landscape.md",
+      "entry_type": "system-family",
+      "survey_group": "managed"
+    }
+  ],
+  "supplemental_records": [
+    {
+      "group": "memory",
+      "kind": "baseline-carried-forward",
+      "records": [
+        {
+          "id": "memmachine",
+          "name": "MemMachine",
+          "category": "structured-agent-memory",
+          "prior_coverage": "概要のみ・今回追加確認なし",
+          "review_depth": "Existing pinned README overview only; no new source or code-path review in this task.",
+          "source_ids": [
+            "D-MACHINE"
+          ],
+          "repository": "MemMachine/MemMachine",
+          "commit": "d57f5cb36a357c01085f571a0cdd2dfbc9882f89",
+          "deployment": "OSS components / database-backed service; exact deployment depends on package",
+          "role": "Episodic graph, SQL profile and working memory in distinct stores",
+          "limitations": "Store consistency, update propagation and profile-versus-episode conflict policy are not checked here.",
+          "document": "systems/memory-landscape.md",
+          "entry_type": "system",
+          "survey_group": "memory"
+        }
+      ]
+    },
+    {
+      "group": "memory",
+      "kind": "evaluation-study",
+      "records": [
+        {
+          "id": "memorydata-opendatabox",
+          "name": "MemoryData / OpenDataBox evaluation study",
+          "category": "evaluation-study",
+          "prior_coverage": "新規・評価研究（製品ではない）",
+          "review_depth": "Paper v1 partial review; results and dataset coverage not independently rechecked or reproduced.",
+          "source_ids": [
+            "P-LM-MEMORYDATA"
+          ],
+          "repository": "OpenDataBox/MemoryData",
+          "deployment": "Evaluation study / dataset and research artifact, not a memory service",
+          "role": "Decompose storage, extraction, retrieval/routing and maintenance; compare across workloads",
+          "limitations": "Paper scope, tested systems, datasets and author-reported observations are time- and protocol-bounded; no re-evaluation performed.",
+          "document": "systems/memory-landscape.md",
+          "entry_type": "evaluation-study",
+          "survey_group": "memory"
+        }
+      ]
+    }
+  ],
+  "deferred_records": [
+    {
+      "group": "semantic",
+      "kind": "deferred",
+      "records": [
+        {
+          "id": "recallgraph-minigraf-history",
+          "name": "RecallGraph (archived) and Minigraf (spiritual successor)",
+          "category": "歴史的参考・監視候補",
+          "prior_coverage": "新規候補・今回分類",
+          "review_depth": "RecallGraph official README states archive date, ArangoDB Foxx/event history, point-in-time queries, and that valid time stayed on roadmap; Minigraf README describes it as a spiritual successor, not a port. No code/runtime review.",
+          "source_ids": [
+            "D-LS-RECALLGRAPH-README",
+            "D-LS-MINIGRAF-README",
+            "D-LS-RECALLGRAPH-PYPI",
+            "D-LS-RECALLGRAPH-SAME-NAME"
+          ],
+          "deployment": "RecallGraph: historical ArangoDB 3.x Foxx microservice. Minigraf: project describes embedded graph database; no setup was tested.",
+          "role": "RecallGraph is a reference for graph versioning; Minigraf is a bitemporal embedded-graph follow-up to monitor, outside the eleven-system primary comparison.",
+          "limitations": "RecallGraph README says valid-time was not shipped; Minigraf explicitly says spiritual successor, not a port. A separate same-name PyPI project links to MemoGraph and is not conflated."
+        }
+      ]
+    }
+  ],
+  "snapshot_review": {
+    "repositories": 8,
+    "files": 22,
+    "scope": "選択したコード・固定文書・LICENSEの取得記録。全ファイル精読や製品実行の件数ではない。"
+  },
+  "supplemental_abstracts": [
+    {
+      "id": "P-LX-DATABASE",
+      "title": "Is Agent Memory a Database? Rethinking Data Foundations for Long-Term AI Agent Memory",
+      "url": "https://arxiv.org/abs/2605.26252v1",
+      "kind": "論文・要旨",
+      "accessed": "2026-09-29",
+      "arxiv_version": "v1",
+      "review_depth": "arXiv の要旨・書誌のみ確認。本文・コード・実験は未確認。",
+      "scope": "GEM と MemState の問題設定。製品比較の採用済み系統には数えない。"
+    },
+    {
+      "id": "P-LX-WORKLOADS",
+      "title": "Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads",
+      "url": "https://arxiv.org/abs/2606.06448v2",
+      "kind": "論文・要旨",
+      "accessed": "2026-09-29",
+      "arxiv_version": "v2",
+      "review_depth": "arXiv の要旨・書誌と 2026-09-22 の v2 改訂日を確認。本文・実験値・コードは未確認。",
+      "scope": "構築・検索・生成の段階別費用を比較する評価視点。性能値は転載していない。"
+    }
+  ],
+  "limits": "全製品・全検索結果を尽くしたリストではない。仕様の静的確認で、性能順位や本番採用の認定ではない。"
+}

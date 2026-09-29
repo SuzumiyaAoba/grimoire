@@ -19,6 +19,30 @@
           "bytes": 11341,
           "sha256": "68c3ba87a6d623bd47ea90449ca54e7bf5e247cee799eb54e8bd094fb9878c29",
           "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/LICENSE"
+        },
+        {
+          "path": "memoryos-pypi/updater.py",
+          "bytes": 12817,
+          "sha256": "17c34d45db6ba7c95d4f11122b6ae0e37cccb5b60d5dc4fa3434930f59f7dde3",
+          "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/updater.py"
+        },
+        {
+          "path": "memoryos-pypi/retriever.py",
+          "bytes": 7287,
+          "sha256": "79a7080f954a5e6b74488ccb451c792afd8b8154c3db52ca31735a6498dc50a9",
+          "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/retriever.py"
+        },
+        {
+          "path": "memoryos-pypi/long_term.py",
+          "bytes": 8226,
+          "sha256": "7f8a12dfd70ff75a3868fb42f028a1c1afb936d07c74137d0ee845db87df5653",
+          "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/long_term.py"
+        },
+        {
+          "path": "memoryos-pypi/memoryos.py",
+          "bytes": 20722,
+          "sha256": "f4779d6b9d4dd68732282b82421824e37372a6a5259d345a026977971249c344",
+          "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/memoryos.py"
         }
       ],
       "unsuccessful_requests": []
@@ -1052,6 +1076,30 @@
           "bytes": 34568,
           "sha256": "1bd87fa6d9a5c79daf0c2af042b6725c9773bf095cc3d1bdf3656e66d1c3e5b1",
           "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/LICENSE"
+        },
+        {
+          "path": "docs/en/concepts/08-session.md",
+          "bytes": 8448,
+          "sha256": "f00e2a8de5c768acea5056c8ca5f05a64b9b2a4bf510350de8d47fb4fbfbe69d",
+          "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/docs/en/concepts/08-session.md"
+        },
+        {
+          "path": "openviking/session/session.py",
+          "bytes": 146464,
+          "sha256": "86b253183e14b074323684ff2e5de5a0ae525cd6be612b46dba96cd29394bd0f",
+          "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/session/session.py"
+        },
+        {
+          "path": "openviking/retrieve/memory_lifecycle.py",
+          "bytes": 2107,
+          "sha256": "214cb65e5b30a3678b16d3c96107abc6010fbd51a1ffa1414a811e3e0fd7a7ff",
+          "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/retrieve/memory_lifecycle.py"
+        },
+        {
+          "path": "openviking/retrieve/hierarchical_retriever.py",
+          "bytes": 28859,
+          "sha256": "23475c73b284acf8325e55498734380582c572c52f4dc3ee4897f497b7da471e",
+          "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/retrieve/hierarchical_retriever.py"
         }
       ],
       "unsuccessful_requests": []
@@ -1235,8 +1283,146 @@
         }
       ],
       "unsuccessful_requests": []
+    },
+    {
+      "repository": "agentscope-ai/ReMe",
+      "commit": "bebad3674573477ad294ca44eb15f508feea2665",
+      "commit_date": "2026-09-25T16:19:03Z",
+      "accessed": "2026-09-29",
+      "retrieved_files": [
+        {
+          "path": "docs/en/memory_as_file.md",
+          "bytes": 17271,
+          "sha256": "e6714bbeec28cd7b4bfabdbf5394bc797614f270ab35482e686cfec54c188aaa",
+          "url": "https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/docs/en/memory_as_file.md"
+        },
+        {
+          "path": "docs/en/memory_search.md",
+          "bytes": 11108,
+          "sha256": "1ebe68e1a96e2201902a0f8dda59a2786b545666526e1313515b1d59a396db53",
+          "url": "https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/docs/en/memory_search.md"
+        },
+        {
+          "path": "reme/steps/evolve/auto_memory.py",
+          "bytes": 21290,
+          "sha256": "dc22ca239a8789049afdd7e8e5f1e104b1acf515ddd17d58de547a48da3e22be",
+          "url": "https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/reme/steps/evolve/auto_memory.py"
+        },
+        {
+          "path": "reme/steps/index/search.py",
+          "bytes": 15520,
+          "sha256": "43da5e9b49f7fb4cc33a01bcb16b5b4f49727f172567b15239f786285a341a59",
+          "url": "https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/reme/steps/index/search.py"
+        }
+      ],
+      "unsuccessful_requests": [],
+      "review_note": "文書と選択された更新・検索コードを静的確認。全 repository、watcher、依存、実行は未確認。"
+    },
+    {
+      "repository": "infiniflow/ragflow",
+      "commit": "d64b84c7095b1edb81987bbf82cdc95b36a28cbf",
+      "commit_date": "2026-09-28T12:11:22Z",
+      "accessed": "2026-09-29",
+      "unsuccessful_requests": [],
+      "retrieved_files": [
+        {
+          "path": "internal/service/document/document_crud.go",
+          "bytes": 20872,
+          "sha256": "090581d77d3bcd5a03b58961c0245cb5b3cd120a29faa757bdad74796bffdb2e",
+          "url": "https://github.com/infiniflow/ragflow/blob/d64b84c7095b1edb81987bbf82cdc95b36a28cbf/internal/service/document/document_crud.go"
+        }
+      ]
+    },
+    {
+      "repository": "langgenius/dify",
+      "commit": "e6f1d77ed5869e659e426b5459439d44bdabdbe5",
+      "commit_date": "2026-09-28T11:10:48Z",
+      "accessed": "2026-09-29",
+      "unsuccessful_requests": [],
+      "retrieved_files": [
+        {
+          "path": "api/controllers/service_api/dataset/dataset.py",
+          "bytes": 44591,
+          "sha256": "e6d4baeed8310b1c757debefeadafd83e25d7c00233601591e659d00ea58932f",
+          "url": "https://github.com/langgenius/dify/blob/e6f1d77ed5869e659e426b5459439d44bdabdbe5/api/controllers/service_api/dataset/dataset.py"
+        },
+        {
+          "path": "api/services/knowledge_fs_operations.py",
+          "bytes": 19106,
+          "sha256": "c91cbabe5661aa6a56147cf4391724709d5d29b9210894b63f7f7dd882fa4db1",
+          "url": "https://github.com/langgenius/dify/blob/e6f1d77ed5869e659e426b5459439d44bdabdbe5/api/services/knowledge_fs_operations.py"
+        }
+      ]
+    },
+    {
+      "repository": "run-llama/llama_index",
+      "commit": "9ca9664a7c3ddb8216edc5df0941be40aa63af2e",
+      "commit_date": "2026-09-28T15:19:59Z",
+      "accessed": "2026-09-29",
+      "unsuccessful_requests": [],
+      "retrieved_files": [
+        {
+          "path": "llama-index-core/llama_index/core/ingestion/pipeline.py",
+          "bytes": 34249,
+          "sha256": "00a1de638af05f7cf8bfa068f24f8f6b4037fa5849896ebfab0e2edbe165695d",
+          "url": "https://github.com/run-llama/llama_index/blob/9ca9664a7c3ddb8216edc5df0941be40aa63af2e/llama-index-core/llama_index/core/ingestion/pipeline.py"
+        }
+      ]
+    },
+    {
+      "repository": "terminusdb/terminusdb",
+      "commit": "57f2093baeafd65e16004e84b7b58e0c5cf72858",
+      "accessed": "2026-09-29",
+      "retrieved_files": [
+        {
+          "path": "src/library/terminus_store.pl",
+          "bytes": 64391,
+          "sha256": "a2f40ae488be8fd37b11ec2747689854128fb291a4b31987914ceeb760dbb5d8",
+          "url": "https://raw.githubusercontent.com/terminusdb/terminusdb/57f2093baeafd65e16004e84b7b58e0c5cf72858/src/library/terminus_store.pl"
+        }
+      ],
+      "unsuccessful_requests": []
+    },
+    {
+      "repository": "crewAIInc/crewAI",
+      "commit": "deaa71e168069a1d5307340172875def4330e75b",
+      "commit_date": "2026-09-28T21:14:14Z",
+      "accessed": "2026-09-29",
+      "retrieved_files": [
+        {
+          "path": "docs/v1.15.23/en/concepts/memory.mdx",
+          "bytes": 32398,
+          "sha256": "54142e3cb904d6ba2d19972452262b1f43880502df574e9cd5de4be693223a40",
+          "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/docs/v1.15.23/en/concepts/memory.mdx"
+        },
+        {
+          "path": "lib/crewai/src/crewai/memory/unified_memory.py",
+          "bytes": 42281,
+          "sha256": "19a18b7daeff0e8c39e92245d6cc6311411b160fbf086a8b2aca94caf390ed66",
+          "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/unified_memory.py"
+        },
+        {
+          "path": "lib/crewai/src/crewai/memory/memory_scope.py",
+          "bytes": 13771,
+          "sha256": "07d4b68a06250abeb0bce8f74b5b7bae90f4bf848ecc2e240bd90febf541bd97",
+          "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/memory_scope.py"
+        },
+        {
+          "path": "lib/crewai/src/crewai/memory/storage/factory.py",
+          "bytes": 2180,
+          "sha256": "d7e39deda8c1eb0e0ef1e9113e44bec77aeae51d23591a66982375809d60647d",
+          "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/storage/factory.py"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1055,
+          "sha256": "28868731966f4aa37f02879839aabc797137e27ddde4e274ef9cf965f9a71774",
+          "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/LICENSE"
+        }
+      ],
+      "unsuccessful_requests": []
     }
   ],
   "updated": "2026-09-29",
-  "update_scope": "PageIndex 本体 22 ファイルと関連評価資料 3 ファイルの取得記録を追加。既存の取得記録は保持。追加分も静的確認のみ。"
+  "update_scope": "関連システムの選択ファイルを追加。公開コミットとファイル hash の静的確認用で、実行・依存解決の証拠ではない。"
 }

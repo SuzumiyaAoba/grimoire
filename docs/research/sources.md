@@ -892,3 +892,841 @@ arXiv の comment に会議名がある場合も、それは版の書誌情報�
 確認範囲: commit固定版eval.pyを保存して読み、既定判定器、正誤同値判定プロンプト、結果ファイル既定名とhybridの集約を確認。実行はしていない。
 
 用途: 既定GPT-4o判定、丸め・推論・妥当解釈を広く認める基準、hybridではいずれかの判定器が正解とした場合に正解扱いする実装。
+
+## 2026-09-29 の関連システム再調査
+
+[横断比較](systems/extended-landscape.md)。機能の説明、選択コード、要旨のみの研究を区別して記録する。
+
+**関連システムの出典と確認範囲**
+
+<a id="D-LM-OPENV-SESSION"></a>
+
+\[1] [D-LM-OPENV-SESSION — OpenViking: Session Concept](https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/docs/en/concepts/08-session.md) 2026-09-29
+
+確認範囲: session の関連節と session 完了時の説明を確認。サービス API は実行していない。
+
+固定版: `1f4f7039fc394c5d04637828166f4e4e74e249e0`。
+
+<a id="C-LM-OPENV-SESSION"></a>
+
+\[2] [C-LM-OPENV-SESSION — OpenViking: session.py](https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/session/session.py) 2026-09-29
+
+確認範囲: session state と commit / memory processing の関連経路を静的確認。ファイル全体精読・実行はしていない。
+
+固定版: `1f4f7039fc394c5d04637828166f4e4e74e249e0`。
+
+<a id="C-LM-OPENV-LIFECYCLE"></a>
+
+\[3] [C-LM-OPENV-LIFECYCLE — OpenViking: memory\_lifecycle.py](https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/retrieve/memory_lifecycle.py) 2026-09-29
+
+確認範囲: hotness と半減期計算の実装を静的確認。実データで挙動は測っていない。
+
+固定版: `1f4f7039fc394c5d04637828166f4e4e74e249e0`。
+
+<a id="C-LM-OPENV-RETRIEVER"></a>
+
+\[4] [C-LM-OPENV-RETRIEVER — OpenViking: hierarchical\_retriever.py](https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/retrieve/hierarchical_retriever.py) 2026-09-29
+
+確認範囲: 階層 retrieval の候補選択・展開に関係する箇所を静的確認。実行はしていない。
+
+固定版: `1f4f7039fc394c5d04637828166f4e4e74e249e0`。
+
+<a id="C-LM-MOS-UPDATER"></a>
+
+\[5] [C-LM-MOS-UPDATER — MemoryOS: updater.py](https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/updater.py) 2026-09-29
+
+確認範囲: FIFO buffer 切り出し、page 生成、連続性と要約の経路を静的確認。実行はしていない。
+
+固定版: `587ed7755c7aed179965792830ff1b5ad9a6fa92`。
+
+<a id="C-LM-MOS-RETRIEVER"></a>
+
+\[6] [C-LM-MOS-RETRIEVER — MemoryOS: retriever.py](https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/retriever.py) 2026-09-29
+
+確認範囲: mid-term page、user long-term memory、assistant knowledge を組み合わせる検索箇所を静的確認。実行はしていない。
+
+固定版: `587ed7755c7aed179965792830ff1b5ad9a6fa92`。
+
+<a id="C-LM-MOS-LTM"></a>
+
+\[7] [C-LM-MOS-LTM — MemoryOS: long\_term.py](https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/long_term.py) 2026-09-29
+
+確認範囲: profile / knowledge store の更新・容量管理と embedding retrieval を静的確認。全経路実行はしていない。
+
+固定版: `587ed7755c7aed179965792830ff1b5ad9a6fa92`。
+
+<a id="C-LM-MOS-CORE"></a>
+
+\[8] [C-LM-MOS-CORE — MemoryOS: memoryos.py](https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/memoryos.py) 2026-09-29
+
+確認範囲: 主要 API と updater / retriever / store 接続を静的確認。実行・依存監査はしていない。
+
+固定版: `587ed7755c7aed179965792830ff1b5ad9a6fa92`。
+
+<a id="D-LM-REME-FILE"></a>
+
+\[9] [D-LM-REME-FILE — ReMe: Memory as File](https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/docs/en/memory_as_file.md) 2026-09-29
+
+確認範囲: Memory-as-File の構成、正本と rebuildable metadata、旧 MemoryScope 系譜を確認。製品は実行していない。
+
+固定版: `bebad3674573477ad294ca44eb15f508feea2665`。
+
+<a id="D-LM-REME-SEARCH"></a>
+
+\[10] [D-LM-REME-SEARCH — ReMe: Memory Search](https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/docs/en/memory_search.md) 2026-09-29
+
+確認範囲: 検索方式、rank fusion、索引更新・削除の説明を確認。動作検証はしていない。
+
+固定版: `bebad3674573477ad294ca44eb15f508feea2665`。
+
+<a id="C-LM-REME-AUTO"></a>
+
+\[11] [C-LM-REME-AUTO — ReMe: auto\_memory.py](https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/reme/steps/evolve/auto_memory.py) 2026-09-29
+
+確認範囲: session JSONL 保存と agent wrapper による daily note 作成・更新の呼び出し経路を静的確認。全体精読・実行はしていない。
+
+固定版: `bebad3674573477ad294ca44eb15f508feea2665`。
+
+<a id="C-LM-REME-SEARCH"></a>
+
+\[12] [C-LM-REME-SEARCH — ReMe: search.py](https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/reme/steps/index/search.py) 2026-09-29
+
+確認範囲: keyword/vector の並行検索と順位 fusion の関連経路を静的確認。実行していない。
+
+固定版: `bebad3674573477ad294ca44eb15f508feea2665`。
+
+<a id="D-LM-MEMU-CURRENT"></a>
+
+\[13] [D-LM-MEMU-CURRENT — memU: repository README (current page)](https://github.com/NevaMind-AI/memU/blob/main/README.md) 2026-09-29
+
+確認範囲: README の MemoryService と host-agent responsibilities の関連節を確認。固定 commit とコードは未確認。
+
+<a id="D-LM-MIRIX-README"></a>
+
+\[14] [D-LM-MIRIX-README — MIRIX: repository README](https://github.com/Mirix-AI/MIRIX/blob/8cb06a62bbb7c478beb33dd4f2815696a72df482/README.md) 2026-09-29
+
+確認範囲: README の製品構成・更新説明を確認。コード・実行経路は未監査。
+
+固定版: `8cb06a62bbb7c478beb33dd4f2815696a72df482`。
+
+<a id="D-LM-MEMORI"></a>
+
+\[15] [D-LM-MEMORI — Memori BYODB: How Memory Works](https://memorilabs.ai/docs/memori-byodb/concepts/how-memory-works/) 2026-09-29
+
+確認範囲: BYODB の概念ページで attribution scope、抽出対象、auto-recall、augmentation 説明を確認。SDK/API は実行していない。
+
+<a id="D-LM-MEMVID-INTRO"></a>
+
+\[16] [D-LM-MEMVID-INTRO — Memvid v2: Glossary](https://docs.memvid.com/introduction/glossary) 2026-09-29
+
+確認範囲: v2 glossary の frame、timeline、index、storage semantics を確認。SDK・ファイル操作はしていない。
+
+<a id="D-LM-MEMVID-CLI"></a>
+
+\[17] [D-LM-MEMVID-CLI — Memvid v2: CLI documentation](https://docs.memvid.com/cli) 2026-09-29
+
+確認範囲: CLI docs の追加・検索・frame 状態の説明を確認。CLI は実行していない。
+
+<a id="D-LM-MEMSEARCH-README"></a>
+
+\[18] [D-LM-MEMSEARCH-README — zilliztech/memsearch: README](https://github.com/zilliztech/memsearch/blob/2a4652fa086fbd45e92bfd8da7781ebe1642baa7/README.md) 2026-09-29
+
+確認範囲: README の Markdown source of truth、memory layout、index backend、private log guidance を確認。コードは未監査。
+
+固定版: `2a4652fa086fbd45e92bfd8da7781ebe1642baa7`。
+
+<a id="D-LM-MEMSEARCH-GETTING"></a>
+
+\[19] [D-LM-MEMSEARCH-GETTING — zilliztech/memsearch: Getting started](https://github.com/zilliztech/memsearch/blob/2a4652fa086fbd45e92bfd8da7781ebe1642baa7/docs/getting-started.md) 2026-09-29
+
+確認範囲: getting started の storage and search setup options を確認。コードは実行していない。
+
+固定版: `2a4652fa086fbd45e92bfd8da7781ebe1642baa7`。
+
+<a id="D-LM-ACONTEXT-LEARN"></a>
+
+\[20] [D-LM-ACONTEXT-LEARN — Acontext: Quick Learn guide](https://docs.acontext.io/learn/quick) 2026-09-29
+
+確認範囲: learning overview の skill learning / task artifacts 節を確認。サービスは実行していない。
+
+<a id="D-LM-ACONTEXT-SPACE"></a>
+
+\[21] [D-LM-ACONTEXT-SPACE — Acontext: Learning Spaces](https://docs.acontext.io/learn/learning-spaces) 2026-09-29
+
+確認範囲: learning-space create / delete の関連節を確認。API は実行していない。
+
+<a id="D-LM-ACE-REPO"></a>
+
+\[22] [D-LM-ACE-REPO — ACE Agentic Context Engineering repository](https://github.com/ace-agent/ace/tree/82709de050e1db6e6ef2f07bcb0393560b94992a) 2026-09-29
+
+確認範囲: repository README と主な入口説明を確認。実行・全コード監査なし。
+
+固定版: `82709de050e1db6e6ef2f07bcb0393560b94992a`。
+
+<a id="D-LM-MSKILLS-REPO"></a>
+
+\[23] [D-LM-MSKILLS-REPO — Memento-Skills repository](https://github.com/Memento-Teams/Memento-Skills/tree/ee9b9a45efd093d669c06fe318b4b1dceb246d19) 2026-09-29
+
+確認範囲: 固定版の repository README / runtime scope を確認。コード監査と実行なし。
+
+固定版: `ee9b9a45efd093d669c06fe318b4b1dceb246d19`。
+
+<a id="P-LM-SKILLWEAVER"></a>
+
+\[24] [P-LM-SKILLWEAVER — SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills](https://arxiv.org/abs/2504.07079v1) 2026-09-29
+
+確認範囲: abstract、method、limitations and evaluation claims を確認。benchmark は再実行していない。
+
+<a id="D-LM-SKILLWEAVER-REPO"></a>
+
+\[25] [D-LM-SKILLWEAVER-REPO — OSU-NLP-Group/SkillWeaver](https://github.com/OSU-NLP-Group/SkillWeaver) 2026-09-29
+
+確認範囲: 論文から参照される repository の概要を確認。現在の code paths は追跡・実行していない。
+
+<a id="P-LM-AGENTKB"></a>
+
+\[26] [P-LM-AGENTKB — Agent KB: Leveraging Cross-Domain Experience for Agentic Problem Solving](https://arxiv.org/abs/2507.06229v5) 2026-09-29
+
+確認範囲: paper HTML の introduction、method、evaluation、limitations / conclusion を確認。測定は再実行していない。
+
+<a id="D-LM-AGENTKB-REPO"></a>
+
+\[27] [D-LM-AGENTKB-REPO — OPPO-PersonalAI/Agent-KB](https://github.com/OPPO-PersonalAI/Agent-KB) 2026-09-29
+
+確認範囲: 論文から参照される repository overview を確認。固定 commit の code review はしていない。
+
+<a id="P-LM-MACE"></a>
+
+\[28] [P-LM-MACE — MACE: Memory-Agent Co-Evolution with Adaptive Memory Graphs for Multi-Agent Systems](https://arxiv.org/abs/2609.21533v1) 2026-09-29
+
+確認範囲: 論文 HTML の方式、benchmark、appendix の比較データ出所と robustness caveat を確認。未査読・未再現。
+
+<a id="P-LM-MEMORYDATA"></a>
+
+\[29] [P-LM-MEMORYDATA — Are We Ready For An Agent-Native Memory System?](https://arxiv.org/abs/2606.24775v1) 2026-09-29
+
+確認範囲: 論文 v1 の framework decomposition と evaluation scope を部分確認。結果を再計算せず、対象 dataset / systems を網羅確認していない。
+
+<a id="D-LR-RAGFLOW-README"></a>
+
+\[30] [D-LR-RAGFLOW-README — infiniflow/ragflow README](https://github.com/infiniflow/ragflow/blob/d64b84c7095b1edb81987bbf82cdc95b36a28cbf/README.md) 2026-09-29
+
+確認範囲: READMEの機能・self-host/cloud・文書形式説明を確認。宣伝上の精度主張は再現していない
+
+固定版: `d64b84c7095b1edb81987bbf82cdc95b36a28cbf`。
+
+<a id="D-LR-RAGFLOW-CONFIG"></a>
+
+\[31] [D-LR-RAGFLOW-CONFIG — RAGFlow Dataset Configuration](https://github.com/infiniflow/ragflow/blob/main/docs/guides/dataset/configuration.md) 2026-09-29
+
+確認範囲: parserとknowledge-base設定項目を確認
+
+<a id="D-LR-RAGFLOW-SYNC"></a>
+
+\[32] [D-LR-RAGFLOW-SYNC — RAGFlow Data Source Configuration](https://github.com/infiniflow/ragflow/blob/main/docs/guides/data_source/data_source_configuration.md) 2026-09-29
+
+確認範囲: Confluence/Notion等のsource permissionsと削除同期説明を確認
+
+<a id="C-LR-RAGFLOW-CRUD"></a>
+
+\[33] [C-LR-RAGFLOW-CRUD — infiniflow/ragflow internal/service/document/document\_crud.go](https://github.com/infiniflow/ragflow/blob/d64b84c7095b1edb81987bbf82cdc95b36a28cbf/internal/service/document/document_crud.go) 2026-09-29
+
+確認範囲: commit固定ファイルの静的読解のみ。実行・統合試験・全consumer監査はしていない
+
+固定版: `d64b84c7095b1edb81987bbf82cdc95b36a28cbf`。
+
+<a id="D-LR-DIFY-KNOWLEDGE"></a>
+
+\[34] [D-LR-DIFY-KNOWLEDGE — Dify Knowledge Overview](https://docs.dify.ai/en/cloud/use-dify/knowledge/readme) 2026-09-29
+
+確認範囲: knowledge baseの作成・管理・retrieval利用の概要を確認
+
+<a id="D-LR-DIFY-MANAGE"></a>
+
+\[35] [D-LR-DIFY-MANAGE — Dify Manage Knowledge Content](https://docs.dify.ai/en/cloud/use-dify/knowledge/manage-knowledge/maintain-knowledge-documents) 2026-09-29
+
+確認範囲: document/chunkの更新・削除・disable/archive項目を確認
+
+<a id="D-LR-DIFY-SETTINGS"></a>
+
+\[36] [D-LR-DIFY-SETTINGS — Dify Manage Knowledge Settings](https://docs.dify.ai/en/cloud/use-dify/knowledge/manage-knowledge/introduction) 2026-09-29
+
+確認範囲: workspace role、knowledge base permission、index・embedding・retrieval settingsを確認
+
+<a id="D-LR-DIFY-README"></a>
+
+\[37] [D-LR-DIFY-README — langgenius/dify README](https://github.com/langgenius/dify) 2026-09-29
+
+確認範囲: Cloud/self-hosted/Enterprise deployment説明とlicense案内を確認
+
+<a id="C-LR-DIFY-DATASET"></a>
+
+\[38] [C-LR-DIFY-DATASET — langgenius/dify api/controllers/service\_api/dataset/dataset.py](https://github.com/langgenius/dify/blob/e6f1d77ed5869e659e426b5459439d44bdabdbe5/api/controllers/service_api/dataset/dataset.py) 2026-09-29
+
+確認範囲: commit固定ファイルのpermission/indexing fieldsと更新経路を静的確認のみ
+
+固定版: `e6f1d77ed5869e659e426b5459439d44bdabdbe5`。
+
+<a id="C-LR-DIFY-KBFS"></a>
+
+\[39] [C-LR-DIFY-KBFS — langgenius/dify api/services/knowledge\_fs\_operations.py](https://github.com/langgenius/dify/blob/e6f1d77ed5869e659e426b5459439d44bdabdbe5/api/services/knowledge_fs_operations.py) 2026-09-29
+
+確認範囲: commit固定のoperation declarationを静的確認のみ。全Console/API実行は未確認
+
+固定版: `e6f1d77ed5869e659e426b5459439d44bdabdbe5`。
+
+<a id="D-LR-ONYX-CONNECTORS"></a>
+
+\[40] [D-LR-ONYX-CONNECTORS — Onyx Connectors Documentation](https://docs.onyx.app/overview/core_features/connectors) 2026-09-29
+
+確認範囲: connectorの更新同期・permission同期のedition境界・default local processing記載を確認
+
+<a id="D-LR-ONYX-README"></a>
+
+\[41] [D-LR-ONYX-README — onyx-dot-app/onyx README](https://github.com/onyx-dot-app/onyx) 2026-09-29
+
+確認範囲: Community/Enterprise, self-host/Cloud, Standard/Lite差を確認
+
+<a id="D-LR-LLAMA-DOCS"></a>
+
+\[42] [D-LR-LLAMA-DOCS — LlamaIndex Document Management](https://developers.llamaindex.ai/python/framework/module_guides/indexing/document_management/) 2026-09-29
+
+確認範囲: document/ref-doc ID、insert/update/delete/refresh、index-specific caveatを確認
+
+<a id="D-LR-LLAMA-INGESTION"></a>
+
+\[43] [D-LR-LLAMA-INGESTION — LlamaIndex Ingestion Pipeline](https://developers.llamaindex.ai/python/framework/module_guides/loading/ingestion_pipeline/) 2026-09-29
+
+確認範囲: transformations/cache/docstoreのingestion説明を確認
+
+<a id="D-LR-LLAMACLOUD"></a>
+
+\[44] [D-LR-LLAMACLOUD — LlamaIndex Framework Overview and LlamaCloud](https://github.com/run-llama/llama_index/blob/main/docs/src/content/docs/framework/index.md) 2026-09-29
+
+確認範囲: OSS frameworkとmanaged/self-hosted LlamaCloud serviceの説明を確認
+
+<a id="C-LR-LLAMA-PIPELINE"></a>
+
+\[45] [C-LR-LLAMA-PIPELINE — run-llama/llama\_index ingestion/pipeline.py](https://github.com/run-llama/llama_index/blob/9ca9664a7c3ddb8216edc5df0941be40aa63af2e/llama-index-core/llama_index/core/ingestion/pipeline.py) 2026-09-29
+
+確認範囲: commit固定ファイルのDocstoreStrategyとupsert/deleteの静的確認のみ。実行していない
+
+固定版: `9ca9664a7c3ddb8216edc5df0941be40aa63af2e`。
+
+<a id="D-LR-HAYSTACK-DOCSTORE"></a>
+
+\[46] [D-LR-HAYSTACK-DOCSTORE — Haystack Document Store](https://docs.haystack.deepset.ai/docs/document-store) 2026-09-29
+
+確認範囲: DocumentStore protocol、ID・overwrite・deleteの説明を確認
+
+<a id="D-LR-HAYSTACK-FILTER"></a>
+
+\[47] [D-LR-HAYSTACK-FILTER — Haystack Metadata Filtering](https://docs.haystack.deepset.ai/docs/metadata-filtering) 2026-09-29
+
+確認範囲: metadata filteringとbackendごとのoperator差を確認
+
+<a id="D-LR-HAYSTACK-PIPELINES"></a>
+
+\[48] [D-LR-HAYSTACK-PIPELINES — Haystack Pipelines](https://docs.haystack.deepset.ai/docs/pipelines) 2026-09-29
+
+確認範囲: pipeline orchestrationの説明を確認
+
+<a id="D-LR-HAYSTACK-REPO"></a>
+
+\[49] [D-LR-HAYSTACK-REPO — deepset-ai/haystack repository](https://github.com/deepset-ai/haystack) 2026-09-29
+
+確認範囲: framework位置づけとApache-2.0 license表記を確認
+
+<a id="D-LR-TXTAI-OVERVIEW"></a>
+
+\[50] [D-LR-TXTAI-OVERVIEW — txtai Overview and Features](https://neuml.github.io/txtai/index.html) 2026-09-29
+
+確認範囲: embeddings database、sparse/dense/graph/workflows/API、license記載を確認
+
+<a id="D-LR-TXTAI-INDEX"></a>
+
+\[51] [D-LR-TXTAI-INDEX — txtai Index Guide](https://neuml.github.io/txtai/embeddings/indexing/) 2026-09-29
+
+確認範囲: index/upsert/delete/reindexのAPI説明を確認
+
+<a id="D-LR-PATHWAY-APP"></a>
+
+\[52] [D-LR-PATHWAY-APP — pathwaycom/llm-app README](https://github.com/pathwaycom/llm-app) 2026-09-29
+
+確認範囲: source connectors、update/delete sync、search variants、templates記載を確認。scale claimsは未検証
+
+<a id="D-LR-PATHWAY-LICENSE"></a>
+
+\[53] [D-LR-PATHWAY-LICENSE — Pathway Licensing Terms and Conditions](https://pathway.com/license) 2026-09-29
+
+確認範囲: Community/Scale/Enterprise license and grants/exclusions/resource termsを確認
+
+<a id="D-LR-R2R-README"></a>
+
+\[54] [D-LR-R2R-README — SciPhi-AI/R2R README](https://github.com/SciPhi-AI/R2R) 2026-09-29
+
+確認範囲: RAG features, citations, API and local/Docker deploymentを確認。製品性能claimは未検証
+
+<a id="D-LR-R2R-GUIDE"></a>
+
+\[55] [D-LR-R2R-GUIDE — What is R2R?](https://github.com/SciPhi-AI/R2R/blob/main/docs/introduction/guides/what-is-r2r.md) 2026-09-29
+
+確認範囲: document/search/analytics scope、claimed user management/access controlsを確認
+
+<a id="D-LR-NEO4J-README"></a>
+
+\[56] [D-LR-NEO4J-README — Neo4j GraphRAG for Python README](https://github.com/neo4j/neo4j-graphrag-python) 2026-09-29
+
+確認範囲: first-party package scope, provider/store optional dependencies, license listingを確認
+
+<a id="D-LR-NEO4J-RAG"></a>
+
+\[57] [D-LR-NEO4J-RAG — Neo4j GraphRAG Python User Guide: RAG](https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html) 2026-09-29
+
+確認範囲: retriever types, metadata filters and Neo4j server version caveatを確認
+
+<a id="D-LR-NEO4J-KGBUILDER"></a>
+
+\[58] [D-LR-NEO4J-KGBUILDER — Neo4j GraphRAG Python User Guide: Knowledge Graph Builder](https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_kg_builder.html) 2026-09-29
+
+確認範囲: experimental label, loader/splitter/lexical graph/schema/extractor/resolver lifecycleを確認
+
+<a id="D-LR-FALKOR-README"></a>
+
+\[59] [D-LR-FALKOR-README — FalkorDB GraphRAG-SDK README](https://github.com/FalkorDB/GraphRAG-SDK) 2026-09-29
+
+確認範囲: graph build/retrieval/provenance claim and Apache-2.0 licenseを確認。benchmark claimは未再現
+
+<a id="D-LR-FALKOR-START"></a>
+
+\[60] [D-LR-FALKOR-START — FalkorDB GraphRAG-SDK Getting Started](https://github.com/FalkorDB/GraphRAG-SDK/blob/main/docs/getting-started.mdx) 2026-09-29
+
+確認範囲: SDK setup、graph ingestion、supported LLM/API dependencyを確認
+
+<a id="D-LR-FASTGRAPH"></a>
+
+\[61] [D-LR-FASTGRAPH — circlemind-ai/fast-graphrag README](https://github.com/circlemind-ai/fast-graphrag) 2026-09-29
+
+確認範囲: PPR retrieval, incremental-update claim, MIT and managed-service statementを確認。claimsは未再現
+
+<a id="D-LR-NANO"></a>
+
+\[62] [D-LR-NANO — gusye1234/nano-graphrag README](https://github.com/gusye1234/nano-graphrag) 2026-09-29
+
+確認範囲: project role, compactness and provider/database configurability statementを確認
+
+<a id="D-LR-RAGANYTHING"></a>
+
+\[63] [D-LR-RAGANYTHING — HKUDS/RAG-Anything README](https://github.com/HKUDS/RAG-Anything) 2026-09-29
+
+確認範囲: LightRAG backend, modalities, source-page fields and backend migration/reprocess caveatを確認
+
+<a id="P-LR-RAGANYTHING"></a>
+
+\[64] [P-LR-RAGANYTHING — RAG-Anything: All-in-One RAG Framework](https://arxiv.org/abs/2510.12323) 2026-09-29
+
+確認範囲: abstractとsystem framingを確認。reported benchmarkは再現していない
+
+<a id="D-LR-BYALDI"></a>
+
+\[65] [D-LR-BYALDI — AnswerDotAI/byaldi README](https://github.com/AnswerDotAI/byaldi/blob/main/README.md) 2026-09-29
+
+確認範囲: pre-release, ColPali/ColQwen2, PDF image conversion, doc/page result fields, add-to-index and hardware notesを確認
+
+<a id="P-LR-COLPALI"></a>
+
+\[66] [P-LR-COLPALI — ColPali: Efficient Document Retrieval with Vision Language Models](https://arxiv.org/abs/2407.01449) 2026-09-29
+
+確認範囲: paper abstract and page-image retrieval framingを確認。ViDoRe scoresは転載・再現していない
+
+<a id="D-LR-MEMORAG"></a>
+
+\[67] [D-LR-MEMORAG — qhjqhj00/MemoRAG README](https://github.com/qhjqhj00/MemoRAG) 2026-09-29
+
+確認範囲: memory/clue-based retrieval design, prototype roadmap, model dependency and Apache-2.0 license statementを確認
+
+<a id="P-LR-MEMORAG"></a>
+
+\[68] [P-LR-MEMORAG — MemoRAG: Moving Towards Next-Gen RAG Via Memory-Inspired Knowledge Discovery](https://arxiv.org/abs/2409.05591) 2026-09-29
+
+確認範囲: abstractのdual-system/global-memory/clue-guided retrieval framingを確認。reported evaluationsは再現していない
+
+<a id="D-LS-W3C-OWL"></a>
+
+\[69] [D-LS-W3C-OWL — OWL 2 Web Ontology Language Document Overview](https://www.w3.org/TR/owl2-overview/) 2026-09-29
+
+確認範囲: W3C仕様の概念比較に使用。実装適合性は検査していない
+
+<a id="D-LS-GDB-REASON"></a>
+
+\[70] [D-LS-GDB-REASON — GraphDB 11.0 Reasoning](https://graphdb.ontotext.com/documentation/11.0/reasoning.html) 2026-09-29
+
+確認範囲: 前向きmaterialization、ruleset、再推論・撤回の公開仕様を確認
+
+<a id="D-LS-GDB-TALK"></a>
+
+\[71] [D-LS-GDB-TALK — GraphDB 11.0 Talk to Your Graph](https://graphdb.ontotext.com/documentation/11.0/talk-to-graph.html) 2026-09-29
+
+確認範囲: experimentalとする機能の公開説明を確認
+
+<a id="D-LS-GDB-CONNECTOR"></a>
+
+\[72] [D-LS-GDB-CONNECTOR — GraphDB 11.0 ChatGPT Retrieval Connector](https://graphdb.ontotext.com/documentation/11.0/retrieval-graphdb-connector.html) 2026-09-29
+
+確認範囲: RDFから外部retrieval plugin / vector DBへの同期仕様とexperimental注記を確認
+
+<a id="D-LS-GDB-SHACL"></a>
+
+\[73] [D-LS-GDB-SHACL — GraphDB Documentation 11.0.2C, SHACL validation](https://graphdb.ontotext.com/documentation/11.0/pdf/GraphDB.pdf) 2026-09-29
+
+確認範囲: 製品PDFのSHACL validation概要を確認
+
+<a id="D-LS-RDFOX-FEATURES"></a>
+
+\[74] [D-LS-RDFOX-FEATURES — RDFox Features and Requirements](https://docs.oxfordsemantic.tech/features-and-requirements.html) 2026-09-29
+
+確認範囲: RDF / rules / OWL / SHACL、外部source、materialization、proof、transaction / ACLを確認
+
+<a id="D-LS-RDFOX-LICENSE"></a>
+
+\[75] [D-LS-RDFOX-LICENSE — RDFox Evaluation License](https://www.oxfordsemantic.tech/rdfox-evaluation-license) 2026-09-29
+
+確認範囲: 評価ライセンスの存在を確認。商用条件の評価なし
+
+<a id="D-LS-STARDOG-VOICEBOX"></a>
+
+\[76] [D-LS-STARDOG-VOICEBOX — Stardog Voicebox: Guided Ontology Creation and Mapping](https://docs.stardog.com/voicebox/guided-ontology-creation-and-mapping/) 2026-09-29
+
+確認範囲: ontology / mapping案とhuman-in-loop reviewの公開フローを確認
+
+<a id="D-LS-TRIPLY-ETL"></a>
+
+\[77] [D-LS-TRIPLY-ETL — TriplyETL Validate](https://docs.triply.cc/triply-etl/validate/) 2026-09-29
+
+確認範囲: gold graph comparisonとSHACL validationのETL段を確認
+
+<a id="D-LS-TRIPLY-SAVED"></a>
+
+\[78] [D-LS-TRIPLY-SAVED — TriplyDB Saved Queries](https://docs.triply.cc/triply-db-getting-started/saved-queries/) 2026-09-29
+
+確認範囲: 保存クエリに独立した版番号を持たせる説明を確認
+
+<a id="D-LS-TRIPLY-EDIT"></a>
+
+\[79] [D-LS-TRIPLY-EDIT — TriplyDB Editing (SKOS) Data](https://docs.triply.cc/triply-db-getting-started/editing-data/) 2026-09-29
+
+確認範囲: SHACL shapeに基づくフォームと資源単位の変更履歴を確認
+
+<a id="D-LS-ECCENCA-ARCH"></a>
+
+\[80] [D-LS-ECCENCA-ARCH — eccenca Corporate Memory System Architecture](https://documentation.eccenca.dev/latest/deploy-and-configure/system-architecture/) 2026-09-29
+
+確認範囲: Build / Explore / cmemc、source-to-RDF mapping、external triple storeの記述を確認
+
+<a id="D-LS-ECCENCA-BUILD"></a>
+
+\[81] [D-LS-ECCENCA-BUILD — eccenca Build Introduction to the User Interface](https://documentation.eccenca.dev/latest/build/introduction-to-the-user-interface/) 2026-09-29
+
+確認範囲: mapping、transform、link、workflowの製品説明を確認
+
+<a id="D-LS-ECCENCA-MARKETPLACE"></a>
+
+\[82] [D-LS-ECCENCA-MARKETPLACE — eccenca Corporate Memory Marketplace](https://documentation.eccenca.dev/latest/distribution/marketplace/) 2026-09-29
+
+確認範囲: versioned packageの構成と更新・置換の制約を確認
+
+<a id="D-LS-TOPBRAID-INTRO"></a>
+
+\[83] [D-LS-TOPBRAID-INTRO — TopBraid EDG Introduction](https://docs.topquadrant.com/7.4/introduction/index.html) 2026-09-29
+
+確認範囲: asset collectionとsemantic governanceの概要。旧版ページなので現行SKUと断定しない
+
+<a id="D-LS-TOPBRAID-WORKFLOW"></a>
+
+\[84] [D-LS-TOPBRAID-WORKFLOW — TopBraid EDG Workflows](https://docs.topquadrant.com/8.0/user_guide/workflows/index.html) 2026-09-29
+
+確認範囲: working copy、review / approval、production copyへのcommitを確認
+
+<a id="D-LS-ONTOP-GUIDE"></a>
+
+\[85] [D-LS-ONTOP-GUIDE — Ontop Guide](https://ontop-vkg.org/guide/) 2026-09-29
+
+確認範囲: Virtual KG、R2RML / Ontop mapping、SPARQL / SQL rewriting、RDFS / OWL 2 QL、stable版とlicenseを確認
+
+<a id="D-LS-ONTOP-REPO"></a>
+
+\[86] [D-LS-ONTOP-REPO — ontop/ontop](https://github.com/ontop/ontop) 2026-09-29
+
+確認範囲: 公開repo概要とApache-2.0表示を確認。コード監査対象外
+
+<a id="D-LS-TYPEDB-FUNCTIONS"></a>
+
+\[87] [D-LS-TYPEDB-FUNCTIONS — TypeDB Functions vs Rules](https://typedb.com/docs/typeql-reference/functions/functions-vs-rules/) 2026-09-29
+
+確認範囲: TypeDB 3のgoal-driven computationと旧rule materializationとの差を確認
+
+<a id="D-LS-TYPEDB-REPO"></a>
+
+\[88] [D-LS-TYPEDB-REPO — typedb/typedb](https://github.com/typedb/typedb) 2026-09-29
+
+確認範囲: 公開repositoryのCommunity Edition MPL-2.0表記を確認。コード監査対象外
+
+<a id="D-LS-TERMINUS-VERSION"></a>
+
+\[89] [D-LS-TERMINUS-VERSION — TerminusDB Version Control Operations](https://terminusdb.org/docs/version-control-operations/) 2026-09-29
+
+確認範囲: commit / branch / merge / diff / historical readの公開仕様を確認
+
+<a id="D-LS-TERMINUS-REPO"></a>
+
+\[90] [D-LS-TERMINUS-REPO — terminusdb/terminusdb](https://github.com/terminusdb/terminusdb) 2026-09-29
+
+確認範囲: 公開Community repository概要とApache-2.0表示を確認
+
+<a id="C-LS-TERMINUS-LAYER"></a>
+
+\[91] [C-LS-TERMINUS-LAYER — terminusdb/terminusdb src/library/terminus\_store.pl at fixed commit](https://github.com/terminusdb/terminusdb/blob/57f2093baeafd65e16004e84b7b58e0c5cf72858/src/library/terminus_store.pl#L171-L307) 2026-09-29
+
+確認範囲: 固定commitのソースを静的確認。layer head、snapshot read、child layer builder、add/remove delta、commitのdocstring。実行なし
+
+固定版: `57f2093baeafd65e16004e84b7b58e0c5cf72858`。
+
+<a id="D-LS-XTDB-TIME"></a>
+
+\[92] [D-LS-XTDB-TIME — Time in XTDB](https://docs.xtdb.com/about/time-in-xtdb.html) 2026-09-29
+
+確認範囲: transaction/system timeとvalid timeの意味、過去訂正・as-of queryを確認
+
+<a id="D-LS-XTDB-LICENSE"></a>
+
+\[93] [D-LS-XTDB-LICENSE — XTDB Documentation](https://docs.xtdb.com/) 2026-09-29
+
+確認範囲: 製品概要のオープンソース/MPL-2.0表記を確認
+
+<a id="D-LS-PALANTIR-INTRO"></a>
+
+\[94] [D-LS-PALANTIR-INTRO — Palantir Foundry Introductory Concepts](https://www.palantir.com/docs/foundry/getting-started/introductory-concepts) 2026-09-29
+
+確認範囲: data layer / object layer、dataset lineage、object / link / actionを確認
+
+<a id="D-LS-PALANTIR-ONTOLOGY"></a>
+
+\[95] [D-LS-PALANTIR-ONTOLOGY — Palantir Foundry Ontology Overview](https://www.palantir.com/docs/foundry/ontology/overview) 2026-09-29
+
+確認範囲: Object/link/action ontologyと編集・version機能への案内を確認
+
+<a id="D-LS-PALANTIR-PERMISSIONS"></a>
+
+\[96] [D-LS-PALANTIR-PERMISSIONS — Palantir Foundry Object Permissioning Overview](https://www.palantir.com/docs/foundry/object-permissioning/overview) 2026-09-29
+
+確認範囲: object/link/action permissioningの公開説明を確認
+
+<a id="D-LS-RECALLGRAPH-README"></a>
+
+\[97] [D-LS-RECALLGRAPH-README — RecallGraph official repository README](https://github.com/RecallGraph/RecallGraph) 2026-09-29
+
+確認範囲: archived 2026-04-25、ArangoDB Foxx/event history、point-in-time graph query、valid-timeとbranchingはroadmap、successor Minigrafへの案内を確認
+
+<a id="D-LS-MINIGRAF-README"></a>
+
+\[98] [D-LS-MINIGRAF-README — Minigraf official repository README](https://github.com/project-minigraf/minigraf) 2026-09-29
+
+確認範囲: successor側の公開説明を確認。RecallGraphからのportではない。runtimeや性能は未検証
+
+<a id="D-LS-RECALLGRAPH-PYPI"></a>
+
+\[99] [D-LS-RECALLGRAPH-PYPI — recallgraph on PyPI](https://pypi.org/project/recallgraph/) 2026-09-29
+
+確認範囲: 同名の0.0.2配布情報とリンク先を確認。公式RecallGraph/RecallGraphとは別候補
+
+<a id="D-LS-RECALLGRAPH-SAME-NAME"></a>
+
+\[100] [D-LS-RECALLGRAPH-SAME-NAME — Indhar01/RecallGraph project link redirects to MemoGraph](https://github.com/Indhar01/RecallGraph) 2026-09-29
+
+確認範囲: PyPI候補の現在のGitHub destinationはMemoGraphへredirect。公式RecallGraphとの同一性なしと確認
+
+<a id="D-LC-AWS-MEMORY"></a>
+
+\[101] [D-LC-AWS-MEMORY — AgentCore: Long-term memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-memory-long-term.html) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: 長期記憶の resource、strategy、namespace、管理 API の説明。
+
+<a id="D-LC-AWS-STRATEGY"></a>
+
+\[102] [D-LC-AWS-STRATEGY — AgentCore: Configure built-in strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.html) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: user preference / semantic / summary / episodic の各節と設定例。
+
+<a id="D-LC-AWS-DELETE"></a>
+
+\[103] [D-LC-AWS-DELETE — AgentCore: Delete memory records](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-delete-memory-records.html) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: DeleteMemoryRecord による個別記憶の削除。派生物の連鎖消去は未検証。
+
+<a id="D-LC-GOOGLE-MEMORY"></a>
+
+\[104] [D-LC-GOOGLE-MEMORY — Agent Platform Memory Bank overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: 現行サービス名、scope、抽出・統合、継続取り込み、TTL、IAM、ADK 統合。旧 Vertex AI URL は現行案内へ遷移した。
+
+<a id="D-LC-GOOGLE-REVISIONS"></a>
+
+\[105] [D-LC-GOOGLE-REVISIONS — Memory Bank: Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: 現行状態と immutable revision、抽出中間結果、rollback、48時間の削除復元窓、改訂履歴の無効化と TTL。
+
+<a id="D-LC-FOUNDRY-MEMORY"></a>
+
+\[106] [D-LC-FOUNDRY-MEMORY — Microsoft Foundry: Use memory with agents](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/memory-usage) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: preview、memory options、個別 CRUD、TTL、tool と低水準 API の scope 解決差。
+
+<a id="D-LC-OAI-RUN"></a>
+
+\[107] [D-LC-OAI-RUN — OpenAI Agents SDK: Running agents](https://developers.openai.com/api/docs/guides/agents/running-agents) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: history / session / conversationId / previousResponseId による会話状態管理の区別。
+
+<a id="D-LC-OAI-STATE"></a>
+
+\[108] [D-LC-OAI-STATE — OpenAI: Conversation state](https://developers.openai.com/api/docs/guides/conversation-state) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: Conversations の durable ID と messages、tool calls、tool outputs の保存。
+
+<a id="D-LC-OAI-SANDBOX"></a>
+
+\[109] [D-LC-OAI-SANDBOX — OpenAI Agents SDK: Sandboxes — Sandbox Memory](https://developers.openai.com/api/docs/guides/agents/sandboxes) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: Sandbox Memory の設定、読み取りの階層、session close 後の抽出・統合、永続性と Session との区別。全 sandbox 機能の監査ではない。
+
+<a id="D-LC-CLAUDE-TOOL"></a>
+
+\[110] [D-LC-CLAUDE-TOOL — Claude: Memory tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: クライアント側 tool、アプリ管理の永続ファイル、コマンド実行責任。
+
+<a id="D-LC-CLAUDE-STORE"></a>
+
+\[111] [D-LC-CLAUDE-STORE — Claude Managed Agents: Memory](https://platform.claude.com/docs/en/managed-agents/memory) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: agent-memory-2026-07-22 beta、workspace store、read-only/read-write、版・復元・redaction・delete、managed と自己管理 sandbox 同期の違い。
+
+<a id="D-LC-LANGGRAPH"></a>
+
+\[112] [D-LC-LANGGRAPH — LangGraph: Add and manage memory](https://docs.langchain.com/oss/python/langgraph/add-memory) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: checkpointer、thread、cross-thread Store、in-memory と永続 backend の選択。
+
+<a id="D-LC-MAF-CONTEXT"></a>
+
+\[113] [D-LC-MAF-CONTEXT — Microsoft Agent Framework: Context providers](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/context-providers) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: before / after hooks、FileMemoryProvider と session / user scope、実行状態との区別。
+
+<a id="D-LC-MAF-HISTORY"></a>
+
+\[114] [D-LC-MAF-HISTORY — Microsoft Agent Framework: Chat history memory provider](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/chat-history-memory-provider) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: vector store の履歴、storageScope と searchScope、ユーザー等の filter、権限制御の確認事項。
+
+<a id="D-LC-AGNO"></a>
+
+\[115] [D-LC-AGNO — Agno: What is Memory?](https://docs.agno.com/memory/overview) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: user\_id と session\_id、自動抽出と agentic 更新、削除許可、両方式有効時の優先順。
+
+<a id="D-LC-ORACLE"></a>
+
+\[116] [D-LC-ORACLE — Oracle Agent Memory: About](https://docs.oracle.com/en/database/oracle/agent-memory/26.6/guide/about.html) 2026-09-29
+
+確認範囲: 関連節を確認。サービス API・SDK は実行していない。
+
+用途: 短期 context card と長期 facts、Oracle AI Database、provider と MCP、アプリ側の認証・認可責任。
+
+<a id="D-LC-CREWAI"></a>
+
+\[117] [D-LC-CREWAI — CrewAI v1.15.23: Memory](https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/docs/v1.15.23/en/concepts/memory.mdx) 2026-09-29
+
+確認範囲: 統合 Memory、scope/slice、consolidation、検索順位、source/private、保存 backend と読み取り専用 slice の例を確認。
+
+固定版: `deaa71e168069a1d5307340172875def4330e75b`。
+
+<a id="C-LC-CREWAI-MEMORY"></a>
+
+\[118] [C-LC-CREWAI-MEMORY — CrewAI: unified\_memory.py](https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/unified_memory.py) 2026-09-29
+
+確認範囲: recall、forget、update、scope、slice と privacy filter の関連経路を静的に確認。全体精読・実行はしていない。
+
+固定版: `deaa71e168069a1d5307340172875def4330e75b`。
+
+<a id="C-LC-CREWAI-SCOPE"></a>
+
+\[119] [C-LC-CREWAI-SCOPE — CrewAI: memory\_scope.py](https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/memory_scope.py) 2026-09-29
+
+確認範囲: MemoryScope の委譲と MemorySlice.remember / recall の静的確認。read\_only は remember を no-op にする。
+
+固定版: `deaa71e168069a1d5307340172875def4330e75b`。
+
+<a id="C-LC-CREWAI-FACTORY"></a>
+
+\[120] [C-LC-CREWAI-FACTORY — CrewAI: storage factory](https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/storage/factory.py) 2026-09-29
+
+確認範囲: storage factory の登録・解決を確認。built-in LanceDB / Qdrant の説明と差し替え境界。実行していない。
+
+固定版: `deaa71e168069a1d5307340172875def4330e75b`。
+
+<a id="C-LC-CREWAI-LICENSE"></a>
+
+\[121] [C-LC-CREWAI-LICENSE — CrewAI: LICENSE](https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/LICENSE) 2026-09-29
+
+確認範囲: MIT 表記の本文を確認。依存・外部 API・商用サービスの条件は含めない。
+
+固定版: `deaa71e168069a1d5307340172875def4330e75b`。
+
+<a id="P-LX-DATABASE"></a>
+
+\[122] [P-LX-DATABASE — Is Agent Memory a Database? Rethinking Data Foundations for Long-Term AI Agent Memory](https://arxiv.org/abs/2605.26252v1) 2026-09-29
+
+確認範囲: arXiv の要旨・書誌のみ確認。本文・コード・実験は未確認。
+
+用途: GEM と MemState の問題設定。製品比較の採用済み系統には数えない。
+
+<a id="P-LX-WORKLOADS"></a>
+
+\[123] [P-LX-WORKLOADS — Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads](https://arxiv.org/abs/2606.06448v2) 2026-09-29
+
+確認範囲: arXiv の要旨・書誌と 2026-09-22 の v2 改訂日を確認。本文・実験値・コードは未確認。
+
+用途: 構築・検索・生成の段階別費用を比較する評価視点。性能値は転載していない。
+
+既存 ID で再確認した資料: `D-STARDOG` ([公式資料](https://docs.stardog.com/inference-engine/)), `D-TYPEDB` ([公式資料](https://typedb.com/docs/core-concepts/typeql/schema-data/)), `D-VIRTUAL` ([公式資料](https://docs.stardog.com/virtual-graphs/)), `D-XTDB` ([公式資料](https://docs.xtdb.com/concepts/key-concepts.html)), `P-ACE` ([公式資料](https://arxiv.org/abs/2510.04618v3)), `P-MSKILLS` ([公式資料](https://arxiv.org/abs/2603.18743v1)), `S-PROV` ([公式資料](https://www.w3.org/TR/prov-o/)), `S-SHACL` ([公式資料](https://www.w3.org/TR/shacl/))。追加の確認範囲は sources.json の additional\_reviews に記録した。

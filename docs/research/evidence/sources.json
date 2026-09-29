@@ -645,7 +645,19 @@
       ],
       "publication_comment": "ICLR 2026; 32 pages",
       "submission_history": "Submission history From: Qizheng Zhang [ view email ] [v1] Mon, 6 Oct 2025 09:30:18 UTC (2,400 KB) [v2] Thu, 29 Jan 2026 19:22:36 UTC (2,396 KB) [v3] Sun, 29 Mar 2026 09:18:02 UTC (2,419 KB)",
-      "arxiv_version": "v3"
+      "arxiv_version": "v3",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "論文の方式・限界と benchmark 設定の関連節を確認。評価は再実行していない。",
+          "checked_sections": [
+            "Generator / Reflector / Curator",
+            "incremental playbook update",
+            "reported benchmarks",
+            "context bloat limitations"
+          ]
+        }
+      ]
     },
     {
       "id": "P-FR",
@@ -1312,7 +1324,18 @@
       ],
       "publication_comment": "Memento-Skills Technical Report",
       "submission_history": "Submission history From: Huichi Zhou [ view email ] [v1] Thu, 19 Mar 2026 10:45:22 UTC (1,276 KB)",
-      "arxiv_version": "v1"
+      "arxiv_version": "v1",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "論文の structured skill memory と evaluation claims を確認。測定は追試していない。",
+          "checked_sections": [
+            "read-write reflective learning",
+            "structured Markdown skills",
+            "reported benchmark results"
+          ]
+        }
+      ]
     },
     {
       "id": "P-TITANS",
@@ -1701,6 +1724,10 @@
             "4.1.1 sh:class",
             "4.2 Cardinality Constraint Components"
           ]
+        },
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "validation / shapesと推論との関係を確認"
         }
       ]
     },
@@ -1744,6 +1771,10 @@
             "3.1 Starting Point terms",
             "prov:wasRevisionOf"
           ]
+        },
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "Entity / Activity / Agentのprovenance語彙を確認。運用は検証していない"
         }
       ]
     },
@@ -2155,7 +2186,13 @@
       "url": "https://docs.stardog.com/inference-engine/",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "query-time lazy reasoning、非materialization、profile説明を確認"
+        }
+      ]
     },
     {
       "id": "D-VIRTUAL",
@@ -2163,7 +2200,13 @@
       "url": "https://docs.stardog.com/virtual-graphs/",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "SQL等のsource mapping、SPARQL、remote source接続を確認"
+        }
+      ]
     },
     {
       "id": "D-TERMINUS",
@@ -2190,6 +2233,10 @@
             "Built-in system and valid time columns",
             "Closed-open periods"
           ]
+        },
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "immutable log、system-timeとvalid-timeの説明を確認"
         }
       ]
     },
@@ -2263,7 +2310,13 @@
       "url": "https://typedb.com/docs/core-concepts/typeql/schema-data/",
       "kind": "公式文書",
       "accessed": "2026-09-28",
-      "review_depth": "仕様・説明を確認"
+      "review_depth": "仕様・説明を確認",
+      "additional_reviews": [
+        {
+          "accessed": "2026-09-29",
+          "review_depth": "schema-first型、entity / relation / attributeとvalidationを確認"
+        }
+      ]
     },
     {
       "id": "D-PROTEGE",
@@ -3708,8 +3761,1465 @@
       "repository": "VectifyAI/Mafin2.5-FinanceBench",
       "path": "eval.py",
       "raw_url": "https://raw.githubusercontent.com/VectifyAI/Mafin2.5-FinanceBench/1c890d5e0fd9929953d38282614555847727011d/eval.py"
+    },
+    {
+      "id": "D-LM-OPENV-SESSION",
+      "title": "OpenViking: Session Concept",
+      "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/docs/en/concepts/08-session.md",
+      "kind": "公式文書・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "session の関連節と session 完了時の説明を確認。サービス API は実行していない。",
+      "checked_sections": [
+        "session memory の構造",
+        "session commit と要約・記憶抽出"
+      ],
+      "supports": "OpenViking の session が短期状態を整理し、完了後の記憶生成へ接続する説明。",
+      "repository": "volcengine/OpenViking",
+      "commit": "1f4f7039fc394c5d04637828166f4e4e74e249e0",
+      "commit_date": "2026-09-28T12:29:08Z",
+      "path": "docs/en/concepts/08-session.md",
+      "sha256": "f00e2a8de5c768acea5056c8ca5f05a64b9b2a4bf510350de8d47fb4fbfbe69d",
+      "bytes": 8448
+    },
+    {
+      "id": "C-LM-OPENV-SESSION",
+      "title": "OpenViking: session.py",
+      "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/session/session.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "session state と commit / memory processing の関連経路を静的確認。ファイル全体精読・実行はしていない。",
+      "checked_sections": [
+        "session working-memory sections",
+        "message commit",
+        "async summary and extraction dispatch"
+      ],
+      "supports": "session が見出し付き working memory を持ち、commit 後に処理を委譲するコード経路。",
+      "repository": "volcengine/OpenViking",
+      "commit": "1f4f7039fc394c5d04637828166f4e4e74e249e0",
+      "commit_date": "2026-09-28T12:29:08Z",
+      "path": "openviking/session/session.py",
+      "sha256": "86b253183e14b074323684ff2e5de5a0ae525cd6be612b46dba96cd29394bd0f",
+      "bytes": 146464
+    },
+    {
+      "id": "C-LM-OPENV-LIFECYCLE",
+      "title": "OpenViking: memory_lifecycle.py",
+      "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/retrieve/memory_lifecycle.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "hotness と半減期計算の実装を静的確認。実データで挙動は測っていない。",
+      "checked_sections": [
+        "recency exponential decay",
+        "smoothed access frequency",
+        "default half-life"
+      ],
+      "supports": "lifecycle の hotness が再取得の優先度を表し、真偽や有効期限とは区別すべきという記述。",
+      "repository": "volcengine/OpenViking",
+      "commit": "1f4f7039fc394c5d04637828166f4e4e74e249e0",
+      "commit_date": "2026-09-28T12:29:08Z",
+      "path": "openviking/retrieve/memory_lifecycle.py",
+      "sha256": "214cb65e5b30a3678b16d3c96107abc6010fbd51a1ffa1414a811e3e0fd7a7ff",
+      "bytes": 2107
+    },
+    {
+      "id": "C-LM-OPENV-RETRIEVER",
+      "title": "OpenViking: hierarchical_retriever.py",
+      "url": "https://github.com/volcengine/OpenViking/blob/1f4f7039fc394c5d04637828166f4e4e74e249e0/openviking/retrieve/hierarchical_retriever.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "階層 retrieval の候補選択・展開に関係する箇所を静的確認。実行はしていない。",
+      "checked_sections": [
+        "hierarchical retrieval",
+        "abstract / overview / detail traversal"
+      ],
+      "supports": "段階的な文書内コンテキスト取得の説明。ontology 推論を提供するとの主張ではない。",
+      "repository": "volcengine/OpenViking",
+      "commit": "1f4f7039fc394c5d04637828166f4e4e74e249e0",
+      "commit_date": "2026-09-28T12:29:08Z",
+      "path": "openviking/retrieve/hierarchical_retriever.py",
+      "sha256": "23475c73b284acf8325e55498734380582c572c52f4dc3ee4897f497b7da471e",
+      "bytes": 28859
+    },
+    {
+      "id": "C-LM-MOS-UPDATER",
+      "title": "MemoryOS: updater.py",
+      "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/updater.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "FIFO buffer 切り出し、page 生成、連続性と要約の経路を静的確認。実行はしていない。",
+      "checked_sections": [
+        "short-term FIFO",
+        "page creation and links",
+        "mid-term topic update"
+      ],
+      "supports": "対話を時刻付き page にして中期 topic へ格納する実装経路。",
+      "repository": "BAI-LAB/MemoryOS",
+      "commit": "587ed7755c7aed179965792830ff1b5ad9a6fa92",
+      "commit_date": "2026-07-07T12:32:18Z",
+      "path": "memoryos-pypi/updater.py",
+      "sha256": "17c34d45db6ba7c95d4f11122b6ae0e37cccb5b60d5dc4fa3434930f59f7dde3",
+      "bytes": 12817
+    },
+    {
+      "id": "C-LM-MOS-RETRIEVER",
+      "title": "MemoryOS: retriever.py",
+      "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/retriever.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "mid-term page、user long-term memory、assistant knowledge を組み合わせる検索箇所を静的確認。実行はしていない。",
+      "checked_sections": [
+        "mid-term page retrieval",
+        "user long-term retrieval",
+        "assistant knowledge retrieval"
+      ],
+      "supports": "異なる memory role の検索結果を回答 context へ合成する経路。",
+      "repository": "BAI-LAB/MemoryOS",
+      "commit": "587ed7755c7aed179965792830ff1b5ad9a6fa92",
+      "commit_date": "2026-07-07T12:32:18Z",
+      "path": "memoryos-pypi/retriever.py",
+      "sha256": "79a7080f954a5e6b74488ccb451c792afd8b8154c3db52ca31735a6498dc50a9",
+      "bytes": 7287
+    },
+    {
+      "id": "C-LM-MOS-LTM",
+      "title": "MemoryOS: long_term.py",
+      "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/long_term.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "profile / knowledge store の更新・容量管理と embedding retrieval を静的確認。全経路実行はしていない。",
+      "checked_sections": [
+        "profile update",
+        "bounded deque",
+        "embedding similarity retrieval",
+        "JSON persistence"
+      ],
+      "supports": "固定容量・置換等の運用制約と履歴保持の未確認事項。",
+      "repository": "BAI-LAB/MemoryOS",
+      "commit": "587ed7755c7aed179965792830ff1b5ad9a6fa92",
+      "commit_date": "2026-07-07T12:32:18Z",
+      "path": "memoryos-pypi/long_term.py",
+      "sha256": "7f8a12dfd70ff75a3868fb42f028a1c1afb936d07c74137d0ee845db87df5653",
+      "bytes": 8226
+    },
+    {
+      "id": "C-LM-MOS-CORE",
+      "title": "MemoryOS: memoryos.py",
+      "url": "https://github.com/BAI-LAB/MemoryOS/blob/587ed7755c7aed179965792830ff1b5ad9a6fa92/memoryos-pypi/memoryos.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "主要 API と updater / retriever / store 接続を静的確認。実行・依存監査はしていない。",
+      "checked_sections": [
+        "package facade",
+        "memory component wiring"
+      ],
+      "supports": "コード確認した submodules が固定 package facade に接続する位置づけ。",
+      "repository": "BAI-LAB/MemoryOS",
+      "commit": "587ed7755c7aed179965792830ff1b5ad9a6fa92",
+      "commit_date": "2026-07-07T12:32:18Z",
+      "path": "memoryos-pypi/memoryos.py",
+      "sha256": "f4779d6b9d4dd68732282b82421824e37372a6a5259d345a026977971249c344",
+      "bytes": 20722
+    },
+    {
+      "id": "D-LM-REME-FILE",
+      "title": "ReMe: Memory as File",
+      "url": "https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/docs/en/memory_as_file.md",
+      "kind": "公式文書・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "Memory-as-File の構成、正本と rebuildable metadata、旧 MemoryScope 系譜を確認。製品は実行していない。",
+      "checked_sections": [
+        "file-based memory model",
+        "directory structure",
+        "source of truth",
+        "previous versions / MemoryScope"
+      ],
+      "supports": "Markdown 正本、session/resource/daily/digest、再構築可能 index、MemoryScope lineage の説明。",
+      "repository": "agentscope-ai/ReMe",
+      "commit": "bebad3674573477ad294ca44eb15f508feea2665",
+      "commit_date": "2026-09-25T16:19:03Z",
+      "path": "docs/en/memory_as_file.md",
+      "sha256": "e6714bbeec28cd7b4bfabdbf5394bc797614f270ab35482e686cfec54c188aaa",
+      "bytes": 17271
+    },
+    {
+      "id": "D-LM-REME-SEARCH",
+      "title": "ReMe: Memory Search",
+      "url": "https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/docs/en/memory_search.md",
+      "kind": "公式文書・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "検索方式、rank fusion、索引更新・削除の説明を確認。動作検証はしていない。",
+      "checked_sections": [
+        "keyword search",
+        "optional vector search",
+        "RRF",
+        "file watcher and index update/delete"
+      ],
+      "supports": "Markdown file と検索索引を分ける検索・更新設計の公式説明。",
+      "repository": "agentscope-ai/ReMe",
+      "commit": "bebad3674573477ad294ca44eb15f508feea2665",
+      "commit_date": "2026-09-25T16:19:03Z",
+      "path": "docs/en/memory_search.md",
+      "sha256": "1ebe68e1a96e2201902a0f8dda59a2786b545666526e1313515b1d59a396db53",
+      "bytes": 11108
+    },
+    {
+      "id": "C-LM-REME-AUTO",
+      "title": "ReMe: auto_memory.py",
+      "url": "https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/reme/steps/evolve/auto_memory.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "session JSONL 保存と agent wrapper による daily note 作成・更新の呼び出し経路を静的確認。全体精読・実行はしていない。",
+      "checked_sections": [
+        "session persistence",
+        "daily note creation",
+        "existing note path update"
+      ],
+      "supports": "自動記憶生成を host agent wrapper へ依存させる選択コードの挙動。",
+      "repository": "agentscope-ai/ReMe",
+      "commit": "bebad3674573477ad294ca44eb15f508feea2665",
+      "commit_date": "2026-09-25T16:19:03Z",
+      "path": "reme/steps/evolve/auto_memory.py",
+      "sha256": "dc22ca239a8789049afdd7e8e5f1e104b1acf515ddd17d58de547a48da3e22be",
+      "bytes": 21290
+    },
+    {
+      "id": "C-LM-REME-SEARCH",
+      "title": "ReMe: search.py",
+      "url": "https://github.com/agentscope-ai/ReMe/blob/bebad3674573477ad294ca44eb15f508feea2665/reme/steps/index/search.py",
+      "kind": "公開コード・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "keyword/vector の並行検索と順位 fusion の関連経路を静的確認。実行していない。",
+      "checked_sections": [
+        "parallel retrieval",
+        "rank fusion"
+      ],
+      "supports": "選択した実装版の検索・fusion code path。",
+      "repository": "agentscope-ai/ReMe",
+      "commit": "bebad3674573477ad294ca44eb15f508feea2665",
+      "commit_date": "2026-09-25T16:19:03Z",
+      "path": "reme/steps/index/search.py",
+      "sha256": "43da5e9b49f7fb4cc33a01bcb16b5b4f49727f172567b15239f786285a341a59",
+      "bytes": 15520
+    },
+    {
+      "id": "D-LM-MEMU-CURRENT",
+      "title": "memU: repository README (current page)",
+      "url": "https://github.com/NevaMind-AI/memU/blob/main/README.md",
+      "kind": "公式 README",
+      "accessed": "2026-09-29",
+      "review_depth": "README の MemoryService と host-agent responsibilities の関連節を確認。固定 commit とコードは未確認。",
+      "checked_sections": [
+        "current MemoryService description",
+        "host agent authored memory and skills",
+        "LLM call boundary"
+      ],
+      "supports": "サービスによる保存・検索と、host agent による memory / skill 作成責任の区別。"
+    },
+    {
+      "id": "D-LM-MIRIX-README",
+      "title": "MIRIX: repository README",
+      "url": "https://github.com/Mirix-AI/MIRIX/blob/8cb06a62bbb7c478beb33dd4f2815696a72df482/README.md",
+      "kind": "公式 README・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "README の製品構成・更新説明を確認。コード・実行経路は未監査。",
+      "checked_sections": [
+        "current repository summary",
+        "skill memory and session tagging overview"
+      ],
+      "supports": "現行 repository が論文以後に示す製品範囲。論文方式との同一性は主張しない。",
+      "repository": "Mirix-AI/MIRIX",
+      "commit": "8cb06a62bbb7c478beb33dd4f2815696a72df482",
+      "commit_date": "2026-08-20T13:59:50Z",
+      "path": "README.md"
+    },
+    {
+      "id": "D-LM-MEMORI",
+      "title": "Memori BYODB: How Memory Works",
+      "url": "https://memorilabs.ai/docs/memori-byodb/concepts/how-memory-works/",
+      "kind": "公式製品文書",
+      "accessed": "2026-09-29",
+      "review_depth": "BYODB の概念ページで attribution scope、抽出対象、auto-recall、augmentation 説明を確認。SDK/API は実行していない。",
+      "checked_sections": [
+        "person/process/session attribution",
+        "memory extraction categories",
+        "semantic recall",
+        "Advanced Augmentation flow"
+      ],
+      "supports": "MemoriLabs system の scope と処理配置を確認し、BYODB と processing locality を同一視しない根拠。"
+    },
+    {
+      "id": "D-LM-MEMVID-INTRO",
+      "title": "Memvid v2: Glossary",
+      "url": "https://docs.memvid.com/introduction/glossary",
+      "kind": "公式製品文書",
+      "accessed": "2026-09-29",
+      "review_depth": "v2 glossary の frame、timeline、index、storage semantics を確認。SDK・ファイル操作はしていない。",
+      "checked_sections": [
+        "frame unit",
+        "portable .mv2 file",
+        "lexical/vector/temporal indexes",
+        "revision and soft-delete terms"
+      ],
+      "supports": "v2 frame-oriented portable memory substrate の公式説明。"
+    },
+    {
+      "id": "D-LM-MEMVID-CLI",
+      "title": "Memvid v2: CLI documentation",
+      "url": "https://docs.memvid.com/cli",
+      "kind": "公式製品文書",
+      "accessed": "2026-09-29",
+      "review_depth": "CLI docs の追加・検索・frame 状態の説明を確認。CLI は実行していない。",
+      "checked_sections": [
+        "ingest",
+        "search",
+        "frame lifecycle commands"
+      ],
+      "supports": "公式案内上の操作境界と immutable-frame lifecycle の説明。"
+    },
+    {
+      "id": "D-LM-MEMSEARCH-README",
+      "title": "zilliztech/memsearch: README",
+      "url": "https://github.com/zilliztech/memsearch/blob/2a4652fa086fbd45e92bfd8da7781ebe1642baa7/README.md",
+      "kind": "公式 README・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "README の Markdown source of truth、memory layout、index backend、private log guidance を確認。コードは未監査。",
+      "checked_sections": [
+        "memory file types",
+        "Milvus shadow index",
+        "source transcript expansion",
+        "gitignore guidance"
+      ],
+      "supports": "coding-agent Markdown memory の設計・保存境界と候補検索方式。",
+      "repository": "zilliztech/memsearch",
+      "commit": "2a4652fa086fbd45e92bfd8da7781ebe1642baa7",
+      "commit_date": "2026-09-24T08:07:41Z",
+      "path": "README.md"
+    },
+    {
+      "id": "D-LM-MEMSEARCH-GETTING",
+      "title": "zilliztech/memsearch: Getting started",
+      "url": "https://github.com/zilliztech/memsearch/blob/2a4652fa086fbd45e92bfd8da7781ebe1642baa7/docs/getting-started.md",
+      "kind": "公式文書・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "getting started の storage and search setup options を確認。コードは実行していない。",
+      "checked_sections": [
+        "local Milvus Lite",
+        "embedding provider choices",
+        "index / search flow"
+      ],
+      "supports": "導入形態とローカル・外部依存の切り分け。",
+      "repository": "zilliztech/memsearch",
+      "commit": "2a4652fa086fbd45e92bfd8da7781ebe1642baa7",
+      "commit_date": "2026-09-24T08:07:41Z",
+      "path": "docs/getting-started.md"
+    },
+    {
+      "id": "D-LM-ACONTEXT-LEARN",
+      "title": "Acontext: Quick Learn guide",
+      "url": "https://docs.acontext.io/learn/quick",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "learning overview の skill learning / task artifacts 節を確認。サービスは実行していない。",
+      "checked_sections": [
+        "agent skills as memory",
+        "SOP learning",
+        "session and artifacts"
+      ],
+      "supports": "task outcome から手順 memory を形成する製品の役割。"
+    },
+    {
+      "id": "D-LM-ACONTEXT-SPACE",
+      "title": "Acontext: Learning Spaces",
+      "url": "https://docs.acontext.io/learn/learning-spaces",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "learning-space create / delete の関連節を確認。API は実行していない。",
+      "checked_sections": [
+        "learning space lifecycle",
+        "deletion scope",
+        "skills and session persistence"
+      ],
+      "supports": "親 scope の削除と skill / session の削除を同一視しない根拠。"
+    },
+    {
+      "id": "D-LM-ACE-REPO",
+      "title": "ACE Agentic Context Engineering repository",
+      "url": "https://github.com/ace-agent/ace/tree/82709de050e1db6e6ef2f07bcb0393560b94992a",
+      "kind": "公式 repository overview・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "repository README と主な入口説明を確認。実行・全コード監査なし。",
+      "checked_sections": [
+        "implementation and evaluation entry points",
+        "playbook-oriented workflow"
+      ],
+      "supports": "公開実装の対象と研究方式の repository との対応づけ。著者報告と実測は区別する。",
+      "repository": "ace-agent/ace",
+      "commit": "82709de050e1db6e6ef2f07bcb0393560b94992a",
+      "commit_date": "2026-08-24T18:49:59Z"
+    },
+    {
+      "id": "D-LM-MSKILLS-REPO",
+      "title": "Memento-Skills repository",
+      "url": "https://github.com/Memento-Teams/Memento-Skills/tree/ee9b9a45efd093d669c06fe318b4b1dceb246d19",
+      "kind": "公式 repository overview・固定コミット",
+      "accessed": "2026-09-29",
+      "review_depth": "固定版の repository README / runtime scope を確認。コード監査と実行なし。",
+      "checked_sections": [
+        "skill-centric runtime",
+        "routing / execution / reflection overview"
+      ],
+      "supports": "論文実験の方式と公開 repository の後続 runtime が異なる可能性。",
+      "repository": "Memento-Teams/Memento-Skills",
+      "commit": "ee9b9a45efd093d669c06fe318b4b1dceb246d19"
+    },
+    {
+      "id": "P-LM-SKILLWEAVER",
+      "title": "SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills",
+      "url": "https://arxiv.org/abs/2504.07079v1",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "abstract、method、limitations and evaluation claims を確認。benchmark は再実行していない。",
+      "checked_sections": [
+        "skill discovery and distillation",
+        "workflow-to-API skills",
+        "reported web-task evaluation"
+      ],
+      "supports": "Web 操作の手順・skill を蓄積する研究の領域限定性。",
+      "paper_id": "2504.07079v1"
+    },
+    {
+      "id": "D-LM-SKILLWEAVER-REPO",
+      "title": "OSU-NLP-Group/SkillWeaver",
+      "url": "https://github.com/OSU-NLP-Group/SkillWeaver",
+      "kind": "公式 repository",
+      "accessed": "2026-09-29",
+      "review_depth": "論文から参照される repository の概要を確認。現在の code paths は追跡・実行していない。",
+      "checked_sections": [
+        "repository purpose and relation to paper"
+      ],
+      "supports": "論文の公開実装入口の確認。現行活性や性能の主張には使用しない。"
+    },
+    {
+      "id": "P-LM-AGENTKB",
+      "title": "Agent KB: Leveraging Cross-Domain Experience for Agentic Problem Solving",
+      "url": "https://arxiv.org/abs/2507.06229v5",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "paper HTML の introduction、method、evaluation、limitations / conclusion を確認。測定は再実行していない。",
+      "checked_sections": [
+        "trajectory representation",
+        "two-stage retrieval",
+        "disagreement gate",
+        "utility-based maintenance",
+        "seed and generated memory setting"
+      ],
+      "supports": "framework 間で task execution experience を検索・再利用する研究の方式と転移上の限界。",
+      "paper_id": "2507.06229v5"
+    },
+    {
+      "id": "D-LM-AGENTKB-REPO",
+      "title": "OPPO-PersonalAI/Agent-KB",
+      "url": "https://github.com/OPPO-PersonalAI/Agent-KB",
+      "kind": "公式 repository",
+      "accessed": "2026-09-29",
+      "review_depth": "論文から参照される repository overview を確認。固定 commit の code review はしていない。",
+      "checked_sections": [
+        "project identity and repository entry point"
+      ],
+      "supports": "公開 repository の存在・論文プロジェクトとの紐付け。"
+    },
+    {
+      "id": "P-LM-MACE",
+      "title": "MACE: Memory-Agent Co-Evolution with Adaptive Memory Graphs for Multi-Agent Systems",
+      "url": "https://arxiv.org/abs/2609.21533v1",
+      "kind": "論文・新規プレプリント",
+      "accessed": "2026-09-29",
+      "review_depth": "論文 HTML の方式、benchmark、appendix の比較データ出所と robustness caveat を確認。未査読・未再現。",
+      "checked_sections": [
+        "functional subgraph memory unit",
+        "support/conflict/repair relations",
+        "playbook selection and update",
+        "reported benchmark",
+        "evaluation caveats"
+      ],
+      "supports": "agent coordination 向け手順 memory の新規研究。製品・検証済み性能として扱わない。",
+      "paper_id": "2609.21533v1"
+    },
+    {
+      "id": "P-LM-MEMORYDATA",
+      "title": "Are We Ready For An Agent-Native Memory System?",
+      "url": "https://arxiv.org/abs/2606.24775v1",
+      "kind": "論文・評価研究",
+      "accessed": "2026-09-29",
+      "review_depth": "論文 v1 の framework decomposition と evaluation scope を部分確認。結果を再計算せず、対象 dataset / systems を網羅確認していない。",
+      "checked_sections": [
+        "memory system module decomposition",
+        "workload and dataset overview",
+        "reported cross-system observations"
+      ],
+      "supports": "memory system 評価研究としての分類と、workload により方式・ボトルネックが変わる観点。",
+      "paper_id": "2606.24775v1"
+    },
+    {
+      "id": "D-LR-RAGFLOW-README",
+      "title": "infiniflow/ragflow README",
+      "url": "https://github.com/infiniflow/ragflow/blob/d64b84c7095b1edb81987bbf82cdc95b36a28cbf/README.md",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "READMEの機能・self-host/cloud・文書形式説明を確認。宣伝上の精度主張は再現していない",
+      "repository": "infiniflow/ragflow",
+      "commit": "d64b84c7095b1edb81987bbf82cdc95b36a28cbf",
+      "commit_date": "2026-09-28T12:11:22Z",
+      "supports": [
+        "文書解析、chunk・citation、source connector、OSS/self-host、Cloudの存在"
+      ]
+    },
+    {
+      "id": "D-LR-RAGFLOW-CONFIG",
+      "title": "RAGFlow Dataset Configuration",
+      "url": "https://github.com/infiniflow/ragflow/blob/main/docs/guides/dataset/configuration.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "parserとknowledge-base設定項目を確認",
+      "checked_sections": [
+        "parser configuration",
+        "dataset configuration"
+      ],
+      "supports": [
+        "document parsingとdataset設定"
+      ]
+    },
+    {
+      "id": "D-LR-RAGFLOW-SYNC",
+      "title": "RAGFlow Data Source Configuration",
+      "url": "https://github.com/infiniflow/ragflow/blob/main/docs/guides/data_source/data_source_configuration.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "Confluence/Notion等のsource permissionsと削除同期説明を確認",
+      "checked_sections": [
+        "Confluence",
+        "Notion",
+        "Google Drive",
+        "Sync deleted files"
+      ],
+      "supports": [
+        "外部source同期・削除同期の設定"
+      ]
+    },
+    {
+      "id": "C-LR-RAGFLOW-CRUD",
+      "title": "infiniflow/ragflow internal/service/document/document_crud.go",
+      "url": "https://github.com/infiniflow/ragflow/blob/d64b84c7095b1edb81987bbf82cdc95b36a28cbf/internal/service/document/document_crud.go",
+      "kind": "公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "commit固定ファイルの静的読解のみ。実行・統合試験・全consumer監査はしていない",
+      "repository": "infiniflow/ragflow",
+      "commit": "d64b84c7095b1edb81987bbf82cdc95b36a28cbf",
+      "commit_date": "2026-09-28T12:11:22Z",
+      "path": "internal/service/document/document_crud.go",
+      "sha256": "090581d77d3bcd5a03b58961c0245cb5b3cd120a29faa757bdad74796bffdb2e",
+      "bytes": 20872,
+      "supports": [
+        "dataset access check、document/chunk削除、metadata cleanup、派生物削除通知の実装経路"
+      ]
+    },
+    {
+      "id": "D-LR-DIFY-KNOWLEDGE",
+      "title": "Dify Knowledge Overview",
+      "url": "https://docs.dify.ai/en/cloud/use-dify/knowledge/readme",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "knowledge baseの作成・管理・retrieval利用の概要を確認",
+      "supports": [
+        "knowledge baseとRAG workflowの範囲"
+      ]
+    },
+    {
+      "id": "D-LR-DIFY-MANAGE",
+      "title": "Dify Manage Knowledge Content",
+      "url": "https://docs.dify.ai/en/cloud/use-dify/knowledge/manage-knowledge/maintain-knowledge-documents",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "document/chunkの更新・削除・disable/archive項目を確認",
+      "supports": [
+        "knowledge document/chunk lifecycle"
+      ]
+    },
+    {
+      "id": "D-LR-DIFY-SETTINGS",
+      "title": "Dify Manage Knowledge Settings",
+      "url": "https://docs.dify.ai/en/cloud/use-dify/knowledge/manage-knowledge/introduction",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "workspace role、knowledge base permission、index・embedding・retrieval settingsを確認",
+      "supports": [
+        "knowledge base settings and access boundary"
+      ]
+    },
+    {
+      "id": "D-LR-DIFY-README",
+      "title": "langgenius/dify README",
+      "url": "https://github.com/langgenius/dify",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "Cloud/self-hosted/Enterprise deployment説明とlicense案内を確認",
+      "supports": [
+        "hosted/self-hosted distinction and Dify Open Source License notice"
+      ]
+    },
+    {
+      "id": "C-LR-DIFY-DATASET",
+      "title": "langgenius/dify api/controllers/service_api/dataset/dataset.py",
+      "url": "https://github.com/langgenius/dify/blob/e6f1d77ed5869e659e426b5459439d44bdabdbe5/api/controllers/service_api/dataset/dataset.py",
+      "kind": "公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "commit固定ファイルのpermission/indexing fieldsと更新経路を静的確認のみ",
+      "repository": "langgenius/dify",
+      "commit": "e6f1d77ed5869e659e426b5459439d44bdabdbe5",
+      "commit_date": "2026-09-28T11:10:48Z",
+      "path": "api/controllers/service_api/dataset/dataset.py",
+      "sha256": "e6d4baeed8310b1c757debefeadafd83e25d7c00233601591e659d00ea58932f",
+      "bytes": 44591,
+      "supports": [
+        "only_me/all_team_members/partial_members、economy/high_quality、permission check/update"
+      ]
+    },
+    {
+      "id": "C-LR-DIFY-KBFS",
+      "title": "langgenius/dify api/services/knowledge_fs_operations.py",
+      "url": "https://github.com/langgenius/dify/blob/e6f1d77ed5869e659e426b5459439d44bdabdbe5/api/services/knowledge_fs_operations.py",
+      "kind": "公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "commit固定のoperation declarationを静的確認のみ。全Console/API実行は未確認",
+      "repository": "langgenius/dify",
+      "commit": "e6f1d77ed5869e659e426b5459439d44bdabdbe5",
+      "commit_date": "2026-09-28T11:10:48Z",
+      "path": "api/services/knowledge_fs_operations.py",
+      "sha256": "c91cbabe5661aa6a56147cf4391724709d5d29b9210894b63f7f7dd882fa4db1",
+      "bytes": 19106,
+      "supports": [
+        "knowledge filesystem read/write scopes and dataset roles"
+      ]
+    },
+    {
+      "id": "D-LR-ONYX-CONNECTORS",
+      "title": "Onyx Connectors Documentation",
+      "url": "https://docs.onyx.app/overview/core_features/connectors",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "connectorの更新同期・permission同期のedition境界・default local processing記載を確認",
+      "supports": [
+        "enterprise permissions, sync, local processing and connector ingestion"
+      ]
+    },
+    {
+      "id": "D-LR-ONYX-README",
+      "title": "onyx-dot-app/onyx README",
+      "url": "https://github.com/onyx-dot-app/onyx",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "Community/Enterprise, self-host/Cloud, Standard/Lite差を確認",
+      "supports": [
+        "MIT Community Edition, hosted Cloud, Enterprise-only features, Lite indexing boundary"
+      ]
+    },
+    {
+      "id": "D-LR-LLAMA-DOCS",
+      "title": "LlamaIndex Document Management",
+      "url": "https://developers.llamaindex.ai/python/framework/module_guides/indexing/document_management/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "document/ref-doc ID、insert/update/delete/refresh、index-specific caveatを確認",
+      "supports": [
+        "document identity and lifecycle"
+      ]
+    },
+    {
+      "id": "D-LR-LLAMA-INGESTION",
+      "title": "LlamaIndex Ingestion Pipeline",
+      "url": "https://developers.llamaindex.ai/python/framework/module_guides/loading/ingestion_pipeline/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "transformations/cache/docstoreのingestion説明を確認",
+      "supports": [
+        "ingestion pipeline and document management strategies"
+      ]
+    },
+    {
+      "id": "D-LR-LLAMACLOUD",
+      "title": "LlamaIndex Framework Overview and LlamaCloud",
+      "url": "https://github.com/run-llama/llama_index/blob/main/docs/src/content/docs/framework/index.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "OSS frameworkとmanaged/self-hosted LlamaCloud serviceの説明を確認",
+      "supports": [
+        "framework vs LlamaCloud deployment boundary"
+      ]
+    },
+    {
+      "id": "C-LR-LLAMA-PIPELINE",
+      "title": "run-llama/llama_index ingestion/pipeline.py",
+      "url": "https://github.com/run-llama/llama_index/blob/9ca9664a7c3ddb8216edc5df0941be40aa63af2e/llama-index-core/llama_index/core/ingestion/pipeline.py",
+      "kind": "公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "commit固定ファイルのDocstoreStrategyとupsert/deleteの静的確認のみ。実行していない",
+      "repository": "run-llama/llama_index",
+      "commit": "9ca9664a7c3ddb8216edc5df0941be40aa63af2e",
+      "commit_date": "2026-09-28T15:19:59Z",
+      "path": "llama-index-core/llama_index/core/ingestion/pipeline.py",
+      "sha256": "00a1de638af05f7cf8bfa068f24f8f6b4037fa5849896ebfab0e2edbe165695d",
+      "bytes": 34249,
+      "supports": [
+        "UPSERTS and optional UPSERTS_AND_DELETE handling across docstore/vector store"
+      ]
+    },
+    {
+      "id": "D-LR-HAYSTACK-DOCSTORE",
+      "title": "Haystack Document Store",
+      "url": "https://docs.haystack.deepset.ai/docs/document-store",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "DocumentStore protocol、ID・overwrite・deleteの説明を確認",
+      "supports": [
+        "generic document-store CRUD and backend adapters"
+      ]
+    },
+    {
+      "id": "D-LR-HAYSTACK-FILTER",
+      "title": "Haystack Metadata Filtering",
+      "url": "https://docs.haystack.deepset.ai/docs/metadata-filtering",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "metadata filteringとbackendごとのoperator差を確認",
+      "supports": [
+        "backend-specific metadata filter semantics"
+      ]
+    },
+    {
+      "id": "D-LR-HAYSTACK-PIPELINES",
+      "title": "Haystack Pipelines",
+      "url": "https://docs.haystack.deepset.ai/docs/pipelines",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "pipeline orchestrationの説明を確認",
+      "supports": [
+        "composable pipeline abstraction"
+      ]
+    },
+    {
+      "id": "D-LR-HAYSTACK-REPO",
+      "title": "deepset-ai/haystack repository",
+      "url": "https://github.com/deepset-ai/haystack",
+      "kind": "公式リポジトリ",
+      "accessed": "2026-09-29",
+      "review_depth": "framework位置づけとApache-2.0 license表記を確認",
+      "supports": [
+        "open-source framework and repository license"
+      ]
+    },
+    {
+      "id": "D-LR-TXTAI-OVERVIEW",
+      "title": "txtai Overview and Features",
+      "url": "https://neuml.github.io/txtai/index.html",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "embeddings database、sparse/dense/graph/workflows/API、license記載を確認",
+      "supports": [
+        "txtai framework scope and Apache-2.0"
+      ]
+    },
+    {
+      "id": "D-LR-TXTAI-INDEX",
+      "title": "txtai Index Guide",
+      "url": "https://neuml.github.io/txtai/embeddings/indexing/",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "index/upsert/delete/reindexのAPI説明を確認",
+      "supports": [
+        "ID-based incremental index operations"
+      ]
+    },
+    {
+      "id": "D-LR-PATHWAY-APP",
+      "title": "pathwaycom/llm-app README",
+      "url": "https://github.com/pathwaycom/llm-app",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "source connectors、update/delete sync、search variants、templates記載を確認。scale claimsは未検証",
+      "supports": [
+        "live data RAG templates and connector synchronization"
+      ]
+    },
+    {
+      "id": "D-LR-PATHWAY-LICENSE",
+      "title": "Pathway Licensing Terms and Conditions",
+      "url": "https://pathway.com/license",
+      "kind": "公式license page",
+      "accessed": "2026-09-29",
+      "review_depth": "Community/Scale/Enterprise license and grants/exclusions/resource termsを確認",
+      "supports": [
+        "BSL 1.1 status, production grant and restrictions"
+      ]
+    },
+    {
+      "id": "D-LR-R2R-README",
+      "title": "SciPhi-AI/R2R README",
+      "url": "https://github.com/SciPhi-AI/R2R",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "RAG features, citations, API and local/Docker deploymentを確認。製品性能claimは未検証",
+      "supports": [
+        "hybrid search, multimodal ingestion, knowledge graph and local API deployment"
+      ]
+    },
+    {
+      "id": "D-LR-R2R-GUIDE",
+      "title": "What is R2R?",
+      "url": "https://github.com/SciPhi-AI/R2R/blob/main/docs/introduction/guides/what-is-r2r.md",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "document/search/analytics scope、claimed user management/access controlsを確認",
+      "supports": [
+        "R2R product scope and access-control claim"
+      ]
+    },
+    {
+      "id": "D-LR-NEO4J-README",
+      "title": "Neo4j GraphRAG for Python README",
+      "url": "https://github.com/neo4j/neo4j-graphrag-python",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "first-party package scope, provider/store optional dependencies, license listingを確認",
+      "supports": [
+        "Neo4j GraphRAG SDK scope and Apache/Python license notices"
+      ]
+    },
+    {
+      "id": "D-LR-NEO4J-RAG",
+      "title": "Neo4j GraphRAG Python User Guide: RAG",
+      "url": "https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "retriever types, metadata filters and Neo4j server version caveatを確認",
+      "supports": [
+        "graph/vector/hybrid retrieval and filtering behavior"
+      ]
+    },
+    {
+      "id": "D-LR-NEO4J-KGBUILDER",
+      "title": "Neo4j GraphRAG Python User Guide: Knowledge Graph Builder",
+      "url": "https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_kg_builder.html",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "experimental label, loader/splitter/lexical graph/schema/extractor/resolver lifecycleを確認",
+      "supports": [
+        "KG builder architecture, Document/Chunk source links and experimental boundary"
+      ]
+    },
+    {
+      "id": "D-LR-FALKOR-README",
+      "title": "FalkorDB GraphRAG-SDK README",
+      "url": "https://github.com/FalkorDB/GraphRAG-SDK",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "graph build/retrieval/provenance claim and Apache-2.0 licenseを確認。benchmark claimは未再現",
+      "supports": [
+        "GraphRAG-SDK scope and source-chunk provenance edges"
+      ]
+    },
+    {
+      "id": "D-LR-FALKOR-START",
+      "title": "FalkorDB GraphRAG-SDK Getting Started",
+      "url": "https://github.com/FalkorDB/GraphRAG-SDK/blob/main/docs/getting-started.mdx",
+      "kind": "公式ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "SDK setup、graph ingestion、supported LLM/API dependencyを確認",
+      "supports": [
+        "GraphRAG pipeline shape and runtime dependency"
+      ]
+    },
+    {
+      "id": "D-LR-FASTGRAPH",
+      "title": "circlemind-ai/fast-graphrag README",
+      "url": "https://github.com/circlemind-ai/fast-graphrag",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "PPR retrieval, incremental-update claim, MIT and managed-service statementを確認。claimsは未再現",
+      "supports": [
+        "graph/PPR role, update claim and OSS/managed distinction"
+      ]
+    },
+    {
+      "id": "D-LR-NANO",
+      "title": "gusye1234/nano-graphrag README",
+      "url": "https://github.com/gusye1234/nano-graphrag",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "project role, compactness and provider/database configurability statementを確認",
+      "supports": [
+        "small/hackable GraphRAG implementation positioning"
+      ]
+    },
+    {
+      "id": "D-LR-RAGANYTHING",
+      "title": "HKUDS/RAG-Anything README",
+      "url": "https://github.com/HKUDS/RAG-Anything",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "LightRAG backend, modalities, source-page fields and backend migration/reprocess caveatを確認",
+      "supports": [
+        "multimodal retrieval/ingestion and explicit backend reprocessing requirement"
+      ]
+    },
+    {
+      "id": "P-LR-RAGANYTHING",
+      "title": "RAG-Anything: All-in-One RAG Framework",
+      "url": "https://arxiv.org/abs/2510.12323",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "abstractとsystem framingを確認。reported benchmarkは再現していない",
+      "supports": [
+        "multimodal knowledge graph and cross-modal hybrid retrieval research framing"
+      ]
+    },
+    {
+      "id": "D-LR-BYALDI",
+      "title": "AnswerDotAI/byaldi README",
+      "url": "https://github.com/AnswerDotAI/byaldi/blob/main/README.md",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "pre-release, ColPali/ColQwen2, PDF image conversion, doc/page result fields, add-to-index and hardware notesを確認",
+      "supports": [
+        "visual page retrieval role and implementation limitations"
+      ]
+    },
+    {
+      "id": "P-LR-COLPALI",
+      "title": "ColPali: Efficient Document Retrieval with Vision Language Models",
+      "url": "https://arxiv.org/abs/2407.01449",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "paper abstract and page-image retrieval framingを確認。ViDoRe scoresは転載・再現していない",
+      "supports": [
+        "visual document retrieval research framing"
+      ]
+    },
+    {
+      "id": "D-LR-MEMORAG",
+      "title": "qhjqhj00/MemoRAG README",
+      "url": "https://github.com/qhjqhj00/MemoRAG",
+      "kind": "公式リポジトリREADME",
+      "accessed": "2026-09-29",
+      "review_depth": "memory/clue-based retrieval design, prototype roadmap, model dependency and Apache-2.0 license statementを確認",
+      "supports": [
+        "research implementation role, global clue generation and OSS license"
+      ]
+    },
+    {
+      "id": "P-LR-MEMORAG",
+      "title": "MemoRAG: Moving Towards Next-Gen RAG Via Memory-Inspired Knowledge Discovery",
+      "url": "https://arxiv.org/abs/2409.05591",
+      "kind": "論文",
+      "accessed": "2026-09-29",
+      "review_depth": "abstractのdual-system/global-memory/clue-guided retrieval framingを確認。reported evaluationsは再現していない",
+      "supports": [
+        "research method framing only"
+      ]
+    },
+    {
+      "id": "D-LS-W3C-OWL",
+      "title": "OWL 2 Web Ontology Language Document Overview",
+      "url": "https://www.w3.org/TR/owl2-overview/",
+      "kind": "W3C Recommendation",
+      "accessed": "2026-09-29",
+      "review_depth": "W3C仕様の概念比較に使用。実装適合性は検査していない"
+    },
+    {
+      "id": "D-LS-GDB-REASON",
+      "title": "GraphDB 11.0 Reasoning",
+      "url": "https://graphdb.ontotext.com/documentation/11.0/reasoning.html",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "前向きmaterialization、ruleset、再推論・撤回の公開仕様を確認"
+    },
+    {
+      "id": "D-LS-GDB-TALK",
+      "title": "GraphDB 11.0 Talk to Your Graph",
+      "url": "https://graphdb.ontotext.com/documentation/11.0/talk-to-graph.html",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "experimentalとする機能の公開説明を確認"
+    },
+    {
+      "id": "D-LS-GDB-CONNECTOR",
+      "title": "GraphDB 11.0 ChatGPT Retrieval Connector",
+      "url": "https://graphdb.ontotext.com/documentation/11.0/retrieval-graphdb-connector.html",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "RDFから外部retrieval plugin / vector DBへの同期仕様とexperimental注記を確認"
+    },
+    {
+      "id": "D-LS-GDB-SHACL",
+      "title": "GraphDB Documentation 11.0.2C, SHACL validation",
+      "url": "https://graphdb.ontotext.com/documentation/11.0/pdf/GraphDB.pdf",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "製品PDFのSHACL validation概要を確認"
+    },
+    {
+      "id": "D-LS-RDFOX-FEATURES",
+      "title": "RDFox Features and Requirements",
+      "url": "https://docs.oxfordsemantic.tech/features-and-requirements.html",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "RDF / rules / OWL / SHACL、外部source、materialization、proof、transaction / ACLを確認"
+    },
+    {
+      "id": "D-LS-RDFOX-LICENSE",
+      "title": "RDFox Evaluation License",
+      "url": "https://www.oxfordsemantic.tech/rdfox-evaluation-license",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "評価ライセンスの存在を確認。商用条件の評価なし"
+    },
+    {
+      "id": "D-LS-STARDOG-VOICEBOX",
+      "title": "Stardog Voicebox: Guided Ontology Creation and Mapping",
+      "url": "https://docs.stardog.com/voicebox/guided-ontology-creation-and-mapping/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "ontology / mapping案とhuman-in-loop reviewの公開フローを確認"
+    },
+    {
+      "id": "D-LS-TRIPLY-ETL",
+      "title": "TriplyETL Validate",
+      "url": "https://docs.triply.cc/triply-etl/validate/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "gold graph comparisonとSHACL validationのETL段を確認"
+    },
+    {
+      "id": "D-LS-TRIPLY-SAVED",
+      "title": "TriplyDB Saved Queries",
+      "url": "https://docs.triply.cc/triply-db-getting-started/saved-queries/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "保存クエリに独立した版番号を持たせる説明を確認"
+    },
+    {
+      "id": "D-LS-TRIPLY-EDIT",
+      "title": "TriplyDB Editing (SKOS) Data",
+      "url": "https://docs.triply.cc/triply-db-getting-started/editing-data/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "SHACL shapeに基づくフォームと資源単位の変更履歴を確認"
+    },
+    {
+      "id": "D-LS-ECCENCA-ARCH",
+      "title": "eccenca Corporate Memory System Architecture",
+      "url": "https://documentation.eccenca.dev/latest/deploy-and-configure/system-architecture/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "Build / Explore / cmemc、source-to-RDF mapping、external triple storeの記述を確認"
+    },
+    {
+      "id": "D-LS-ECCENCA-BUILD",
+      "title": "eccenca Build Introduction to the User Interface",
+      "url": "https://documentation.eccenca.dev/latest/build/introduction-to-the-user-interface/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "mapping、transform、link、workflowの製品説明を確認"
+    },
+    {
+      "id": "D-LS-ECCENCA-MARKETPLACE",
+      "title": "eccenca Corporate Memory Marketplace",
+      "url": "https://documentation.eccenca.dev/latest/distribution/marketplace/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "versioned packageの構成と更新・置換の制約を確認"
+    },
+    {
+      "id": "D-LS-TOPBRAID-INTRO",
+      "title": "TopBraid EDG Introduction",
+      "url": "https://docs.topquadrant.com/7.4/introduction/index.html",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "asset collectionとsemantic governanceの概要。旧版ページなので現行SKUと断定しない"
+    },
+    {
+      "id": "D-LS-TOPBRAID-WORKFLOW",
+      "title": "TopBraid EDG Workflows",
+      "url": "https://docs.topquadrant.com/8.0/user_guide/workflows/index.html",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "working copy、review / approval、production copyへのcommitを確認"
+    },
+    {
+      "id": "D-LS-ONTOP-GUIDE",
+      "title": "Ontop Guide",
+      "url": "https://ontop-vkg.org/guide/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "Virtual KG、R2RML / Ontop mapping、SPARQL / SQL rewriting、RDFS / OWL 2 QL、stable版とlicenseを確認"
+    },
+    {
+      "id": "D-LS-ONTOP-REPO",
+      "title": "ontop/ontop",
+      "url": "https://github.com/ontop/ontop",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "公開repo概要とApache-2.0表示を確認。コード監査対象外"
+    },
+    {
+      "id": "D-LS-TYPEDB-FUNCTIONS",
+      "title": "TypeDB Functions vs Rules",
+      "url": "https://typedb.com/docs/typeql-reference/functions/functions-vs-rules/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "TypeDB 3のgoal-driven computationと旧rule materializationとの差を確認"
+    },
+    {
+      "id": "D-LS-TYPEDB-REPO",
+      "title": "typedb/typedb",
+      "url": "https://github.com/typedb/typedb",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "公開repositoryのCommunity Edition MPL-2.0表記を確認。コード監査対象外"
+    },
+    {
+      "id": "D-LS-TERMINUS-VERSION",
+      "title": "TerminusDB Version Control Operations",
+      "url": "https://terminusdb.org/docs/version-control-operations/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "commit / branch / merge / diff / historical readの公開仕様を確認"
+    },
+    {
+      "id": "D-LS-TERMINUS-REPO",
+      "title": "terminusdb/terminusdb",
+      "url": "https://github.com/terminusdb/terminusdb",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "公開Community repository概要とApache-2.0表示を確認"
+    },
+    {
+      "id": "C-LS-TERMINUS-LAYER",
+      "title": "terminusdb/terminusdb src/library/terminus_store.pl at fixed commit",
+      "url": "https://github.com/terminusdb/terminusdb/blob/57f2093baeafd65e16004e84b7b58e0c5cf72858/src/library/terminus_store.pl#L171-L307",
+      "kind": "code",
+      "accessed": "2026-09-29",
+      "review_depth": "固定commitのソースを静的確認。layer head、snapshot read、child layer builder、add/remove delta、commitのdocstring。実行なし",
+      "repository": "terminusdb/terminusdb",
+      "commit": "57f2093baeafd65e16004e84b7b58e0c5cf72858",
+      "path": "src/library/terminus_store.pl"
+    },
+    {
+      "id": "D-LS-XTDB-TIME",
+      "title": "Time in XTDB",
+      "url": "https://docs.xtdb.com/about/time-in-xtdb.html",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "transaction/system timeとvalid timeの意味、過去訂正・as-of queryを確認"
+    },
+    {
+      "id": "D-LS-XTDB-LICENSE",
+      "title": "XTDB Documentation",
+      "url": "https://docs.xtdb.com/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "製品概要のオープンソース/MPL-2.0表記を確認"
+    },
+    {
+      "id": "D-LS-PALANTIR-INTRO",
+      "title": "Palantir Foundry Introductory Concepts",
+      "url": "https://www.palantir.com/docs/foundry/getting-started/introductory-concepts",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "data layer / object layer、dataset lineage、object / link / actionを確認"
+    },
+    {
+      "id": "D-LS-PALANTIR-ONTOLOGY",
+      "title": "Palantir Foundry Ontology Overview",
+      "url": "https://www.palantir.com/docs/foundry/ontology/overview",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "Object/link/action ontologyと編集・version機能への案内を確認"
+    },
+    {
+      "id": "D-LS-PALANTIR-PERMISSIONS",
+      "title": "Palantir Foundry Object Permissioning Overview",
+      "url": "https://www.palantir.com/docs/foundry/object-permissioning/overview",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "object/link/action permissioningの公開説明を確認"
+    },
+    {
+      "id": "D-LS-RECALLGRAPH-README",
+      "title": "RecallGraph official repository README",
+      "url": "https://github.com/RecallGraph/RecallGraph",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "archived 2026-04-25、ArangoDB Foxx/event history、point-in-time graph query、valid-timeとbranchingはroadmap、successor Minigrafへの案内を確認"
+    },
+    {
+      "id": "D-LS-MINIGRAF-README",
+      "title": "Minigraf official repository README",
+      "url": "https://github.com/project-minigraf/minigraf",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "successor側の公開説明を確認。RecallGraphからのportではない。runtimeや性能は未検証"
+    },
+    {
+      "id": "D-LS-RECALLGRAPH-PYPI",
+      "title": "recallgraph on PyPI",
+      "url": "https://pypi.org/project/recallgraph/",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "同名の0.0.2配布情報とリンク先を確認。公式RecallGraph/RecallGraphとは別候補"
+    },
+    {
+      "id": "D-LS-RECALLGRAPH-SAME-NAME",
+      "title": "Indhar01/RecallGraph project link redirects to MemoGraph",
+      "url": "https://github.com/Indhar01/RecallGraph",
+      "kind": "公式製品ドキュメント",
+      "accessed": "2026-09-29",
+      "review_depth": "PyPI候補の現在のGitHub destinationはMemoGraphへredirect。公式RecallGraphとの同一性なしと確認"
+    },
+    {
+      "id": "D-LC-AWS-MEMORY",
+      "title": "AgentCore: Long-term memory",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-memory-long-term.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "長期記憶の resource、strategy、namespace、管理 API の説明。"
+    },
+    {
+      "id": "D-LC-AWS-STRATEGY",
+      "title": "AgentCore: Configure built-in strategies",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "user preference / semantic / summary / episodic の各節と設定例。"
+    },
+    {
+      "id": "D-LC-AWS-DELETE",
+      "title": "AgentCore: Delete memory records",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-delete-memory-records.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "DeleteMemoryRecord による個別記憶の削除。派生物の連鎖消去は未検証。"
+    },
+    {
+      "id": "D-LC-GOOGLE-MEMORY",
+      "title": "Agent Platform Memory Bank overview",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "現行サービス名、scope、抽出・統合、継続取り込み、TTL、IAM、ADK 統合。旧 Vertex AI URL は現行案内へ遷移した。"
+    },
+    {
+      "id": "D-LC-GOOGLE-REVISIONS",
+      "title": "Memory Bank: Memory revisions",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "現行状態と immutable revision、抽出中間結果、rollback、48時間の削除復元窓、改訂履歴の無効化と TTL。"
+    },
+    {
+      "id": "D-LC-FOUNDRY-MEMORY",
+      "title": "Microsoft Foundry: Use memory with agents",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/memory-usage",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "preview、memory options、個別 CRUD、TTL、tool と低水準 API の scope 解決差。"
+    },
+    {
+      "id": "D-LC-OAI-RUN",
+      "title": "OpenAI Agents SDK: Running agents",
+      "url": "https://developers.openai.com/api/docs/guides/agents/running-agents",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "history / session / conversationId / previousResponseId による会話状態管理の区別。"
+    },
+    {
+      "id": "D-LC-OAI-STATE",
+      "title": "OpenAI: Conversation state",
+      "url": "https://developers.openai.com/api/docs/guides/conversation-state",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "Conversations の durable ID と messages、tool calls、tool outputs の保存。"
+    },
+    {
+      "id": "D-LC-OAI-SANDBOX",
+      "title": "OpenAI Agents SDK: Sandboxes — Sandbox Memory",
+      "url": "https://developers.openai.com/api/docs/guides/agents/sandboxes",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "Sandbox Memory の設定、読み取りの階層、session close 後の抽出・統合、永続性と Session との区別。全 sandbox 機能の監査ではない。"
+    },
+    {
+      "id": "D-LC-CLAUDE-TOOL",
+      "title": "Claude: Memory tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "クライアント側 tool、アプリ管理の永続ファイル、コマンド実行責任。"
+    },
+    {
+      "id": "D-LC-CLAUDE-STORE",
+      "title": "Claude Managed Agents: Memory",
+      "url": "https://platform.claude.com/docs/en/managed-agents/memory",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "agent-memory-2026-07-22 beta、workspace store、read-only/read-write、版・復元・redaction・delete、managed と自己管理 sandbox 同期の違い。"
+    },
+    {
+      "id": "D-LC-LANGGRAPH",
+      "title": "LangGraph: Add and manage memory",
+      "url": "https://docs.langchain.com/oss/python/langgraph/add-memory",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "checkpointer、thread、cross-thread Store、in-memory と永続 backend の選択。"
+    },
+    {
+      "id": "D-LC-MAF-CONTEXT",
+      "title": "Microsoft Agent Framework: Context providers",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/context-providers",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "before / after hooks、FileMemoryProvider と session / user scope、実行状態との区別。"
+    },
+    {
+      "id": "D-LC-MAF-HISTORY",
+      "title": "Microsoft Agent Framework: Chat history memory provider",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/chat-history-memory-provider",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "vector store の履歴、storageScope と searchScope、ユーザー等の filter、権限制御の確認事項。"
+    },
+    {
+      "id": "D-LC-AGNO",
+      "title": "Agno: What is Memory?",
+      "url": "https://docs.agno.com/memory/overview",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "user_id と session_id、自動抽出と agentic 更新、削除許可、両方式有効時の優先順。"
+    },
+    {
+      "id": "D-LC-ORACLE",
+      "title": "Oracle Agent Memory: About",
+      "url": "https://docs.oracle.com/en/database/oracle/agent-memory/26.6/guide/about.html",
+      "kind": "公式文書",
+      "accessed": "2026-09-29",
+      "review_depth": "関連節を確認。サービス API・SDK は実行していない。",
+      "scope": "短期 context card と長期 facts、Oracle AI Database、provider と MCP、アプリ側の認証・認可責任。"
+    },
+    {
+      "id": "D-LC-CREWAI",
+      "title": "CrewAI v1.15.23: Memory",
+      "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/docs/v1.15.23/en/concepts/memory.mdx",
+      "kind": "公式文書・固定版",
+      "accessed": "2026-09-29",
+      "review_depth": "統合 Memory、scope/slice、consolidation、検索順位、source/private、保存 backend と読み取り専用 slice の例を確認。",
+      "repository": "crewAIInc/crewAI",
+      "commit": "deaa71e168069a1d5307340172875def4330e75b",
+      "commit_date": "2026-09-28T21:14:14Z",
+      "path": "docs/v1.15.23/en/concepts/memory.mdx",
+      "sha256": "54142e3cb904d6ba2d19972452262b1f43880502df574e9cd5de4be693223a40",
+      "bytes": 32398
+    },
+    {
+      "id": "C-LC-CREWAI-MEMORY",
+      "title": "CrewAI: unified_memory.py",
+      "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/unified_memory.py",
+      "kind": "公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "recall、forget、update、scope、slice と privacy filter の関連経路を静的に確認。全体精読・実行はしていない。",
+      "repository": "crewAIInc/crewAI",
+      "commit": "deaa71e168069a1d5307340172875def4330e75b",
+      "commit_date": "2026-09-28T21:14:14Z",
+      "path": "lib/crewai/src/crewai/memory/unified_memory.py",
+      "sha256": "19a18b7daeff0e8c39e92245d6cc6311411b160fbf086a8b2aca94caf390ed66",
+      "bytes": 42281
+    },
+    {
+      "id": "C-LC-CREWAI-SCOPE",
+      "title": "CrewAI: memory_scope.py",
+      "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/memory_scope.py",
+      "kind": "公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "MemoryScope の委譲と MemorySlice.remember / recall の静的確認。read_only は remember を no-op にする。",
+      "repository": "crewAIInc/crewAI",
+      "commit": "deaa71e168069a1d5307340172875def4330e75b",
+      "commit_date": "2026-09-28T21:14:14Z",
+      "path": "lib/crewai/src/crewai/memory/memory_scope.py",
+      "sha256": "07d4b68a06250abeb0bce8f74b5b7bae90f4bf848ecc2e240bd90febf541bd97",
+      "bytes": 13771
+    },
+    {
+      "id": "C-LC-CREWAI-FACTORY",
+      "title": "CrewAI: storage factory",
+      "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/lib/crewai/src/crewai/memory/storage/factory.py",
+      "kind": "公開コード",
+      "accessed": "2026-09-29",
+      "review_depth": "storage factory の登録・解決を確認。built-in LanceDB / Qdrant の説明と差し替え境界。実行していない。",
+      "repository": "crewAIInc/crewAI",
+      "commit": "deaa71e168069a1d5307340172875def4330e75b",
+      "commit_date": "2026-09-28T21:14:14Z",
+      "path": "lib/crewai/src/crewai/memory/storage/factory.py",
+      "sha256": "d7e39deda8c1eb0e0ef1e9113e44bec77aeae51d23591a66982375809d60647d",
+      "bytes": 2180
+    },
+    {
+      "id": "C-LC-CREWAI-LICENSE",
+      "title": "CrewAI: LICENSE",
+      "url": "https://github.com/crewAIInc/crewAI/blob/deaa71e168069a1d5307340172875def4330e75b/LICENSE",
+      "kind": "ライセンス本文",
+      "accessed": "2026-09-29",
+      "review_depth": "MIT 表記の本文を確認。依存・外部 API・商用サービスの条件は含めない。",
+      "repository": "crewAIInc/crewAI",
+      "commit": "deaa71e168069a1d5307340172875def4330e75b",
+      "commit_date": "2026-09-28T21:14:14Z",
+      "path": "LICENSE",
+      "sha256": "28868731966f4aa37f02879839aabc797137e27ddde4e274ef9cf965f9a71774",
+      "bytes": 1055
+    },
+    {
+      "id": "P-LX-DATABASE",
+      "title": "Is Agent Memory a Database? Rethinking Data Foundations for Long-Term AI Agent Memory",
+      "url": "https://arxiv.org/abs/2605.26252v1",
+      "kind": "論文・要旨",
+      "accessed": "2026-09-29",
+      "arxiv_version": "v1",
+      "review_depth": "arXiv の要旨・書誌のみ確認。本文・コード・実験は未確認。",
+      "scope": "GEM と MemState の問題設定。製品比較の採用済み系統には数えない。"
+    },
+    {
+      "id": "P-LX-WORKLOADS",
+      "title": "Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads",
+      "url": "https://arxiv.org/abs/2606.06448v2",
+      "kind": "論文・要旨",
+      "accessed": "2026-09-29",
+      "arxiv_version": "v2",
+      "review_depth": "arXiv の要旨・書誌と 2026-09-22 の v2 改訂日を確認。本文・実験値・コードは未確認。",
+      "scope": "構築・検索・生成の段階別費用を比較する評価視点。性能値は転載していない。"
     }
   ],
   "updated": "2026-09-29",
-  "update_scope": "オントロジー・メモリーの基礎と応用、および PageIndex の追加調査。既存の確認日・コミット・ハッシュを保持し、PageIndex 本体・評価資料の固定版と公式文書を追加。"
+  "update_scope": "基礎・応用、PageIndex に続き、メモリー・文書検索・意味データ・クラウド実行基盤の関連システムを追加調査。既存の確認日・固定版を保持。"
 }

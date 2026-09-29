@@ -11,6 +11,8 @@
 | [sources.json](sources.json)                           | 本文の参照 ID に対応する論文・標準・公式文書・コードの出典と確認の深さ           | `sources[]` の `id`、`title`、`url`、`kind`、`accessed`、`review_depth`                                |
 | [repository-snapshots.json](repository-snapshots.json) | 公開実装の固定コミット、取得したファイルの URL・サイズ・SHA-256、取得に失敗した要求 | `repositories[]` の `repository`、`commit`、`commit_date`、`retrieved_files`、`unsuccessful_requests` |
 | [dependency-inventory.json](dependency-inventory.json) | 固定コミットの manifest に宣言された依存、版、ライセンスなど             | `manifests[]` の `repository`、`commit`、`path`、`source_url`、`source_sha256`、`format`               |
+| [system-landscape.json](system-landscape.json) | 関連システム再調査の候補、従来の扱い、用途、確認の深さ、保留理由 | `systems[]`、`counts_by_group`、`supplemental_records`、`deferred_records` |
+| [landscape-searches.json](landscape-searches.json) | 分野別の代表クエリ、直接参照、選定・保留の記録 | `groups[]`。検索結果全件や順位を保存したデータではない |
 
 出典の種類によって項目は異なります。論文には `arxiv_version` や `submission_history`、コードには `repository`、`commit`、`path`、`sha256` などがあります。依存宣言も manifest の形式に応じて `runtime`、`optional`、`development`、`build`、`peer` などに分かれます。
 
@@ -30,6 +32,8 @@
 | `checked_sections`                            | 確認対象の節・論点。新規資料または追加レビューに記録 |
 
 最新の確認範囲を読む時は、元の記録と追加レビューの両方を確認してください。追加レビューがあっても、元のコードのコミットやハッシュを取り直したことにはなりません。URL が別の版へ変わる場合は、同じ記録の URL を無条件に置換せず、版の違いが分かる ID や記録を用意します。
+
+同日の[関連システム再調査](../systems/extended-landscape.md)では、四領域の追加・深掘り候補を `system-landscape.json` に記録した。これは今回の比較範囲であり、既存の全システムを重ねて数えた総製品数ではない。研究のみ・探索保留の記録も区別する。資料と選択コードは既存台帳へ追記したが、`dependency-inventory.json` の全候補・全推移依存の監査を更新したものではない。
 
 ## 本文から根拠を辿る
 
